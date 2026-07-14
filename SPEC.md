@@ -1,7 +1,7 @@
 # Especificación — Guía Interactiva Japón Ago26
 
 > Documento vivo. Cualquier modificación al producto, por pequeña que sea, debe reflejarse aquí.
-> Versión: 1.0 | Fecha: 2026-07-13 | Estado: Borrador (pendiente de respuestas en clarificación)
+> Versión: 1.4 | Fecha: 2026-07-14 | Estado: Activo
 
 ---
 
@@ -303,12 +303,110 @@ Cada restaurante tiene campos estructurados verificados en fuentes autorizadas (
 
 *(Schema completo — todos los días — se desarrolla en Ola 0)*
 
+### 5b. Esquema `data/pois_db.json`
+
+Base de datos curada de todos los puntos de interés visitados en el viaje (~50-80 entradas). Referenciada desde `trip.json` mediante `poi_id`. Fuentes: Wikimedia Commons (imágenes), Japan Guide, datos oficiales de los lugares.
+
+```json
+{
+  "pois": [
+    {
+      "id": "senso-ji-asakusa",
+      "name": "Templo Senso-ji",
+      "name_ja": "浅草寺",
+      "name_ja_reading": "Sensō-ji",
+      "city": "Tokyo",
+      "category": "temple",
+      "address": "2-3-1 Asakusa, Taito City, Tokyo",
+      "lat": 35.7148,
+      "lng": 139.7967,
+      "description": "Párrafo 1 — contexto histórico (cuándo se fundó, quién, por qué). Párrafo 2 — qué ver exactamente, qué hace único a este lugar. Párrafo 3 — experiencia de la visita, qué esperar.",
+      "significance": "Una frase de por qué este lugar importa en el contexto del viaje.",
+      "opening_hours": {
+        "grounds": "24 horas",
+        "main_hall": "06:00–17:00 (oct-mar: 06:30–17:00)",
+        "notes": "El recinto exterior está siempre abierto. La puerta Kaminarimon se cierra de noche."
+      },
+      "closed_days": [],
+      "price": {
+        "free": true,
+        "notes": "El templo principal no cobra entrada. El Tesoro sí (¥500 adultos)."
+      },
+      "duration_suggested": "1–2 horas",
+      "restrictions": [
+        "Lugar de culto activo: silencio y respeto",
+        "No entrar con bebidas en mano al recinto sagrado"
+      ],
+      "tips": [
+        "Llegar antes de las 09:00 para evitar las masas",
+        "Kaminarimon ya tiene cola de fotos a las 08:00",
+        "La calle Nakamise (tiendas) abre alrededor de las 10:00"
+      ],
+      "best_time": "06:00–08:00, entre semana o fin de semana muy temprano",
+      "access": {
+        "metro": "Asakusa (líneas Ginza, Tobu, Tsukuba Express)",
+        "walk_minutes": 5,
+        "notes": "Salida 1 o 3. Kaminarimon visible desde la salida."
+      },
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Senso-ji_Temple_in_Asakusa%2C_Tokyo.jpg/1280px-Senso-ji_Temple_in_Asakusa%2C_Tokyo.jpg",
+      "website": "https://www.senso-ji.jp/",
+      "tags": ["asakusa", "templo", "imprescindible", "obon"]
+    }
+  ]
+}
+```
+
+**Campos clave por POI:**
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `id` | string | Slug único: `kebab-case` |
+| `name` / `name_ja` | string | Nombre en español y kanji |
+| `name_ja_reading` | string | Romanización del nombre japonés |
+| `city` | string | Ciudad (Tokyo, Kyoto, Hakone, Hiroshima, Osaka) |
+| `category` | string | `temple`, `shrine`, `park`, `neighborhood`, `market`, `museum`, `viewpoint`, `memorial`, `garden`, `castle`, `transit` |
+| `description` | string | 3 párrafos: historia, qué ver, experiencia |
+| `significance` | string | Por qué importa en el contexto de **este** viaje |
+| `opening_hours` | object | Desglose por zona + notas |
+| `closed_days` | array | `["lunes"]`, `["1 ene", "29-31 dic"]` o `[]` |
+| `price` | object | `free: true/false` + breakdown adulto/niño + notas |
+| `duration_suggested` | string | `"1–2 horas"`, `"30–45 min"` |
+| `restrictions` | array | Lista de restricciones o consideraciones especiales |
+| `tips` | array | Consejos prácticos de visita |
+| `best_time` | string | Recomendación horaria o estacional |
+| `access` | object | Metro/bus más cercano + minutos a pie + notas |
+| `image_url` | string | URL Wikimedia Commons (libre, sin API key) |
+| `website` | string | URL oficial si existe |
+| `tags` | array | Etiquetas libres para búsqueda/filtrado |
+
+**Actualización de `trip.json` — bloques con `poi_id`:**
+
+Cada bloque del itinerario que corresponde a un lugar visitable lleva ahora `poi_id`:
+
+```json
+{
+  "time": "09:00-13:00",
+  "label": "Senso-ji y Nakamise",
+  "activity": "Templo Senso-ji y calle Nakamise en Asakusa",
+  "poi_id": "senso-ji-asakusa",
+  "type": "visit"
+}
+```
+
+Los bloques sin POI asociado (tren, comida, descanso) no llevan `poi_id` y no son tappables:
+
+```json
+{ "time": "12:00-14:00", "label": "Comida", "activity": "Tsukiji Outer Market", "type": "food" }
+```
+
 ---
 
 ## 6. Sistema de diseño
 
 ### Filosofía
-Estética premium mobile-first inspirada en el lenguaje visual de Apple (iOS/macOS). El espacio en blanco es el diseño. Nada gratuito — cada elemento comunica algo. Influencia japonesa sutil en el uso del espacio (ma, 間).
+Estética dark premium mobile-first. La oscuridad es el lienzo. El rojo torii emerge con fuerza sobre el negro. Influencia japonesa en el uso del espacio (ma, 間) — cada elemento justifica su presencia.
+
+**Principio guía:** Quien abra la app debe pensar "me cago en diez, esto es increíble". Cada pantalla debe sentirse como un producto de consumo de lujo, no una web de viajes.
 
 ### Tipografía
 ```css
@@ -320,31 +418,40 @@ En iPhone renderiza SF Pro nativo sin cargar nada. Funciona offline. Jerarquía:
 - Body: 17px, weight 400, line-height 1.5
 - Caption: 13px, weight 400, color secundario
 
-### Paleta de color
+### Paleta de color — Dark Premium
+
 | Token | Valor | Uso |
 |---|---|---|
-| `--bg-primary` | `#FFFFFF` | Fondo principal |
-| `--bg-secondary` | `#F2F2F7` | Fondo de listas, pantallas secundarias (iOS system gray 6) |
-| `--bg-surface` | `#FFFFFF` | Cards, sheets |
-| `--label-primary` | `#1C1C1E` | Texto principal (iOS label) |
-| `--label-secondary` | `#8E8E93` | Texto secundario, metadatos (iOS secondary label) |
-| `--label-tertiary` | `#C7C7CC` | Placeholders, disabled |
+| `--bg-primary` | `#080810` | Fondo base (near-black, tinte azul noche) |
+| `--bg-secondary` | `#111119` | Superficies interiores, headers de card |
+| `--bg-surface` | `#161620` | Cards, sheets |
+| `--bg-surface-2` | `#1E1E2C` | Superficies elevadas, pressed states |
+| `--label-primary` | `#F5F5FA` | Texto principal |
+| `--label-secondary` | `#8E8EA0` | Texto secundario, metadatos |
+| `--label-tertiary` | `#3C3C50` | Placeholders, disabled |
 | `--accent` | `#E8002D` | Rojo torii — acento único, usar con moderación |
-| `--accent-soft` | `#FFF0F2` | Fondo de badges/chips de acento |
-| `--separator` | `rgba(60,60,67,0.12)` | Líneas divisorias (iOS separator) |
-| `--glass-bg` | `rgba(255,255,255,0.82)` | Cabecera y bottom bar con blur |
+| `--accent-soft` | `rgba(232,0,45,0.14)` | Fondo de badges/chips de acento |
+| `--accent-glow` | `rgba(232,0,45,0.30)` | Efecto glow sobre el acento |
+| `--separator` | `rgba(255,255,255,0.07)` | Líneas divisorias sobre fondo oscuro |
+| `--glass-bg` | `rgba(8,8,20,0.88)` | Cabecera y bottom bar con blur |
+| `--glass-border` | `rgba(255,255,255,0.07)` | Bordes metálicos de cards |
+
+### Fondo dinámico (aurora)
+El `body::before` genera una aurora animada permanente: dos orbes de gradiente radial (rojo torii + púrpura profundo) que flotan con `transform` y un ciclo de 22 segundos (`infinite alternate`). Esto es la "profundidad" base de toda la app.
 
 ### Elevación y superficies
 ```css
-/* Card estándar */
+/* Card estándar — con borde metálico */
+background: var(--bg-surface);
 border-radius: 20px;
-box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+border: 1px solid var(--glass-border);
+box-shadow: 0 2px 20px rgba(0,0,0,0.55);
 
 /* Card destacada */
-box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+box-shadow: 0 8px 48px rgba(0,0,0,0.75);
 
-/* Efecto glass (header, bottom nav) */
-background: rgba(255,255,255,0.82);
+/* Efecto glass (header, bottom nav, strip días) */
+background: rgba(8,8,20,0.88);
 backdrop-filter: blur(20px);
 -webkit-backdrop-filter: blur(20px);
 border-bottom: 1px solid var(--separator);
@@ -426,10 +533,10 @@ Fondo --bg-secondary, lista de items sobre --bg-surface
 ```
 
 ### Lo que NO hacer
-- Sin bordes duros (`border: 1px solid`) como elemento principal de separación — usar sombra o espacio
-- Sin más de un color de acento
-- Sin gradientes llamativos
-- Sin sombras de texto
+- Sin bordes duros como elemento principal de separación (el `glass-border` sutil está bien)
+- Sin más de un color de acento (el rojo torii es único)
+- Sin gradientes recargados o multicolor — solo el aurora del fondo y glow del acento
+- Sin fondos blancos o claros — la app es siempre dark
 - Sin más de 2 pesos de fuente por pantalla
 
 ---
@@ -444,7 +551,7 @@ Fondo --bg-secondary, lista de items sobre --bg-surface
 | Hosting | Railway | ✅ Confirmado |
 | Dominio | chelisenjapon-production.up.railway.app | ✅ Activo |
 | PWA instalable | Sí | ✅ Confirmado |
-| Dark mode | Fuera del MVP | ✅ Confirmado |
+| Dark premium | Implementado en Ola de Diseño | ✅ Activo |
 | Idioma | Solo español | ✅ Confirmado |
 | Detección "hoy" | Zona horaria JST / España | **Pendiente** |
 | QR codes de vuelo | Incluir / No incluir | **Pendiente** |
@@ -472,14 +579,106 @@ Fondo --bg-secondary, lista de items sobre --bg-surface
 - Planificador (slots mediodía/noche, asignar/reservar, detección de conflictos)
 - Sugeridor espontáneo con filtros offline (budget, tipo, sin reserva)
 
-### F6 — Historia y cultura por ciudad (Ola 5)
-- Por qué es relevante cada ciudad
-- Hiroshima: lugar de memoria, tono específico
-- Accesible desde la vista Hoy
+### F6+F7 — Guía de Viaje Detallada (Ola 4b — nueva)
 
-### F7 — Info práctica de POIs (Ola 5)
-- Horario de apertura, precio de entrada, estación más cercana
-- Ligado a cada actividad del itinerario
+Esta es la funcionalidad que convierte la app de "agenda con mapas" a **guía de viaje completa**. Es el corazón de la propuesta de valor.
+
+#### Concepto general
+Cada actividad/bloque del itinerario diario que corresponde a un lugar visitable es **tappable** y abre una pantalla de detalle completa. El viajero llega a Senso-ji con toda la información en el bolsillo, sin abrir Google.
+
+#### F6 — Pantalla de detalle POI (`POIDetailView.jsx`)
+Se abre como pantalla push (position fixed, z-index 200) desde cualquier bloque del itinerario que tenga `poi_id`.
+
+**Estructura visual de la pantalla:**
+
+```
+┌─────────────────────────────────┐
+│ [← Volver]          [Ver mapa]  │  ← Nav glass fijo
+├─────────────────────────────────┤
+│                                 │
+│   HERO IMAGE (full width,       │  ← Imagen del lugar (Wikimedia Commons)
+│   ~220px, object-fit: cover)    │     con overlay oscuro degradado
+│                                 │
+│   浅草寺                        │  ← Nombre japonés (pequeño, gris)
+│   Senso-ji                      │  ← Nombre en español (grande, blanco)
+│   [Templo]                      │  ← Chip categoría
+│                                 │
+├─────────────────────────────────┤
+│ DESCRIPCIÓN CULTURAL            │  ← 3 párrafos: historia, qué ver, experiencia
+├─────────────────────────────────┤
+│ INFO PRÁCTICA (grid 2×2)        │
+│  Horario   │  Precio             │
+│  Duración  │  Acceso             │
+├─────────────────────────────────┤
+│ HORARIOS DETALLADOS             │  ← Desglose por zonas si procede
+├─────────────────────────────────┤
+│ RESTRICCIONES (si las hay)      │  ← Chips/lista de restricciones
+├─────────────────────────────────┤
+│ CONSEJOS PRÁCTICOS              │  ← Tips tipo "llegar antes de las 09:00"
+├─────────────────────────────────┤
+│ [Abrir website oficial]         │  ← Botón si tiene website
+└─────────────────────────────────┘
+```
+
+**Campos mostrados por POI:**
+- Imagen hero (Wikimedia Commons URL, fallback: degradado oscuro con icono de categoría)
+- Nombre español + nombre japonés (kanji + romanización)
+- Chip de categoría (templo, santuario, parque, barrio, mercado, museo, vista, memorial, jardín, castillo)
+- Descripción cultural en 3 párrafos: contexto histórico · qué ver exactamente · experiencia de la visita
+- `significance`: por qué importa en el contexto de **este** viaje (frase destacada)
+- Horarios detallados con desglose por zonas si procede
+- Días de cierre
+- Precio de entrada (gratis / adulto / niño / notas)
+- Tiempo sugerido de visita
+- Restricciones: fotografía, vestimenta, acceso con tatuajes, etc.
+- Consejos prácticos de visita
+- Mejor momento para ir
+- Cómo llegar: metro más cercano + minutos a pie + notas
+- Enlace a website oficial (abre en navegador externo)
+- Botón "Ver en mapa" → centra MapView en ese POI
+
+**Comportamiento de la imagen:**
+- Se carga con lazy loading
+- Fallback si falla: degradado oscuro con icono SVG grande de la categoría
+- En PWA offline: el fallback siempre funciona; la imagen requiere conexión
+
+#### F7 — Mapa de ruta del día
+
+Mejora del MapView (Ola 3) para mostrar **la ruta completa de un día** como secuencia ordenada.
+
+**Diferencias con el MapView actual:**
+- Los POIs del día se numeran (1, 2, 3…) en el orden en que aparecen en los bloques
+- Una **polyline** conecta los puntos en orden (línea roja punteada)
+- El panel inferior muestra los POIs en orden numerado, no en lista plana
+- Tapping un POI en el mapa → abre POIDetailView encima del mapa
+- Botón "Ver ruta completa" visible en la Hero Card de cada día (además del "Ver en mapa" actual)
+
+**Acceso:**
+- Desde Hero Card de cada día: "Ruta del día →" (nuevo botón)
+- Desde POIDetailView: "Ver en mapa" centra el mapa en ese POI específico
+
+**Data flow:**
+```
+trip.json[day].blocks → filtra los que tienen poi_id
+→ busca cada poi_id en pois_db.json
+→ construye array ordenado de POIs con coords
+→ MapView los pinta numerados + polyline
+```
+
+#### Datos: `pois_db.json`
+
+~50–80 POIs cubriendo todos los lugares visitados en el viaje:
+
+**Tokio:** Senso-ji, Nakamise (calle), Tsukiji Outer Market, Palacio Imperial (jardines este), Shibuya Crossing, Shibuya Sky, Yanaka (barrio), Cementerio Yanaka, Hibiya Park, Ginza Six (azotea), Yurakucho, Andy's Shin Hinomoto
+**Hakone:** Hakone Open-Air Museum, Hakone-Yumoto (pueblo), vista Fuji (si aplica por meteorología)
+**Kioto:** Fushimi Inari Taisha, Kiyomizu-dera, Higashiyama (barrio), Nishiki Market, Pontocho, Gion (barrio), bosque de bambú Arashiyama, Kinkaku-ji, Castillo Nijo, Arashiyama (orilla río)
+**Hiroshima:** Parque Memorial de la Paz, Cúpula Genbaku (A-Bomb Dome), Museo Memorial, Shukkei-en Garden
+**Osaka:** Dotonbori (barrio), Puente Ebisubashi, Castillo de Osaka (exteriores), Hozenji Yokocho
+
+**Prioridad de curado:**
+1. Primero los que aparecen en los bloques del itinerario con `poi_id`
+2. Luego los restaurantes que también son POIs (se puede compartir datos con `restaurants_db.json`)
+3. Lugares mencionados como alternativa o improvisación en días libres
 
 ### F8 — Frases en japonés (Ola 5)
 - Categorías: restaurante, transporte, hotel, compras, emergencia, cortesía
@@ -548,14 +747,31 @@ Fondo --bg-secondary, lista de items sobre --bg-surface
 | Ola | Nombre | Funcionalidades | Estado |
 |---|---|---|---|
 | 0 | Datos | trip.json + restaurants_db.json (32 restaurantes) | ✅ |
-| 1 | Esqueleto + Diseño | F1, F1b, F2 — vista Hoy, doble reloj, navegación, sistema Apple | ✅ |
-| 2 | Billetes + Alertas | F3 + F18 — vuelos, hoteles, trenes + sistema de alertas con 3 categorías | ⬜ |
-| 3 | Mapa | F4 — Leaflet, geolocalización, POIs | ⬜ |
-| 4 | Restaurantes | F5 — planificador + sugeridor | ⬜ |
-| 5 | Herramientas de viaje | F6, F7, F8, F9, F10, F11, F12, F13 — historia, frases, conversor, emergencias, Suica, km al hotel, clima | ⬜ |
+| 1 | Esqueleto + Diseño | F1, F1b, F2 — vista Hoy, doble reloj, navegación | ✅ |
+| D | Dark Premium | Tema oscuro, aurora animada, splash cinematográfica, bordes metálicos | ✅ |
+| 2 | Billetes + Alertas | F3 + F18 — vuelos, hoteles, trenes + alertas con 3 categorías | ✅ |
+| 3 | Mapa | F4 — Leaflet, geolocalización, POIs por día | ✅ |
+| 4a | Guía de Viaje Detallada | F6+F7 — pois_db.json (~50 POIs), POIDetailView, ruta del día con polyline | ⬜ **SIGUIENTE** |
+| 4b | Restaurantes | F5 — planificador (slots por día) + sugeridor con filtros offline | ⬜ |
+| 5 | Herramientas de viaje | F8, F9, F10, F11, F12, F13 — frases, conversor, emergencias, Suica, clima | ⬜ |
 | 6 | Personal + privado | F14, F15, F16 — documentos, presupuesto, notas (localStorage) | ⬜ |
 | 7 | Offline + PWA | F17 — service worker, instalable | ⬜ |
-| 8 | Trenes reales + pulido | Localizadores de tren (post jul 18-24), success criteria, lanzamiento | ⬜ |
+| 8 | Trenes reales + pulido | Localizadores post jul 18-24, success criteria, lanzamiento | ⬜ |
+
+### Detalle Ola 4a — Guía de Viaje Detallada
+
+**Entregables:**
+1. `data/pois_db.json` — ~50 POIs curados con todos los campos del schema (sección 5b)
+2. Actualizar `data/trip.json` — añadir `poi_id` a los bloques visitables de cada día
+3. `client/src/components/POIDetailView.jsx` — pantalla push de detalle
+4. `client/src/hooks/usePoisData.js` — hook para leer pois_db.json
+5. Actualizar `TodayView.jsx` / `DayCard` — bloques con `poi_id` se renderizan como botones tappables
+6. Actualizar `DayNav.jsx` — misma lógica de bloques tappables
+7. Actualizar `MapView.jsx` — soporte polyline + POIs numerados + tap en pin → abre POIDetailView
+8. Añadir botón "Ruta del día →" en Hero Card de cada día
+9. `App.jsx` — nuevo estado `poiDetailData` para renderizar POIDetailView como overlay
+
+**Criterio de éxito:** Desde la vista "Hoy", en 2 toques puedo leer la reseña cultural completa de cualquier lugar del día con sus horarios y precio.
 
 ---
 
@@ -568,4 +784,4 @@ Fondo --bg-secondary, lista de items sobre --bg-surface
 
 ---
 
-*Última actualización: 2026-07-13 — iteración pre-desarrollo (Ola 0, fase de clarificación)*
+*Última actualización: 2026-07-14 — Ola de Diseño completa (dark premium). Ola 4a especificada: Guía de Viaje Detallada con POIs enriquecidos.*
