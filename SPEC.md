@@ -1,7 +1,7 @@
 # Especificación — Guía Interactiva Japón Ago26
 
 > Documento vivo. Cualquier modificación al producto, por pequeña que sea, debe reflejarse aquí.
-> Versión: 1.4 | Fecha: 2026-07-14 | Estado: Activo
+> Versión: 1.5 | Fecha: 2026-07-14 | Estado: Activo
 
 ---
 
@@ -751,27 +751,29 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | D | Dark Premium | Tema oscuro, aurora animada, splash cinematográfica, bordes metálicos | ✅ |
 | 2 | Billetes + Alertas | F3 + F18 — vuelos, hoteles, trenes + alertas con 3 categorías | ✅ |
 | 3 | Mapa | F4 — Leaflet, geolocalización, POIs por día | ✅ |
-| 4a | Guía de Viaje Detallada | F6+F7 — pois_db.json (~50 POIs), POIDetailView, ruta del día con polyline | ⬜ **SIGUIENTE** |
-| 4b | Restaurantes | F5 — planificador (slots por día) + sugeridor con filtros offline | ⬜ |
+| 4a | Guía de Viaje Detallada | F6+F7 — pois_db.json (24 POIs), POIDetailView, ruta del día con polyline | ✅ |
+| 4b | Restaurantes | F5 — planificador (slots por día) + sugeridor con filtros offline | ⬜ **SIGUIENTE** |
 | 5 | Herramientas de viaje | F8, F9, F10, F11, F12, F13 — frases, conversor, emergencias, Suica, clima | ⬜ |
 | 6 | Personal + privado | F14, F15, F16 — documentos, presupuesto, notas (localStorage) | ⬜ |
 | 7 | Offline + PWA | F17 — service worker, instalable | ⬜ |
 | 8 | Trenes reales + pulido | Localizadores post jul 18-24, success criteria, lanzamiento | ⬜ |
 
-### Detalle Ola 4a — Guía de Viaje Detallada
+### Detalle Ola 4a — Guía de Viaje Detallada ✅ COMPLETADA (2026-07-14)
 
 **Entregables:**
-1. `data/pois_db.json` — ~50 POIs curados con todos los campos del schema (sección 5b)
-2. Actualizar `data/trip.json` — añadir `poi_id` a los bloques visitables de cada día
-3. `client/src/components/POIDetailView.jsx` — pantalla push de detalle
-4. `client/src/hooks/usePoisData.js` — hook para leer pois_db.json
-5. Actualizar `TodayView.jsx` / `DayCard` — bloques con `poi_id` se renderizan como botones tappables
-6. Actualizar `DayNav.jsx` — misma lógica de bloques tappables
-7. Actualizar `MapView.jsx` — soporte polyline + POIs numerados + tap en pin → abre POIDetailView
-8. Añadir botón "Ruta del día →" en Hero Card de cada día
-9. `App.jsx` — nuevo estado `poiDetailData` para renderizar POIDetailView como overlay
+1. ✅ `data/pois_db.json` — 24 POIs curados con todos los campos del schema (sección 5b), fuentes reales citadas (japon_info_base.md + guías verificadas)
+2. ✅ `data/trip.json` — `poi_id` añadido a los bloques visitables de cada día (Tokio, Kioto, Hakone, Hiroshima, Osaka)
+3. ✅ `client/src/components/POIDetailView.jsx` — pantalla push de detalle (hero, descripción, info práctica, restricciones, consejos, website)
+4. ✅ `client/src/hooks/usePoisData.js` — hook para leer pois_db.json + `getPoiById`
+5. ✅ `TodayView.jsx` / `DayCard` — bloques con `poi_id` se renderizan como botones tappables con chevron
+6. ✅ `DayNav.jsx` — misma lógica de bloques tappables, propagada a cada día del strip
+7. ✅ `MapView.jsx` — soporte polyline + POIs numerados (modo `routeMode`) + tap en pin → abre POIDetailView vía `onOpenPoi`
+8. ✅ Botón "Ruta del día →" en Hero Card de cada día (solo visible si el día tiene bloques con `poi_id`)
+9. ✅ `App.jsx` — nuevo estado `poiId` para renderizar POIDetailView como overlay, con soporte de volver al mapa o a la vista de origen
 
-**Criterio de éxito:** Desde la vista "Hoy", en 2 toques puedo leer la reseña cultural completa de cualquier lugar del día con sus horarios y precio.
+**Nota de alcance:** se curaron 24 POIs (los que aparecen directamente en los bloques del itinerario), no ~50-80. Se priorizó cobertura completa del itinerario confirmado sobre relleno especulativo — ampliar la base es backlog abierto, no bloqueante para el MVP.
+
+**Criterio de éxito:** Desde la vista "Hoy", en 2 toques puedo leer la reseña cultural completa de cualquier lugar del día con sus horarios y precio. ✅ Verificado en navegador (Playwright, viewport móvil 390×844): bloque tappable → POIDetailView con descripción/horario/precio en 1 toque.
 
 ---
 
@@ -784,4 +786,4 @@ trip.json[day].blocks → filtra los que tienen poi_id
 
 ---
 
-*Última actualización: 2026-07-14 — Ola de Diseño completa (dark premium). Ola 4a especificada: Guía de Viaje Detallada con POIs enriquecidos.*
+*Última actualización: 2026-07-14 — Ola 4a completada: Guía de Viaje Detallada (POIDetailView + ruta del día con polyline). Siguiente: Ola 4b — Restaurantes.*

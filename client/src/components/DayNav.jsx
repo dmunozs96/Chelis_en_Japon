@@ -109,7 +109,7 @@ function todayISO() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-export default function DayNav({ days }) {
+export default function DayNav({ days, onOpenMap, onOpenPoi, onOpenRoute }) {
   const today = todayISO();
 
   const defaultIndex = Math.max(
@@ -177,7 +177,15 @@ export default function DayNav({ days }) {
 
         {/* Detalle del día seleccionado */}
         <div className="daynav__detail" role="tabpanel">
-          {selectedDay && <DayCard day={selectedDay} days={days} />}
+          {selectedDay && (
+            <DayCard
+              day={selectedDay}
+              days={days}
+              onOpenMap={onOpenMap}
+              onOpenPoi={onOpenPoi}
+              onOpenRoute={onOpenRoute}
+            />
+          )}
         </div>
       </div>
     </>

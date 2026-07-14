@@ -56,9 +56,9 @@
         { "id": "shibuya-crossing", "name": "Shibuya Crossing", "type": "icono", "lat": 35.6595, "lng": 139.7004, "note": "El cruce más famoso del mundo. Mejor al atardecer." }
       ],
       "blocks": [
-        { "time": "mañana", "label": "Asakusa", "activity": "Templo Senso-ji, Nakamise-dori y callejuelas de Asakusa" },
-        { "time": "tarde", "label": "Palacio Imperial", "activity": "Jardines del Palacio Imperial y zona de Chiyoda" },
-        { "time": "tarde", "label": "Shibuya", "activity": "Cruce de Shibuya y alrededores — Harajuku opcional" },
+        { "time": "mañana", "label": "Asakusa", "activity": "Templo Senso-ji, Nakamise-dori y callejuelas de Asakusa", "poi_id": "sensoji" },
+        { "time": "tarde", "label": "Palacio Imperial", "activity": "Jardines del Palacio Imperial y zona de Chiyoda", "poi_id": "imperial-east" },
+        { "time": "tarde", "label": "Shibuya", "activity": "Cruce de Shibuya y alrededores — Harajuku opcional", "poi_id": "shibuya-crossing" },
         { "time": "noche", "label": "Cena", "activity": "Cena en Shibuya o Shinjuku" }
       ]
     },
@@ -76,7 +76,7 @@
         { "id": "yanaka", "name": "Barrio de Yanaka", "type": "barrio", "lat": 35.7267, "lng": 139.7693, "note": "Barrio histórico que sobrevivió los bombardeos de la WWII. Callejones y tiendas tradicionales." }
       ],
       "blocks": [
-        { "time": "mañana", "label": "Yanaka", "activity": "Barrio histórico de Yanaka — cementerio, callejuelas y tiendas artesanales" },
+        { "time": "mañana", "label": "Yanaka", "activity": "Barrio histórico de Yanaka — cementerio, callejuelas y tiendas artesanales", "poi_id": "yanaka" },
         { "time": "tarde", "label": "Libre", "activity": "Tarde completamente libre — explorar, descansar, compras o karaoke" },
         { "time": "noche", "label": "Libre", "activity": "Noche libre — izakaya, ramen o lo que apetezca" }
       ]
@@ -97,7 +97,7 @@
       "blocks": [
         { "time": "mañana", "label": "Check-out Tokio", "activity": "Check-out de The Gate Hotel Tokyo y traslado a la estación" },
         { "time": "mediodía", "label": "Viaje", "activity": "Tren Romancecar o Shinkansen hasta Odawara/Hakone-Yumoto" },
-        { "time": "tarde", "label": "Check-in Hakone", "activity": "Check-in en Mizunoto a las 15:00 — ryokan con onsen" },
+        { "time": "tarde", "label": "Check-in Hakone", "activity": "Check-in en Mizunoto a las 15:00 — ryokan con onsen", "poi_id": "hakone-openair" },
         { "time": "noche", "label": "Onsen y cena", "activity": "Kaiseki (cena tradicional) y onsen en el ryokan" }
       ]
     },
@@ -119,7 +119,7 @@
         { "time": "mañana", "label": "Hakone", "activity": "Última mañana en Hakone — Lago Ashi y vistas al Fuji si el cielo acompaña" },
         { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen desde Odawara hasta Kioto" },
         { "time": "tarde", "label": "Check-in Kioto", "activity": "Check-in en Hotel Gracery Kyoto Sanjo a las 14:00" },
-        { "time": "noche", "label": "Gion", "activity": "Primer paseo por el barrio de Gion al atardecer" }
+        { "time": "noche", "label": "Gion", "activity": "Primer paseo por el barrio de Gion al atardecer", "poi_id": "gion" }
       ]
     },
     {
@@ -137,9 +137,9 @@
         { "id": "kiyomizudera", "name": "Kiyomizu-dera", "type": "templo", "lat": 34.9948, "lng": 135.7851, "note": "Templo del s.VIII con terraza de madera sobre el valle. Bus 207." }
       ],
       "blocks": [
-        { "time": "mañana", "label": "Fushimi Inari", "activity": "Fushimi Inari-taisha — subir entre los miles de torii al amanecer" },
-        { "time": "tarde", "label": "Higashiyama", "activity": "Paseo por Higashiyama — Sannenzaka, Ninenzaka y Kiyomizudera" },
-        { "time": "noche", "label": "Gion", "activity": "Cena en Gion y paseo nocturno por Pontocho" }
+        { "time": "mañana", "label": "Fushimi Inari", "activity": "Fushimi Inari-taisha — subir entre los miles de torii al amanecer", "poi_id": "fushimi-inari" },
+        { "time": "tarde", "label": "Higashiyama", "activity": "Paseo por Higashiyama — Sannenzaka, Ninenzaka y Kiyomizudera", "poi_id": "kiyomizudera" },
+        { "time": "noche", "label": "Gion", "activity": "Cena en Gion y paseo nocturno por Pontocho", "poi_id": "pontocho" }
       ]
     },
     {
@@ -158,10 +158,10 @@
         { "id": "nijo-castle", "name": "Castillo Nijo", "type": "castillo", "lat": 35.0142, "lng": 135.7480, "note": "Residencia del shogunato Tokugawa. Bus 12 desde el centro, 15 min." }
       ],
       "blocks": [
-        { "time": "mañana", "label": "Arashiyama", "activity": "Bosque de bambú de Arashiyama y templo Tenryu-ji" },
-        { "time": "tarde", "label": "Kinkaku-ji", "activity": "Pabellón Dorado Kinkaku-ji" },
-        { "time": "tarde", "label": "Nijo", "activity": "Castillo Nijo-jo — los suelos que cantan" },
-        { "time": "noche", "label": "Nishiki", "activity": "Mercado Nishiki y cena cerca del centro" }
+        { "time": "mañana", "label": "Arashiyama", "activity": "Bosque de bambú de Arashiyama y templo Tenryu-ji", "poi_id": "arashiyama" },
+        { "time": "tarde", "label": "Kinkaku-ji", "activity": "Pabellón Dorado Kinkaku-ji", "poi_id": "kinkakuji" },
+        { "time": "tarde", "label": "Nijo", "activity": "Castillo Nijo-jo — los suelos que cantan", "poi_id": "nijo-castle" },
+        { "time": "noche", "label": "Nishiki", "activity": "Mercado Nishiki y cena cerca del centro", "poi_id": "nishiki-market" }
       ]
     },
     {
@@ -182,7 +182,7 @@
         { "time": "mañana", "label": "Check-out Kioto", "activity": "Check-out de Hotel Gracery Kyoto Sanjo y traslado a la estación" },
         { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Kioto → Hiroshima" },
         { "time": "tarde", "label": "Check-in Hiroshima", "activity": "Check-in en Hotel Granvia Hiroshima a las 14:00" },
-        { "time": "tarde", "label": "Parque de la Paz", "activity": "Parque Memorial de la Paz y Museo de la Bomba Atómica" },
+        { "time": "tarde", "label": "Parque de la Paz", "activity": "Parque Memorial de la Paz y Museo de la Bomba Atómica", "poi_id": "peace-park" },
         { "time": "noche", "label": "Cena", "activity": "Okonomiyaki estilo Hiroshima — especialidad local imprescindible" }
       ]
     },
@@ -204,7 +204,7 @@
         { "time": "mañana", "label": "Miyajima", "activity": "Isla de Miyajima — torii flotante del santuario Itsukushima" },
         { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Hiroshima → Osaka" },
         { "time": "tarde", "label": "Check-in Osaka", "activity": "Check-in en Dormy Inn Premium Namba a las 15:00" },
-        { "time": "noche", "label": "Dotonbori", "activity": "Dotonbori — takoyaki, okonomiyaki y el globo de Glico" }
+        { "time": "noche", "label": "Dotonbori", "activity": "Dotonbori — takoyaki, okonomiyaki y el globo de Glico", "poi_id": "dotonbori" }
       ]
     },
     {
@@ -221,7 +221,7 @@
         { "id": "osaka-castle", "name": "Castillo de Osaka (exteriores)", "type": "castillo", "lat": 34.6873, "lng": 135.5262, "note": "Solo exteriores y foso — tiempo ajustado antes del check-out." }
       ],
       "blocks": [
-        { "time": "mañana", "label": "Osaka", "activity": "Última mañana en Osaka — Castillo de Osaka o Shinsekai" },
+        { "time": "mañana", "label": "Osaka", "activity": "Última mañana en Osaka — Castillo de Osaka o Shinsekai", "poi_id": "osaka-castle" },
         { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Osaka → Tokio" },
         { "time": "tarde", "label": "Check-in Tokio", "activity": "Check-in en The Gate Hotel Tokyo by HULIC a las 14:00" },
         { "time": "noche", "label": "Tokio", "activity": "Noche en Tokio — Roppongi, Akihabara o Shimokitazawa según el ánimo" }

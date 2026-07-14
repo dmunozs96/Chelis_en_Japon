@@ -271,6 +271,19 @@ const STYLES = `
   padding-top: 2px;
 }
 
+.block-right--tappable {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.block-right--tappable:active {
+  opacity: 0.7;
+}
+
 .block-activity-title {
   font-size: 17px;
   font-weight: 500;
@@ -283,6 +296,27 @@ const STYLES = `
   color: var(--label-secondary);
   margin-top: 2px;
   line-height: 1.4;
+}
+
+.block-chevron {
+  flex-shrink: 0;
+  color: var(--accent);
+  margin-top: 4px;
+}
+
+.route-btn {
+  background: var(--bg-secondary);
+  color: var(--accent);
+  border: none;
+  border-radius: var(--radius-btn);
+  padding: 10px 20px;
+  font-size: 15px;
+  font-family: var(--font);
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 12px;
+  margin-left: 8px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ---- No data ---- */
@@ -363,9 +397,10 @@ function timeToFranja(time) {
 }
 
 /* --- DayCard: exportado para uso en DayNav --- */
-export function DayCard({ day, days = [], onOpenMap }) {
+export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute }) {
   const isFree = day.type === 'free';
   const dayNum = days.length > 0 ? getDayNumber(days, day) : null;
+  const hasRoutePois = (day.blocks ?? []).some(b => b.poi_id);
 
   return (
     <>
@@ -383,6 +418,11 @@ export function DayCard({ day, days = [], onOpenMap }) {
               📍 Ver en mapa
             </button>
           )}
+          {onOpenRoute && hasRoutePois && (
+            <button onClick={() => onOpenRoute(day)} className="route-btn">
+              Ruta del día →
+            </button>
+          )}
         </div>
 
         {/* Hotel */}
@@ -393,21 +433,37 @@ export function DayCard({ day, days = [], onOpenMap }) {
           <div className="blocks-card">
             <div className="section-label">Plan del día</div>
             <div className="blocks-list">
-              {day.blocks.map((block, i) => (
-                <div className="block-row" key={i}>
-                  <div className="block-left">
-                    <div className="block-dot" />
-                    {block.time && <span className="block-time">{block.time}</span>}
-                    <span className="block-franja">{timeToFranja(block.time) || block.label}</span>
+              {day.blocks.map((block, i) => {
+                const tappable = Boolean(block.poi_id && onOpenPoi);
+                return (
+                  <div className="block-row" key={i}>
+                    <div className="block-left">
+                      <div className="block-dot" />
+                      {block.time && <span className="block-time">{block.time}</span>}
+                      <span className="block-franja">{timeToFranja(block.time) || block.label}</span>
+                    </div>
+                    <div
+                      className={`block-right${tappable ? ' block-right--tappable' : ''}`}
+                      role={tappable ? 'button' : undefined}
+                      tabIndex={tappable ? 0 : undefined}
+                      onClick={tappable ? () => onOpenPoi(block.poi_id) : undefined}
+                      onKeyDown={tappable ? (e) => e.key === 'Enter' && onOpenPoi(block.poi_id) : undefined}
+                    >
+                      <div>
+                        <div className="block-activity-title">{block.label}</div>
+                        {block.activity && block.activity !== block.label && (
+                          <div className="block-activity-detail">{block.activity}</div>
+                        )}
+                      </div>
+                      {tappable && (
+                        <svg className="block-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+                          <path d="M1 1L7 7L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      )}
+                    </div>
                   </div>
-                  <div className="block-right">
-                    <div className="block-activity-title">{block.label}</div>
-                    {block.activity && block.activity !== block.label && (
-                      <div className="block-activity-detail">{block.activity}</div>
-                    )}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
@@ -417,7 +473,7 @@ export function DayCard({ day, days = [], onOpenMap }) {
 }
 
 /* --- Vista principal de "Hoy" --- */
-export default function TodayView({ days, onOpenMap }) {
+export default function TodayView({ days, onOpenMap, onOpenPoi, onOpenRoute }) {
   const today = todayISO();
 
   const currentDay = useMemo(
@@ -470,5 +526,5 @@ export default function TodayView({ days, onOpenMap }) {
     );
   }
 
-  return <DayCard day={currentDay} days={days} onOpenMap={onOpenMap} />;
+  return <DayCard day={currentDay} days={days} onOpenMap={onOpenMap} onOpenPoi={onOpenPoi} onOpenRoute={onOpenRoute} />;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTripData, useAlertsData, getUnreadActionCount } from './hooks/useTripData.js';
+import { usePoisData } from './hooks/usePoisData.js';
 import Header        from './components/Header.jsx';
 import BottomNav     from './components/BottomNav.jsx';
 import TodayView     from './components/TodayView.jsx';
@@ -9,6 +10,7 @@ import AlertsView    from './components/AlertsView.jsx';
 import MoreView      from './components/MoreView.jsx';
 import TicketsView   from './components/TicketsView.jsx';
 import MapView       from './components/MapView.jsx';
+import POIDetailView from './components/POIDetailView.jsx';
 import SplashScreen  from './components/SplashScreen.jsx';
 
 /* ---------------------------------------------------------------
@@ -44,10 +46,47 @@ const LOADING_STYLES = `
 export default function App() {
   const { days, hotels, loading, error } = useTripData();
   const { alerts } = useAlertsData();
+  const { getPoiById } = usePoisData();
   const [activeTab, setActiveTab] = useState('today');
   const [showTickets, setShowTickets] = useState(false);
   const [mapDayData, setMapDayData] = useState(null);
+  const [mapRouteMode, setMapRouteMode] = useState(false);
+  const [mapFocusLatLng, setMapFocusLatLng] = useState(null);
+  const [poiId, setPoiId] = useState(null);
   const [alertBadge, setAlertBadge] = useState(0);
+
+  function openMap(day) {
+    setMapRouteMode(false);
+    setMapFocusLatLng(null);
+    setMapDayData(day);
+  }
+
+  function openRoute(day) {
+    setMapRouteMode(true);
+    setMapFocusLatLng(null);
+    setMapDayData(day);
+  }
+
+  function closeMap() {
+    setMapDayData(null);
+    setMapRouteMode(false);
+    setMapFocusLatLng(null);
+  }
+
+  function openPoiFromMap(id) {
+    setPoiId(id);
+  }
+
+  function openMapFromPoi(poi) {
+    setMapRouteMode(false);
+    setMapFocusLatLng(poi.lat != null && poi.lng != null ? [poi.lat, poi.lng] : null);
+    setMapDayData({
+      city: poi.city,
+      hotel: null,
+      pois: [{ id: poi.id, name: poi.name, lat: poi.lat, lng: poi.lng, type: poi.category, note: poi.significance }],
+    });
+    setPoiId(null);
+  }
 
   // Splash: muestra una vez por sesión
   const [showSplash, setShowSplash] = useState(() => {
@@ -71,6 +110,20 @@ export default function App() {
     return <SplashScreen onDismiss={dismissSplash} />;
   }
 
+  // If POIDetailView is showing, render it over everything (highest priority overlay)
+  if (poiId !== null) {
+    return (
+      <>
+        <style>{LOADING_STYLES}</style>
+        <POIDetailView
+          poi={getPoiById(poiId)}
+          onBack={() => setPoiId(null)}
+          onOpenMap={openMapFromPoi}
+        />
+      </>
+    );
+  }
+
   // If MapView is showing, render it over everything
   if (mapDayData !== null) {
     return (
@@ -79,7 +132,10 @@ export default function App() {
         <MapView
           dayData={mapDayData}
           allHotels={hotels}
-          onBack={() => setMapDayData(null)}
+          onBack={closeMap}
+          routeMode={mapRouteMode}
+          focusLatLng={mapFocusLatLng}
+          onOpenPoi={openPoiFromMap}
         />
       </>
     );
@@ -105,8 +161,12 @@ export default function App() {
           {loading && <div className="app-loading">Cargando datos del viaje…</div>}
           {error   && <div className="app-error">Error cargando datos: {error}</div>}
 
-          {!loading && !error && activeTab === 'today'       && <TodayView days={days} onOpenMap={setMapDayData} />}
-          {!loading && !error && activeTab === 'trip'        && <DayNav    days={days} />}
+          {!loading && !error && activeTab === 'today'       && (
+            <TodayView days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} />
+          )}
+          {!loading && !error && activeTab === 'trip'        && (
+            <DayNav days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} />
+          )}
           {!loading && !error && activeTab === 'alerts'      && (
             <AlertsView onBadgeChange={setAlertBadge} />
           )}

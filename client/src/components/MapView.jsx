@@ -336,13 +336,16 @@ function createHotelIcon() {
   });
 }
 
-function createPoiIcon(type) {
+function createPoiIcon(type, number) {
   const isMemorial = type === 'memorial';
   const color = isMemorial ? '#8E8E93' : '#FF6B35';
+  const label = number != null
+    ? `<text x="13" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="white" font-family="sans-serif">${number}</text>`
+    : `<circle cx="13" cy="13" r="4" fill="white" opacity="0.9"/>`;
   const svg = `
     <svg width="26" height="34" viewBox="0 0 26 34" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M13 0C5.82 0 0 5.82 0 13c0 8.5 13 21 13 21s13-12.5 13-21C26 5.82 20.18 0 13 0z" fill="${color}"/>
-      <circle cx="13" cy="13" r="4" fill="white" opacity="0.9"/>
+      ${label}
     </svg>`;
   return L.divIcon({
     className: '',
@@ -372,7 +375,7 @@ const CITY_CENTERS = {
 };
 
 /* ---- Componente principal ---- */
-export default function MapView({ dayData, allHotels, onBack, centerOn = 'user' }) {
+export default function MapView({ dayData, allHotels, onBack, centerOn = 'user', routeMode = false, onOpenPoi, focusLatLng = null }) {
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
   const [noGps, setNoGps] = useState(false);
@@ -383,8 +386,18 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user' 
     ? allHotels.find(h => h.name === hotelName) ?? null
     : null;
 
-  const pois = dayData?.pois ?? [];
+  const allPois = dayData?.pois ?? [];
   const city = dayData?.city ?? 'Tokio';
+
+  // En modo ruta: orden de POIs según los bloques del día que tienen poi_id
+  const routePois = routeMode
+    ? (dayData?.blocks ?? [])
+        .filter(b => b.poi_id)
+        .map(b => allPois.find(p => p.id === b.poi_id))
+        .filter(Boolean)
+    : [];
+
+  const pois = routeMode ? routePois : allPois;
 
   useEffect(() => {
     if (!mapRef.current) return;
@@ -399,7 +412,7 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user' 
       ? [hotelFull.lat, hotelFull.lng]
       : null;
     const cityCenter = CITY_CENTERS[city] ?? [35.6762, 139.6503];
-    const fallbackCenter = hotelCenter ?? cityCenter;
+    const fallbackCenter = focusLatLng ?? hotelCenter ?? cityCenter;
 
     // Inicializar mapa
     const map = L.map(mapRef.current, {
@@ -424,13 +437,28 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user' 
       hotelMarker.addTo(map);
     }
 
-    // Añadir marcadores de POIs
-    pois.forEach(poi => {
+    // Añadir marcadores de POIs (numerados si es modo ruta)
+    pois.forEach((poi, idx) => {
       if (poi.lat == null || poi.lng == null) return;
-      const marker = L.marker([poi.lat, poi.lng], { icon: createPoiIcon(poi.type) });
-      marker.bindPopup(popupContent(poi.name, poi.type, poi.note));
+      const marker = L.marker([poi.lat, poi.lng], { icon: createPoiIcon(poi.type, routeMode ? idx + 1 : null) });
+      if (onOpenPoi) {
+        marker.on('click', () => onOpenPoi(poi.id));
+      } else {
+        marker.bindPopup(popupContent(poi.name, poi.type, poi.note));
+      }
       marker.addTo(map);
     });
+
+    // Polyline conectando los POIs en orden (modo ruta)
+    if (routeMode && pois.length > 1) {
+      const latlngs = pois.filter(p => p.lat != null && p.lng != null).map(p => [p.lat, p.lng]);
+      L.polyline(latlngs, {
+        color: '#E8002D',
+        weight: 3,
+        opacity: 0.7,
+        dashArray: '6 8',
+      }).addTo(map);
+    }
 
     // Geolocalización
     if (navigator.geolocation) {
@@ -465,7 +493,7 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user' 
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dayData?.date]);
+  }, [dayData?.date, routeMode]);
 
   // Centrar mapa en un POI al tocar en el panel
   function flyToPoi(lat, lng, name, type, note) {
@@ -499,7 +527,7 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user' 
             </svg>
             Volver
           </button>
-          <span className="map-nav__title">Mapa del día</span>
+          <span className="map-nav__title">{routeMode ? 'Ruta del día' : 'Mapa del día'}</span>
         </nav>
 
         {/* Contenedor del mapa */}
@@ -519,14 +547,14 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user' 
           <div className="map-panel__handle" aria-hidden="true">
             <div className="map-panel__handle-bar" />
           </div>
-          <div className="map-panel__title">Lugares del día</div>
+          <div className="map-panel__title">{routeMode ? 'Orden de la ruta' : 'Lugares del día'}</div>
 
           {(pois.length === 0 && !hotelFull) ? (
             <div className="map-panel__empty">Sin lugares para este día</div>
           ) : (
             <div className="map-panel__list">
-              {/* Hotel primero si existe */}
-              {hotelFull?.lat && hotelFull?.lng && (
+              {/* Hotel primero si existe (no en modo ruta) */}
+              {!routeMode && hotelFull?.lat && hotelFull?.lng && (
                 <div
                   className="hotel-chip"
                   role="button"
@@ -541,20 +569,26 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user' 
               )}
 
               {/* POIs */}
-              {pois.map(poi => (
-                <div
-                  key={poi.id}
-                  className="poi-chip"
-                  role="button"
-                  tabIndex={0}
-                  aria-label={`POI: ${poi.name}`}
-                  onClick={() => poi.lat != null && flyToPoi(poi.lat, poi.lng, poi.name, poi.type, poi.note)}
-                  onKeyDown={e => e.key === 'Enter' && poi.lat != null && flyToPoi(poi.lat, poi.lng, poi.name, poi.type, poi.note)}
-                >
-                  <div className="poi-chip__name">{poi.name}</div>
-                  <div className="poi-chip__type">{poi.type}</div>
-                </div>
-              ))}
+              {pois.map((poi, idx) => {
+                const handleTap = () => {
+                  if (onOpenPoi) { onOpenPoi(poi.id); return; }
+                  if (poi.lat != null) flyToPoi(poi.lat, poi.lng, poi.name, poi.type, poi.note);
+                };
+                return (
+                  <div
+                    key={poi.id}
+                    className="poi-chip"
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`POI: ${poi.name}`}
+                    onClick={handleTap}
+                    onKeyDown={e => e.key === 'Enter' && handleTap()}
+                  >
+                    <div className="poi-chip__name">{routeMode ? `${idx + 1}. ${poi.name}` : poi.name}</div>
+                    <div className="poi-chip__type">{poi.type}</div>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
