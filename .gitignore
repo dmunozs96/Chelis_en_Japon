@@ -1,0 +1,16 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Node (para cuando arranque el proyecto web)
+node_modules/
+dist/
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+
+# Logs
+*.log
