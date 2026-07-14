@@ -313,7 +313,7 @@ Cada restaurante tiene campos estructurados verificados en fuentes autorizadas (
 | Framework frontend | Vanilla JS + Vite / React / Svelte | **Pendiente** |
 | Repositorio | GitHub | ✅ Confirmado |
 | Hosting | Railway | ✅ Confirmado |
-| Dominio | Pendiente de confirmar | — |
+| Dominio | chelisenjapon-production.up.railway.app | ✅ Activo |
 | PWA instalable | Sí | ✅ Confirmado |
 | Dark mode | Fuera del MVP | ✅ Confirmado |
 | Idioma | Solo español | ✅ Confirmado |
