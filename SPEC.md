@@ -305,7 +305,118 @@ Cada restaurante tiene campos estructurados verificados en fuentes autorizadas (
 
 ---
 
-## 6. Decisiones técnicas pendientes de confirmar
+## 6. Sistema de diseño
+
+### Filosofía
+Estética premium mobile-first inspirada en el lenguaje visual de Apple (iOS/macOS). El espacio en blanco es el diseño. Nada gratuito — cada elemento comunica algo. Influencia japonesa sutil en el uso del espacio (ma, 間).
+
+### Tipografía
+```css
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+```
+En iPhone renderiza SF Pro nativo sin cargar nada. Funciona offline. Jerarquía:
+- Display (título de día/ciudad): 34px, weight 700, letter-spacing -0.5px
+- Headline: 22px, weight 600
+- Body: 17px, weight 400, line-height 1.5
+- Caption: 13px, weight 400, color secundario
+
+### Paleta de color
+| Token | Valor | Uso |
+|---|---|---|
+| `--bg-primary` | `#FFFFFF` | Fondo principal |
+| `--bg-secondary` | `#F2F2F7` | Fondo de listas, pantallas secundarias (iOS system gray 6) |
+| `--bg-surface` | `#FFFFFF` | Cards, sheets |
+| `--label-primary` | `#1C1C1E` | Texto principal (iOS label) |
+| `--label-secondary` | `#8E8E93` | Texto secundario, metadatos (iOS secondary label) |
+| `--label-tertiary` | `#C7C7CC` | Placeholders, disabled |
+| `--accent` | `#E8002D` | Rojo torii — acento único, usar con moderación |
+| `--accent-soft` | `#FFF0F2` | Fondo de badges/chips de acento |
+| `--separator` | `rgba(60,60,67,0.12)` | Líneas divisorias (iOS separator) |
+| `--glass-bg` | `rgba(255,255,255,0.82)` | Cabecera y bottom bar con blur |
+
+### Elevación y superficies
+```css
+/* Card estándar */
+border-radius: 20px;
+box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+
+/* Card destacada */
+box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+
+/* Efecto glass (header, bottom nav) */
+background: rgba(255,255,255,0.82);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border-bottom: 1px solid var(--separator);
+```
+
+### Espaciado
+Grid de 8px. Contenedor con `padding: 0 20px`. Gaps entre cards: 12px. Secciones: 32px.
+
+### Navegación
+**Bottom tab bar** (iOS style) — 5 tabs fijos en la parte inferior, siempre visible:
+| Tab | Icono | Funcional desde |
+|---|---|---|
+| Hoy | calendario | Ola 1 |
+| Viaje | mapa de ruta | Ola 1 |
+| Mapa | pin | Ola 3 |
+| Restaurantes | tenedor | Ola 4 |
+| Más | grid 2×2 | Ola 2 |
+
+**Tab "Más"** reemplaza "Billetes" como último tab. Es el hub de herramientas y documentos esenciales. Contiene:
+- Billetes (vuelos, hoteles, trenes) — acceso prioritario, card grande arriba
+- Frases en japonés
+- Conversor ¥ / €
+- Mis documentos (passport, seguro)
+- Emergencias
+- Guía Suica / IC card
+- Presupuesto diario
+- Notas del viaje
+
+Tabs inactivos (olas futuras): visibles pero con estado `disabled`.
+Tab activo: icono + label en `--accent`. Tab inactivo: `--label-secondary`.
+
+### Movimiento
+- Duración: 250ms (micro), 350ms (transiciones de página)
+- Curva: `cubic-bezier(0.4, 0, 0.2, 1)` (Material/iOS ease)
+- Tap: `transform: scale(0.97)` en cards y botones
+- Sin animaciones si `prefers-reduced-motion: reduce`
+
+### Componentes base
+**Card:**
+```
+background: var(--bg-surface)
+border-radius: 20px
+padding: 20px
+box-shadow: 0 2px 20px rgba(0,0,0,0.08)
+```
+
+**Badge/chip:**
+```
+background: var(--accent-soft)
+color: var(--accent)
+border-radius: 8px
+padding: 4px 10px
+font-size: 13px
+font-weight: 600
+```
+
+**Sección con header estilo iOS:**
+```
+Label en mayúsculas, 13px, --label-secondary, letter-spacing 0.5px
+Fondo --bg-secondary, lista de items sobre --bg-surface
+```
+
+### Lo que NO hacer
+- Sin bordes duros (`border: 1px solid`) como elemento principal de separación — usar sombra o espacio
+- Sin más de un color de acento
+- Sin gradientes llamativos
+- Sin sombras de texto
+- Sin más de 2 pesos de fuente por pantalla
+
+---
+
+## 6b. Decisiones técnicas confirmadas
 
 | Decisión | Opciones | Estado |
 |---|---|---|
@@ -322,18 +433,102 @@ Cada restaurante tiene campos estructurados verificados en fuentes autorizadas (
 
 ---
 
-## 7. Olas de desarrollo (propuesta — sujeta a cambio tras clarificación)
+## 7. Funcionalidades completas del producto
 
-| Ola | Nombre | Objetivo | Entrega |
+### F1 — Vista Hoy ✅ (Ola 1)
+### F1b — Doble reloj ✅ (Ola 1)
+### F2 — Itinerario completo ✅ (Ola 1)
+### F3 — Billetes y localizadores (Ola 2)
+- Vuelos (PNR, nº billete, ruta, horarios)
+- Hoteles (CRS locator, dirección, check-in/out, teléfono)
+- Trenes con ventanas de reserva visibles + estado (pendiente/reservado)
+- Todo offline, accesible en 1-2 toques
+
+### F4 — Mapa con posición en vivo (Ola 3)
+- Leaflet.js + OpenStreetMap
+- Geolocalización del dispositivo
+- Pins: hotel del día + POIs de la etapa
+- Fallback sin GPS: lista de POIs de la etapa
+
+### F5 — Restaurantes (Ola 4)
+- Planificador (slots mediodía/noche, asignar/reservar, detección de conflictos)
+- Sugeridor espontáneo con filtros offline (budget, tipo, sin reserva)
+
+### F6 — Historia y cultura por ciudad (Ola 5)
+- Por qué es relevante cada ciudad
+- Hiroshima: lugar de memoria, tono específico
+- Accesible desde la vista Hoy
+
+### F7 — Info práctica de POIs (Ola 5)
+- Horario de apertura, precio de entrada, estación más cercana
+- Ligado a cada actividad del itinerario
+
+### F8 — Frases en japonés (Ola 5)
+- Categorías: restaurante, transporte, hotel, compras, emergencia, cortesía
+- Cada frase: español → japonés → pronunciación fonética en español
+- Sin internet, sin audio (texto puro)
+
+### F9 — Conversor ¥ / € (Ola 5)
+- Tipo de cambio guardado offline al arrancar la app (o fijo al salir de España)
+- Calculadora bidireccional ¥ ↔ €
+- Sin llamada a API — funciona sin conexión
+
+### F10 — Emergencias (Ola 5)
+- Policía: 110 | Ambulancia: 119
+- Embajada de España en Tokio (dirección + teléfono)
+- Teléfono 24h del seguro de viaje (campo editable por Daniel)
+- Contacto de emergencia en España
+- Pantalla accesible en 1 toque desde cualquier sitio (botón fijo o tab "Más")
+
+### F11 — Guía IC card / Suica (Ola 5)
+- Qué es, cómo cargarla en Narita, dónde funciona
+- Cómo recargarla (máquinas, 7-Eleven)
+- Aparece destacada el día 14 (llegada)
+
+### F12 — Último kilómetro al hotel (Ola 5)
+- Para cada hotel: cómo llegar desde la estación principal de esa ciudad
+- Distancia a pie, tiempo, si hay shuttle gratuito (Mizunoto tiene shuttle 14:00-17:00)
+
+### F13 — Clima por etapa (Ola 5)
+- Resumen del tiempo esperado por ciudad en agosto (de la investigación ya hecha)
+- Banner de alerta si hay aviso de tifón activo durante el viaje (requiere conexión para la alerta, el resumen base es offline)
+
+### F14 — Mis documentos (Ola 6)
+- Campos: nº de pasaporte, nº de póliza del seguro, teléfono 24h seguro, contacto emergencia España
+- **Vive solo en localStorage del dispositivo — nunca se envía al servidor**
+- Cada viajero rellena los suyos en su móvil
+
+### F15 — Presupuesto diario (Ola 6)
+- Presupuesto estimado por día (configurable)
+- Gastos del día: el usuario los introduce manualmente
+- Resumen: gastado hoy / restante / total del viaje
+- **localStorage — sin servidor, sin sincronización entre viajeros**
+
+### F16 — Notas del viaje (Ola 6)
+- Una nota de texto libre por día
+- "El ramen de Tsuta estaba brutal"
+- **localStorage — personal, no compartida**
+
+### F17 — Offline + PWA (Ola 7)
+- Service worker completo
+- Instalable desde pantalla de inicio
+- Todo F1-F16 funciona sin conexión (excepto: mapa en vivo, alerta tifón)
+
+---
+
+## 8. Olas de desarrollo
+
+| Ola | Nombre | Funcionalidades | Estado |
 |---|---|---|---|
-| 0 | Datos | `trip.json` validado + `restaurants_db.json` enriquecido (32 restaurantes, Michelin/Time Out/Tabelog) | JSONs listos antes de tocar código |
-| 1 | Esqueleto + Deploy | React + Vite, Node/Express + PostgreSQL en Railway, doble reloj, vista "hoy", navegación 13-25 ago, URL compartible | URL activa + pipeline GitHub→Railway |
-| 2 | Billetes y Localizadores | Vuelos, hoteles, trenes con ventanas de reserva visibles; flujo de actualización vía git documentado | Offline funcional |
-| 3 | Mapa | Leaflet + geolocalización + pins hotel + POIs de la etapa + fallback sin GPS | Mapa en vivo en móvil |
-| 4 | Restaurantes | Planificador (slots, asignar/reservar vía API+PostgreSQL, detección de conflictos) + Sugeridor espontáneo con filtros offline | Herramienta completa de restaurantes |
-| 5 | Contenido enriquecido | Historia/cultura por ciudad, recomendaciones por etapa, días libres diferenciados, avisos activos | Guía completa de contenido |
-| 6 | Offline + PWA | Service worker, cacheo de contenido estático, manifest PWA instalable | Test en móvil real con señal limitada |
-| 7 | Trenes + Pulido final | Actualizar localizadores de tren (post jul 18-24), test del success criteria, lanzamiento al grupo | URL final lista ~1 agosto |
+| 0 | Datos | trip.json + restaurants_db.json (32 restaurantes) | ✅ |
+| 1 | Esqueleto + Diseño | F1, F1b, F2 — vista Hoy, doble reloj, navegación, sistema Apple | ✅ |
+| 2 | Billetes | F3 — vuelos, hoteles, trenes con ventanas de reserva | ⬜ |
+| 3 | Mapa | F4 — Leaflet, geolocalización, POIs | ⬜ |
+| 4 | Restaurantes | F5 — planificador + sugeridor | ⬜ |
+| 5 | Herramientas de viaje | F6, F7, F8, F9, F10, F11, F12, F13 — historia, frases, conversor, emergencias, Suica, km al hotel, clima | ⬜ |
+| 6 | Personal + privado | F14, F15, F16 — documentos, presupuesto, notas (localStorage) | ⬜ |
+| 7 | Offline + PWA | F17 — service worker, instalable | ⬜ |
+| 8 | Trenes reales + pulido | Localizadores de tren (post jul 18-24), success criteria, lanzamiento | ⬜ |
 
 ---
 
@@ -341,7 +536,7 @@ Cada restaurante tiene campos estructurados verificados en fuentes autorizadas (
 
 - ⚠️ **URGENTE (HOY):** Ventana de reserva del primer tren (Tokio→Hakone, Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Las siguientes ventanas abren del 19 al 24 de julio.
 - ⚠️ **Política de tatuajes Mizunoto:** No confirmada oficialmente. Recomendación: llamar al hotel (+81 460-82-6011) antes del viaje.
-- ⚠️ **teamLab Borderless (16 ago):** Los huecos de fin de semana se agotan en 72h. Reservar ya si no está hecho.
+- ~~teamLab Borderless~~ descartado — reemplazado por Yanaka (16 ago mañana).
 - ⚠️ **Roan Kikunoi y Bird Land Ginza:** Necesitan reserva con antelación si se van a ir.
 
 ---
