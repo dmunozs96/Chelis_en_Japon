@@ -1,63 +1,46 @@
 import React, { useState, useEffect } from 'react';
 
 /* ---------------------------------------------------------------
-   DualClock
-   Shows two live clocks: JST (UTC+9) and CEST (UTC+2).
-   The JST clock is labelled with the current trip city.
+   DualClock (compacto)
+   Dos relojes en vivo: JST (UTC+9) y Madrid/CEST (UTC+2).
+   Diseñado para integrarse en el header sin bordes ni cards.
    --------------------------------------------------------------- */
 
-const CLOCK_STYLES = `
-.dual-clock {
+const STYLES = `
+.dual-clock-compact {
   display: flex;
+  align-items: center;
   gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 16px 0;
+  flex-shrink: 0;
 }
 
-.clock-pill {
+.clock-block {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: var(--color-surface);
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 14px 24px;
-  min-width: 140px;
-  box-shadow: var(--shadow-card);
-  transition: border-color 0.2s;
+  align-items: flex-end;
+  line-height: 1.1;
 }
 
-.clock-pill--primary {
-  border-color: var(--color-torii);
+.clock-block__label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--label-secondary);
+  letter-spacing: 0.2px;
 }
 
-.clock-label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  margin-bottom: 4px;
-}
-
-.clock-pill--primary .clock-label {
-  color: var(--color-torii);
-}
-
-.clock-time {
-  font-family: var(--font-mono);
-  font-size: 1.6rem;
+.clock-block__time {
+  font-size: 15px;
   font-weight: 600;
-  color: var(--color-text);
-  letter-spacing: 0.04em;
-  line-height: 1;
+  color: var(--label-primary);
+  letter-spacing: -0.3px;
+  font-variant-numeric: tabular-nums;
 }
 
-.clock-tz {
-  font-size: 0.65rem;
-  color: var(--color-text-muted);
-  margin-top: 4px;
+.clock-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--separator);
+  flex-shrink: 0;
 }
 `;
 
@@ -68,10 +51,10 @@ function pad(n) {
 function formatTime(date, offsetHours) {
   const utc = date.getTime() + date.getTimezoneOffset() * 60_000;
   const local = new Date(utc + offsetHours * 3_600_000);
-  return `${pad(local.getHours())}:${pad(local.getMinutes())}:${pad(local.getSeconds())}`;
+  return `${pad(local.getHours())}:${pad(local.getMinutes())}`;
 }
 
-export default function DualClock({ currentCity = 'Japón' }) {
+export default function DualClock() {
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {
@@ -79,23 +62,21 @@ export default function DualClock({ currentCity = 'Japón' }) {
     return () => clearInterval(id);
   }, []);
 
-  const jstTime  = formatTime(now, +9);  // JST = UTC+9
-  const cestTime = formatTime(now, +2);  // CEST = UTC+2 (Spain in August)
+  const jstTime  = formatTime(now, +9);   // JST = UTC+9
+  const cestTime = formatTime(now, +2);   // CEST = UTC+2 (España en agosto)
 
   return (
     <>
-      <style>{CLOCK_STYLES}</style>
-      <div className="dual-clock" role="region" aria-label="Relojes del viaje">
-        <div className="clock-pill clock-pill--primary">
-          <span className="clock-label">{currentCity}</span>
-          <time className="clock-time" dateTime={now.toISOString()}>{jstTime}</time>
-          <span className="clock-tz">JST · UTC+9</span>
+      <style>{STYLES}</style>
+      <div className="dual-clock-compact" role="region" aria-label="Relojes del viaje">
+        <div className="clock-block">
+          <span className="clock-block__label">Madrid</span>
+          <time className="clock-block__time">{cestTime}</time>
         </div>
-
-        <div className="clock-pill">
-          <span className="clock-label">Madrid</span>
-          <time className="clock-time" dateTime={now.toISOString()}>{cestTime}</time>
-          <span className="clock-tz">CEST · UTC+2</span>
+        <div className="clock-divider" aria-hidden="true" />
+        <div className="clock-block">
+          <span className="clock-block__label">Japón</span>
+          <time className="clock-block__time">{jstTime}</time>
         </div>
       </div>
     </>

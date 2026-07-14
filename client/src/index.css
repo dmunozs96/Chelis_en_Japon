@@ -1,53 +1,54 @@
 /* =========================================================
    Chelis en Japón — Global Styles
-   Mobile-first, reference viewport: 390px
+   Sistema de diseño Apple iOS/macOS
    ========================================================= */
 
-/* --- CSS custom properties --- */
+/* --- Tokens CSS --- */
 :root {
-  --color-bg:         #FAFAF5;   /* off-white / washi paper */
-  --color-surface:    #FFFFFF;
-  --color-torii:      #C0392B;   /* torii red */
-  --color-torii-dark: #922B21;
-  --color-text:       #1A1A1A;
-  --color-text-muted: #6B7280;
-  --color-border:     #E5E7EB;
-  --color-free-bg:    #FDF6EC;   /* warm amber for free days */
-  --color-free-accent:#D97706;
-  --color-transit-bg: #EEF2FF;   /* indigo tint for travel days */
-  --color-transit-accent: #4F46E5;
+  /* Colores */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F2F2F7;
+  --bg-surface: #FFFFFF;
+  --label-primary: #1C1C1E;
+  --label-secondary: #8E8E93;
+  --label-tertiary: #C7C7CC;
+  --accent: #E8002D;
+  --accent-soft: #FFF0F2;
+  --separator: rgba(60, 60, 67, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.82);
 
-  --radius-sm:  6px;
-  --radius-md:  12px;
-  --radius-lg:  20px;
-  --radius-pill:9999px;
+  /* Tipografía */
+  --font: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
 
-  --shadow-card: 0 2px 8px rgba(0,0,0,0.08);
+  /* Radios */
+  --radius-card: 20px;
+  --radius-btn: 14px;
+  --radius-chip: 8px;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
-               Arial, 'Noto Sans', sans-serif;
-  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas,
-               'Liberation Mono', monospace;
+  /* Sombras */
+  --shadow-card: 0 2px 20px rgba(0, 0, 0, 0.08);
+  --shadow-card-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+
+  /* Espaciado */
+  --page-padding: 20px;
+  --gap-card: 12px;
+  --gap-section: 32px;
+
+  /* Movimiento */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-micro: 250ms;
+  --duration-page: 350ms;
 }
 
 /* --- Reset & base --- */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-}
-
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 17px; -webkit-text-size-adjust: 100%; }
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  line-height: 1.6;
+  font-family: var(--font);
+  background: var(--bg-secondary);
+  color: var(--label-primary);
   min-height: 100dvh;
+  overscroll-behavior: none;
 }
 
 #root {
@@ -56,7 +57,42 @@ body {
   min-height: 100dvh;
 }
 
-/* --- Utility classes --- */
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--label-primary);
+}
+
+/* --- Utility: card --- */
+.card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+}
+
+/* --- Utility: badge/chip --- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-chip);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* --- Separadores --- */
+.separator {
+  height: 1px;
+  background: var(--separator);
+  border: none;
+  margin: 0;
+}
+
+/* --- Utility: visually hidden --- */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -64,7 +100,34 @@ body {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* --- App shell --- */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* --- Main content area --- */
+.main-content {
+  flex: 1;
+  padding-top: 60px;
+  padding-bottom: 84px;
+  overflow-y: auto;
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

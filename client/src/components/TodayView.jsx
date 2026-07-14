@@ -2,176 +2,297 @@ import React, { useMemo } from 'react';
 
 /* ---------------------------------------------------------------
    TodayView
-   Displays the plan for "today" based on the device date.
-   If today is outside the trip range (13–25 Aug 2026) it shows
-   a countdown to departure day.
+   Muestra el plan del día actual. Si hoy está antes del viaje,
+   muestra la cuenta atrás. Si es un día del viaje, muestra la
+   hero card + hotel + bloques con diseño iOS premium.
    --------------------------------------------------------------- */
 
 const STYLES = `
-/* ---- Countdown ---- */
-.countdown {
-  text-align: center;
-  padding: 32px 16px;
-}
-.countdown__title {
-  font-size: 1.1rem;
-  color: var(--color-text-muted);
-  margin-bottom: 8px;
-}
-.countdown__days {
-  font-size: 4rem;
-  font-weight: 800;
-  color: var(--color-torii);
-  line-height: 1;
-}
-.countdown__label {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  margin-top: 4px;
-}
-.countdown__date {
-  margin-top: 16px;
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-/* ---- Day card ---- */
-.today-card {
-  background: var(--color-surface);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-  margin: 0 0 24px;
-}
-
-.today-card--free {
-  border-left: 5px solid var(--color-free-accent);
-}
-.today-card--normal {
-  border-left: 5px solid var(--color-torii);
-}
-.today-card--transit_out,
-.today-card--transit_return {
-  border-left: 5px solid var(--color-transit-accent);
-}
-.today-card--arrival {
-  border-left: 5px solid #059669;
-}
-
-.today-card__header {
-  padding: 16px 20px 12px;
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.today-card__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: var(--radius-pill);
-  margin-bottom: 8px;
-}
-.badge--free     { background: #FEF3C7; color: var(--color-free-accent); }
-.badge--normal   { background: #FEE2E2; color: var(--color-torii); }
-.badge--transit  { background: #E0E7FF; color: var(--color-transit-accent); }
-.badge--arrival  { background: #D1FAE5; color: #059669; }
-
-.today-card__title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--color-text);
-  line-height: 1.3;
-  margin-bottom: 4px;
-}
-
-.today-card__city {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-}
-
-.today-card__hotel {
-  padding: 12px 20px;
-  background: #F9F9F6;
-  border-bottom: 1px solid var(--color-border);
-  font-size: 0.85rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-.hotel-icon { flex-shrink: 0; font-size: 1rem; }
-.hotel-info { display: flex; flex-direction: column; }
-.hotel-name { font-weight: 600; color: var(--color-text); }
-.hotel-times { color: var(--color-text-muted); font-size: 0.78rem; margin-top: 1px; }
-
-/* ---- Blocks ---- */
-.today-card__blocks {
-  padding: 16px 20px;
+/* ---- Contenedor general ---- */
+.today-view {
+  padding: var(--page-padding);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--gap-card);
 }
 
-.block-item {
+/* ---- Cuenta atrás ---- */
+.countdown-hero {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - 144px);
+  padding: var(--page-padding);
+  text-align: center;
+  gap: 8px;
+}
+
+.countdown-hero__pre {
+  font-size: 15px;
+  color: var(--label-secondary);
+  font-weight: 400;
+}
+
+.countdown-hero__number {
+  font-size: 88px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-hero__label {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--label-primary);
+  letter-spacing: -0.3px;
+}
+
+.countdown-hero__date {
+  font-size: 15px;
+  color: var(--label-secondary);
+  margin-top: 8px;
+}
+
+/* ---- After-trip ---- */
+.after-trip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100dvh - 144px);
+  padding: var(--page-padding);
+  text-align: center;
   gap: 12px;
-  align-items: flex-start;
+}
+.after-trip__emoji {
+  font-size: 56px;
+  line-height: 1;
+}
+.after-trip__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--label-primary);
+  letter-spacing: -0.4px;
+}
+.after-trip__sub {
+  font-size: 16px;
+  color: var(--label-secondary);
+}
+
+/* ---- Hero card ---- */
+.hero-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card-lg);
+  padding: 24px 20px 20px;
+}
+
+.hero-card__day-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-chip);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-bottom: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.hero-card__day-chip--free {
+  background: rgba(48, 209, 88, 0.12);
+  color: #30D158;
+}
+
+.hero-card__title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  color: var(--label-primary);
+  margin-bottom: 6px;
+}
+
+.hero-card__subtitle {
+  font-size: 15px;
+  color: var(--label-secondary);
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+/* ---- Hotel card ---- */
+.hotel-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--label-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.hotel-name {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--label-primary);
+  letter-spacing: -0.3px;
+  margin-bottom: 12px;
+}
+
+.hotel-times-row {
+  display: flex;
+  gap: 24px;
+}
+
+.hotel-time-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hotel-time-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--label-tertiary);
+  flex-shrink: 0;
+}
+
+.hotel-time-text {
+  font-size: 14px;
+  color: var(--label-secondary);
+}
+
+.hotel-time-text strong {
+  color: var(--label-primary);
+  font-weight: 600;
+}
+
+/* ---- Timeline de bloques ---- */
+.blocks-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+}
+
+.blocks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.block-row {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.block-row:last-child {
+  padding-bottom: 0;
+}
+
+/* Línea vertical del timeline */
+.block-row::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 22px;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0.15;
+}
+
+.block-row:last-child::before {
+  display: none;
+}
+
+.block-left {
+  width: 48px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.block-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 5px;
 }
 
 .block-time {
-  flex-shrink: 0;
-  font-size: 0.7rem;
+  font-size: 11px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-torii);
-  background: #FEE2E2;
-  padding: 2px 8px;
-  border-radius: var(--radius-pill);
-  margin-top: 2px;
-  min-width: 68px;
+  color: var(--accent);
   text-align: center;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
 }
 
-.today-card--free .block-time {
-  color: var(--color-free-accent);
-  background: #FEF3C7;
-}
-.today-card--transit_out .block-time,
-.today-card--transit_return .block-time {
-  color: var(--color-transit-accent);
-  background: #E0E7FF;
-}
-.today-card--arrival .block-time {
-  color: #059669;
-  background: #D1FAE5;
+.block-franja {
+  font-size: 11px;
+  color: var(--label-secondary);
+  text-align: center;
+  margin-top: 2px;
 }
 
-.block-content {}
-.block-label {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--color-text);
+.block-right {
+  flex: 1;
+  padding-top: 2px;
 }
-.block-activity {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  margin-top: 1px;
+
+.block-activity-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--label-primary);
+  line-height: 1.3;
+}
+
+.block-activity-detail {
+  font-size: 14px;
+  color: var(--label-secondary);
+  margin-top: 2px;
   line-height: 1.4;
+}
+
+/* ---- No data ---- */
+.no-data {
+  padding: var(--page-padding);
+  color: var(--label-secondary);
+  font-size: 15px;
 }
 `;
 
-const TYPE_META = {
-  normal:         { badge: 'badge--normal',   label: 'Hoy',          icon: '📍' },
-  free:           { badge: 'badge--free',     label: 'Día libre',    icon: '✨' },
-  transit_out:    { badge: 'badge--transit',  label: 'Día de viaje', icon: '✈️' },
-  transit_return: { badge: 'badge--transit',  label: 'Vuelta a casa',icon: '🏠' },
-  arrival:        { badge: 'badge--arrival',  label: 'Llegada',      icon: '🎌' },
-};
+/* --- Helpers --- */
+
+function todayISO() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function daysUntil(targetDateStr) {
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const [y, m, d] = targetDateStr.split('-').map(Number);
+  const target = new Date(y, m - 1, d);
+  return Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+}
 
 function formatDateEs(dateStr) {
   const [y, m, d] = dateStr.split('-').map(Number);
@@ -179,72 +300,104 @@ function formatDateEs(dateStr) {
   return date.toLocaleDateString('es-ES', { weekday: 'long', day: 'numeric', month: 'long' });
 }
 
-function todayISO() {
-  const d = new Date();
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
+function getDayNumber(days, day) {
+  const idx = days.findIndex(d => d.date === day.date);
+  return idx >= 0 ? idx + 1 : null;
 }
 
-function daysUntil(targetDateStr) {
-  const now   = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const [y, m, d] = targetDateStr.split('-').map(Number);
-  const target = new Date(y, m - 1, d);
-  const diff = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
-  return diff;
-}
-
-function HotelInfo({ hotel }) {
+/* --- Componente hotel --- */
+function HotelCard({ hotel }) {
   if (!hotel) return null;
-  const times = [hotel.checkin && `Check-in ${hotel.checkin}`, hotel.checkout && `Check-out ${hotel.checkout}`]
-    .filter(Boolean).join('  ·  ');
   return (
-    <div className="today-card__hotel">
-      <span className="hotel-icon">🏨</span>
-      <div className="hotel-info">
-        <span className="hotel-name">{hotel.name}</span>
-        {times && <span className="hotel-times">{times}</span>}
-      </div>
+    <div className="hotel-card">
+      <div className="section-label">Alojamiento</div>
+      <div className="hotel-name">{hotel.name}</div>
+      {(hotel.checkin || hotel.checkout) && (
+        <div className="hotel-times-row">
+          {hotel.checkin && (
+            <div className="hotel-time-item">
+              <svg className="hotel-time-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+                <circle cx="8" cy="8" r="6" />
+                <path d="M8 5v3l2 2" />
+              </svg>
+              <span className="hotel-time-text">Check-in <strong>{hotel.checkin}</strong></span>
+            </div>
+          )}
+          {hotel.checkout && (
+            <div className="hotel-time-item">
+              <svg className="hotel-time-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+                <circle cx="8" cy="8" r="6" />
+                <path d="M8 5v3l2 2" />
+              </svg>
+              <span className="hotel-time-text">Check-out <strong>{hotel.checkout}</strong></span>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
 
-function DayCard({ day }) {
-  const meta = TYPE_META[day.type] ?? TYPE_META.normal;
-  const cardClass = `today-card today-card--${day.type}`;
+/* --- Franja horaria de texto a label --- */
+function timeToFranja(time) {
+  if (!time) return '';
+  const hour = parseInt(time.split(':')[0], 10);
+  if (isNaN(hour)) return time;
+  if (hour < 13) return 'Mañana';
+  if (hour < 19) return 'Tarde';
+  return 'Noche';
+}
+
+/* --- DayCard: exportado para uso en DayNav --- */
+export function DayCard({ day, days = [] }) {
+  const isFree = day.type === 'free';
+  const dayNum = days.length > 0 ? getDayNumber(days, day) : null;
 
   return (
-    <div className={cardClass}>
-      <div className="today-card__header">
-        <div className={`today-card__badge ${meta.badge}`}>
-          <span>{meta.icon}</span>
-          <span>{meta.label}</span>
+    <>
+      <style>{STYLES}</style>
+      <div className="today-view">
+        {/* Hero card */}
+        <div className="hero-card">
+          <div className={`hero-card__day-chip${isFree ? ' hero-card__day-chip--free' : ''}`}>
+            {dayNum ? `Día ${dayNum}` : (isFree ? 'Día libre' : day.type === 'transit_out' ? 'Viaje a Japón' : day.type === 'transit_return' ? 'Vuelta a casa' : day.type === 'arrival' ? 'Llegada' : 'Hoy')}
+          </div>
+          <h1 className="hero-card__title">{day.title}</h1>
+          <p className="hero-card__subtitle">{formatDateEs(day.date)}</p>
         </div>
-        <div className="today-card__title">{day.title}</div>
-        <div className="today-card__city">
-          {formatDateEs(day.date)} · {day.city}
-        </div>
-      </div>
 
-      <HotelInfo hotel={day.hotel} />
+        {/* Hotel */}
+        {day.hotel && <HotelCard hotel={day.hotel} />}
 
-      <div className="today-card__blocks">
-        {day.blocks.map((block, i) => (
-          <div className="block-item" key={i}>
-            <span className="block-time">{block.time}</span>
-            <div className="block-content">
-              <div className="block-label">{block.label}</div>
-              <div className="block-activity">{block.activity}</div>
+        {/* Bloques del día */}
+        {day.blocks && day.blocks.length > 0 && (
+          <div className="blocks-card">
+            <div className="section-label">Plan del día</div>
+            <div className="blocks-list">
+              {day.blocks.map((block, i) => (
+                <div className="block-row" key={i}>
+                  <div className="block-left">
+                    <div className="block-dot" />
+                    {block.time && <span className="block-time">{block.time}</span>}
+                    <span className="block-franja">{timeToFranja(block.time) || block.label}</span>
+                  </div>
+                  <div className="block-right">
+                    <div className="block-activity-title">{block.label}</div>
+                    {block.activity && block.activity !== block.label && (
+                      <div className="block-activity-detail">{block.activity}</div>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        ))}
+        )}
       </div>
-    </div>
+    </>
   );
 }
 
+/* --- Vista principal de "Hoy" --- */
 export default function TodayView({ days }) {
   const today = todayISO();
 
@@ -253,8 +406,8 @@ export default function TodayView({ days }) {
     [days, today]
   );
 
-  const firstDay = days[0]?.date;  // "2026-08-13"
-  const lastDay  = days[days.length - 1]?.date; // "2026-08-25"
+  const firstDay = days[0]?.date;
+  const lastDay  = days[days.length - 1]?.date;
 
   const beforeTrip = firstDay && today < firstDay;
   const afterTrip  = lastDay  && today > lastDay;
@@ -266,11 +419,11 @@ export default function TodayView({ days }) {
     return (
       <>
         <style>{STYLES}</style>
-        <div className="countdown">
-          <p className="countdown__title">¡El viaje empieza en…!</p>
-          <div className="countdown__days">{diff}</div>
-          <div className="countdown__label">{diff === 1 ? 'día' : 'días'}</div>
-          <p className="countdown__date">Salida: {formatDateEs(firstDay)}</p>
+        <div className="countdown-hero" role="main" aria-label="Cuenta atrás para el viaje">
+          <p className="countdown-hero__pre">¡El viaje empieza en…!</p>
+          <div className="countdown-hero__number" aria-label={`${diff} días`}>{diff}</div>
+          <div className="countdown-hero__label">{diff === 1 ? 'día para Japón' : 'días para Japón'}</div>
+          <p className="countdown-hero__date">Salida: {formatDateEs(firstDay)}</p>
         </div>
       </>
     );
@@ -280,9 +433,10 @@ export default function TodayView({ days }) {
     return (
       <>
         <style>{STYLES}</style>
-        <div className="countdown">
-          <p className="countdown__title">El viaje ya terminó 🥲</p>
-          <p className="countdown__date">Espero que haya sido increíble, Chelis ✨</p>
+        <div className="after-trip" role="main">
+          <div className="after-trip__emoji" aria-hidden="true">🥲</div>
+          <h2 className="after-trip__title">El viaje ya terminó</h2>
+          <p className="after-trip__sub">Espero que haya sido increíble, Chelis ✨</p>
         </div>
       </>
     );
@@ -292,20 +446,10 @@ export default function TodayView({ days }) {
     return (
       <>
         <style>{STYLES}</style>
-        <p style={{ padding: '16px', color: 'var(--color-text-muted)' }}>
-          No hay datos para hoy ({today}).
-        </p>
+        <p className="no-data">No hay datos para hoy ({today}).</p>
       </>
     );
   }
 
-  return (
-    <>
-      <style>{STYLES}</style>
-      <DayCard day={currentDay} />
-    </>
-  );
+  return <DayCard day={currentDay} days={days} />;
 }
-
-// Named export so DayNav can reuse DayCard without importing TodayView.
-export { DayCard };

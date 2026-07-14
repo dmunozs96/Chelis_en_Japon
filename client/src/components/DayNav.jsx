@@ -3,134 +3,114 @@ import { DayCard } from './TodayView.jsx';
 
 /* ---------------------------------------------------------------
    DayNav
-   Horizontal scrollable navigation strip across all 13 trip days.
-   Clicking a day tab shows that day's full plan below.
-   The "today" tab is highlighted; selected tab is also highlighted.
+   Strip horizontal scrollable de todos los días del viaje.
+   Al seleccionar un día muestra su DayCard con diseño premium.
    --------------------------------------------------------------- */
 
 const STYLES = `
 .daynav {
   display: flex;
   flex-direction: column;
-  gap: 0;
 }
 
-/* --- Scrollable tab strip --- */
+/* --- Strip de días sticky bajo el header --- */
 .daynav__strip-wrapper {
   position: sticky;
-  top: 0;
-  z-index: 10;
-  background: var(--color-bg);
-  border-bottom: 2px solid var(--color-border);
-  padding: 0 4px;
+  top: 60px;   /* altura del header */
+  z-index: 50;
+  background: var(--bg-secondary);
+  padding: 12px var(--page-padding) 0;
+  border-bottom: 1px solid var(--separator);
+  padding-bottom: 12px;
 }
 
 .daynav__strip {
   display: flex;
   overflow-x: auto;
-  gap: 4px;
-  padding: 8px 4px;
+  gap: 8px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  /* Hide scrollbar visually but keep functionality */
   scrollbar-width: none;
+  padding-bottom: 2px;
 }
 .daynav__strip::-webkit-scrollbar { display: none; }
 
-/* --- Individual day tab --- */
-.daynav__tab {
+/* --- Pill de día --- */
+.daynav__pill {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6px 10px;
-  border-radius: var(--radius-md);
-  border: 2px solid transparent;
-  background: var(--color-surface);
+  gap: 2px;
+  padding: 8px 14px;
+  border-radius: var(--radius-btn);
+  border: none;
+  background: var(--bg-surface);
   cursor: pointer;
   scroll-snap-align: center;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background var(--duration-micro) var(--ease), color var(--duration-micro) var(--ease);
   min-width: 52px;
-  font-family: inherit;
+  font-family: var(--font);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  -webkit-tap-highlight-color: transparent;
 }
 
-.daynav__tab:hover {
-  background: #F3F4F6;
+.daynav__pill:hover:not(.daynav__pill--active) {
+  background: #EBEBF0;
 }
 
-.daynav__tab--today {
-  border-color: var(--color-torii) !important;
+.daynav__pill--active {
+  background: var(--accent);
+  box-shadow: 0 2px 12px rgba(232, 0, 45, 0.35);
 }
 
-.daynav__tab--selected {
-  background: var(--color-torii);
-  border-color: var(--color-torii);
+.daynav__pill--free:not(.daynav__pill--active) {
+  background: var(--accent-soft);
 }
 
-.daynav__tab--selected .tab-weekday,
-.daynav__tab--selected .tab-day {
-  color: white;
-}
-
-.daynav__tab--free .tab-day {
-  color: var(--color-free-accent);
-}
-.daynav__tab--transit_out .tab-day,
-.daynav__tab--transit_return .tab-day {
-  color: var(--color-transit-accent);
-}
-.daynav__tab--selected.daynav__tab--free .tab-day,
-.daynav__tab--selected.daynav__tab--transit_out .tab-day,
-.daynav__tab--selected.daynav__tab--transit_return .tab-day {
-  color: white;
-}
-
-.tab-weekday {
-  font-size: 0.6rem;
+.pill-weekday {
+  font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-text-muted);
+  letter-spacing: 0.5px;
   line-height: 1;
+  color: var(--label-secondary);
 }
 
-.tab-day {
-  font-size: 1.1rem;
+.pill-day {
+  font-size: 18px;
   font-weight: 700;
-  color: var(--color-text);
   line-height: 1.1;
+  color: var(--label-primary);
 }
 
-.tab-type-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  margin-top: 3px;
-  background: var(--color-border);
+/* Estados de color del número del día según tipo */
+.daynav__pill--free:not(.daynav__pill--active) .pill-day {
+  color: var(--accent);
 }
-.daynav__tab--free      .tab-type-dot { background: var(--color-free-accent); }
-.daynav__tab--transit_out .tab-type-dot,
-.daynav__tab--transit_return .tab-type-dot { background: var(--color-transit-accent); }
-.daynav__tab--arrival .tab-type-dot { background: #059669; }
-.daynav__tab--selected .tab-type-dot { background: rgba(255,255,255,0.7); }
 
-/* --- Day detail area --- */
+/* Estado activo: todo blanco */
+.daynav__pill--active .pill-weekday,
+.daynav__pill--active .pill-day {
+  color: #FFFFFF;
+}
+
+/* --- Contenido del día --- */
 .daynav__detail {
-  padding: 20px 16px 0;
+  padding: 0;
 }
 `;
 
-const WEEKDAYS = ['dom','lun','mar','mié','jue','vie','sáb'];
+const WEEKDAYS = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
 
 function todayISO() {
   const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
 export default function DayNav({ days }) {
   const today = todayISO();
 
-  // Default to today if in range, otherwise first day.
   const defaultIndex = Math.max(
     0,
     days.findIndex(d => d.date === today)
@@ -140,7 +120,6 @@ export default function DayNav({ days }) {
   const tabRefs = useRef([]);
   const stripRef = useRef(null);
 
-  // Scroll the selected tab into view on mount and on change.
   useEffect(() => {
     const el = tabRefs.current[selectedIndex];
     if (el && stripRef.current) {
@@ -156,21 +135,25 @@ export default function DayNav({ days }) {
     <>
       <style>{STYLES}</style>
       <div className="daynav">
-        {/* Tab strip */}
+        {/* Strip de días */}
         <div className="daynav__strip-wrapper">
-          <div className="daynav__strip" ref={stripRef} role="tablist" aria-label="Días del viaje">
+          <div
+            className="daynav__strip"
+            ref={stripRef}
+            role="tablist"
+            aria-label="Días del viaje"
+          >
             {days.map((day, i) => {
               const [y, m, d] = day.date.split('-').map(Number);
               const dateObj = new Date(y, m - 1, d);
               const weekday = WEEKDAYS[dateObj.getDay()];
-              const isToday    = day.date === today;
               const isSelected = i === selectedIndex;
+              const isFree = day.type === 'free';
 
-              const tabClass = [
-                'daynav__tab',
-                `daynav__tab--${day.type}`,
-                isToday    ? 'daynav__tab--today'    : '',
-                isSelected ? 'daynav__tab--selected' : '',
+              const pillClass = [
+                'daynav__pill',
+                isSelected ? 'daynav__pill--active' : '',
+                isFree && !isSelected ? 'daynav__pill--free' : '',
               ].filter(Boolean).join(' ');
 
               return (
@@ -179,22 +162,21 @@ export default function DayNav({ days }) {
                   role="tab"
                   aria-selected={isSelected}
                   aria-label={`${day.date} — ${day.city}`}
-                  className={tabClass}
-                  ref={el => tabRefs.current[i] = el}
+                  className={pillClass}
+                  ref={el => (tabRefs.current[i] = el)}
                   onClick={() => setSelectedIndex(i)}
                 >
-                  <span className="tab-weekday">{weekday}</span>
-                  <span className="tab-day">{d}</span>
-                  <span className="tab-type-dot" aria-hidden="true" />
+                  <span className="pill-weekday">{weekday}</span>
+                  <span className="pill-day">{d}</span>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Selected day detail */}
+        {/* Detalle del día seleccionado */}
         <div className="daynav__detail" role="tabpanel">
-          {selectedDay && <DayCard day={selectedDay} />}
+          {selectedDay && <DayCard day={selectedDay} days={days} />}
         </div>
       </div>
     </>
