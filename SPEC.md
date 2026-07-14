@@ -749,6 +749,7 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | 0 | Datos | trip.json + restaurants_db.json (32 restaurantes) | ✅ |
 | 1 | Esqueleto + Diseño | F1, F1b, F2 — vista Hoy, doble reloj, navegación | ✅ |
 | D | Dark Premium | Tema oscuro, aurora animada, splash cinematográfica, bordes metálicos | ✅ |
+| D2 | Splash pseudo-vídeo | Slideshow de fotos reales de Japón + countdown en vivo (D/H/M/S) hasta el despegue | ✅ |
 | 2 | Billetes + Alertas | F3 + F18 — vuelos, hoteles, trenes + alertas con 3 categorías | ✅ |
 | 3 | Mapa | F4 — Leaflet, geolocalización, POIs por día | ✅ |
 | 4a | Guía de Viaje Detallada | F6+F7 — pois_db.json (24 POIs), POIDetailView, ruta del día con polyline | ✅ |
@@ -775,6 +776,17 @@ trip.json[day].blocks → filtra los que tienen poi_id
 
 **Criterio de éxito:** Desde la vista "Hoy", en 2 toques puedo leer la reseña cultural completa de cualquier lugar del día con sus horarios y precio. ✅ Verificado en navegador (Playwright, viewport móvil 390×844): bloque tappable → POIDetailView con descripción/horario/precio en 1 toque.
 
+### Detalle Ola D2 — Splash pseudo-vídeo ✅ COMPLETADA (2026-07-14)
+
+Al no poder generarse un vídeo de entrada real, `SplashScreen.jsx` simula uno con las 5 fotos reales del viaje que Daniel dejó en `client/public/JapanPics/` (Tokyo, Shibuya, Kyoto, Osaka, Japaneselads):
+
+- **Slideshow de fondo:** las 5 fotos rotan en bucle cada 900ms con crossfade, con un degradado oscuro encima (mismo tratamiento visual que el resto de la app — nunca compite con el texto) y las capas de aurora/scanlines ya existentes por encima.
+- **Countdown en vivo:** el número grande de días y una fila `HH · MM · SS` debajo se recalculan cada segundo con `setInterval`, contando hasta la fecha y hora exactas de despegue del vuelo IB0281 (13 ago 2026, 12:30 hora de Madrid) — ya no es un cálculo estático de "días" al cargar la pantalla.
+- Sigue con el mismo comportamiento de siempre: una vez por sesión (`sessionStorage`), auto-dismiss a los 5.2s, botón "Saltar" y barra de progreso.
+- Los estados "durante el viaje" y "después del viaje" no llevan el slideshow con countdown (no aplica), pero sí ven el fondo de fotos.
+
+**Nota de alcance:** las imágenes viven en `client/public/JapanPics/` (git, ~10MB en 5 PNG) y se sirven como estáticos — no están optimizadas (comprimidas/redimensionadas) todavía; queda como mejora futura si el peso afecta a la carga en móvil con mala conexión.
+
 ---
 
 ## 8. Advertencias activas
@@ -786,4 +798,4 @@ trip.json[day].blocks → filtra los que tienen poi_id
 
 ---
 
-*Última actualización: 2026-07-14 — Ola 4a completada: Guía de Viaje Detallada (POIDetailView + ruta del día con polyline). Siguiente: Ola 4b — Restaurantes.*
+*Última actualización: 2026-07-14 — Ola D2 completada: splash con slideshow de fotos + countdown en vivo hasta el despegue. Siguiente: Ola 4b — Restaurantes.*

@@ -2,13 +2,32 @@ import React, { useState, useEffect } from 'react';
 
 /* ---------------------------------------------------------------
    SplashScreen — Intro cinematográfica
-   Muestra una pantalla de entrada oscura con cuenta atrás al viaje.
+   Muestra una pantalla de entrada oscura con cuenta atrás al viaje,
+   con un pseudo-vídeo de fondo (slideshow de fotos de Japón) y un
+   countdown dinámico (días/horas/minutos/segundos hasta el despegue).
    Se muestra una vez por sesión (sessionStorage).
    Auto-dismiss a los 5 segundos o tap para saltar.
    --------------------------------------------------------------- */
 
 const TRIP_START  = '2026-08-13';
 const TRIP_DAYS   = 13;
+
+// Fecha y hora exactas de despegue del vuelo IB0281 (hora local de Madrid)
+const DEPARTURE_DATETIME = new Date(2026, 7, 13, 12, 30, 0);
+
+// Pseudo-vídeo de entrada: slideshow de las fotos en client/public/JapanPics
+const SLIDES = [
+  '/JapanPics/Tokyo.png',
+  '/JapanPics/Shibuya.png',
+  '/JapanPics/Kyoto.png',
+  '/JapanPics/Osaka.png',
+  '/JapanPics/Japaneselads.png',
+];
+const SLIDE_INTERVAL_MS = 900;
+
+function pad2(n) {
+  return String(n).padStart(2, '0');
+}
 
 const STYLES = `
 /* ---- Contenedor principal ---- */
@@ -26,6 +45,41 @@ const STYLES = `
   -webkit-tap-highlight-color: transparent;
 }
 
+/* ---- Pseudo-vídeo: slideshow de fotos ---- */
+.splash__slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.splash__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  filter: grayscale(0.1) brightness(0.5) saturate(1.15) contrast(1.05);
+  transform: scale(1.02);
+}
+
+.splash__slide--active {
+  opacity: 1;
+}
+
+.splash__slide-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg,
+    rgba(6, 6, 16, 0.45) 0%,
+    rgba(6, 6, 16, 0.72) 55%,
+    rgba(6, 6, 16, 0.94) 100%);
+  pointer-events: none;
+}
+
 /* ---- Capas de aurora ---- */
 .splash__aurora {
   position: absolute;
@@ -33,6 +87,7 @@ const STYLES = `
   height: 160%;
   top: -30%;
   left: -30%;
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -83,13 +138,13 @@ const STYLES = `
     rgba(0, 0, 0, 0.04) 6px
   );
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* ---- Contenido central ---- */
 .splash__content {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,6 +191,36 @@ const STYLES = `
   opacity: 0;
   animation: sfade-up 0.9s var(--ease) forwards;
   animation-delay: 0.75s;
+}
+
+/* ---- Countdown en vivo hasta el despegue ---- */
+.splash__live-countdown {
+  margin-top: 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0;
+  animation: sfade-up 0.9s var(--ease) forwards;
+  animation-delay: 0.85s;
+}
+
+.splash__live-countdown-unit {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.splash__live-countdown-suffix {
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.45);
+  margin-right: 6px;
+}
+
+.splash__live-countdown-sep {
+  color: rgba(255, 255, 255, 0.25);
+  margin: 0 2px;
 }
 
 /* ---- Destino ---- */
@@ -272,7 +357,7 @@ const STYLES = `
   animation: sprogress 4.5s linear forwards;
   animation-delay: 0.5s;
   pointer-events: none;
-  z-index: 5;
+  z-index: 6;
 }
 
 /* ---- Salida ---- */
@@ -324,6 +409,8 @@ function tripDayNumber() {
 
 export default function SplashScreen({ onDismiss }) {
   const [exiting, setExiting] = useState(false);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const [now, setNow] = useState(() => new Date());
   const days    = daysUntil(TRIP_START);
   const tripDay = tripDayNumber();
   const afterTrip = days < -TRIP_DAYS;
@@ -339,6 +426,28 @@ export default function SplashScreen({ onDismiss }) {
     const t = setTimeout(dismiss, 5200);
     return () => clearTimeout(t);
   }, []);
+
+  // Pseudo-vídeo: avanza el slideshow de fotos en bucle
+  useEffect(() => {
+    const t = setInterval(() => {
+      setSlideIndex(i => (i + 1) % SLIDES.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => clearInterval(t);
+  }, []);
+
+  // Countdown en vivo (días/horas/minutos/segundos hasta el despegue)
+  useEffect(() => {
+    const t = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(t);
+  }, []);
+
+  const diffMs = Math.max(0, DEPARTURE_DATETIME - now);
+  const countdown = {
+    days:    Math.floor(diffMs / 86400000),
+    hours:   Math.floor((diffMs % 86400000) / 3600000),
+    minutes: Math.floor((diffMs % 3600000) / 60000),
+    seconds: Math.floor((diffMs % 60000) / 1000),
+  };
 
   const renderContent = () => {
     // Durante el viaje
@@ -370,7 +479,7 @@ export default function SplashScreen({ onDismiss }) {
     }
 
     // Cuenta atrás (lo normal: antes del viaje)
-    const label = days === 1 ? 'día para' : 'días para';
+    const label = countdown.days === 1 ? 'día para' : 'días para';
 
     return (
       <div className="splash__content">
@@ -378,12 +487,23 @@ export default function SplashScreen({ onDismiss }) {
 
         <div
           className="splash__number"
-          aria-label={`${days} días para el viaje`}
+          aria-label={`${countdown.days} días, ${countdown.hours} horas y ${countdown.minutes} minutos para el despegue`}
         >
-          {Math.max(0, days)}
+          {countdown.days}
         </div>
 
-        <div className="splash__days-label">{label}</div>
+        <div className="splash__days-label">{label} el despegue</div>
+
+        <div className="splash__live-countdown" aria-hidden="true">
+          <span className="splash__live-countdown-unit">{pad2(countdown.hours)}</span>
+          <span className="splash__live-countdown-suffix">h</span>
+          <span className="splash__live-countdown-sep">·</span>
+          <span className="splash__live-countdown-unit">{pad2(countdown.minutes)}</span>
+          <span className="splash__live-countdown-suffix">min</span>
+          <span className="splash__live-countdown-sep">·</span>
+          <span className="splash__live-countdown-unit">{pad2(countdown.seconds)}</span>
+          <span className="splash__live-countdown-suffix">s</span>
+        </div>
 
         <div className="splash__destination">TOKIO</div>
 
@@ -406,6 +526,20 @@ export default function SplashScreen({ onDismiss }) {
         aria-modal="true"
         aria-label="Pantalla de introducción. Toca para entrar."
       >
+        {/* Pseudo-vídeo: slideshow de fotos de Japón */}
+        <div className="splash__slideshow" aria-hidden="true">
+          {SLIDES.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt=""
+              className={`splash__slide${i === slideIndex ? ' splash__slide--active' : ''}`}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
+          ))}
+        </div>
+        <div className="splash__slide-overlay" aria-hidden="true" />
+
         {/* Capas aurora */}
         <div className="splash__aurora splash__aurora--1" aria-hidden="true" />
         <div className="splash__aurora splash__aurora--2" aria-hidden="true" />

@@ -82,4 +82,19 @@ Probado en navegador real (Playwright + Chromium headless, viewport móvil 390×
 
 ---
 
+## Addendum — Ola D2: Splash pseudo-vídeo (mismo día, tras cerrar Ola 4a)
+
+Daniel no consiguió generar el vídeo de entrada que habíamos comentado, pero generó 5 fotos reales del viaje y las dejó en `client/public/JapanPics/` (Tokyo.png, Shibuya.png, Kyoto.png, Osaka.png, Japaneselads.png). Se usaron para simular un "vídeo" de entrada en `SplashScreen.jsx`:
+
+- **Slideshow en bucle:** las 5 fotos rotan cada 900ms con crossfade, con degradado oscuro + las capas de aurora/scanlines existentes encima, para que el texto siga siendo legible.
+- **Countdown dinámico real:** antes se calculaba una sola vez "días" al montar el componente. Ahora hay un `setInterval` de 1s que recalcula días/horas/minutos/segundos hasta la fecha y hora exacta de despegue (`new Date(2026, 7, 13, 12, 30, 0)`, hora de Madrid — vuelo IB0281). Se ve ticking en vivo mientras dura la splash (~5s).
+- Sin cambios en la lógica de "durante el viaje" / "después del viaje" (siguen usando el cálculo de días por fecha, no el nuevo countdown en vivo, que solo aplica al estado "antes del viaje").
+- Verificado en navegador (Playwright): 3 capturas espaciadas 1.2s muestran el slideshow avanzando (Tokyo → Kyoto → Osaka) y los segundos del countdown bajando (33 → 32). Sin errores de consola. Build de producción limpio.
+
+**Pendiente / mejora futura:** las 5 imágenes (~10MB en total) no están optimizadas — si en algún momento la carga inicial en móvil con datos móviles se siente lenta, comprimir/redimensionar antes de servir. No bloqueante para el MVP.
+
+**Archivos tocados:** `client/src/components/SplashScreen.jsx` (único archivo modificado), `client/public/JapanPics/*.png` (nuevos, aportados por Daniel), `SPEC.md` (nueva entrada Ola D2).
+
+---
+
 *Cerrado: 2026-07-14 | Próximo: HANDOVER_06.md — al terminar Ola 4b*
