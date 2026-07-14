@@ -355,25 +355,43 @@ Grid de 8px. Contenedor con `padding: 0 20px`. Gaps entre cards: 12px. Secciones
 
 ### Navegación
 **Bottom tab bar** (iOS style) — 5 tabs fijos en la parte inferior, siempre visible:
-| Tab | Icono | Funcional desde |
-|---|---|---|
-| Hoy | calendario | Ola 1 |
-| Viaje | mapa de ruta | Ola 1 |
-| Mapa | pin | Ola 3 |
-| Restaurantes | tenedor | Ola 4 |
-| Más | grid 2×2 | Ola 2 |
 
-**Tab "Más"** reemplaza "Billetes" como último tab. Es el hub de herramientas y documentos esenciales. Contiene:
-- Billetes (vuelos, hoteles, trenes) — acceso prioritario, card grande arriba
+| Tab | Icono | Badge | Funcional desde |
+|---|---|---|---|
+| Hoy | calendario | — | Ola 1 |
+| Viaje | mapa de ruta | — | Ola 1 |
+| Alertas | campana | 🔴 nº no leídas | Ola 2 |
+| Restaurantes | tenedor | — | Ola 4 |
+| Más | grid 2×2 | — | Ola 2 |
+
+**El mapa es contextual, no un tab.** Accesible mediante botón "Ver en mapa" en cada card de hotel y POI. La pantalla de mapa completa sigue existiendo pero se navega desde el contenido, no desde la barra.
+
+**Tab "Alertas"** — centro de notificaciones proactivo, tres categorías:
+
+| Categoría | Color | Qué contiene |
+|---|---|---|
+| 🔴 Acción | rojo `--accent` | Tareas con fecha límite (reservar trenes, check-in, llamadas pendientes) |
+| 🟡 Aviso | naranja `#FF9500` | Info importante sin acción inmediata (Obon, calor, tifones) |
+| 🔵 Consejo | azul `#007AFF` | Tips proactivos del día siguiente (salir a las 6:00, elegir menú kaiseki) |
+
+Comportamiento:
+- Badge rojo en la tab con el número de alertas de **Acción** no leídas
+- Las alertas de Acción son persistentes hasta que el usuario las descarta
+- Los Consejos desaparecen solos al pasar el día al que se refieren
+- Estado leído/no leído en localStorage (nunca al servidor)
+- Datos en `data/alerts.json` — editables vía git como el resto del contenido estático
+
+**Tab "Más"** — hub de herramientas y documentos:
+- Billetes (vuelos, hoteles, trenes) — card prominente arriba
 - Frases en japonés
 - Conversor ¥ / €
-- Mis documentos (passport, seguro)
+- Mis documentos (pasaporte, seguro) — localStorage
 - Emergencias
 - Guía Suica / IC card
-- Presupuesto diario
-- Notas del viaje
+- Presupuesto diario — localStorage
+- Notas del viaje — localStorage
 
-Tabs inactivos (olas futuras): visibles pero con estado `disabled`.
+Tabs inactivos (olas futuras): visibles, opacity reducida, sin navegación.
 Tab activo: icono + label en `--accent`. Tab inactivo: `--label-secondary`.
 
 ### Movimiento
@@ -509,6 +527,15 @@ Fondo --bg-secondary, lista de items sobre --bg-surface
 - "El ramen de Tsuta estaba brutal"
 - **localStorage — personal, no compartida**
 
+### F18 — Alertas proactivas (Ola 2)
+- Tab dedicado con badge de no leídas
+- Tres categorías: Acción (🔴), Aviso (🟡), Consejo (🔵)
+- Datos en `data/alerts.json` (estático, editable vía git)
+- Estado leído/no leído en localStorage
+- Alertas de Acción: persistentes hasta que el usuario las descarta
+- Consejos: desaparecen solos cuando pasa el día al que se refieren
+- Ejemplos pre-cargados: ventanas de reserva de trenes, check-in vuelo, Obon, calor Kioto, tips de madrugada para POIs con masificación
+
 ### F17 — Offline + PWA (Ola 7)
 - Service worker completo
 - Instalable desde pantalla de inicio
@@ -522,7 +549,7 @@ Fondo --bg-secondary, lista de items sobre --bg-surface
 |---|---|---|---|
 | 0 | Datos | trip.json + restaurants_db.json (32 restaurantes) | ✅ |
 | 1 | Esqueleto + Diseño | F1, F1b, F2 — vista Hoy, doble reloj, navegación, sistema Apple | ✅ |
-| 2 | Billetes | F3 — vuelos, hoteles, trenes con ventanas de reserva | ⬜ |
+| 2 | Billetes + Alertas | F3 + F18 — vuelos, hoteles, trenes + sistema de alertas con 3 categorías | ⬜ |
 | 3 | Mapa | F4 — Leaflet, geolocalización, POIs | ⬜ |
 | 4 | Restaurantes | F5 — planificador + sugeridor | ⬜ |
 | 5 | Herramientas de viaje | F6, F7, F8, F9, F10, F11, F12, F13 — historia, frases, conversor, emergencias, Suica, km al hotel, clima | ⬜ |

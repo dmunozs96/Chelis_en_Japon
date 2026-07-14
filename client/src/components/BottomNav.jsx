@@ -80,6 +80,34 @@ const STYLES = `
 .bottom-nav__tab:not(.bottom-nav__tab--active) svg {
   color: var(--label-secondary);
 }
+
+/* Badge de notificaciones */
+.bottom-nav__tab-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.bottom-nav__badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid var(--glass-bg);
+  line-height: 1;
+}
 `;
 
 /* --- Iconos SVG inline (24x24px, paths simples) --- */
@@ -110,11 +138,11 @@ function TripIcon() {
   );
 }
 
-function MapIcon() {
+function AlertsIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M12 2C8.69 2 6 4.69 6 8c0 4.5 6 12 6 12s6-7.5 6-12c0-3.31-2.69-6-6-6z" />
-      <circle cx="12" cy="8" r="2" />
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+      <path d="M13.73 21a2 2 0 0 1-3.46 0" />
     </svg>
   );
 }
@@ -145,14 +173,15 @@ function TicketIcon() {
 }
 
 const TABS = [
-  { id: 'today',       label: 'Hoy',         Icon: TodayIcon,  disabled: false },
-  { id: 'trip',        label: 'Viaje',        Icon: TripIcon,   disabled: false },
-  { id: 'map',         label: 'Mapa',         Icon: MapIcon,    disabled: true  },
-  { id: 'restaurants', label: 'Restaurantes', Icon: ForkIcon,   disabled: true  },
-  { id: 'tickets',     label: 'Billetes',     Icon: TicketIcon, disabled: true  },
+  { id: 'today',       label: 'Hoy',         Icon: TodayIcon,   disabled: false },
+  { id: 'trip',        label: 'Viaje',        Icon: TripIcon,    disabled: false },
+  { id: 'alerts',      label: 'Alertas',      Icon: AlertsIcon,  disabled: true  },
+  { id: 'restaurants', label: 'Restaurantes', Icon: ForkIcon,    disabled: true  },
+  { id: 'more',        label: 'Más',          Icon: TicketIcon,  disabled: true  },
 ];
 
-export default function BottomNav({ activeTab, onTabChange }) {
+// badge: número de alertas de Acción no leídas (se pasará desde App cuando esté implementado)
+export default function BottomNav({ activeTab, onTabChange, alertBadge = 0 }) {
   return (
     <>
       <style>{STYLES}</style>
@@ -160,10 +189,11 @@ export default function BottomNav({ activeTab, onTabChange }) {
         <nav className="bottom-nav-inner">
           {TABS.map(({ id, label, Icon, disabled }) => {
             const isActive = activeTab === id;
+            const showBadge = id === 'alerts' && alertBadge > 0;
             const classes = [
               'bottom-nav__tab',
-              isActive   ? 'bottom-nav__tab--active'   : '',
-              disabled   ? 'bottom-nav__tab--disabled'  : '',
+              isActive ? 'bottom-nav__tab--active'  : '',
+              disabled ? 'bottom-nav__tab--disabled' : '',
             ].filter(Boolean).join(' ');
 
             return (
@@ -173,11 +203,18 @@ export default function BottomNav({ activeTab, onTabChange }) {
                 onClick={() => !disabled && onTabChange(id)}
                 aria-current={isActive ? 'page' : undefined}
                 aria-disabled={disabled ? 'true' : undefined}
-                aria-label={label}
+                aria-label={showBadge ? `${label}, ${alertBadge} alertas` : label}
               >
-                <span className="bottom-nav__icon">
-                  <Icon />
-                </span>
+                <div className="bottom-nav__tab-wrapper">
+                  <span className="bottom-nav__icon">
+                    <Icon />
+                  </span>
+                  {showBadge && (
+                    <span className="bottom-nav__badge" aria-hidden="true">
+                      {alertBadge > 9 ? '9+' : alertBadge}
+                    </span>
+                  )}
+                </div>
                 <span className="bottom-nav__label">{label}</span>
               </button>
             );
