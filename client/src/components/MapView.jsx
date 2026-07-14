@@ -1,0 +1,564 @@
+import React, { useEffect, useRef, useState } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+
+/* ---------------------------------------------------------------
+   MapView
+   Pantalla de mapa completa. Overlay fijo sobre toda la app.
+   Muestra posición del usuario, hotel del día y POIs del día.
+   --------------------------------------------------------------- */
+
+const STYLES = `
+/* ---- Contenedor principal ---- */
+.map-view {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ---- Barra de navegación superior ---- */
+.map-nav {
+  position: relative;
+  z-index: 10;
+  height: 60px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--separator);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.map-nav__back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 17px;
+  font-family: var(--font);
+  font-weight: 400;
+  cursor: pointer;
+  padding: 8px 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.map-nav__back svg {
+  flex-shrink: 0;
+}
+
+.map-nav__title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--label-primary);
+  letter-spacing: -0.2px;
+}
+
+/* ---- Contenedor del mapa ---- */
+.map-wrapper {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* El div que Leaflet usa — height explícito requerido */
+#chelis-map {
+  width: 100%;
+  height: calc(100dvh - 60px - 120px);
+  background: #e8e0d8;
+}
+
+/* ---- Banner sin GPS ---- */
+.map-no-gps-banner {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--separator);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--label-secondary);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ---- Mini panel inferior de POIs ---- */
+.map-panel {
+  position: relative;
+  z-index: 10;
+  height: 120px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--separator);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.map-panel__handle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0 4px;
+  flex-shrink: 0;
+}
+
+.map-panel__handle-bar {
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--separator);
+}
+
+.map-panel__title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--label-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 16px 6px;
+  flex-shrink: 0;
+}
+
+.map-panel__list {
+  display: flex;
+  gap: 10px;
+  padding: 0 16px 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex: 1;
+}
+
+.map-panel__list::-webkit-scrollbar {
+  display: none;
+}
+
+.map-panel__empty {
+  padding: 0 16px;
+  font-size: 14px;
+  color: var(--label-tertiary);
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+/* ---- POI chip en el panel ---- */
+.poi-chip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 140px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border: 1.5px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.poi-chip:active {
+  border-color: var(--accent);
+}
+
+.poi-chip__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--label-primary);
+  line-height: 1.3;
+  margin-bottom: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.poi-chip__type {
+  font-size: 11px;
+  color: var(--label-secondary);
+  text-transform: capitalize;
+}
+
+/* ---- Hotel chip en el panel ---- */
+.hotel-chip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 140px;
+  background: rgba(232, 0, 45, 0.07);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border: 1.5px solid rgba(232, 0, 45, 0.15);
+}
+
+.hotel-chip:active {
+  border-color: var(--accent);
+}
+
+.hotel-chip__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--label-primary);
+  line-height: 1.3;
+  margin-bottom: 3px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hotel-chip__type {
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* ---- CSS de los marcadores SVG ---- */
+@keyframes map-pulse {
+  0%   { transform: scale(1); opacity: 0.8; }
+  70%  { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.marker-user {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.marker-user__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #007AFF;
+  opacity: 0.3;
+  animation: map-pulse 2s ease-out infinite;
+}
+
+.marker-user__dot {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: #007AFF;
+  border: 2.5px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,122,255,0.5);
+}
+
+/* Popups Leaflet custom */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15) !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  font-family: var(--font) !important;
+}
+
+.leaflet-popup-tip-container {
+  display: none !important;
+}
+
+.map-popup {
+  padding: 12px 14px;
+  min-width: 180px;
+  max-width: 240px;
+}
+
+.map-popup__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1c1c1e;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.map-popup__type {
+  font-size: 12px;
+  color: #8E8E93;
+  text-transform: capitalize;
+  margin-bottom: 6px;
+}
+
+.map-popup__note {
+  font-size: 13px;
+  color: #3a3a3c;
+  line-height: 1.45;
+}
+`;
+
+/* ---- Helpers para crear iconos SVG ---- */
+
+function createUserIcon() {
+  return L.divIcon({
+    className: '',
+    html: `<div class="marker-user"><div class="marker-user__ring"></div><div class="marker-user__dot"></div></div>`,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+  });
+}
+
+function createHotelIcon() {
+  const svg = `
+    <svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 10 16 24 16 24s16-14 16-24C32 7.163 24.837 0 16 0z" fill="#E8002D"/>
+      <rect x="8" y="13" width="16" height="10" rx="2" fill="white" opacity="0.9"/>
+      <rect x="10" y="16" width="5" height="5" rx="1" fill="#E8002D"/>
+      <rect x="17" y="16" width="5" height="5" rx="1" fill="#E8002D"/>
+    </svg>`;
+  return L.divIcon({
+    className: '',
+    html: svg,
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -40],
+  });
+}
+
+function createPoiIcon(type) {
+  const isMemorial = type === 'memorial';
+  const color = isMemorial ? '#8E8E93' : '#FF6B35';
+  const svg = `
+    <svg width="26" height="34" viewBox="0 0 26 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13 0C5.82 0 0 5.82 0 13c0 8.5 13 21 13 21s13-12.5 13-21C26 5.82 20.18 0 13 0z" fill="${color}"/>
+      <circle cx="13" cy="13" r="4" fill="white" opacity="0.9"/>
+    </svg>`;
+  return L.divIcon({
+    className: '',
+    html: svg,
+    iconSize: [26, 34],
+    iconAnchor: [13, 34],
+    popupAnchor: [0, -34],
+  });
+}
+
+function popupContent(name, type, note) {
+  return `
+    <div class="map-popup">
+      <div class="map-popup__name">${name}</div>
+      ${type ? `<div class="map-popup__type">${type}</div>` : ''}
+      ${note ? `<div class="map-popup__note">${note}</div>` : ''}
+    </div>`;
+}
+
+/* ---- Coordenadas de fallback por ciudad ---- */
+const CITY_CENTERS = {
+  'Tokio':     [35.6762, 139.6503],
+  'Hakone':    [35.2324, 139.1069],
+  'Kioto':     [35.0116, 135.7681],
+  'Hiroshima': [34.3853, 132.4553],
+  'Osaka':     [34.6937, 135.5023],
+};
+
+/* ---- Componente principal ---- */
+export default function MapView({ dayData, allHotels, onBack, centerOn = 'user' }) {
+  const mapRef = useRef(null);
+  const mapInstanceRef = useRef(null);
+  const [noGps, setNoGps] = useState(false);
+
+  // Buscar el hotel del día en allHotels para obtener lat/lng
+  const hotelName = dayData?.hotel?.name ?? null;
+  const hotelFull = hotelName
+    ? allHotels.find(h => h.name === hotelName) ?? null
+    : null;
+
+  const pois = dayData?.pois ?? [];
+  const city = dayData?.city ?? 'Tokio';
+
+  useEffect(() => {
+    if (!mapRef.current) return;
+    // Si ya existe instancia, limpiar antes de reiniciar
+    if (mapInstanceRef.current) {
+      mapInstanceRef.current.remove();
+      mapInstanceRef.current = null;
+    }
+
+    // Determinar centro inicial de fallback
+    const hotelCenter = hotelFull?.lat && hotelFull?.lng
+      ? [hotelFull.lat, hotelFull.lng]
+      : null;
+    const cityCenter = CITY_CENTERS[city] ?? [35.6762, 139.6503];
+    const fallbackCenter = hotelCenter ?? cityCenter;
+
+    // Inicializar mapa
+    const map = L.map(mapRef.current, {
+      center: fallbackCenter,
+      zoom: 14,
+      zoomControl: true,
+      attributionControl: true,
+    });
+    mapInstanceRef.current = map;
+
+    // Tile layer CartoDB Positron
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19,
+    }).addTo(map);
+
+    // Añadir marcador del hotel del día
+    if (hotelFull?.lat && hotelFull?.lng) {
+      const hotelMarker = L.marker([hotelFull.lat, hotelFull.lng], { icon: createHotelIcon() });
+      hotelMarker.bindPopup(popupContent(hotelFull.name, 'Hotel', null));
+      hotelMarker.addTo(map);
+    }
+
+    // Añadir marcadores de POIs
+    pois.forEach(poi => {
+      if (poi.lat == null || poi.lng == null) return;
+      const marker = L.marker([poi.lat, poi.lng], { icon: createPoiIcon(poi.type) });
+      marker.bindPopup(popupContent(poi.name, poi.type, poi.note));
+      marker.addTo(map);
+    });
+
+    // Geolocalización
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          if (!mapInstanceRef.current) return;
+          const { latitude, longitude } = pos.coords;
+          const userMarker = L.marker([latitude, longitude], { icon: createUserIcon() });
+          userMarker.addTo(mapInstanceRef.current);
+          if (centerOn === 'user') {
+            mapInstanceRef.current.setView([latitude, longitude], 15);
+          }
+          setNoGps(false);
+        },
+        () => {
+          // Sin permiso o fallo — centrar en hotel/ciudad
+          setNoGps(true);
+          if (mapInstanceRef.current && centerOn === 'user') {
+            mapInstanceRef.current.setView(fallbackCenter, 14);
+          }
+        },
+        { timeout: 8000, maximumAge: 60000 }
+      );
+    } else {
+      setNoGps(true);
+    }
+
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dayData?.date]);
+
+  // Centrar mapa en un POI al tocar en el panel
+  function flyToPoi(lat, lng, name, type, note) {
+    if (!mapInstanceRef.current) return;
+    mapInstanceRef.current.flyTo([lat, lng], 16, { duration: 0.6 });
+    // Abrir popup al llegar
+    setTimeout(() => {
+      if (!mapInstanceRef.current) return;
+      const popup = L.popup({ closeButton: false })
+        .setLatLng([lat, lng])
+        .setContent(popupContent(name, type, note))
+        .openOn(mapInstanceRef.current);
+    }, 700);
+  }
+
+  function flyToHotel() {
+    if (!mapInstanceRef.current || !hotelFull?.lat) return;
+    mapInstanceRef.current.flyTo([hotelFull.lat, hotelFull.lng], 16, { duration: 0.6 });
+  }
+
+  return (
+    <>
+      <style>{STYLES}</style>
+      <div className="map-view" role="main" aria-label="Mapa del día">
+
+        {/* Nav bar */}
+        <nav className="map-nav">
+          <button className="map-nav__back" onClick={onBack} aria-label="Volver">
+            <svg width="10" height="17" viewBox="0 0 10 17" fill="none" aria-hidden="true">
+              <path d="M9 1L1.5 8.5L9 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Volver
+          </button>
+          <span className="map-nav__title">Mapa del día</span>
+        </nav>
+
+        {/* Contenedor del mapa */}
+        <div className="map-wrapper">
+          <div id="chelis-map" ref={mapRef} />
+
+          {/* Banner sin GPS */}
+          {noGps && (
+            <div className="map-no-gps-banner" aria-live="polite">
+              📍 Sin ubicación en tiempo real
+            </div>
+          )}
+        </div>
+
+        {/* Mini panel inferior */}
+        <div className="map-panel" aria-label="Lugares del día">
+          <div className="map-panel__handle" aria-hidden="true">
+            <div className="map-panel__handle-bar" />
+          </div>
+          <div className="map-panel__title">Lugares del día</div>
+
+          {(pois.length === 0 && !hotelFull) ? (
+            <div className="map-panel__empty">Sin lugares para este día</div>
+          ) : (
+            <div className="map-panel__list">
+              {/* Hotel primero si existe */}
+              {hotelFull?.lat && hotelFull?.lng && (
+                <div
+                  className="hotel-chip"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Hotel: ${hotelFull.name}`}
+                  onClick={flyToHotel}
+                  onKeyDown={e => e.key === 'Enter' && flyToHotel()}
+                >
+                  <div className="hotel-chip__name">{hotelFull.name}</div>
+                  <div className="hotel-chip__type">Hotel</div>
+                </div>
+              )}
+
+              {/* POIs */}
+              {pois.map(poi => (
+                <div
+                  key={poi.id}
+                  className="poi-chip"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`POI: ${poi.name}`}
+                  onClick={() => poi.lat != null && flyToPoi(poi.lat, poi.lng, poi.name, poi.type, poi.note)}
+                  onKeyDown={e => e.key === 'Enter' && poi.lat != null && flyToPoi(poi.lat, poi.lng, poi.name, poi.type, poi.note)}
+                >
+                  <div className="poi-chip__name">{poi.name}</div>
+                  <div className="poi-chip__type">{poi.type}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
+}

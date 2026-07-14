@@ -12,6 +12,7 @@
       "city": "Madrid",
       "title": "La aventura empieza — Navalcarnero → Barajas T4 → Tokio",
       "hotel": null,
+      "pois": [],
       "blocks": [
         { "time": "mañana", "label": "Salida", "activity": "Salida desde Navalcarnero hacia el aeropuerto Barajas T4" },
         { "time": "mediodía", "label": "Vuelo", "activity": "Vuelo IB0281 MAD → NRT — salida 12:30 desde Barajas T4" },
@@ -28,6 +29,10 @@
         "checkin": "14:00",
         "checkout": "11:00"
       },
+      "pois": [
+        { "id": "hibiya-park", "name": "Hibiya Park", "type": "parque", "lat": 35.6734, "lng": 139.7578, "note": "Primer parque occidental de Japón (1903). A 8 min del hotel." },
+        { "id": "ginza-six", "name": "Ginza Six (azotea)", "type": "mirador", "lat": 35.6704, "lng": 139.7647, "note": "Jardín gratuito en la azotea con vistas. 5-10 min del hotel." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Llegada", "activity": "Aterrizaje Narita T2 a las 09:30 — control de pasaportes y aduana" },
         { "time": "mediodía", "label": "Traslado", "activity": "Traslado en tren desde Narita al centro de Tokio" },
@@ -45,6 +50,11 @@
         "checkin": null,
         "checkout": null
       },
+      "pois": [
+        { "id": "sensoji", "name": "Templo Senso-ji", "type": "templo", "lat": 35.7147, "lng": 139.7966, "note": "El templo más antiguo de Tokio. Mejor de mañana o de noche iluminado." },
+        { "id": "imperial-east", "name": "Jardines del Este del Palacio Imperial", "type": "jardín", "lat": 35.6852, "lng": 139.7528, "note": "Gratis. Cerrado lunes y viernes. Abierto hoy (sábado)." },
+        { "id": "shibuya-crossing", "name": "Shibuya Crossing", "type": "icono", "lat": 35.6595, "lng": 139.7004, "note": "El cruce más famoso del mundo. Mejor al atardecer." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Asakusa", "activity": "Templo Senso-ji, Nakamise-dori y callejuelas de Asakusa" },
         { "time": "tarde", "label": "Palacio Imperial", "activity": "Jardines del Palacio Imperial y zona de Chiyoda" },
@@ -62,6 +72,9 @@
         "checkin": null,
         "checkout": null
       },
+      "pois": [
+        { "id": "yanaka", "name": "Barrio de Yanaka", "type": "barrio", "lat": 35.7267, "lng": 139.7693, "note": "Barrio histórico que sobrevivió los bombardeos de la WWII. Callejones y tiendas tradicionales." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Yanaka", "activity": "Barrio histórico de Yanaka — cementerio, callejuelas y tiendas artesanales" },
         { "time": "tarde", "label": "Libre", "activity": "Tarde completamente libre — explorar, descansar, compras o karaoke" },
@@ -78,6 +91,9 @@
         "checkin": "15:00",
         "checkout": "11:00"
       },
+      "pois": [
+        { "id": "hakone-openair", "name": "Hakone Open-Air Museum", "type": "museo", "lat": 35.2349, "lng": 139.0457, "note": "10-15 min a pie del ryokan. Abre 9:00-17:00." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Check-out Tokio", "activity": "Check-out de The Gate Hotel Tokyo y traslado a la estación" },
         { "time": "mediodía", "label": "Viaje", "activity": "Tren Romancecar o Shinkansen hasta Odawara/Hakone-Yumoto" },
@@ -95,6 +111,10 @@
         "checkin": "14:00",
         "checkout": "11:00"
       },
+      "pois": [
+        { "id": "nishiki-market", "name": "Nishiki Market", "type": "mercado", "lat": 35.0046, "lng": 135.7659, "note": "El 'cocina de Kioto'. Street food y productos locales." },
+        { "id": "pontocho", "name": "Pontocho", "type": "barrio", "lat": 35.0072, "lng": 135.7694, "note": "Callejón gastronómico histórico junto al río Kamo." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Hakone", "activity": "Última mañana en Hakone — Lago Ashi y vistas al Fuji si el cielo acompaña" },
         { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen desde Odawara hasta Kioto" },
@@ -112,6 +132,10 @@
         "checkin": null,
         "checkout": null
       },
+      "pois": [
+        { "id": "fushimi-inari", "name": "Fushimi Inari Taisha", "type": "santuario", "lat": 34.9671, "lng": 135.7727, "note": "Miles de torii rojos. Ir antes de las 8:00 para evitar masificación." },
+        { "id": "kiyomizudera", "name": "Kiyomizu-dera", "type": "templo", "lat": 34.9948, "lng": 135.7851, "note": "Templo del s.VIII con terraza de madera sobre el valle. Bus 207." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Fushimi Inari", "activity": "Fushimi Inari-taisha — subir entre los miles de torii al amanecer" },
         { "time": "tarde", "label": "Higashiyama", "activity": "Paseo por Higashiyama — Sannenzaka, Ninenzaka y Kiyomizudera" },
@@ -128,6 +152,11 @@
         "checkin": null,
         "checkout": null
       },
+      "pois": [
+        { "id": "arashiyama", "name": "Bosque de Bambú de Arashiyama", "type": "naturaleza", "lat": 35.0170, "lng": 135.6727, "note": "Llegar antes de las 7:00. JR Sagano Line desde Kyoto Station." },
+        { "id": "kinkakuji", "name": "Kinkaku-ji (Pabellón Dorado)", "type": "templo", "lat": 35.0394, "lng": 135.7292, "note": "Templo cubierto de pan de oro. Bus desde Arashiyama." },
+        { "id": "nijo-castle", "name": "Castillo Nijo", "type": "castillo", "lat": 35.0142, "lng": 135.7480, "note": "Residencia del shogunato Tokugawa. Bus 12 desde el centro, 15 min." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Arashiyama", "activity": "Bosque de bambú de Arashiyama y templo Tenryu-ji" },
         { "time": "tarde", "label": "Kinkaku-ji", "activity": "Pabellón Dorado Kinkaku-ji" },
@@ -145,6 +174,10 @@
         "checkin": "14:00",
         "checkout": "11:00"
       },
+      "pois": [
+        { "id": "peace-park", "name": "Parque Memorial de la Paz", "type": "memorial", "lat": 34.3916, "lng": 132.4533, "note": "Lugar de memoria del bombardeo atómico del 6 ago 1945. Ir con el tono adecuado." },
+        { "id": "genbaku-dome", "name": "Cúpula Genbaku", "type": "memorial", "lat": 34.3955, "lng": 132.4533, "note": "Patrimonio UNESCO. Una de las pocas estructuras que quedó en pie cerca del hipocentro." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Check-out Kioto", "activity": "Check-out de Hotel Gracery Kyoto Sanjo y traslado a la estación" },
         { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Kioto → Hiroshima" },
@@ -163,6 +196,10 @@
         "checkin": "15:00",
         "checkout": "11:00"
       },
+      "pois": [
+        { "id": "dotonbori", "name": "Dotonbori", "type": "barrio", "lat": 34.6687, "lng": 135.5017, "note": "Canal con letreros de neón. El corazón gastronómico de Osaka." },
+        { "id": "hozenji", "name": "Hozenji Yokocho", "type": "callejón", "lat": 34.6680, "lng": 135.5030, "note": "Callejón tradicional de piedra. Mantener silencio al pasar." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Miyajima", "activity": "Isla de Miyajima — torii flotante del santuario Itsukushima" },
         { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Hiroshima → Osaka" },
@@ -180,6 +217,9 @@
         "checkin": "14:00",
         "checkout": "11:00"
       },
+      "pois": [
+        { "id": "osaka-castle", "name": "Castillo de Osaka (exteriores)", "type": "castillo", "lat": 34.6873, "lng": 135.5262, "note": "Solo exteriores y foso — tiempo ajustado antes del check-out." }
+      ],
       "blocks": [
         { "time": "mañana", "label": "Osaka", "activity": "Última mañana en Osaka — Castillo de Osaka o Shinsekai" },
         { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Osaka → Tokio" },
@@ -197,6 +237,7 @@
         "checkin": null,
         "checkout": null
       },
+      "pois": [],
       "blocks": [
         { "time": "mañana", "label": "Libre", "activity": "Mañana libre — última oportunidad para compras, museos o barrios pendientes" },
         { "time": "tarde", "label": "Libre", "activity": "Tarde libre — Odaiba, TeamLab, Harajuku o simplemente pasear" },
@@ -209,6 +250,7 @@
       "city": "Tokio",
       "title": "De vuelta a casa — Tokio → Barajas T4 → Navalcarnero",
       "hotel": null,
+      "pois": [],
       "blocks": [
         { "time": "madrugada", "label": "Check-out", "activity": "Check-out del hotel a las 07:00 — traslado al aeropuerto Narita" },
         { "time": "mañana", "label": "Vuelo", "activity": "Vuelo IB0282 NRT → MAD — salida 11:10 desde Narita" },
@@ -250,6 +292,8 @@
       "confirmation": "2353683771",
       "checkin": "14:00",
       "checkout": "11:00",
+      "lat": 35.6754,
+      "lng": 139.7630,
       "dates": { "from": "2026-08-14", "to": "2026-08-17" },
       "notes": "Hotel en Yurakucho, junto a Ginza. 1ª estancia."
     },
@@ -264,6 +308,8 @@
       "confirmation": "2353697833",
       "checkin": "15:00",
       "checkout": "11:00",
+      "lat": 35.2357,
+      "lng": 139.0197,
       "dates": { "from": "2026-08-17", "to": "2026-08-18" },
       "notes": "Ryokan con onsen. Shuttle gratuito 14:00-17:00 desde Kowakidani Station. Cena kaiseki incluida (elegir menú al llegar). Política de tatuajes: PENDIENTE DE CONFIRMAR.",
       "shuttle": "Gratuito 14:00–17:00 desde Kowakidani Station",
@@ -280,6 +326,8 @@
       "confirmation": "2353733106",
       "checkin": "14:00",
       "checkout": "11:00",
+      "lat": 35.0086,
+      "lng": 135.7694,
       "dates": { "from": "2026-08-18", "to": "2026-08-21" },
       "notes": "En Sanjo, cerca de Gion y Pontocho."
     },
@@ -294,6 +342,8 @@
       "confirmation": "2353738122",
       "checkin": "14:00",
       "checkout": "12:00",
+      "lat": 34.3966,
+      "lng": 132.4756,
       "dates": { "from": "2026-08-21", "to": "2026-08-22" },
       "notes": "Junto a la estación de Hiroshima."
     },
@@ -308,6 +358,8 @@
       "confirmation": "2353744797",
       "checkin": "15:00",
       "checkout": "11:00",
+      "lat": 34.6659,
+      "lng": 135.5008,
       "dates": { "from": "2026-08-22", "to": "2026-08-23" },
       "notes": "En Namba. Onsen natural (radón). Política de tatuajes: confirmar en recepción al llegar."
     },
@@ -322,6 +374,8 @@
       "confirmation": "2353752190",
       "checkin": "14:00",
       "checkout": "11:00",
+      "lat": 35.6754,
+      "lng": 139.7630,
       "dates": { "from": "2026-08-23", "to": "2026-08-25" },
       "notes": "2ª estancia en Tokio. Mismo hotel que la llegada."
     }

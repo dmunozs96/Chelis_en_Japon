@@ -8,6 +8,7 @@ import ComingSoon  from './components/ComingSoon.jsx';
 import AlertsView  from './components/AlertsView.jsx';
 import MoreView    from './components/MoreView.jsx';
 import TicketsView from './components/TicketsView.jsx';
+import MapView     from './components/MapView.jsx';
 
 /* ---------------------------------------------------------------
    App — shell principal
@@ -40,10 +41,11 @@ const LOADING_STYLES = `
 `;
 
 export default function App() {
-  const { days, loading, error } = useTripData();
+  const { days, hotels, loading, error } = useTripData();
   const { alerts } = useAlertsData();
   const [activeTab, setActiveTab] = useState('today');
   const [showTickets, setShowTickets] = useState(false);
+  const [mapDayData, setMapDayData] = useState(null);
   const [alertBadge, setAlertBadge] = useState(0);
 
   // Compute initial badge from localStorage on mount and when alerts load
@@ -52,6 +54,20 @@ export default function App() {
       setAlertBadge(getUnreadActionCount(alerts));
     }
   }, [alerts]);
+
+  // If MapView is showing, render it over everything
+  if (mapDayData !== null) {
+    return (
+      <>
+        <style>{LOADING_STYLES}</style>
+        <MapView
+          dayData={mapDayData}
+          allHotels={hotels}
+          onBack={() => setMapDayData(null)}
+        />
+      </>
+    );
+  }
 
   // If TicketsView is showing, render it over everything
   if (showTickets) {
@@ -73,7 +89,7 @@ export default function App() {
           {loading && <div className="app-loading">Cargando datos del viaje…</div>}
           {error   && <div className="app-error">Error cargando datos: {error}</div>}
 
-          {!loading && !error && activeTab === 'today'       && <TodayView days={days} />}
+          {!loading && !error && activeTab === 'today'       && <TodayView days={days} onOpenMap={setMapDayData} />}
           {!loading && !error && activeTab === 'trip'        && <DayNav    days={days} />}
           {!loading && !error && activeTab === 'alerts'      && (
             <AlertsView onBadgeChange={setAlertBadge} />

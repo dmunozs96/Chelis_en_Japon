@@ -124,6 +124,20 @@ const STYLES = `
   text-transform: capitalize;
 }
 
+.map-btn {
+  background: var(--bg-secondary);
+  color: var(--label-primary);
+  border: none;
+  border-radius: var(--radius-btn);
+  padding: 10px 20px;
+  font-size: 15px;
+  font-family: var(--font);
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 12px;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* ---- Hotel card ---- */
 .hotel-card {
   background: var(--bg-surface);
@@ -349,7 +363,7 @@ function timeToFranja(time) {
 }
 
 /* --- DayCard: exportado para uso en DayNav --- */
-export function DayCard({ day, days = [] }) {
+export function DayCard({ day, days = [], onOpenMap }) {
   const isFree = day.type === 'free';
   const dayNum = days.length > 0 ? getDayNumber(days, day) : null;
 
@@ -364,6 +378,11 @@ export function DayCard({ day, days = [] }) {
           </div>
           <h1 className="hero-card__title">{day.title}</h1>
           <p className="hero-card__subtitle">{formatDateEs(day.date)}</p>
+          {onOpenMap && (
+            <button onClick={() => onOpenMap(day)} className="map-btn">
+              📍 Ver en mapa
+            </button>
+          )}
         </div>
 
         {/* Hotel */}
@@ -398,7 +417,7 @@ export function DayCard({ day, days = [] }) {
 }
 
 /* --- Vista principal de "Hoy" --- */
-export default function TodayView({ days }) {
+export default function TodayView({ days, onOpenMap }) {
   const today = todayISO();
 
   const currentDay = useMemo(
@@ -451,5 +470,5 @@ export default function TodayView({ days }) {
     );
   }
 
-  return <DayCard day={currentDay} days={days} />;
+  return <DayCard day={currentDay} days={days} onOpenMap={onOpenMap} />;
 }
