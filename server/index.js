@@ -1,12 +1,15 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const fs = require('fs');
 
 const healthRouter = require('./routes/health');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const isProd = process.env.NODE_ENV === 'production';
+const distPath = path.join(__dirname, '..', 'client', 'dist');
+const hasDist = fs.existsSync(distPath);
 
 // ---------------------------------------------------------------------------
 // Middleware
@@ -47,9 +50,7 @@ app.get('/api', (_req, res) => {
 // Static frontend (production only)
 // ---------------------------------------------------------------------------
 
-if (isProd) {
-  const distPath = path.join(__dirname, '..', 'client', 'dist');
-
+if (hasDist) {
   app.use(express.static(distPath));
 
   // SPA fallback — all non-API routes return index.html.
@@ -58,6 +59,10 @@ if (isProd) {
       return res.status(404).json({ error: 'Not found' });
     }
     res.sendFile(path.join(distPath, 'index.html'));
+  });
+} else {
+  app.get('/', (_req, res) => {
+    res.json({ status: 'API running — frontend build not found (run npm run build)' });
   });
 }
 
