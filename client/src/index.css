@@ -1,0 +1,70 @@
+/* =========================================================
+   Chelis en Japón — Global Styles
+   Mobile-first, reference viewport: 390px
+   ========================================================= */
+
+/* --- CSS custom properties --- */
+:root {
+  --color-bg:         #FAFAF5;   /* off-white / washi paper */
+  --color-surface:    #FFFFFF;
+  --color-torii:      #C0392B;   /* torii red */
+  --color-torii-dark: #922B21;
+  --color-text:       #1A1A1A;
+  --color-text-muted: #6B7280;
+  --color-border:     #E5E7EB;
+  --color-free-bg:    #FDF6EC;   /* warm amber for free days */
+  --color-free-accent:#D97706;
+  --color-transit-bg: #EEF2FF;   /* indigo tint for travel days */
+  --color-transit-accent: #4F46E5;
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-pill:9999px;
+
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.08);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
+               Arial, 'Noto Sans', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas,
+               'Liberation Mono', monospace;
+}
+
+/* --- Reset & base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100dvh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+/* --- Utility classes --- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}

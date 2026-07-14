@@ -1,0 +1,219 @@
+{
+  "trip": {
+    "name": "Chelis en Japón",
+    "year": 2026,
+    "origin": "Navalcarnero, Madrid",
+    "destinations": ["Tokio", "Hakone", "Kioto", "Hiroshima", "Osaka"]
+  },
+  "days": [
+    {
+      "date": "2026-08-13",
+      "type": "transit_out",
+      "city": "Madrid",
+      "title": "La aventura empieza — Navalcarnero → Barajas T4 → Tokio",
+      "hotel": null,
+      "blocks": [
+        { "time": "mañana", "label": "Salida", "activity": "Salida desde Navalcarnero hacia el aeropuerto Barajas T4" },
+        { "time": "mediodía", "label": "Vuelo", "activity": "Vuelo IB0281 MAD → NRT — salida 12:30 desde Barajas T4" },
+        { "time": "noche", "label": "En vuelo", "activity": "Vuelo transatlántico hacia Tokio Narita" }
+      ]
+    },
+    {
+      "date": "2026-08-14",
+      "type": "arrival",
+      "city": "Tokio",
+      "title": "¡Llegamos a Tokio! — Narita → Hotel",
+      "hotel": {
+        "name": "The Gate Hotel Tokyo by HULIC",
+        "checkin": "14:00",
+        "checkout": "11:00"
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Llegada", "activity": "Aterrizaje Narita T2 a las 09:30 — control de pasaportes y aduana" },
+        { "time": "mediodía", "label": "Traslado", "activity": "Traslado en tren desde Narita al centro de Tokio" },
+        { "time": "tarde", "label": "Check-in", "activity": "Check-in en The Gate Hotel Tokyo by HULIC a partir de las 14:00" },
+        { "time": "noche", "label": "Descanso", "activity": "Primer paseo por el barrio del hotel — recuperar el jet lag" }
+      ]
+    },
+    {
+      "date": "2026-08-15",
+      "type": "normal",
+      "city": "Tokio",
+      "title": "Tokio clásico — Asakusa, Palacio Imperial y Shibuya",
+      "hotel": {
+        "name": "The Gate Hotel Tokyo by HULIC",
+        "checkin": null,
+        "checkout": null
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Asakusa", "activity": "Templo Senso-ji, Nakamise-dori y callejuelas de Asakusa" },
+        { "time": "tarde", "label": "Palacio Imperial", "activity": "Jardines del Palacio Imperial y zona de Chiyoda" },
+        { "time": "tarde", "label": "Shibuya", "activity": "Cruce de Shibuya y alrededores — Harajuku opcional" },
+        { "time": "noche", "label": "Cena", "activity": "Cena en Shibuya o Shinjuku" }
+      ]
+    },
+    {
+      "date": "2026-08-16",
+      "type": "free",
+      "city": "Tokio",
+      "title": "Tokio a tu ritmo — Yanaka y tarde libre",
+      "hotel": {
+        "name": "The Gate Hotel Tokyo by HULIC",
+        "checkin": null,
+        "checkout": null
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Yanaka", "activity": "Barrio histórico de Yanaka — cementerio, callejuelas y tiendas artesanales" },
+        { "time": "tarde", "label": "Libre", "activity": "Tarde completamente libre — explorar, descansar, compras o karaoke" },
+        { "time": "noche", "label": "Libre", "activity": "Noche libre — izakaya, ramen o lo que apetezca" }
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "type": "normal",
+      "city": "Hakone",
+      "title": "Tokio → Hakone — Naturaleza y Monte Fuji",
+      "hotel": {
+        "name": "Mizunoto",
+        "checkin": "15:00",
+        "checkout": "11:00"
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Check-out Tokio", "activity": "Check-out de The Gate Hotel Tokyo y traslado a la estación" },
+        { "time": "mediodía", "label": "Viaje", "activity": "Tren Romancecar o Shinkansen hasta Odawara/Hakone-Yumoto" },
+        { "time": "tarde", "label": "Check-in Hakone", "activity": "Check-in en Mizunoto a las 15:00 — ryokan con onsen" },
+        { "time": "noche", "label": "Onsen y cena", "activity": "Kaiseki (cena tradicional) y onsen en el ryokan" }
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "type": "normal",
+      "city": "Kioto",
+      "title": "Hakone → Kioto — La ciudad de los templos",
+      "hotel": {
+        "name": "Hotel Gracery Kyoto Sanjo",
+        "checkin": "14:00",
+        "checkout": "11:00"
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Hakone", "activity": "Última mañana en Hakone — Lago Ashi y vistas al Fuji si el cielo acompaña" },
+        { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen desde Odawara hasta Kioto" },
+        { "time": "tarde", "label": "Check-in Kioto", "activity": "Check-in en Hotel Gracery Kyoto Sanjo a las 14:00" },
+        { "time": "noche", "label": "Gion", "activity": "Primer paseo por el barrio de Gion al atardecer" }
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "type": "normal",
+      "city": "Kioto",
+      "title": "Kioto espiritual — Fushimi Inari y Higashiyama",
+      "hotel": {
+        "name": "Hotel Gracery Kyoto Sanjo",
+        "checkin": null,
+        "checkout": null
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Fushimi Inari", "activity": "Fushimi Inari-taisha — subir entre los miles de torii al amanecer" },
+        { "time": "tarde", "label": "Higashiyama", "activity": "Paseo por Higashiyama — Sannenzaka, Ninenzaka y Kiyomizudera" },
+        { "time": "noche", "label": "Gion", "activity": "Cena en Gion y paseo nocturno por Pontocho" }
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "type": "normal",
+      "city": "Kioto",
+      "title": "Kioto verde y dorado — Arashiyama, Kinkaku-ji y Nijo",
+      "hotel": {
+        "name": "Hotel Gracery Kyoto Sanjo",
+        "checkin": null,
+        "checkout": null
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Arashiyama", "activity": "Bosque de bambú de Arashiyama y templo Tenryu-ji" },
+        { "time": "tarde", "label": "Kinkaku-ji", "activity": "Pabellón Dorado Kinkaku-ji" },
+        { "time": "tarde", "label": "Nijo", "activity": "Castillo Nijo-jo — los suelos que cantan" },
+        { "time": "noche", "label": "Nishiki", "activity": "Mercado Nishiki y cena cerca del centro" }
+      ]
+    },
+    {
+      "date": "2026-08-21",
+      "type": "normal",
+      "city": "Hiroshima",
+      "title": "Kioto → Hiroshima — Memoria y paz",
+      "hotel": {
+        "name": "Hotel Granvia Hiroshima",
+        "checkin": "14:00",
+        "checkout": "11:00"
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Check-out Kioto", "activity": "Check-out de Hotel Gracery Kyoto Sanjo y traslado a la estación" },
+        { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Kioto → Hiroshima" },
+        { "time": "tarde", "label": "Check-in Hiroshima", "activity": "Check-in en Hotel Granvia Hiroshima a las 14:00" },
+        { "time": "tarde", "label": "Parque de la Paz", "activity": "Parque Memorial de la Paz y Museo de la Bomba Atómica" },
+        { "time": "noche", "label": "Cena", "activity": "Okonomiyaki estilo Hiroshima — especialidad local imprescindible" }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "type": "normal",
+      "city": "Osaka",
+      "title": "Hiroshima → Osaka — La ciudad que come",
+      "hotel": {
+        "name": "Dormy Inn Premium Namba",
+        "checkin": "15:00",
+        "checkout": "11:00"
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Miyajima", "activity": "Isla de Miyajima — torii flotante del santuario Itsukushima" },
+        { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Hiroshima → Osaka" },
+        { "time": "tarde", "label": "Check-in Osaka", "activity": "Check-in en Dormy Inn Premium Namba a las 15:00" },
+        { "time": "noche", "label": "Dotonbori", "activity": "Dotonbori — takoyaki, okonomiyaki y el globo de Glico" }
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "type": "normal",
+      "city": "Tokio",
+      "title": "Osaka → Tokio — Última noche en la capital",
+      "hotel": {
+        "name": "The Gate Hotel Tokyo by HULIC",
+        "checkin": "14:00",
+        "checkout": "11:00"
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Osaka", "activity": "Última mañana en Osaka — Castillo de Osaka o Shinsekai" },
+        { "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Osaka → Tokio" },
+        { "time": "tarde", "label": "Check-in Tokio", "activity": "Check-in en The Gate Hotel Tokyo by HULIC a las 14:00" },
+        { "time": "noche", "label": "Tokio", "activity": "Noche en Tokio — Roppongi, Akihabara o Shimokitazawa según el ánimo" }
+      ]
+    },
+    {
+      "date": "2026-08-24",
+      "type": "free",
+      "city": "Tokio",
+      "title": "Tokio — Día libre total",
+      "hotel": {
+        "name": "The Gate Hotel Tokyo by HULIC",
+        "checkin": null,
+        "checkout": null
+      },
+      "blocks": [
+        { "time": "mañana", "label": "Libre", "activity": "Mañana libre — última oportunidad para compras, museos o barrios pendientes" },
+        { "time": "tarde", "label": "Libre", "activity": "Tarde libre — Odaiba, TeamLab, Harajuku o simplemente pasear" },
+        { "time": "noche", "label": "Última cena", "activity": "Última cena en Tokio — el restaurante que más haya gustado del viaje" }
+      ]
+    },
+    {
+      "date": "2026-08-25",
+      "type": "transit_return",
+      "city": "Tokio",
+      "title": "De vuelta a casa — Tokio → Barajas T4 → Navalcarnero",
+      "hotel": null,
+      "blocks": [
+        { "time": "madrugada", "label": "Check-out", "activity": "Check-out del hotel a las 07:00 — traslado al aeropuerto Narita" },
+        { "time": "mañana", "label": "Vuelo", "activity": "Vuelo IB0282 NRT → MAD — salida 11:10 desde Narita" },
+        { "time": "noche", "label": "Llegada", "activity": "Llegada a Barajas T4 y vuelta a Navalcarnero — ¡fin de la aventura!" }
+      ]
+    }
+  ]
+}

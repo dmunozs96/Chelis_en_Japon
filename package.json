@@ -1,0 +1,17 @@
+{
+  "name": "chelis-en-japon",
+  "version": "1.0.0",
+  "description": "Guía interactiva del viaje de Chelis a Japón — agosto 2026",
+  "private": true,
+  "scripts": {
+    "build": "npm install --prefix server && npm install --prefix client && npm run build --prefix client",
+    "start": "node server/index.js",
+    "dev": "concurrently -n client,server -c cyan,yellow \"npm run dev --prefix client\" \"npm run dev --prefix server\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

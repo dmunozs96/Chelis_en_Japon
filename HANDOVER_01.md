@@ -89,13 +89,20 @@ Las respuestas a estas preguntas son necesarias para cerrar la especificación y
 
 ---
 
+## Estado al cerrar esta iteración
+
+Todas las preguntas de clarificación respondidas excepto C2 (dominio → confirmado subdominio Railway).
+
+Decisiones técnicas cerradas:
+- Stack: React + Vite (frontend) + Node.js/Express (backend) + PostgreSQL (Railway plugin)
+- Repo: github.com/dmunozs96/Chelis_en_Japon — primer commit subido ✅
+- Railway: proyecto creado y conectado al repo GitHub ✅ (deploy fallido esperado — sin código aún)
+- restaurants_db.json: 32 restaurantes enriquecidos con Michelin/Time Out/Tabelog ✅
+
 ## Por dónde continuar
 
-1. **Responder las preguntas de clarificación** (sobre todo A1 y A2 — urgentes).
-2. Con las respuestas, cerrar SPEC.md (eliminar los TBDs de decisiones técnicas).
-3. Arrancar **Ola 0**: construir `trip.json` completo y validado con todos los datos del viaje.
-4. Luego **Ola 1**: esqueleto del sitio + primera URL compartible.
+Arrancar **Ola 1**: scaffold del proyecto React+Vite+Express, configuración Railway, primer deploy funcional con vista "hoy" y doble reloj.
 
 ---
 
-*Próximo hand-over: HANDOVER_02.md — al cerrar Ola 0 (trip.json completo)*
+*Cerrado: 2026-07-14 | Próximo hand-over: HANDOVER_02.md — al terminar Ola 1*
