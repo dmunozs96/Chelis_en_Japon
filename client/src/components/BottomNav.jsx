@@ -175,9 +175,9 @@ function TicketIcon() {
 const TABS = [
   { id: 'today',       label: 'Hoy',         Icon: TodayIcon,   disabled: false },
   { id: 'trip',        label: 'Viaje',        Icon: TripIcon,    disabled: false },
-  { id: 'alerts',      label: 'Alertas',      Icon: AlertsIcon,  disabled: true  },
+  { id: 'alerts',      label: 'Alertas',      Icon: AlertsIcon,  disabled: false },
   { id: 'restaurants', label: 'Restaurantes', Icon: ForkIcon,    disabled: true  },
-  { id: 'more',        label: 'Más',          Icon: TicketIcon,  disabled: true  },
+  { id: 'more',        label: 'Más',          Icon: TicketIcon,  disabled: false },
 ];
 
 // badge: número de alertas de Acción no leídas (se pasará desde App cuando esté implementado)

@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import { useTripData } from './hooks/useTripData.js';
+import React, { useState, useEffect } from 'react';
+import { useTripData, useAlertsData, getUnreadActionCount } from './hooks/useTripData.js';
 import Header      from './components/Header.jsx';
 import BottomNav   from './components/BottomNav.jsx';
 import TodayView   from './components/TodayView.jsx';
 import DayNav      from './components/DayNav.jsx';
 import ComingSoon  from './components/ComingSoon.jsx';
+import AlertsView  from './components/AlertsView.jsx';
+import MoreView    from './components/MoreView.jsx';
+import TicketsView from './components/TicketsView.jsx';
 
 /* ---------------------------------------------------------------
    App — shell principal
@@ -38,7 +41,27 @@ const LOADING_STYLES = `
 
 export default function App() {
   const { days, loading, error } = useTripData();
+  const { alerts } = useAlertsData();
   const [activeTab, setActiveTab] = useState('today');
+  const [showTickets, setShowTickets] = useState(false);
+  const [alertBadge, setAlertBadge] = useState(0);
+
+  // Compute initial badge from localStorage on mount and when alerts load
+  useEffect(() => {
+    if (alerts.length > 0) {
+      setAlertBadge(getUnreadActionCount(alerts));
+    }
+  }, [alerts]);
+
+  // If TicketsView is showing, render it over everything
+  if (showTickets) {
+    return (
+      <>
+        <style>{LOADING_STYLES}</style>
+        <TicketsView onBack={() => setShowTickets(false)} />
+      </>
+    );
+  }
 
   return (
     <>
@@ -52,12 +75,20 @@ export default function App() {
 
           {!loading && !error && activeTab === 'today'       && <TodayView days={days} />}
           {!loading && !error && activeTab === 'trip'        && <DayNav    days={days} />}
-          {!loading && !error && activeTab === 'map'         && <ComingSoon label="Mapa" />}
+          {!loading && !error && activeTab === 'alerts'      && (
+            <AlertsView onBadgeChange={setAlertBadge} />
+          )}
           {!loading && !error && activeTab === 'restaurants' && <ComingSoon label="Restaurantes" />}
-          {!loading && !error && activeTab === 'tickets'     && <ComingSoon label="Billetes" />}
+          {!loading && !error && activeTab === 'more'        && (
+            <MoreView onNavigate={(dest) => dest === 'tickets' && setShowTickets(true)} />
+          )}
         </main>
 
-        <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
+        <BottomNav
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+          alertBadge={alertBadge}
+        />
       </div>
     </>
   );
