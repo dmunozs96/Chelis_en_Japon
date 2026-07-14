@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useTripData, useAlertsData, getUnreadActionCount } from './hooks/useTripData.js';
-import Header      from './components/Header.jsx';
-import BottomNav   from './components/BottomNav.jsx';
-import TodayView   from './components/TodayView.jsx';
-import DayNav      from './components/DayNav.jsx';
-import ComingSoon  from './components/ComingSoon.jsx';
-import AlertsView  from './components/AlertsView.jsx';
-import MoreView    from './components/MoreView.jsx';
-import TicketsView from './components/TicketsView.jsx';
-import MapView     from './components/MapView.jsx';
+import Header        from './components/Header.jsx';
+import BottomNav     from './components/BottomNav.jsx';
+import TodayView     from './components/TodayView.jsx';
+import DayNav        from './components/DayNav.jsx';
+import ComingSoon    from './components/ComingSoon.jsx';
+import AlertsView    from './components/AlertsView.jsx';
+import MoreView      from './components/MoreView.jsx';
+import TicketsView   from './components/TicketsView.jsx';
+import MapView       from './components/MapView.jsx';
+import SplashScreen  from './components/SplashScreen.jsx';
 
 /* ---------------------------------------------------------------
    App — shell principal
@@ -48,12 +49,27 @@ export default function App() {
   const [mapDayData, setMapDayData] = useState(null);
   const [alertBadge, setAlertBadge] = useState(0);
 
+  // Splash: muestra una vez por sesión
+  const [showSplash, setShowSplash] = useState(() => {
+    try { return !sessionStorage.getItem('splash_shown'); } catch { return true; }
+  });
+
+  const dismissSplash = () => {
+    try { sessionStorage.setItem('splash_shown', '1'); } catch {}
+    setShowSplash(false);
+  };
+
   // Compute initial badge from localStorage on mount and when alerts load
   useEffect(() => {
     if (alerts.length > 0) {
       setAlertBadge(getUnreadActionCount(alerts));
     }
   }, [alerts]);
+
+  // Splash screen (primera visita de la sesión)
+  if (showSplash) {
+    return <SplashScreen onDismiss={dismissSplash} />;
+  }
 
   // If MapView is showing, render it over everything
   if (mapDayData !== null) {

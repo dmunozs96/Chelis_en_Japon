@@ -1,54 +1,87 @@
 /* =========================================================
    Chelis en Japón — Global Styles
-   Sistema de diseño Apple iOS/macOS
+   Sistema de diseño Dark Premium
    ========================================================= */
 
 /* --- Tokens CSS --- */
 :root {
-  /* Colores */
-  --bg-primary: #FFFFFF;
-  --bg-secondary: #F2F2F7;
-  --bg-surface: #FFFFFF;
-  --label-primary: #1C1C1E;
-  --label-secondary: #8E8E93;
-  --label-tertiary: #C7C7CC;
-  --accent: #E8002D;
-  --accent-soft: #FFF0F2;
-  --separator: rgba(60, 60, 67, 0.12);
-  --glass-bg: rgba(255, 255, 255, 0.82);
+  /* Fondos */
+  --bg-primary:    #080810;
+  --bg-secondary:  #111119;
+  --bg-surface:    #161620;
+  --bg-surface-2:  #1E1E2C;
+
+  /* Texto */
+  --label-primary:   #F5F5FA;
+  --label-secondary: #8E8EA0;
+  --label-tertiary:  #3C3C50;
+
+  /* Acento — rojo torii */
+  --accent:      #E8002D;
+  --accent-soft: rgba(232, 0, 45, 0.14);
+  --accent-glow: rgba(232, 0, 45, 0.30);
+
+  /* Glass */
+  --separator:    rgba(255, 255, 255, 0.07);
+  --glass-bg:     rgba(8, 8, 20, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.07);
 
   /* Tipografía */
   --font: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
 
   /* Radios */
   --radius-card: 20px;
-  --radius-btn: 14px;
+  --radius-btn:  14px;
   --radius-chip: 8px;
 
   /* Sombras */
-  --shadow-card: 0 2px 20px rgba(0, 0, 0, 0.08);
-  --shadow-card-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+  --shadow-card:    0 2px 20px rgba(0, 0, 0, 0.55);
+  --shadow-card-lg: 0 8px 48px rgba(0, 0, 0, 0.75);
 
   /* Espaciado */
   --page-padding: 20px;
-  --gap-card: 12px;
-  --gap-section: 32px;
+  --gap-card:     12px;
+  --gap-section:  32px;
 
   /* Movimiento */
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-micro: 250ms;
-  --duration-page: 350ms;
+  --ease:            cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-micro:  250ms;
+  --duration-page:   350ms;
 }
 
 /* --- Reset & base --- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 17px; -webkit-text-size-adjust: 100%; }
+
 body {
   font-family: var(--font);
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   color: var(--label-primary);
   min-height: 100dvh;
   overscroll-behavior: none;
+  position: relative;
+}
+
+/* --- Aurora animada de fondo --- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 55% 42% at 22% 28%, rgba(232, 0, 45, 0.11) 0%, transparent 58%),
+    radial-gradient(ellipse 48% 58% at 78% 72%, rgba(70, 30, 175, 0.09) 0%, transparent 58%),
+    radial-gradient(ellipse 35% 30% at 55% 50%, rgba(232, 0, 45, 0.04) 0%, transparent 50%);
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes aurora-drift {
+  0%   { transform: translate(0,    0)    scale(1);    }
+  25%  { transform: translate(4%,   6%)   scale(1.07); }
+  50%  { transform: translate(-3%,  3%)   scale(0.96); }
+  75%  { transform: translate(6%,  -4%)   scale(1.04); }
+  100% { transform: translate(-2%,  5%)   scale(1.02); }
 }
 
 #root {
@@ -69,8 +102,26 @@ h1, h2, h3, h4, h5, h6 {
 .card {
   background: var(--bg-surface);
   border-radius: var(--radius-card);
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-card);
   padding: 20px;
+}
+
+/* Bordes metálicos globales para todas las cards de componentes */
+.hero-card,
+.hotel-card,
+.blocks-card,
+.alert-card,
+.flight-card,
+.train-card,
+.more-tool-card,
+.daynav__pill {
+  border: 1px solid var(--glass-border) !important;
+}
+
+/* Las cards activas no necesitan el override de border */
+.daynav__pill--active {
+  border-color: transparent !important;
 }
 
 /* --- Utility: badge/chip --- */
@@ -113,6 +164,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 480px;
   margin: 0 auto;
   position: relative;
+  background: transparent;
 }
 
 /* --- Main content area --- */
@@ -121,6 +173,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 60px;
   padding-bottom: 84px;
   overflow-y: auto;
+  background: transparent;
 }
 
 /* --- Reduced motion --- */

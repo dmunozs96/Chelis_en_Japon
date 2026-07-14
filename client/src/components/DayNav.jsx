@@ -16,12 +16,13 @@ const STYLES = `
 /* --- Strip de días sticky bajo el header --- */
 .daynav__strip-wrapper {
   position: sticky;
-  top: 60px;   /* altura del header */
+  top: 60px;
   z-index: 50;
-  background: var(--bg-secondary);
-  padding: 12px var(--page-padding) 0;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 12px var(--page-padding) 12px;
   border-bottom: 1px solid var(--separator);
-  padding-bottom: 12px;
 }
 
 .daynav__strip {
@@ -56,7 +57,7 @@ const STYLES = `
 }
 
 .daynav__pill:hover:not(.daynav__pill--active) {
-  background: #EBEBF0;
+  background: var(--bg-surface-2);
 }
 
 .daynav__pill--active {
