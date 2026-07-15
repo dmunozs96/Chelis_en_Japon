@@ -1,7 +1,7 @@
 # Especificación — Guía Interactiva Japón Ago26
 
 > Documento vivo. Cualquier modificación al producto, por pequeña que sea, debe reflejarse aquí.
-> Versión: 1.9 | Fecha: 2026-07-15 | Estado: Activo
+> Versión: 2.0 | Fecha: 2026-07-15 | Estado: Activo — V2 aprobada (ver sección 11 y `PLAN_V2.md`)
 
 ---
 
@@ -65,19 +65,19 @@
 - Mañana: desayuno, onsen, check-out 11:00
 - Tren: Odawara → Kioto, Shinkansen Hikari (~1h50) — **hora TBD (reserva julio 18)**
 - Tarde (15:30-18:00): Nishiki Market y Pontocho
-- Noche: cena en Gion Kappa o Janomeya, paseo nocturno por Gion
+- Noche: cena en Gahōjin Kappa (antes «Gion Kappa») o Mendokoro Janomeya (ramen; ya no está en Pontocho — se mudó a Kayukoji), paseo nocturno por Gion
 
 **19 ago — Kioto: Fushimi Inari + Higashiyama**
 - Madrugada/mañana (06:00-09:00): Fushimi Inari Taisha (tren Keihan desde Sanjo, ~10-15 min)
 - Media mañana (10:00-13:00): Kiyomizu-dera y barrio Higashiyama
 - Tarde: Nishiki Market, Kawaramachi/Shijo
-- Noche: Kyogoku Kaneyo (unagi) o Roan Kikunoi (kaiseki — reservar si se elige)
+- Noche: cena en Gion/Kawaramachi — ⚠️ es miércoles y Kyogoku Kaneyo y Roan Kikunoi cierran los miércoles (auditoría 15 jul); opciones abiertas: Gahōjin Kappa, Mendokoro Janomeya u Onikai. El unagi pasa al jueves 20.
 
 **20 ago — Kioto: Arashiyama + Kinkaku-ji + Nijo**
 - Madrugada/mañana (07:00-10:00): bosque de bambú de Arashiyama (ir antes de las 10:00)
 - Media mañana (10:30-12:30): Kinkaku-ji (Pabellón Dorado)
 - Tarde (13:30-16:00): Castillo Nijo
-- Noche: Pontocho o Gion Sumibiyaki Kyoyu (yakitori)
+- Noche: Kyogoku Kaneyo (unagi — llegar 19:30, su cocina cierra 20:00) o Kyo Asobi Gion (yakitori; antes «Gion Sumibiyaki Kyōyū», renombrado)
 
 **21 ago — Kioto → Hiroshima**
 - Mañana: check-out 11:00, últimas compras
@@ -100,7 +100,7 @@
 **24 ago — DÍA LIBRE (Tokio)**
 - Día completo sin plan cerrado: compras de última hora, repetir algo que gustara, o simplemente pasear
 - Ideas: Ginza, Shibuya/Harajuku, o volver a algún favorito
-- Noche: cena de despedida — Bird Land Ginza o ESqUISSE (Michelin — reservar con antelación)
+- Noche: cena de despedida **abierta** — volver al favorito del viaje o improvisar por Ginza–Yurakucho (decisión Puerta A 15 jul: la opción Michelin queda descartada por precio)
 - ⚠️ Día visualmente diferenciado: día libre completo
 
 **25 ago — La aventura termina: Tokio → Barajas T4 → Navalcarnero**
@@ -932,7 +932,9 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 - ⚠️ **Ventanas de reserva de trenes (18-24 jul):** Tokio→Hakone (Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Los 4 shinkansen abren del 19 al 24 de julio — reservar en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com).
 - ⚠️ **Política de tatuajes Mizunoto:** No confirmada oficialmente. Recomendación: llamar al hotel (+81 460-82-6011) antes del viaje.
 - ~~teamLab Borderless~~ descartado — reemplazado por Yanaka (16 ago mañana).
-- ⚠️ **Roan Kikunoi y Bird Land Ginza:** Necesitan reserva con antelación si se van a ir.
+- ~~Cena premium Michelin (ESqUISSE / Bird Land)~~ descartada en la Puerta A (15 jul) por precio — la cena de despedida del 24 queda abierta. Si en algún momento se retomara, ambos exigen reserva con semanas de antelación y Bird Land cierra los lunes (el 24 ago es lunes).
+- ⚠️ **Roan Kikunoi:** la auditoría del 15 jul corrigió su ficha — el precio real es ¥14.000+ el almuerzo y ¥24.000-63.000 la cena (no «desde ¥4.000»), cierra los miércoles y la última entrada de cena es a las 19:00. Entra en la categoría premium descartada; se conserva solo como referencia.
+- ⚠️ **Cierres que afectan al viaje detectados en la auditoría (15 jul):** Honke Owariya cerró definitivamente en enero 2026 (eliminado de la base); Sukiyabashi Jiro cierra por vacaciones el 14-19 ago; Bird Land menciona un posible cierre por inventario el 16-18 ago; el 19 ago (miércoles) cierran Kyogoku Kaneyo, Roan Kikunoi y Dōtonbori Imai.
 
 ---
 
@@ -950,4 +952,37 @@ Deudas verificadas y conscientemente aplazadas (cada entrada indica el coste de 
 
 ---
 
-*Última actualización: 2026-07-15 — documentos personales, presupuesto y notas eliminados del alcance. Las actualizaciones de la PWA se activan y recargan automáticamente para evitar que una instalación conserve interfaces antiguas.*
+## 11. V2 — Alcance aprobado (Puerta A resuelta el 15 jul 2026)
+
+El plan director completo vive en `PLAN_V2.md`; las decisiones del propietario están registradas en su §17 y la enmienda constitucional en `CONSTITUTION.md` v2.0. Resumen operativo:
+
+### Decisiones cerradas
+
+| Decisión | Resolución |
+|---|---|
+| Calidad vs. cantidad (restaurantes) | Top 50 profundo + ~150 fichas operativas (objetivo 400 descartado) |
+| APIs de pago | Cero — también para clima, mapas y fotos |
+| Compras | Todas las categorías; prioritarias: denim, relojes, cámaras, cuchillos. Día flexible según situación (candidato: 24 ago) |
+| Comida | Sin restricciones ni alergias. Cena premium Michelin descartada por precio; despedida abierta |
+| Privacidad | Sin almacenar documentos ni datos personales; solo estados «hecho ✓» en localStorage |
+| Cartografía | Leaflet se mantiene; rutas GeoJSON reales en tramos críticos; sin MapLibre/PMTiles |
+| Estado compartido | Last-write-wins con marca de tiempo visible; sin colas de sincronización |
+
+### Orden de ejecución V2 (28 días)
+
+| Semana | Foco |
+|---|---|
+| 15-21 jul | Trenes reales (Ola 8) según abran ventanas · auditoría de los 32 restaurantes (lote 0) · esquemas y validadores V2 |
+| 22-28 jul | Checklist de preparación (T−28 ya en curso) · guía cultural esencial · arranque Top 50 |
+| 29 jul-4 ago | Modo Ahora básico · «Comer ahora» · guía de compras + rutas del día libre · rutas GeoJSON críticas |
+| 5-12 ago | Escalar fichas con calidad · revalidación Top 50 · congelación de contenido · prueba en ambos móviles en modo avión |
+
+Regla de prioridad: si algo compite con billetes, medicación, Top 50 o rutas críticas, pierde. La guía cultural nunca se sacrifica por volumen de fichas.
+
+### Contrato de verificación de restaurantes (resumen)
+
+Toda ficha nueva o auditada lleva: identidad inequívoca (nombre oficial + japonés + sucursal con dirección), estado operativo verificado con fecha, fuentes con URL real consultada, «qué pedir» trazable a menú o evidencia repetida, y clasificación honesta (`restaurant` vs. zona/mercado/food hall). El detalle completo está en `PLAN_V2.md` §7 y el resultado del lote 0 en `AUDIT_RESTAURANTES.md`.
+
+---
+
+*Última actualización: 2026-07-15 — V2 aprobada (sección 11): enmienda constitucional v2.0, cena de despedida abierta (sin Michelin), decisiones de compras/privacidad/APIs registradas, auditoría lote 0 de restaurantes en curso. Anteriores: documentos personales, presupuesto y notas eliminados del alcance; las actualizaciones de la PWA se activan y recargan automáticamente.*

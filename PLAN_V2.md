@@ -1,9 +1,9 @@
 # Plan director V2 — Chelis en Japón
 
-> Estado: arquitectura y definición. Este documento **no autoriza implementación**.
+> Estado: **APROBADO — Puerta A resuelta el 15 de julio de 2026** (ver §17). Implementación autorizada.
 > Fecha de corte de la investigación: 15 de julio de 2026.
 > Viaje: 13–25 de agosto de 2026.
-> Siguiente puerta: aprobación expresa del propietario antes de modificar producto, Constitución o datos.
+> Ajuste de alcance aprobado: el objetivo de 400 fichas se sustituye por **Top 50 profundo + ~150 fichas operativas** (≈200 en total), con los mismos controles de calidad por lote. La migración cartográfica a MapLibre/PMTiles queda descartada para la V2: se mantiene Leaflet con rutas GeoJSON reales en tramos críticos.
 
 ## 1. Decisión de producto
 
@@ -746,18 +746,18 @@ La cifra de 400 y una migración cartográfica completa son los elementos con ma
 - Presupuesto de tamaño definido para mapas e imágenes.
 - Ninguna clave privada incluida en el cliente o repositorio.
 
-## 17. Decisiones pendientes del propietario
+## 17. Decisiones del propietario — Puerta A RESUELTA (15 jul 2026)
 
-Estas decisiones se solicitarán en la Puerta A, no son necesarias para aprobar el concepto general:
+Respuestas de Daniel, registradas literalmente en su intención:
 
-1. Datos personales que se permite guardar y sincronizar.
-2. Si se admite algún servicio de pago para clima, mapas o fotos.
-3. Intereses y marcas concretas para la guía de compras.
-4. Presupuesto de compras y gastronomía por niveles.
-5. Restricciones alimentarias, alergias y alimentos que no se desean.
-6. Grado de formalidad y restaurantes premium objetivo.
-7. Prioridad entre llegar a 400 antes de salir o publicar menos fichas con revisión humana más profunda.
-8. Ruta preferida para el día libre del 24 de agosto.
+1. **Datos personales:** sin almacenar. La app nunca guarda documentos (pasaporte, póliza, recetas) en ningún soporte — ni Git, ni servidor, ni dispositivo. Solo estados de verificación («hecho ✓») en localStorage.
+2. **APIs de pago:** cero. Se mantiene la regla de la Constitución: nada que pueda romperse o facturar durante el viaje. Clima/fotos solo desde fuentes gratuitas sin clave o contenido estático fechado.
+3. **Compras — intereses:** denim, relojes, cámaras y cuchillos, y en general todas las categorías propuestas («todo»). La guía de compras cubre el espectro completo con esas cuatro como prioritarias.
+4. **Día de compras:** sin fijar. Se diseñan las rutas como opciones y se elige **el día que mejor encaje según la situación** (el 24 de agosto sigue siendo el candidato natural por ser día libre completo en Tokio, pero no es una decisión cerrada).
+5. **Comida:** sin restricciones ni alergias.
+6. **Cena premium:** descartada por precio — «irse a un Michelin es mucha pasta». La cena de despedida del 24 queda **abierta**: volver al favorito del viaje o improvisar. Las fichas Michelin de la base se conservan como referencia editorial, no como plan.
+7. **Calidad vs. cantidad:** aprobada la rebaja de 400 → Top 50 profundo + ~150 operativas con revisión más profunda.
+8. **Ruta del 24 de agosto:** sin preferencia cerrada; ver punto 4 — se decidirá sobre el terreno con las variantes diseñadas.
 
 ## 18. Próximo paso, sujeto a autorización
 

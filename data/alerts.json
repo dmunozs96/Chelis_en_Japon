@@ -51,16 +51,6 @@
       "dismissible": true
     },
     {
-      "id": "esquissse-reservation",
-      "type": "action",
-      "title": "Reservar cena despedida — ESqUISSE",
-      "body": "Cena del 24 ago (lunes). Bird Land cierra los lunes — la única opción Michelin esa noche es ESqUISSE (2★). Requiere reserva con semanas de antelación.",
-      "due_date": "2026-08-24",
-      "action_url": null,
-      "related_day": "2026-08-24",
-      "dismissible": true
-    },
-    {
       "id": "mizunoto-tattoo",
       "type": "action",
       "title": "Confirmar política de tatuajes — Mizunoto",

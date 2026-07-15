@@ -872,8 +872,8 @@
             {
               "time": "20:00",
               "type": "food",
-              "title": "Cena — Kyogoku Kaneyo o Roan Kikunoi",
-              "detail": "Unagi (Kyogoku Kaneyo) o kaiseki con reserva (Roan Kikunoi) — reservar con antelación si se elige esta segunda opción.",
+              "title": "Cena en Gion/Kawaramachi (ojo: miércoles)",
+              "detail": "El 19 es miércoles y tanto Kyogoku Kaneyo (unagi) como Roan Kikunoi (kaiseki) CIERRAN los miércoles — el unagi se mueve a la noche del jueves 20. Esta noche, opciones abiertas y verificadas: Gahōjin Kappa (izakaya en Nawate, hasta la madrugada), Mendokoro Janomeya (ramen, Kayukoji) u Onikai (izakaya de verduras, Shinkyogoku).",
               "duration_min": 90
             },
             {
@@ -1049,10 +1049,10 @@
               "poi_id": "nishiki-market"
             },
             {
-              "time": "20:00",
+              "time": "19:30",
               "type": "food",
-              "title": "Cena cerca del centro",
-              "detail": "Improvisar en Kawaramachi/Shijo, a 5-10 min a pie del hotel.",
+              "title": "Cena — Kyogoku Kaneyo (unagi) o improvisar",
+              "detail": "El unagi previsto para el miércoles se cena hoy jueves: Kyogoku Kaneyo (kinshi-don, Bib Gourmand, Shinkyogoku) abre jueves pero su cocina cierra a las 20:00 — llegar a las 19:30 como muy tarde (excepción a la cena de las 20:00; horario real verificado 15 jul 2026). Alternativa sin madrugar la cena: improvisar en Kawaramachi/Shijo o Kyo Asobi Gion (yakitori, hasta 21:30).",
               "duration_min": 90
             }
           ]
@@ -1467,8 +1467,8 @@
             {
               "time": "20:00",
               "type": "food",
-              "title": "Cena de despedida — Bird Land Ginza o ESqUISSE",
-              "detail": "Ambos en la zona de Ginza, a 10-15 min a pie del hotel. Las reservas con hora fija en restaurantes con Estrella Michelin como ESqUISSE suelen ofrecer turnos alrededor de esta hora — reservar con mucha antelación.",
+              "title": "Cena de despedida — libre",
+              "detail": "Sin reserva premium (decisión del 15 jul: la opción Michelin queda descartada por precio). Volver al sitio que más haya gustado del viaje o elegir con el sugeridor por Ginza-Yurakucho, a 10-15 min a pie del hotel.",
               "duration_min": 120
             }
           ]
