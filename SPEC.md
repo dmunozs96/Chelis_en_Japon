@@ -1,7 +1,7 @@
 # Especificación — Guía Interactiva Japón Ago26
 
 > Documento vivo. Cualquier modificación al producto, por pequeña que sea, debe reflejarse aquí.
-> Versión: 1.6 | Fecha: 2026-07-15 | Estado: Activo
+> Versión: 1.7 | Fecha: 2026-07-15 | Estado: Activo
 
 ---
 
@@ -431,9 +431,9 @@ El bloque mañana/mediodía/tarde/noche es demasiado grueso para ser operativo s
 
 **Honestidad sobre incertidumbre (regla 7 de `CONSTITUTION.md`):** los tiempos de trayecto y transbordo de `steps` son **estimaciones basadas en la geografía real de Tokio** (líneas de metro reales, distancias reales), no confirmaciones de Google Maps para la fecha exacta del viaje. Se recomienda verificarlos con la app de Google Maps o Navitime la semana antes del viaje, especialmente si hay obras o cambios de horario. No son localizadores reservados como los trenes de larga distancia (esos sí llevan estado `pending`/`reserved` en la sección 3).
 
-**UI:** en `DayCard` (`TodayView.jsx`), cada bloque con `steps` muestra un botón "Ver plan detallado (N pasos) ▼" que despliega la sub-línea de tiempo con icono por tipo de paso (🚶 andar, 🚇 metro, 🍜 comida, 📍 visita, ✨ libre), hora, título, duración y detalle. Colapsado por defecto para no saturar la vista rápida de "Hoy".
+**UI:** en `DayCard` (`TodayView.jsx`), cada bloque con `steps` muestra un botón "Ver plan detallado (N pasos) ▼" que despliega la sub-línea de tiempo con icono por tipo de paso (🚶 andar, 🚇 metro/tren, 🚌 bus, 🚕 taxi, ✈️ avión, 🍜 comida, 📍 visita, ✨ libre), hora, título, duración y detalle. Colapsado por defecto para no saturar la vista rápida de "Hoy".
 
-**Alcance actual:** implementado como piloto solo para el **15 de agosto**. Pendiente de decidir si se extiende al resto del itinerario (backlog, no bloqueante).
+**Alcance actual:** validado como piloto en el 15 de agosto y replicado en **los 13 días del itinerario** (Ola 4d, ver detalle más abajo). Los días completamente libres (16 y 24 ago) solo llevan `steps` en su bloque fijo (Yanaka / última cena), no en las franjas libres — coherente con su naturaleza de "sin plan cerrado".
 
 ---
 
@@ -791,6 +791,7 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | 4a | Guía de Viaje Detallada | F6+F7 — pois_db.json (24 POIs), POIDetailView, ruta del día con polyline | ✅ |
 | 4b | Restaurantes | F5 — planificador (slots por día) + sugeridor con filtros offline | ✅ |
 | 4c | Plan operativo detallado (piloto) | `blocks[].steps` — traslados, calles y tiempos por sitio (solo 15 ago) | ✅ |
+| 4d | Plan operativo detallado (completo) | `blocks[].steps` en los 13 días del itinerario + corrección Miyajima→Shukkei-en | ✅ |
 | 5 | Herramientas de viaje | F8, F9, F10, F11, F12, F13 — frases, conversor, emergencias, Suica, clima | ⬜ **SIGUIENTE** |
 | 6 | Personal + privado | F14, F15, F16 — documentos, presupuesto, notas (localStorage) | ⬜ |
 | 7 | Offline + PWA | F17 — service worker, instalable | ⬜ |
@@ -858,6 +859,21 @@ Al no poder generarse un vídeo de entrada real, `SplashScreen.jsx` simula uno c
 
 **Siguiente paso:** si el formato convence, replicar en los 12 días restantes del itinerario (Ola 4d, backlog abierto).
 
+### Detalle Ola 4d — Plan operativo detallado (completo) ✅ COMPLETADA (2026-07-15)
+
+Daniel validó el formato del piloto (15 ago) y pidió extenderlo a todo el itinerario en la misma sesión.
+
+**Entregables:**
+1. ✅ `data/trip.json` — `steps` añadidos a los 12 días restantes (13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25): 87 pasos nuevos, con traslados reales por ciudad (Ginza/Hibiya/Chiyoda/Yamanote en Tokio; Keihan/JR Sagano/Randen/buses urbanos en Kioto; Hakone Tozan/Odakyu/Hakone Ropeway en Hakone; tranvía urbano en Hiroshima; Midosuji/Tanimachi en Osaka) y recorridos con calles/puntos concretos dentro de cada barrio.
+2. ✅ **Corrección de datos:** el bloque de la mañana del 22 de agosto decía "Miyajima" pero la sección 2 de este documento ya recogía la decisión de descartarlo por falta de tiempo, sustituido por Shukkei-en Garden — y `pois_db.json` ya tenía curado el POI `shukkei-en` sin usar en ningún bloque. Se corrigió el bloque (`label`, `activity`, `poi_id`) para que coincida con la decisión confirmada y con el dato ya curado.
+3. ✅ Nuevos `poi_id` enlazados donde `pois_db.json` ya tenía el dato curado y no se usaba: `tsukiji-outer-market`, `shibuya-sky`, `hibiya-park`, `ginza-six`, `genbaku-dome`, `hozenji`.
+4. ✅ `client/src/components/TodayView.jsx` — `stepIcon()` ampliado con los modos `bus` (🚌) y `avion` (✈️) para traslados en autobús urbano y vuelos.
+5. ✅ Los días completamente libres (16 y 24 ago) mantienen sus franjas de tarde/noche sin `steps` — solo se detalla el bloque fijo de cada uno (Yanaka por la mañana / última cena), respetando que "día libre" significa sin plan cerrado.
+
+**Honestidad sobre incertidumbre:** igual que en el piloto, todos los tiempos de traslado son estimaciones geográficas basadas en líneas/rutas reales, no confirmaciones para la fecha exacta del viaje. Aplica en los 13 días, no solo en el 15 de agosto.
+
+**Verificación:** Build de producción sin errores. Probado en navegador real (Playwright, viewport móvil 390×844): tab Viaje → días 20, 21 y 22 (elegidos por tener bloques duplicados de la misma franja horaria) → cada bloque expande su plan detallado correctamente, sin errores de consola. Recuento de botones "Ver plan detallado" por día coincide con el número de bloques de cada uno.
+
 ---
 
 ## 8. Advertencias activas
@@ -869,4 +885,4 @@ Al no poder generarse un vídeo de entrada real, `SplashScreen.jsx` simula uno c
 
 ---
 
-*Última actualización: 2026-07-15 — Ola 4c completada: plan operativo detallado (`blocks[].steps`) como piloto en el 15 de agosto — traslados con línea de metro y duración, recorridos con calles concretas dentro de cada barrio. Siguiente: decidir con Daniel si se replica en el resto del itinerario (Ola 4d) o se pasa a Ola 5.*
+*Última actualización: 2026-07-15 — Ola 4d completada: plan operativo detallado (`blocks[].steps`) extendido a los 13 días del itinerario, con corrección de datos (Miyajima→Shukkei-en) incluida. Siguiente: Ola 5 — Herramientas de viaje (F8-F13).*

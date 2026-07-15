@@ -478,6 +478,8 @@ function stepIcon(step) {
     if (step.mode === 'walk') return STEP_ICONS.walk;
     if (step.mode === 'tren' || step.mode === 'train') return '🚆';
     if (step.mode === 'taxi') return '🚕';
+    if (step.mode === 'bus') return '🚌';
+    if (step.mode === 'avion' || step.mode === 'avión') return '✈️';
     return STEP_ICONS.transfer;
   }
   return STEP_ICONS[step.type] || '•';
