@@ -1,0 +1,146 @@
+﻿[
+    {
+        "ID":  "sensoji",
+        "Name":  "Templo Senso-ji",
+        "Category":  "temple",
+        "FileName":  "sensoji.jpg"
+    },
+    {
+        "ID":  "hibiya-park",
+        "Name":  "Hibiya Park",
+        "Category":  "park",
+        "FileName":  "hibiya-park.jpg"
+    },
+    {
+        "ID":  "ginza-six",
+        "Name":  "Ginza Six (azotea)",
+        "Category":  "viewpoint",
+        "FileName":  "ginza-six.jpg"
+    },
+    {
+        "ID":  "tsukiji-outer-market",
+        "Name":  "Tsukiji Outer Market",
+        "Category":  "market",
+        "FileName":  "tsukiji-outer-market.jpg"
+    },
+    {
+        "ID":  "imperial-east",
+        "Name":  "Jardines del Este del Palacio Imperial",
+        "Category":  "garden",
+        "FileName":  "imperial-east.jpg"
+    },
+    {
+        "ID":  "shibuya-crossing",
+        "Name":  "Shibuya Crossing",
+        "Category":  "viewpoint",
+        "FileName":  "shibuya-crossing.jpg"
+    },
+    {
+        "ID":  "shibuya-sky",
+        "Name":  "Shibuya Sky",
+        "Category":  "viewpoint",
+        "FileName":  "shibuya-sky.jpg"
+    },
+    {
+        "ID":  "yanaka",
+        "Name":  "Barrio de Yanaka",
+        "Category":  "neighborhood",
+        "FileName":  "yanaka.jpg"
+    },
+    {
+        "ID":  "hakone-openair",
+        "Name":  "Hakone Open-Air Museum",
+        "Category":  "museum",
+        "FileName":  "hakone-openair.jpg"
+    },
+    {
+        "ID":  "nishiki-market",
+        "Name":  "Nishiki Market",
+        "Category":  "market",
+        "FileName":  "nishiki-market.jpg"
+    },
+    {
+        "ID":  "pontocho",
+        "Name":  "Pontocho",
+        "Category":  "neighborhood",
+        "FileName":  "pontocho.jpg"
+    },
+    {
+        "ID":  "fushimi-inari",
+        "Name":  "Fushimi Inari Taisha",
+        "Category":  "shrine",
+        "FileName":  "fushimi-inari.jpg"
+    },
+    {
+        "ID":  "kiyomizudera",
+        "Name":  "Kiyomizu-dera",
+        "Category":  "temple",
+        "FileName":  "kiyomizudera.jpg"
+    },
+    {
+        "ID":  "higashiyama",
+        "Name":  "Higashiyama (Sannenzaka y Ninenzaka)",
+        "Category":  "neighborhood",
+        "FileName":  "higashiyama.jpg"
+    },
+    {
+        "ID":  "gion",
+        "Name":  "Gion",
+        "Category":  "neighborhood",
+        "FileName":  "gion.jpg"
+    },
+    {
+        "ID":  "arashiyama",
+        "Name":  "Bosque de Bambú de Arashiyama",
+        "Category":  "garden",
+        "FileName":  "arashiyama.jpg"
+    },
+    {
+        "ID":  "kinkakuji",
+        "Name":  "Kinkaku-ji (Pabellón Dorado)",
+        "Category":  "temple",
+        "FileName":  "kinkakuji.jpg"
+    },
+    {
+        "ID":  "nijo-castle",
+        "Name":  "Castillo Nijo",
+        "Category":  "castle",
+        "FileName":  "nijo-castle.jpg"
+    },
+    {
+        "ID":  "peace-park",
+        "Name":  "Parque Memorial de la Paz",
+        "Category":  "memorial",
+        "FileName":  "peace-park.jpg"
+    },
+    {
+        "ID":  "genbaku-dome",
+        "Name":  "Cúpula Genbaku",
+        "Category":  "memorial",
+        "FileName":  "genbaku-dome.jpg"
+    },
+    {
+        "ID":  "shukkei-en",
+        "Name":  "Shukkei-en Garden",
+        "Category":  "garden",
+        "FileName":  "shukkei-en.jpg"
+    },
+    {
+        "ID":  "dotonbori",
+        "Name":  "Dotonbori",
+        "Category":  "neighborhood",
+        "FileName":  "dotonbori.jpg"
+    },
+    {
+        "ID":  "hozenji",
+        "Name":  "Hozenji Yokocho",
+        "Category":  "neighborhood",
+        "FileName":  "hozenji.jpg"
+    },
+    {
+        "ID":  "osaka-castle",
+        "Name":  "Castillo de Osaka",
+        "Category":  "castle",
+        "FileName":  "osaka-castle.jpg"
+    }
+]

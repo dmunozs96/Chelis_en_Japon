@@ -1,611 +1,1080 @@
-{
-  "pois": [
-    {
-      "id": "sensoji",
-      "name": "Templo Senso-ji",
-      "name_ja": "浅草寺",
-      "name_ja_reading": "Sensō-ji",
-      "city": "Tokyo",
-      "category": "temple",
-      "address": "2-3-1 Asakusa, Taito City, Tokyo",
-      "lat": 35.7148,
-      "lng": 139.7967,
-      "description": "El templo budista más antiguo de Tokio, fundado en el año 645 tras la leyenda de dos pescadores que encontraron una estatuilla de Kannon en el río Sumida. Sobrevivió a los bombardeos de la Segunda Guerra Mundial en gran parte reconstruido, y hoy sigue siendo un centro de culto activo, no solo un monumento.\n\nLa entrada es la puerta Kaminarimon (\"puerta del trueno\"), con su enorme linterna roja de papel. Detrás se extiende Nakamise-dori, una calle comercial de casi 250 metros con tiendas tradicionales de snacks y recuerdos que lleva hasta el salón principal (Hondo), donde se venera a Kannon.\n\nDe noche el recinto queda iluminado hasta las 23:00 aproximadamente, y el ambiente cambia por completo: mucha menos gente y una estampa muy fotogénica de la pagoda de cinco pisos y el Hondo iluminados.",
-      "significance": "Es la parada clásica de Tokio y, con Obon coincidiendo con la primera estancia, conviene ir muy pronto o de noche para evitar las aglomeraciones.",
-      "opening_hours": {
-        "grounds": "24 horas",
-        "main_hall": "06:00–17:00 aprox. (recinto iluminado hasta ~23:00)",
-        "notes": "El recinto exterior está siempre abierto; Nakamise-dori abre sus tiendas hacia las 10:00."
-      },
-      "closed_days": [],
-      "price": { "free": true, "notes": "Entrada libre al templo. El recinto del Tesoro tiene tarifa aparte." },
-      "duration_suggested": "1–2 horas",
-      "restrictions": ["Lugar de culto activo: mantener silencio y respeto en el Hondo"],
-      "tips": [
-        "Ir antes de las 8:00 o de noche para evitar las masas — con Obon (13-16 ago) habrá más gente de lo normal",
-        "Nakamise-dori abre hacia las 10:00; de madrugada solo se ve el recinto principal"
-      ],
-      "best_time": "Amanecer o después de las 20:00",
-      "access": { "metro": "Asakusa (líneas Ginza, Asakusa, Tobu Skytree)", "walk_minutes": 5, "notes": "Kaminarimon es visible nada más salir de la estación." },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Senso-ji_Temple_in_Asakusa%2C_Tokyo.jpg/1280px-Senso-ji_Temple_in_Asakusa%2C_Tokyo.jpg",
-      "website": "https://www.senso-ji.jp/",
-      "source": "https://tokyocheapo.com/entertainment/sightseeing/sensoji-temple-guide/",
-      "tags": ["asakusa", "templo", "imprescindible", "obon"]
-    },
-    {
-      "id": "hibiya-park",
-      "name": "Hibiya Park",
-      "name_ja": "日比谷公園",
-      "name_ja_reading": "Hibiya Kōen",
-      "city": "Tokyo",
-      "category": "park",
-      "address": "1-6 Hibiyakoen, Chiyoda City, Tokyo",
-      "lat": 35.6734,
-      "lng": 139.7578,
-      "description": "El primer parque de estilo occidental construido en Japón, inaugurado en 1903 sobre lo que había sido un terreno de entrenamiento militar. Fue diseñado con jardines formales, un pequeño lago y una fuente central inspirados en los parques europeos que Japón empezaba a mirar en la era Meiji.\n\nHoy es un pulmón verde tranquilo pegado a Ginza y al distrito de Marunouchi, con rosaledas, un teatro al aire libre y cafés sencillos. No es una atracción \"de guía\", sino el tipo de sitio donde bajar el ritmo entre paseos por Ginza.\n\nPor su cercanía al hotel de la primera y última estancia en Tokio, es un plan de baja intensidad ideal para el día de llegada, con jet lag.",
-      "significance": "A 8 minutos del hotel — plan perfecto de bajo esfuerzo para el primer día tras el vuelo nocturno.",
-      "opening_hours": { "grounds": "24 horas (jardines cierran al anochecer)", "notes": "Sin control de acceso, entrada libre en todo momento." },
-      "closed_days": [],
-      "price": { "free": true },
-      "duration_suggested": "30–45 min",
-      "restrictions": [],
-      "tips": ["Combinar con un paseo hasta la azotea de Ginza Six, a 10 min andando"],
-      "best_time": "Cualquier hora, mejor al atardecer",
-      "access": { "metro": "Kasumigaseki / Uchisaiwaicho", "walk_minutes": 8, "notes": "A 8 min a pie del hotel de Yurakucho." },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Hibiya_Park_02.jpg/1280px-Hibiya_Park_02.jpg",
-      "website": null,
-      "source": "https://www.japan-experience.com/all-about-japan/tokyo/parks-and-gardens/hibiya-park-a-green-oasis-in-the-heart-of-tokyo",
-      "tags": ["parque", "tranquilo", "llegada", "yurakucho"]
-    },
-    {
-      "id": "ginza-six",
-      "name": "Ginza Six (azotea)",
-      "name_ja": "銀座シックス",
-      "name_ja_reading": "Ginza Six",
-      "city": "Tokyo",
-      "category": "viewpoint",
-      "address": "6-10-1 Ginza, Chuo City, Tokyo",
-      "lat": 35.6704,
-      "lng": 139.7647,
-      "description": "Centro comercial de lujo inaugurado en 2017 en el corazón de Ginza, con más de 240 tiendas y una de las mayores librerías Tsutaya de Japón. Su gran diferencial para el viajero que no va de compras es la azotea.\n\nEn el piso superior hay un jardín ajardinado gratuito y abierto al público, con bancos y vistas sobre los tejados de Ginza — un contraste curioso entre el lujo comercial de abajo y un espacio de descanso silencioso arriba.",
-      "significance": "A 5-10 minutos del hotel, es una manera gratuita de ver Ginza desde arriba sin colas ni entrada.",
-      "opening_hours": { "grounds": "Según horario del centro comercial, aprox. 10:30–20:30", "notes": "El jardín de la azotea cierra con el resto del edificio." },
-      "closed_days": [],
-      "price": { "free": true, "notes": "Acceso gratuito a la azotea." },
-      "duration_suggested": "20–30 min",
-      "restrictions": [],
-      "tips": ["Buen plan de relleno entre el check-in y la cena del primer día"],
-      "best_time": "Atardecer",
-      "access": { "metro": "Ginza", "walk_minutes": 6, "notes": "A 5-10 min del hotel de Yurakucho." },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Ginza_Six_2017.jpg/1280px-Ginza_Six_2017.jpg",
-      "website": null,
-      "source": "https://www.kanpai-japan.com/tokyo/ginza-six",
-      "tags": ["ginza", "mirador", "gratis", "llegada"]
-    },
-    {
-      "id": "tsukiji-outer-market",
-      "name": "Tsukiji Outer Market",
-      "name_ja": "築地場外市場",
-      "name_ja_reading": "Tsukiji Jōgai Shijō",
-      "city": "Tokyo",
-      "category": "market",
-      "address": "4 Chome Tsukiji, Chuo City, Tokyo",
-      "lat": 35.6654,
-      "lng": 139.7707,
-      "description": "Aunque el mercado mayorista de pescado se trasladó a Toyosu en 2018, el mercado exterior de Tsukiji se quedó donde estaba y sigue siendo uno de los mejores sitios de Tokio para comer de pie: puestos de sushi, marisco a la parrilla y snacks callejeros repartidos por callejuelas estrechas.\n\nEs un buen sitio para desayunar o comer de camino entre el hotel de Yurakucho y otras zonas, sin necesidad de reserva ni planificación.",
-      "significance": "De camino entre el hotel y Ginza/Tsukiji — parada informal para picar sin reserva.",
-      "opening_hours": { "grounds": "Mayoría de puestos 05:00–14:00 aprox.", "notes": "Muchos locales cierran a mediodía; mejor ir por la mañana." },
-      "closed_days": ["Algunos puestos cierran domingo — variable por local"],
-      "price": { "free": true, "notes": "Sin entrada; se paga por lo que se consume." },
-      "duration_suggested": "45–60 min",
-      "restrictions": [],
-      "tips": ["Ir por la mañana, muchos puestos cierran a primera hora de la tarde"],
-      "best_time": "08:00–11:00",
-      "access": { "metro": "Tsukiji / Tsukijishijo", "walk_minutes": 15, "notes": "15-20 min a pie desde el hotel de Yurakucho." },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Tsukiji_market.jpg/1280px-Tsukiji_market.jpg",
-      "website": null,
-      "source": "https://www.timeout.com/tokyo/restaurants/breakfast-at-tsukiji",
-      "tags": ["mercado", "street-food", "desayuno"]
-    },
-    {
-      "id": "imperial-east",
-      "name": "Jardines del Este del Palacio Imperial",
-      "name_ja": "皇居東御苑",
-      "name_ja_reading": "Kōkyo Higashi Gyoen",
-      "city": "Tokyo",
-      "category": "garden",
-      "address": "1-1 Chiyoda, Chiyoda City, Tokyo",
-      "lat": 35.6852,
-      "lng": 139.7528,
-      "description": "Parte de los terrenos del castillo de Edo, sede del shogunato Tokugawa desde 1603 y, desde 1868, del Palacio Imperial. Los jardines del Este son la única zona del recinto del castillo abierta al público de forma gratuita todo el año.\n\nDentro se conservan los muros de piedra originales del castillo, la base de lo que fue la torre principal (tenshu) y jardines cuidados con estanques y una zona de bambú, en fuerte contraste con los rascacielos de Marunouchi que se ven al fondo.",
-      "significance": "Vestigio directo del poder del shogunato que gobernó Japón durante 250 años antes de la era moderna.",
-      "opening_hours": { "grounds": "09:00–17:00 aprox. (varía por temporada)", "notes": "Cierra lunes y viernes." },
-      "closed_days": ["lunes", "viernes"],
-      "price": { "free": true },
-      "duration_suggested": "1–1.5 horas",
-      "restrictions": [],
-      "tips": ["Comprobar que el día de la visita no sea lunes ni viernes antes de ir"],
-      "best_time": "Mañana",
-      "access": { "metro": "Otemachi / Tokyo Station", "walk_minutes": 10, "notes": "8-10 min de Tokyo Station." },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Imperial_Palace_East_Garden.jpg/1280px-Imperial_Palace_East_Garden.jpg",
-      "website": null,
-      "source": "https://www.japan-guide.com/e/e3018.html",
-      "tags": ["jardín", "historia", "shogunato", "gratis"]
-    },
-    {
-      "id": "shibuya-crossing",
-      "name": "Shibuya Crossing",
-      "name_ja": "渋谷スクランブル交差点",
-      "name_ja_reading": "Shibuya Sukuranburu Kōsaten",
-      "city": "Tokyo",
-      "category": "viewpoint",
-      "address": "2 Chome Dogenzaka, Shibuya City, Tokyo",
-      "lat": 35.6595,
-      "lng": 139.7004,
-      "description": "El cruce peatonal más transitado del mundo, donde hasta 3.000 personas pueden cruzar a la vez cuando el semáforo se pone en verde en las cinco direcciones simultáneamente. Rodeado de pantallas gigantes de neón, es una de las postales más reconocibles de Tokio.\n\nJusto al lado está la estatua de Hachiko, el perro Akita que esperó a su dueño fallecido en la estación durante casi 10 años — hoy punto de encuentro habitual.",
-      "significance": "Postal imprescindible de Tokio moderno, mejor combinada con las vistas desde Shibuya Sky al atardecer.",
-      "opening_hours": { "grounds": "24 horas" },
-      "closed_days": [],
-      "price": { "free": true },
-      "duration_suggested": "20–30 min",
-      "restrictions": [],
-      "tips": ["Ver el cruce desde arriba (Starbucks del Tsutaya o Shibuya Sky) además de cruzarlo a pie"],
-      "best_time": "Atardecer / noche, cuando se encienden las pantallas",
-      "access": { "metro": "Shibuya (salida Hachiko)", "walk_minutes": 1 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Shibuya_Crossing.jpg/1280px-Shibuya_Crossing.jpg",
-      "website": null,
-      "source": "https://www.tripadvisor.com/Attractions-g1066456-Activities-Shibuya_Tokyo_Tokyo_Prefecture_Kanto.html",
-      "tags": ["shibuya", "icono", "imprescindible"]
-    },
-    {
-      "id": "shibuya-sky",
-      "name": "Shibuya Sky",
-      "name_ja": "渋谷スカイ",
-      "name_ja_reading": "Shibuya Sukai",
-      "city": "Tokyo",
-      "category": "viewpoint",
-      "address": "2-24-12 Shibuya, Shibuya City, Tokyo",
-      "lat": 35.6580,
-      "lng": 139.7016,
-      "description": "Mirador al aire libre en la azotea del edificio Shibuya Scramble Square, a 230 metros de altura, inaugurado en 2019. Desde arriba se ve el propio Shibuya Crossing en miniatura, y en días claros incluso el Monte Fuji al fondo.\n\nEs uno de los pocos miradores de Tokio completamente al aire libre (sin cristal por delante), lo que lo hace especialmente fotogénico al atardecer.",
-      "significance": "La mejor vista elevada de Shibuya y, con suerte, del Fuji al atardecer.",
-      "opening_hours": { "grounds": "10:00–22:30 aprox. (última entrada 21:20)", "notes": "Recomendable reservar franja horaria con antelación en temporada alta." },
-      "closed_days": [],
-      "price": { "free": false, "adult": "¥2.200-2.500 aprox.", "notes": "Precio puede variar según antelación de compra online." },
-      "duration_suggested": "45–60 min",
-      "restrictions": ["Terraza exterior sin barreras altas — cuidado con objetos sueltos por el viento"],
-      "tips": ["Ir 30-40 min antes del atardecer para coger sitio en la baranda"],
-      "best_time": "Atardecer",
-      "access": { "metro": "Shibuya (conexión directa desde la estación)", "walk_minutes": 1 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Shibuya_Sky_view.jpg/1280px-Shibuya_Sky_view.jpg",
-      "website": "https://www.shibuya-scramble-square.com/sky/",
-      "source": "https://www.tripadvisor.com/Attractions-g1066456-Activities-Shibuya_Tokyo_Tokyo_Prefecture_Kanto.html",
-      "tags": ["shibuya", "mirador", "atardecer"]
-    },
-    {
-      "id": "yanaka",
-      "name": "Barrio de Yanaka",
-      "name_ja": "谷中",
-      "name_ja_reading": "Yanaka",
-      "city": "Tokyo",
-      "category": "neighborhood",
-      "address": "Yanaka, Taito City, Tokyo",
-      "lat": 35.7267,
-      "lng": 139.7693,
-      "description": "Uno de los pocos barrios de Tokio que sobrevivió tanto al gran terremoto de Kanto (1923) como a los bombardeos de la Segunda Guerra Mundial, conservando así callejones, casas de madera y tiendas familiares con generaciones de historia detrás.\n\nSu calle principal, Yanaka Ginza, mantiene el ambiente de un barrio de shitamachi (\"ciudad baja\") tradicional: tiendas de senbei recién hechos, pescaderías pequeñas y gatos por todas partes — es conocido como el \"barrio de los gatos\" de Tokio.\n\nEl cementerio de Yanaka, con lápidas de la era Edo entremezcladas con cerezos, es un paseo tranquilo y atípico dentro del itinerario turístico habitual.",
-      "significance": "Textura de Tokio antiguo sin la masificación de Asakusa — el barrio elegido para sustituir a teamLab Borderless en la mañana libre.",
-      "opening_hours": { "grounds": "Libre, tiendas suelen abrir 10:00–18:00" },
-      "closed_days": [],
-      "price": { "free": true },
-      "duration_suggested": "2–3 horas",
-      "restrictions": [],
-      "tips": ["Pasear sin prisa por Yanaka Ginza y desviarse por las callejuelas laterales", "El cementerio de Yanaka es gratuito y muy fotogénico en cualquier estación"],
-      "best_time": "Mañana",
-      "access": { "metro": "Nippori", "walk_minutes": 5 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Yanaka_Ginza_shopping_street.jpg/1280px-Yanaka_Ginza_shopping_street.jpg",
-      "website": null,
-      "source": "japon_info_base.md",
-      "tags": ["barrio", "histórico", "tranquilo", "gatos"]
-    },
-    {
-      "id": "hakone-openair",
-      "name": "Hakone Open-Air Museum",
-      "name_ja": "彫刻の森美術館",
-      "name_ja_reading": "Chōkoku no Mori Bijutsukan",
-      "city": "Hakone",
-      "category": "museum",
-      "address": "1121 Ninotaira, Hakone, Ashigarashimo District, Kanagawa",
-      "lat": 35.2349,
-      "lng": 139.0457,
-      "description": "Inaugurado en 1969, fue el primer museo al aire libre de Japón: más de 100 esculturas de artistas japoneses e internacionales (entre ellos Henry Moore y Rodin) repartidas por jardines con vistas a las montañas de Hakone.\n\nTiene también un pabellón dedicado a Picasso con más de 300 obras, y una zona de \"baños de pies\" con aguas termales para los visitantes.\n\nPor su cercanía al ryokan (10-15 min a pie), es la opción más eficiente de las atracciones de Hakone cuando solo se dispone de una tarde corta.",
-      "significance": "La única atracción de Hakone realista con el tiempo disponible: el resto del \"Hakone Loop\" (Lago Ashi, Owakudani) consume demasiado tiempo en trayectos según varias guías especializadas.",
-      "opening_hours": { "grounds": "09:00–17:00 (última entrada 16:30)", "notes": "Abierto todos los días del año." },
-      "closed_days": [],
-      "price": { "free": false, "adult": "¥1.600 aprox.", "notes": "Consultar precio actualizado en la web oficial." },
-      "duration_suggested": "1.5–2 horas",
-      "restrictions": [],
-      "tips": ["Llevar toalla pequeña si se quiere probar el baño de pies termal"],
-      "best_time": "Tarde, tras el check-in",
-      "access": { "metro": "Chokoku-no-Mori Station (línea Hakone Tozan)", "walk_minutes": 12, "notes": "10-15 min a pie del ryokan Mizunoto." },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hakone_Open-Air_Museum.jpg/1280px-Hakone_Open-Air_Museum.jpg",
-      "website": "https://www.hakone-oam.or.jp/en/",
-      "source": "https://www.japanfoodtravels.com/post/hakone-one-night-itinerary",
-      "tags": ["museo", "arte", "hakone", "cercano-al-ryokan"]
-    },
-    {
-      "id": "nishiki-market",
-      "name": "Nishiki Market",
-      "name_ja": "錦市場",
-      "name_ja_reading": "Nishiki Ichiba",
-      "city": "Kyoto",
-      "category": "market",
-      "address": "Nishikikoji-dori, Nakagyo-ku, Kyoto",
-      "lat": 35.0046,
-      "lng": 135.7659,
-      "description": "Mercado techado de casi 400 metros conocido como \"la cocina de Kioto\", con más de 400 años de historia como zona de distribución de pescado y productos frescos para la ciudad.\n\nHoy combina puestos tradicionales (encurtidos tsukemono, tofu, cuchillos artesanales) con street food para comer al momento: tako tamago (mini pulpo con huevo de codorniz), tempura de gamba, dulces mochi.\n\nEstá a solo 4 minutos a pie de Kawaramachi, la zona donde se concentra buena parte de la vida nocturna y gastronómica de Kioto.",
-      "significance": "Parada obligada para probar street food kyotoense sin necesidad de reserva.",
-      "opening_hours": { "grounds": "Mayoría de puestos 09:00–18:00", "notes": "Horario varía por local; más animado a mediodía." },
-      "closed_days": [],
-      "price": { "free": true, "notes": "Sin entrada; se paga por lo que se consume." },
-      "duration_suggested": "45–90 min",
-      "restrictions": ["Evitar comer mientras se camina por el pasillo principal — hacerlo a un lado"],
-      "tips": ["Ir con hambre y probar 3-4 puestos distintos en vez de sentarse a comer"],
-      "best_time": "Mediodía o media tarde",
-      "access": { "metro": "Kawaramachi (Hankyu) / Karasuma-Oike (Tozai/Karasuma)", "walk_minutes": 4 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Nishiki_Market%2C_Kyoto.jpg/1280px-Nishiki_Market%2C_Kyoto.jpg",
-      "website": null,
-      "source": "https://www.kyoto-nishiki.or.jp/en/access/",
-      "tags": ["mercado", "street-food", "kioto"]
-    },
-    {
-      "id": "pontocho",
-      "name": "Pontocho",
-      "name_ja": "先斗町",
-      "name_ja_reading": "Pontochō",
-      "city": "Kyoto",
-      "category": "neighborhood",
-      "address": "Pontocho, Nakagyo-ku, Kyoto",
-      "lat": 35.0072,
-      "lng": 135.7694,
-      "description": "Callejón estrecho y empedrado que corre paralelo al río Kamo, uno de los distritos de entretenimiento tradicional (hanamachi) más antiguos de Kioto, en pie desde el periodo Edo.\n\nFarolillos de papel, fachadas de madera y restaurantes desde izakayas informales hasta ryotei de alta cocina se alinean a ambos lados. Es habitual cruzarse con geiko o maiko de camino a alguna cita, aunque fotografiarlas directamente se considera de mala educación.",
-      "significance": "El paseo nocturno más atmosférico de Kioto, a un paso de Kawaramachi.",
-      "opening_hours": { "grounds": "24 horas (calle pública)", "notes": "El ambiente cobra vida sobre todo a partir de las 18:00." },
-      "closed_days": [],
-      "price": { "free": true },
-      "duration_suggested": "30–45 min de paseo",
-      "restrictions": ["No fotografiar a geiko/maiko de cerca sin permiso"],
-      "tips": ["Cruzar hasta la orilla del río Kamo para ver las terrazas suspendidas (yuka) en verano"],
-      "best_time": "Noche",
-      "access": { "metro": "Kawaramachi (Hankyu)", "walk_minutes": 3 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Pontocho_Alley%2C_Kyoto.jpg/1280px-Pontocho_Alley%2C_Kyoto.jpg",
-      "website": null,
-      "source": "https://blog.japanwondertravel.com/the-best-10-dinner-spots-in-pontocho-kyoto-8710",
-      "tags": ["barrio", "noche", "gastronomía", "kioto"]
-    },
-    {
-      "id": "fushimi-inari",
-      "name": "Fushimi Inari Taisha",
-      "name_ja": "伏見稲荷大社",
-      "name_ja_reading": "Fushimi Inari Taisha",
-      "city": "Kyoto",
-      "category": "shrine",
-      "address": "68 Fukakusa Yabunouchicho, Fushimi Ward, Kyoto",
-      "lat": 34.9671,
-      "lng": 135.7727,
-      "description": "Santuario sintoísta fundado en el año 711, dedicado a Inari, deidad del arroz, la prosperidad y los negocios. Es la cabecera de miles de santuarios Inari repartidos por todo Japón.\n\nSu imagen más icónica son los senbon torii: miles de puertas torii de color naranja bermellón donadas por empresas y particulares a lo largo de los siglos, formando túneles que ascienden por la montaña sagrada Inariyama hasta la cima, a unos 4 km y 2-3 horas de subida completa.\n\nLos zorros (kitsune), mensajeros de Inari, aparecen representados por todo el recinto en forma de estatuas.",
-      "significance": "Abierto 24 horas y gratuito — la joya de Kioto que mejor se disfruta yendo muy temprano, antes de que lleguen los grupos de turistas.",
-      "opening_hours": { "grounds": "24 horas", "notes": "El recorrido completo hasta la cima toma 2-3 horas; la mayoría se queda en los primeros tramos, ya menos concurridos tras el primer mirador (Yotsutsuji)." },
-      "closed_days": [],
-      "price": { "free": true },
-      "duration_suggested": "1.5–3 horas según cuánto se suba",
-      "restrictions": ["Recinto sagrado: mantener el respeto habitual de un santuario sintoísta"],
-      "tips": ["Ir entre las 5:00 y las 8:00 de la mañana para evitar la masificación", "No hace falta subir hasta arriba: el mirador de Yotsutsuji ya ofrece vistas y menos gente"],
-      "best_time": "05:00–08:00",
-      "access": { "metro": "Fushimi Inari (línea JR Nara) o Fushimi-Inari (Keihan)", "walk_minutes": 5, "notes": "Tren Keihan directo desde Sanjo, 10-15 min." },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Fushimi_Inari-taisha_torii.jpg/1280px-Fushimi_Inari-taisha_torii.jpg",
-      "website": "https://inari.jp/en/",
-      "source": "https://www.japan-guide.com/e/e3915.html",
-      "tags": ["santuario", "torii", "imprescindible", "madrugada"]
-    },
-    {
-      "id": "kiyomizudera",
-      "name": "Kiyomizu-dera",
-      "name_ja": "清水寺",
-      "name_ja_reading": "Kiyomizu-dera",
-      "city": "Kyoto",
-      "category": "temple",
-      "address": "1-294 Kiyomizu, Higashiyama Ward, Kyoto",
-      "lat": 34.9948,
-      "lng": 135.7851,
-      "description": "Templo budista fundado en el año 778, Patrimonio Mundial de la UNESCO como parte de los \"Monumentos Históricos de la Antigua Kioto\". Su nombre significa \"templo del agua pura\", por la cascada Otowa que nace en la colina donde se asienta.\n\nEl elemento más famoso es su gran terraza de madera (el escenario principal), construida sin un solo clavo, suspendida sobre el valle a 13 metros de altura y con vistas espectaculares sobre Kioto, especialmente llamativas en primavera (cerezos) y otoño (arces).\n\nEl camino de acceso, a través de las calles empedradas de Sannenzaka y Ninenzaka, es en sí mismo parte de la experiencia: tiendas tradicionales, casas de té y arquitectura de la era Edo bien conservada.",
-      "significance": "Uno de los templos más visitados de Japón — combinarlo con el paseo por Higashiyama justifica media jornada.",
-      "opening_hours": { "grounds": "06:00–18:00 aprox. (varía por temporada, alguna apertura nocturna especial)", "notes": "Consultar horario exacto de temporada en la web oficial." },
-      "closed_days": [],
-      "price": { "free": false, "adult": "¥400-500 aprox." },
-      "duration_suggested": "1.5–2 horas incluyendo Sannenzaka/Ninenzaka",
-      "restrictions": [],
-      "tips": ["Ir entre las 6:00 y las 8:00 para evitar la afluencia del bus 207", "Combinar con el paseo por Sannenzaka y Ninenzaka antes o después"],
-      "best_time": "06:00–08:00",
-      "access": { "metro": "Bus 207 desde Kyoto Station/Kawaramachi", "walk_minutes": 10, "notes": "Bajada a pie desde la parada de bus." },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Kiyomizu-dera_Main_Hall.jpg/1280px-Kiyomizu-dera_Main_Hall.jpg",
-      "website": "https://www.kiyomizudera.or.jp/en/",
-      "source": "https://en.motenas-japan.jp/going-to-kiyomizu-dera-temple-in-kyoto-what-you-should-know/",
-      "tags": ["templo", "unesco", "higashiyama", "madrugada"]
-    },
-    {
-      "id": "higashiyama",
-      "name": "Higashiyama (Sannenzaka y Ninenzaka)",
-      "name_ja": "東山・産寧坂・二年坂",
-      "name_ja_reading": "Higashiyama, Sannenzaka, Ninenzaka",
-      "city": "Kyoto",
-      "category": "neighborhood",
-      "address": "Higashiyama Ward, Kyoto",
-      "lat": 34.9963,
-      "lng": 135.7793,
-      "description": "El distrito histórico a los pies de las colinas del este de Kioto, con calles empedradas que conectan Kiyomizu-dera con Yasaka Shrine y Gion. Sannenzaka (\"cuesta de los tres años\") y Ninenzaka (\"cuesta de los dos años\") son sus tramos más fotogénicos, flanqueados por casas de madera de la era Edo convertidas en tiendas de té, dulces tradicionales y artesanía.\n\nEs el tipo de barrio donde perderse sin prisa entre visita y visita, con vistas ocasionales a la pagoda de Yasaka asomando entre los tejados.",
-      "significance": "El paseo que conecta Kiyomizu-dera con Gion — el corazón visual de la Kioto tradicional.",
-      "opening_hours": { "grounds": "Libre (calles públicas)", "notes": "Tiendas suelen abrir 10:00–18:00." },
-      "closed_days": [],
-      "price": { "free": true },
-      "duration_suggested": "1–1.5 horas",
-      "restrictions": [],
-      "tips": ["Ir justo después de Kiyomizu-dera, cuesta abajo, en vez de subir"],
-      "best_time": "Media mañana",
-      "access": { "metro": "Bus 207 / a pie desde Kiyomizu-dera", "walk_minutes": 5 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Sannenzaka_street_Kyoto.jpg/1280px-Sannenzaka_street_Kyoto.jpg",
-      "website": null,
-      "source": "https://kyoto.travel/en/getting-around/comfortable-access-to-gion-yasaka-jinja-shrine/",
-      "tags": ["barrio", "histórico", "paseo"]
-    },
-    {
-      "id": "gion",
-      "name": "Gion",
-      "name_ja": "祇園",
-      "name_ja_reading": "Gion",
-      "city": "Kyoto",
-      "category": "neighborhood",
-      "address": "Gion, Higashiyama Ward, Kyoto",
-      "lat": 35.0037,
-      "lng": 135.7756,
-      "description": "El distrito de geishas más famoso de Japón, activo desde el periodo Edo como zona de entretenimiento tradicional en torno al santuario Yasaka. Sus calles principales, como Hanami-koji, conservan casas de té (ochaya) de madera oscura donde aún actúan geiko y maiko.\n\nDesde abril de 2024, algunos callejones privados de Gion (como Kosode Koji) están vetados a turistas por el comportamiento irrespetuoso de algunos visitantes hacia las geiko, con multas de hasta ¥10.000 por entrar. Hanami-koji, la calle principal, sigue siendo pública y accesible.",
-      "significance": "El barrio de geishas más icónico de Japón — pasear con respeto, sin acosar a las geiko con fotos.",
-      "opening_hours": { "grounds": "24 horas (calles públicas)", "notes": "Callejones privados señalizados están vetados al turismo desde 2024." },
-      "closed_days": [],
-      "price": { "free": true },
-      "duration_suggested": "1–1.5 horas",
-      "restrictions": ["No entrar en callejones privados señalizados", "No fotografiar a geiko/maiko sin su consentimiento"],
-      "tips": ["Ir al atardecer, cuando el ambiente y la luz son mejores"],
-      "best_time": "Atardecer",
-      "access": { "metro": "A pie cruzando el río Kamo desde Kawaramachi", "walk_minutes": 10 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Gion_Hanamikoji.jpg/1280px-Gion_Hanamikoji.jpg",
-      "website": null,
-      "source": "https://www.japantimes.co.jp/news/2024/03/07/japan/society/kyoto-tourists-geisha/",
-      "tags": ["barrio", "geishas", "histórico", "noche"]
-    },
-    {
-      "id": "arashiyama",
-      "name": "Bosque de Bambú de Arashiyama",
-      "name_ja": "嵐山竹林の道",
-      "name_ja_reading": "Arashiyama Chikurin no Michi",
-      "city": "Kyoto",
-      "category": "garden",
-      "address": "Arashiyama, Ukyo Ward, Kyoto",
-      "lat": 35.0170,
-      "lng": 135.6727,
-      "description": "Uno de los paisajes más fotografiados de Japón: un sendero de unos 500 metros entre tallos de bambú gigante que se elevan varios metros, creando un túnel verde donde la luz se filtra en franjas. El sonido del viento entre las cañas está incluso catalogado como uno de los \"100 paisajes sonoros de Japón\".\n\nEstá integrado en los terrenos del templo Tenryu-ji (Patrimonio Mundial), a los pies de las montañas de Arashiyama, junto al río Katsura.",
-      "significance": "Imagen icónica de Japón — solo se disfruta de verdad yendo antes de que lleguen los grupos turísticos.",
-      "opening_hours": { "grounds": "24 horas (sendero público)", "notes": "Tenryu-ji, junto al bosque, abre normalmente 08:30–17:00." },
-      "closed_days": [],
-      "price": { "free": true, "notes": "El sendero de bambú es gratuito; Tenryu-ji tiene entrada aparte." },
-      "duration_suggested": "45–60 min",
-      "restrictions": [],
-      "tips": ["Ir antes de las 7:00-8:00, es el consejo más repetido por todas las guías", "Después, aprovechar para visitar Tenryu-ji, justo al lado"],
-      "best_time": "07:00–08:00",
-      "access": { "metro": "JR Sagano Line hasta Saga-Arashiyama", "walk_minutes": 10 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Arashiyama_Bamboo_Grove.jpg/1280px-Arashiyama_Bamboo_Grove.jpg",
-      "website": null,
-      "source": "https://www.japanmanifest.com/best-times-to-visit-the-arashiyama-bamboo-forest/",
-      "tags": ["naturaleza", "icono", "madrugada"]
-    },
-    {
-      "id": "kinkakuji",
-      "name": "Kinkaku-ji (Pabellón Dorado)",
-      "name_ja": "金閣寺",
-      "name_ja_reading": "Kinkaku-ji",
-      "city": "Kyoto",
-      "category": "temple",
-      "address": "1 Kinkakujicho, Kita Ward, Kyoto",
-      "lat": 35.0394,
-      "lng": 135.7292,
-      "description": "Templo zen cuyo pabellón principal está recubierto de pan de oro en sus dos plantas superiores, reflejándose en el estanque Kyoko-chi (\"estanque del espejo\") que lo rodea. Construido originalmente en 1397 como villa de retiro del shogun Ashikaga Yoshimitsu, se convirtió en templo budista tras su muerte.\n\nEl edificio actual es una reconstrucción de 1955, tras el incendio provocado en 1950 por un monje. Es Patrimonio Mundial de la UNESCO y uno de los monumentos más fotografiados de Japón.",
-      "significance": "Imagen de postal de Kioto — la visita es breve pero la parada es casi obligatoria por su valor histórico y visual.",
-      "opening_hours": { "grounds": "09:00–17:00", "notes": "Abierto todos los días del año." },
-      "closed_days": [],
-      "price": { "free": false, "adult": "¥500 aprox." },
-      "duration_suggested": "45–60 min",
-      "restrictions": ["Recorrido en un solo sentido, no se puede entrar al pabellón"],
-      "tips": ["La visita es un paseo circular breve — no hace falta más de una hora"],
-      "best_time": "Media mañana",
-      "access": { "metro": "Bus + metro desde el centro, ~28 min", "walk_minutes": 5 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Kinkaku-ji_2016.jpg/1280px-Kinkaku-ji_2016.jpg",
-      "website": "https://www.shokoku-ji.jp/en/kinkakuji/",
-      "source": "japon_info_base.md",
-      "tags": ["templo", "unesco", "icono"]
-    },
-    {
-      "id": "nijo-castle",
-      "name": "Castillo Nijo",
-      "name_ja": "二条城",
-      "name_ja_reading": "Nijō-jō",
-      "city": "Kyoto",
-      "category": "castle",
-      "address": "541 Nijojocho, Nakagyo Ward, Kyoto",
-      "lat": 35.0142,
-      "lng": 135.7480,
-      "description": "Residencia construida en 1603 para el primer shogun Tokugawa, Ieyasu, como base en Kioto — y también el lugar donde, en 1867, el último shogun Tokugawa devolvió formalmente el poder al emperador, cerrando 265 años de shogunato. Patrimonio Mundial de la UNESCO.\n\nSu característica más peculiar son los \"suelos que cantan\" (uguisubari) del palacio Ninomaru: un sistema de tablas y clavos diseñado para chirriar al pisarlas, como sistema de alarma antigua contra intrusos y asesinos.\n\nLos jardines que rodean el palacio, con estanques y pinos cuidados, se pueden recorrer después del interior.",
-      "significance": "El lugar exacto donde terminó el shogunato Tokugawa y empezó la era moderna de Japón.",
-      "opening_hours": { "grounds": "08:45–17:00 (última entrada al palacio 16:00)", "notes": "Cierra algunos martes en invierno; consultar calendario oficial." },
-      "closed_days": [],
-      "price": { "free": false, "adult": "¥600-1.300 aprox. según se visite solo el recinto o también el palacio" },
-      "duration_suggested": "1.5–2 horas",
-      "restrictions": ["No se permiten fotos dentro del palacio Ninomaru"],
-      "tips": ["Bus 12 directo desde el centro, 15 min, ¥230"],
-      "best_time": "Media tarde",
-      "access": { "metro": "Bus 12 desde el centro / Metro Tozai línea, estación Nijojo-mae", "walk_minutes": 2 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Nijo_Castle_Ninomaru_Palace.jpg/1280px-Nijo_Castle_Ninomaru_Palace.jpg",
-      "website": "https://nijo-jocastle.city.kyoto.lg.jp/en/",
-      "source": "japon_info_base.md",
-      "tags": ["castillo", "unesco", "historia", "shogunato"]
-    },
-    {
-      "id": "peace-park",
-      "name": "Parque Memorial de la Paz",
-      "name_ja": "平和記念公園",
-      "name_ja_reading": "Heiwa Kinen Kōen",
-      "city": "Hiroshima",
-      "category": "memorial",
-      "address": "1-2 Nakajimacho, Naka Ward, Hiroshima",
-      "lat": 34.3916,
-      "lng": 132.4533,
-      "description": "Parque construido sobre lo que fue el distrito comercial y político más animado de Hiroshima antes del 6 de agosto de 1945, cuando la ciudad se convirtió en el primer objetivo de un ataque nuclear en la historia. Hoy es un espacio dedicado a la memoria y a la paz mundial.\n\nDentro se encuentra el Monumento a la Paz de los Niños (dedicado a Sadako Sasaki y las víctimas infantiles), la Llama de la Paz —que arderá hasta que se elimine el último arma nuclear del planeta— y el Museo Memorial de la Paz, que documenta el bombardeo y sus consecuencias con objetos y testimonios reales.\n\nEste es un lugar de memoria, no una atracción turística al uso: conviene visitarlo con el tono adecuado, sin prisa ni ruido.",
-      "significance": "El motivo de peso por el que se visita Hiroshima — un lugar para entender, no solo para fotografiar.",
-      "opening_hours": { "grounds": "24 horas (parque)", "museum": "07:30–20:00 en agosto", "notes": "Reserva online del museo solo obligatoria del 8 al 16 de agosto — no aplica el 21 de agosto." },
-      "closed_days": [],
-      "price": { "free": true, "notes": "El parque es gratuito; el museo cuesta ¥200 aprox." },
-      "duration_suggested": "3–5 horas incluyendo el museo",
-      "restrictions": ["Lugar de memoria: mantener un tono respetuoso y silencioso"],
-      "tips": ["Reservar 3-5 horas entre parque y museo", "El museo abre hasta las 20:00 en agosto, permite ir por la tarde sin prisa"],
-      "best_time": "Tarde",
-      "access": { "metro": "Tranvía (Hiroden) parada Genbaku Dome-mae", "walk_minutes": 3 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Hiroshima_Peace_Memorial_Park.jpg/1280px-Hiroshima_Peace_Memorial_Park.jpg",
-      "website": "http://hpmmuseum.jp/",
-      "source": "http://hpmmuseum.jp/modules/info/index.php?action=PageView&page_id=47&lang=eng",
-      "tags": ["memorial", "historia", "imprescindible", "hiroshima"]
-    },
-    {
-      "id": "genbaku-dome",
-      "name": "Cúpula Genbaku",
-      "name_ja": "原爆ドーム",
-      "name_ja_reading": "Genbaku Dōmu",
-      "city": "Hiroshima",
-      "category": "memorial",
-      "address": "1-10 Otemachi, Naka Ward, Hiroshima",
-      "lat": 34.3955,
-      "lng": 132.4533,
-      "description": "Antiguo Salón de Promoción Industrial de la Prefectura de Hiroshima, diseñado por el checo Jan Letzel e inaugurado en 1915. Estaba a apenas 160 metros del hipocentro de la explosión atómica del 6 de agosto de 1945 y, sin embargo, su estructura vertical no llegó a colapsar del todo, quedando en pie como esqueleto de acero y ladrillo mientras casi todo alrededor era arrasado.\n\nSe conservó deliberadamente en ese estado como recordatorio permanente, y en 1996 fue declarada Patrimonio Mundial de la UNESCO. Es la imagen más reconocible de Hiroshima en todo el mundo.",
-      "significance": "Una de las pocas estructuras que quedó en pie cerca del hipocentro — el símbolo físico de la memoria de Hiroshima.",
-      "opening_hours": { "grounds": "24 horas (vista exterior; no se puede entrar al edificio)" },
-      "closed_days": [],
-      "price": { "free": true },
-      "duration_suggested": "20–30 min",
-      "restrictions": ["No se puede acceder al interior del edificio", "Lugar de memoria: tono respetuoso"],
-      "tips": ["Se ve bien desde el otro lado del río Motoyasu, junto al Parque de la Paz"],
-      "best_time": "Cualquier hora",
-      "access": { "metro": "Tranvía (Hiroden) parada Genbaku Dome-mae", "walk_minutes": 1 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Hiroshima_Peace_Memorial_%28Genbaku_Dome%29.jpg/1280px-Hiroshima_Peace_Memorial_%28Genbaku_Dome%29.jpg",
-      "website": null,
-      "source": "http://hpmmuseum.jp/modules/info/index.php?action=PageView&page_id=47&lang=eng",
-      "tags": ["memorial", "unesco", "historia", "hiroshima"]
-    },
-    {
-      "id": "shukkei-en",
-      "name": "Shukkei-en Garden",
-      "name_ja": "縮景園",
-      "name_ja_reading": "Shukkei-en",
-      "city": "Hiroshima",
-      "category": "garden",
-      "address": "2-11 Kaminoborocho, Naka Ward, Hiroshima",
-      "lat": 34.3987,
-      "lng": 132.4636,
-      "description": "Jardín tradicional japonés construido en 1620 por orden del señor feudal Asano Nagaakira, diseñado en miniatura para recrear un paisaje del lago Xihu en Hangzhou (China) — de ahí su nombre, que significa \"jardín de paisaje condensado\".\n\nComo casi todo en el centro de Hiroshima, quedó destruido por la bomba atómica de 1945 y fue reconstruido y replantado en las décadas posteriores. Hoy ofrece un contraste sereno con la carga emocional del Parque de la Paz — un paseo tranquilo entre estanques, puentes y pabellones de té.",
-      "significance": "Alternativa tranquila si se prefiere completar la mañana con un jardín en vez de alargar la visita al Parque de la Paz.",
-      "opening_hours": { "grounds": "09:00–17:00 aprox. (varía por temporada)" },
-      "closed_days": [],
-      "price": { "free": false, "adult": "¥260 aprox." },
-      "duration_suggested": "45–60 min",
-      "restrictions": [],
-      "tips": ["Buena opción de mañana corta antes del tren a Osaka"],
-      "best_time": "Mañana",
-      "access": { "metro": "A pie desde la estación de Hiroshima", "walk_minutes": 12 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Shukkeien_Garden.jpg/1280px-Shukkeien_Garden.jpg",
-      "website": null,
-      "source": "japon_info_base.md",
-      "tags": ["jardín", "tranquilo", "hiroshima"]
-    },
-    {
-      "id": "dotonbori",
-      "name": "Dotonbori",
-      "name_ja": "道頓堀",
-      "name_ja_reading": "Dōtonbori",
-      "city": "Osaka",
-      "category": "neighborhood",
-      "address": "Dotonbori, Chuo Ward, Osaka",
-      "lat": 34.6687,
-      "lng": 135.5017,
-      "description": "El barrio que mejor resume la fama de Osaka como \"la ciudad que come\": un canal flanqueado por carteles de neón gigantes y en 3D, entre los que destaca el icónico cartel del corredor Glico, en pie desde 1935 y renovado varias veces desde entonces.\n\nA lo largo del canal se concentran locales de takoyaki, okonomiyaki y kushikatsu, además del puente Ebisubashi, punto de encuentro clásico, y la posibilidad de hacer un crucero corto por el canal (Tonbori River Cruise, ~20 min).",
-      "significance": "El corazón gastronómico y visual de Osaka — la franja ideal es entre las 17:00 y las 22:00.",
-      "opening_hours": { "grounds": "24 horas (los neones y locales cierran progresivamente por la noche)" },
-      "closed_days": [],
-      "price": { "free": true, "notes": "Sin entrada; el crucero por el canal tiene coste aparte." },
-      "duration_suggested": "2–3 horas",
-      "restrictions": [],
-      "tips": ["Combinar con Shinsaibashi-suji (calle comercial techada) y Hozenji Yokocho, justo al lado"],
-      "best_time": "17:00–22:00",
-      "access": { "metro": "Namba", "walk_minutes": 5 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Dotonbori_Osaka.jpg/1280px-Dotonbori_Osaka.jpg",
-      "website": null,
-      "source": "https://www.japannakama.co.uk/travel/osaka-guides/dotonbori-canal/",
-      "tags": ["barrio", "gastronomía", "neón", "imprescindible"]
-    },
-    {
-      "id": "hozenji",
-      "name": "Hozenji Yokocho",
-      "name_ja": "法善寺横丁",
-      "name_ja_reading": "Hōzenji Yokochō",
-      "city": "Osaka",
-      "category": "neighborhood",
-      "address": "Hozenji, Chuo Ward, Osaka",
-      "lat": 34.6680,
-      "lng": 135.5030,
-      "description": "Callejón de piedra estrecho junto al templo Hozen-ji, con farolillos de papel y pequeños restaurantes que llevan generaciones en el mismo local. En el propio callejón está el templo homónimo, con una estatua de Fudo Myo-o completamente cubierta de musgo por la costumbre de los visitantes de mojarla con agua al rezar.\n\nEs un contraste deliberado y muy cercano con el bullicio de neón de Dotonbori, a apenas un par de calles.",
-      "significance": "El rincón tradicional escondido justo detrás del bullicio de Dotonbori.",
-      "opening_hours": { "grounds": "24 horas (calle pública)" },
-      "closed_days": [],
-      "price": { "free": true },
-      "duration_suggested": "15–20 min",
-      "restrictions": ["Se pide mantener silencio al pasar, por respeto al templo y a los locales"],
-      "tips": ["Ir de camino entre Dotonbori y Shinsaibashi, no requiere desvío"],
-      "best_time": "Noche",
-      "access": { "metro": "Namba", "walk_minutes": 6 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hozenji_Yokocho.jpg/1280px-Hozenji_Yokocho.jpg",
-      "website": null,
-      "source": "https://insideosaka.com/hozenji-yokocho/",
-      "tags": ["callejón", "tradicional", "osaka"]
-    },
-    {
-      "id": "osaka-castle",
-      "name": "Castillo de Osaka",
-      "name_ja": "大阪城",
-      "name_ja_reading": "Ōsaka-jō",
-      "city": "Osaka",
-      "category": "castle",
-      "address": "1-1 Osakajo, Chuo Ward, Osaka",
-      "lat": 34.6873,
-      "lng": 135.5262,
-      "description": "Construido originalmente en 1583 por Toyotomi Hideyoshi, uno de los grandes unificadores de Japón, como símbolo de su poder tras hacerse con el control del país. Fue destruido y reconstruido varias veces a lo largo de los siglos —incluida una reconstrucción de hormigón en 1931 tras un incendio— y hoy conserva el foso y los muros de piedra originales de la era Sengoku, con bloques de varias toneladas encajados sin argamasa.\n\nCon poco tiempo disponible, la visita realista es quedarse en los exteriores: el foso, los muros ciclópeos y los jardines que rodean la torre, sin entrar al museo de la torre principal.",
-      "significance": "Símbolo del poder de Toyotomi Hideyoshi — con checkout a las 11:00 el día de salida, mejor limitarse a exteriores y foso.",
-      "opening_hours": { "grounds": "24 horas (jardines exteriores)", "tower_museum": "09:00–17:00 aprox.", "notes": "Solo la torre (museo) tiene horario y entrada; el parque y el foso son libres." },
-      "closed_days": [],
-      "price": { "free": true, "notes": "Exteriores gratuitos; entrada a la torre-museo ¥600 aprox." },
-      "duration_suggested": "30–45 min solo exteriores",
-      "restrictions": [],
-      "tips": ["Con checkout a las 11:00, mejor no entrar al museo — solo foso y muros exteriores"],
-      "best_time": "Mañana",
-      "access": { "metro": "Osakajokoen / Tanimachi 4-chome", "walk_minutes": 10 },
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Osaka_Castle_%28April_2019%29.jpg/1280px-Osaka_Castle_%28April_2019%29.jpg",
-      "website": "https://www.osakacastle.net/",
-      "source": "https://osakacastle.org/hours/",
-      "tags": ["castillo", "historia", "exteriores"]
-    }
-  ]
+﻿{
+    "pois":  [
+                 {
+                     "id":  "sensoji",
+                     "name":  "Templo Senso-ji",
+                     "name_ja":  "浅草寺",
+                     "name_ja_reading":  "Sensō-ji",
+                     "city":  "Tokyo",
+                     "category":  "temple",
+                     "address":  "2-3-1 Asakusa, Taito City, Tokyo",
+                     "lat":  35.7148,
+                     "lng":  139.7967,
+                     "description":  "El templo budista más antiguo de Tokio, fundado en el año 645 tras la leyenda de dos pescadores que encontraron una estatuilla de Kannon en el río Sumida. Sobrevivió a los bombardeos de la Segunda Guerra Mundial en gran parte reconstruido, y hoy sigue siendo un centro de culto activo, no solo un monumento.\n\nLa entrada es la puerta Kaminarimon (\"puerta del trueno\"), con su enorme linterna roja de papel. Detrás se extiende Nakamise-dori, una calle comercial de casi 250 metros con tiendas tradicionales de snacks y recuerdos que lleva hasta el salón principal (Hondo), donde se venera a Kannon.\n\nDe noche el recinto queda iluminado hasta las 23:00 aproximadamente, y el ambiente cambia por completo: mucha menos gente y una estampa muy fotogénica de la pagoda de cinco pisos y el Hondo iluminados.",
+                     "significance":  "Es la parada clásica de Tokio y, con Obon coincidiendo con la primera estancia, conviene ir muy pronto o de noche para evitar las aglomeraciones.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas",
+                                           "main_hall":  "06:00–17:00 aprox. (recinto iluminado hasta ~23:00)",
+                                           "notes":  "El recinto exterior está siempre abierto; Nakamise-dori abre sus tiendas hacia las 10:00."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true,
+                                   "notes":  "Entrada libre al templo. El recinto del Tesoro tiene tarifa aparte."
+                               },
+                     "duration_suggested":  "1–2 horas",
+                     "restrictions":  [
+                                          "Lugar de culto activo: mantener silencio y respeto en el Hondo"
+                                      ],
+                     "tips":  [
+                                  "Ir antes de las 8:00 o de noche para evitar las masas — con Obon (13-16 ago) habrá más gente de lo normal",
+                                  "Nakamise-dori abre hacia las 10:00; de madrugada solo se ve el recinto principal"
+                              ],
+                     "best_time":  "Amanecer o después de las 20:00",
+                     "access":  {
+                                    "metro":  "Asakusa (líneas Ginza, Asakusa, Tobu Skytree)",
+                                    "walk_minutes":  5,
+                                    "notes":  "Kaminarimon es visible nada más salir de la estación."
+                                },
+                     "image_url":  "/pois/sensoji.jpg",
+                     "website":  "https://www.senso-ji.jp/",
+                     "source":  "https://tokyocheapo.com/entertainment/sightseeing/sensoji-temple-guide/",
+                     "tags":  [
+                                  "asakusa",
+                                  "templo",
+                                  "imprescindible",
+                                  "obon"
+                              ]
+                 },
+                 {
+                     "id":  "hibiya-park",
+                     "name":  "Hibiya Park",
+                     "name_ja":  "日比谷公園",
+                     "name_ja_reading":  "Hibiya Kōen",
+                     "city":  "Tokyo",
+                     "category":  "park",
+                     "address":  "1-6 Hibiyakoen, Chiyoda City, Tokyo",
+                     "lat":  35.6734,
+                     "lng":  139.7578,
+                     "description":  "El primer parque de estilo occidental construido en Japón, inaugurado en 1903 sobre lo que había sido un terreno de entrenamiento militar. Fue diseñado con jardines formales, un pequeño lago y una fuente central inspirados en los parques europeos que Japón empezaba a mirar en la era Meiji.\n\nHoy es un pulmón verde tranquilo pegado a Ginza y al distrito de Marunouchi, con rosaledas, un teatro al aire libre y cafés sencillos. No es una atracción \"de guía\", sino el tipo de sitio donde bajar el ritmo entre paseos por Ginza.\n\nPor su cercanía al hotel de la primera y última estancia en Tokio, es un plan de baja intensidad ideal para el día de llegada, con jet lag.",
+                     "significance":  "A 8 minutos del hotel — plan perfecto de bajo esfuerzo para el primer día tras el vuelo nocturno.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas (jardines cierran al anochecer)",
+                                           "notes":  "Sin control de acceso, entrada libre en todo momento."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "30–45 min",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Combinar con un paseo hasta la azotea de Ginza Six, a 10 min andando"
+                              ],
+                     "best_time":  "Cualquier hora, mejor al atardecer",
+                     "access":  {
+                                    "metro":  "Kasumigaseki / Uchisaiwaicho",
+                                    "walk_minutes":  8,
+                                    "notes":  "A 8 min a pie del hotel de Yurakucho."
+                                },
+                     "image_url":  "/pois/hibiya-park.jpg",
+                     "website":  null,
+                     "source":  "https://www.japan-experience.com/all-about-japan/tokyo/parks-and-gardens/hibiya-park-a-green-oasis-in-the-heart-of-tokyo",
+                     "tags":  [
+                                  "parque",
+                                  "tranquilo",
+                                  "llegada",
+                                  "yurakucho"
+                              ]
+                 },
+                 {
+                     "id":  "ginza-six",
+                     "name":  "Ginza Six (azotea)",
+                     "name_ja":  "銀座シックス",
+                     "name_ja_reading":  "Ginza Six",
+                     "city":  "Tokyo",
+                     "category":  "viewpoint",
+                     "address":  "6-10-1 Ginza, Chuo City, Tokyo",
+                     "lat":  35.6704,
+                     "lng":  139.7647,
+                     "description":  "Centro comercial de lujo inaugurado en 2017 en el corazón de Ginza, con más de 240 tiendas y una de las mayores librerías Tsutaya de Japón. Su gran diferencial para el viajero que no va de compras es la azotea.\n\nEn el piso superior hay un jardín ajardinado gratuito y abierto al público, con bancos y vistas sobre los tejados de Ginza — un contraste curioso entre el lujo comercial de abajo y un espacio de descanso silencioso arriba.",
+                     "significance":  "A 5-10 minutos del hotel, es una manera gratuita de ver Ginza desde arriba sin colas ni entrada.",
+                     "opening_hours":  {
+                                           "grounds":  "Según horario del centro comercial, aprox. 10:30–20:30",
+                                           "notes":  "El jardín de la azotea cierra con el resto del edificio."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true,
+                                   "notes":  "Acceso gratuito a la azotea."
+                               },
+                     "duration_suggested":  "20–30 min",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Buen plan de relleno entre el check-in y la cena del primer día"
+                              ],
+                     "best_time":  "Atardecer",
+                     "access":  {
+                                    "metro":  "Ginza",
+                                    "walk_minutes":  6,
+                                    "notes":  "A 5-10 min del hotel de Yurakucho."
+                                },
+                     "image_url":  "/pois/ginza-six.jpg",
+                     "website":  null,
+                     "source":  "https://www.kanpai-japan.com/tokyo/ginza-six",
+                     "tags":  [
+                                  "ginza",
+                                  "mirador",
+                                  "gratis",
+                                  "llegada"
+                              ]
+                 },
+                 {
+                     "id":  "tsukiji-outer-market",
+                     "name":  "Tsukiji Outer Market",
+                     "name_ja":  "築地場外市場",
+                     "name_ja_reading":  "Tsukiji Jōgai Shijō",
+                     "city":  "Tokyo",
+                     "category":  "market",
+                     "address":  "4 Chome Tsukiji, Chuo City, Tokyo",
+                     "lat":  35.6654,
+                     "lng":  139.7707,
+                     "description":  "Aunque el mercado mayorista de pescado se trasladó a Toyosu en 2018, el mercado exterior de Tsukiji se quedó donde estaba y sigue siendo uno de los mejores sitios de Tokio para comer de pie: puestos de sushi, marisco a la parrilla y snacks callejeros repartidos por callejuelas estrechas.\n\nEs un buen sitio para desayunar o comer de camino entre el hotel de Yurakucho y otras zonas, sin necesidad de reserva ni planificación.",
+                     "significance":  "De camino entre el hotel y Ginza/Tsukiji — parada informal para picar sin reserva.",
+                     "opening_hours":  {
+                                           "grounds":  "Mayoría de puestos 05:00–14:00 aprox.",
+                                           "notes":  "Muchos locales cierran a mediodía; mejor ir por la mañana."
+                                       },
+                     "closed_days":  [
+                                         "Algunos puestos cierran domingo — variable por local"
+                                     ],
+                     "price":  {
+                                   "free":  true,
+                                   "notes":  "Sin entrada; se paga por lo que se consume."
+                               },
+                     "duration_suggested":  "45–60 min",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Ir por la mañana, muchos puestos cierran a primera hora de la tarde"
+                              ],
+                     "best_time":  "08:00–11:00",
+                     "access":  {
+                                    "metro":  "Tsukiji / Tsukijishijo",
+                                    "walk_minutes":  15,
+                                    "notes":  "15-20 min a pie desde el hotel de Yurakucho."
+                                },
+                     "image_url":  "/pois/tsukiji-outer-market.jpg",
+                     "website":  null,
+                     "source":  "https://www.timeout.com/tokyo/restaurants/breakfast-at-tsukiji",
+                     "tags":  [
+                                  "mercado",
+                                  "street-food",
+                                  "desayuno"
+                              ]
+                 },
+                 {
+                     "id":  "imperial-east",
+                     "name":  "Jardines del Este del Palacio Imperial",
+                     "name_ja":  "皇居東御苑",
+                     "name_ja_reading":  "Kōkyo Higashi Gyoen",
+                     "city":  "Tokyo",
+                     "category":  "garden",
+                     "address":  "1-1 Chiyoda, Chiyoda City, Tokyo",
+                     "lat":  35.6852,
+                     "lng":  139.7528,
+                     "description":  "Parte de los terrenos del castillo de Edo, sede del shogunato Tokugawa desde 1603 y, desde 1868, del Palacio Imperial. Los jardines del Este son la única zona del recinto del castillo abierta al público de forma gratuita todo el año.\n\nDentro se conservan los muros de piedra originales del castillo, la base de lo que fue la torre principal (tenshu) y jardines cuidados con estanques y una zona de bambú, en fuerte contraste con los rascacielos de Marunouchi que se ven al fondo.",
+                     "significance":  "Vestigio directo del poder del shogunato que gobernó Japón durante 250 años antes de la era moderna.",
+                     "opening_hours":  {
+                                           "grounds":  "09:00–17:00 aprox. (varía por temporada)",
+                                           "notes":  "Cierra lunes y viernes."
+                                       },
+                     "closed_days":  [
+                                         "lunes",
+                                         "viernes"
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "1–1.5 horas",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Comprobar que el día de la visita no sea lunes ni viernes antes de ir"
+                              ],
+                     "best_time":  "Mañana",
+                     "access":  {
+                                    "metro":  "Otemachi / Tokyo Station",
+                                    "walk_minutes":  10,
+                                    "notes":  "8-10 min de Tokyo Station."
+                                },
+                     "image_url":  "/pois/imperial-east.jpg",
+                     "website":  null,
+                     "source":  "https://www.japan-guide.com/e/e3018.html",
+                     "tags":  [
+                                  "jardín",
+                                  "historia",
+                                  "shogunato",
+                                  "gratis"
+                              ]
+                 },
+                 {
+                     "id":  "shibuya-crossing",
+                     "name":  "Shibuya Crossing",
+                     "name_ja":  "渋谷スクランブル交差点",
+                     "name_ja_reading":  "Shibuya Sukuranburu Kōsaten",
+                     "city":  "Tokyo",
+                     "category":  "viewpoint",
+                     "address":  "2 Chome Dogenzaka, Shibuya City, Tokyo",
+                     "lat":  35.6595,
+                     "lng":  139.7004,
+                     "description":  "El cruce peatonal más transitado del mundo, donde hasta 3.000 personas pueden cruzar a la vez cuando el semáforo se pone en verde en las cinco direcciones simultáneamente. Rodeado de pantallas gigantes de neón, es una de las postales más reconocibles de Tokio.\n\nJusto al lado está la estatua de Hachiko, el perro Akita que esperó a su dueño fallecido en la estación durante casi 10 años — hoy punto de encuentro habitual.",
+                     "significance":  "Postal imprescindible de Tokio moderno, mejor combinada con las vistas desde Shibuya Sky al atardecer.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas"
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "20–30 min",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Ver el cruce desde arriba (Starbucks del Tsutaya o Shibuya Sky) además de cruzarlo a pie"
+                              ],
+                     "best_time":  "Atardecer / noche, cuando se encienden las pantallas",
+                     "access":  {
+                                    "metro":  "Shibuya (salida Hachiko)",
+                                    "walk_minutes":  1
+                                },
+                     "image_url":  "/pois/shibuya-crossing.jpg",
+                     "website":  null,
+                     "source":  "https://www.tripadvisor.com/Attractions-g1066456-Activities-Shibuya_Tokyo_Tokyo_Prefecture_Kanto.html",
+                     "tags":  [
+                                  "shibuya",
+                                  "icono",
+                                  "imprescindible"
+                              ]
+                 },
+                 {
+                     "id":  "shibuya-sky",
+                     "name":  "Shibuya Sky",
+                     "name_ja":  "渋谷スカイ",
+                     "name_ja_reading":  "Shibuya Sukai",
+                     "city":  "Tokyo",
+                     "category":  "viewpoint",
+                     "address":  "2-24-12 Shibuya, Shibuya City, Tokyo",
+                     "lat":  35.6580,
+                     "lng":  139.7016,
+                     "description":  "Mirador al aire libre en la azotea del edificio Shibuya Scramble Square, a 230 metros de altura, inaugurado en 2019. Desde arriba se ve el propio Shibuya Crossing en miniatura, y en días claros incluso el Monte Fuji al fondo.\n\nEs uno de los pocos miradores de Tokio completamente al aire libre (sin cristal por delante), lo que lo hace especialmente fotogénico al atardecer.",
+                     "significance":  "La mejor vista elevada de Shibuya y, con suerte, del Fuji al atardecer.",
+                     "opening_hours":  {
+                                           "grounds":  "10:00–22:30 aprox. (última entrada 21:20)",
+                                           "notes":  "Recomendable reservar franja horaria con antelación en temporada alta."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  false,
+                                   "adult":  "¥2.200-2.500 aprox.",
+                                   "notes":  "Precio puede variar según antelación de compra online."
+                               },
+                     "duration_suggested":  "45–60 min",
+                     "restrictions":  [
+                                          "Terraza exterior sin barreras altas — cuidado con objetos sueltos por el viento"
+                                      ],
+                     "tips":  [
+                                  "Ir 30-40 min antes del atardecer para coger sitio en la baranda"
+                              ],
+                     "best_time":  "Atardecer",
+                     "access":  {
+                                    "metro":  "Shibuya (conexión directa desde la estación)",
+                                    "walk_minutes":  1
+                                },
+                     "image_url":  "/pois/shibuya-sky.jpg",
+                     "website":  "https://www.shibuya-scramble-square.com/sky/",
+                     "source":  "https://www.tripadvisor.com/Attractions-g1066456-Activities-Shibuya_Tokyo_Tokyo_Prefecture_Kanto.html",
+                     "tags":  [
+                                  "shibuya",
+                                  "mirador",
+                                  "atardecer"
+                              ]
+                 },
+                 {
+                     "id":  "yanaka",
+                     "name":  "Barrio de Yanaka",
+                     "name_ja":  "谷中",
+                     "name_ja_reading":  "Yanaka",
+                     "city":  "Tokyo",
+                     "category":  "neighborhood",
+                     "address":  "Yanaka, Taito City, Tokyo",
+                     "lat":  35.7267,
+                     "lng":  139.7693,
+                     "description":  "Uno de los pocos barrios de Tokio que sobrevivió tanto al gran terremoto de Kanto (1923) como a los bombardeos de la Segunda Guerra Mundial, conservando así callejones, casas de madera y tiendas familiares con generaciones de historia detrás.\n\nSu calle principal, Yanaka Ginza, mantiene el ambiente de un barrio de shitamachi (\"ciudad baja\") tradicional: tiendas de senbei recién hechos, pescaderías pequeñas y gatos por todas partes — es conocido como el \"barrio de los gatos\" de Tokio.\n\nEl cementerio de Yanaka, con lápidas de la era Edo entremezcladas con cerezos, es un paseo tranquilo y atípico dentro del itinerario turístico habitual.",
+                     "significance":  "Textura de Tokio antiguo sin la masificación de Asakusa — el barrio elegido para sustituir a teamLab Borderless en la mañana libre.",
+                     "opening_hours":  {
+                                           "grounds":  "Libre, tiendas suelen abrir 10:00–18:00"
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "2–3 horas",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Pasear sin prisa por Yanaka Ginza y desviarse por las callejuelas laterales",
+                                  "El cementerio de Yanaka es gratuito y muy fotogénico en cualquier estación"
+                              ],
+                     "best_time":  "Mañana",
+                     "access":  {
+                                    "metro":  "Nippori",
+                                    "walk_minutes":  5
+                                },
+                     "image_url":  "/pois/yanaka.jpg",
+                     "website":  null,
+                     "source":  "japon_info_base.md",
+                     "tags":  [
+                                  "barrio",
+                                  "histórico",
+                                  "tranquilo",
+                                  "gatos"
+                              ]
+                 },
+                 {
+                     "id":  "hakone-openair",
+                     "name":  "Hakone Open-Air Museum",
+                     "name_ja":  "彫刻の森美術館",
+                     "name_ja_reading":  "Chōkoku no Mori Bijutsukan",
+                     "city":  "Hakone",
+                     "category":  "museum",
+                     "address":  "1121 Ninotaira, Hakone, Ashigarashimo District, Kanagawa",
+                     "lat":  35.2349,
+                     "lng":  139.0457,
+                     "description":  "Inaugurado en 1969, fue el primer museo al aire libre de Japón: más de 100 esculturas de artistas japoneses e internacionales (entre ellos Henry Moore y Rodin) repartidas por jardines con vistas a las montañas de Hakone.\n\nTiene también un pabellón dedicado a Picasso con más de 300 obras, y una zona de \"baños de pies\" con aguas termales para los visitantes.\n\nPor su cercanía al ryokan (10-15 min a pie), es la opción más eficiente de las atracciones de Hakone cuando solo se dispone de una tarde corta.",
+                     "significance":  "La única atracción de Hakone realista con el tiempo disponible: el resto del \"Hakone Loop\" (Lago Ashi, Owakudani) consume demasiado tiempo en trayectos según varias guías especializadas.",
+                     "opening_hours":  {
+                                           "grounds":  "09:00–17:00 (última entrada 16:30)",
+                                           "notes":  "Abierto todos los días del año."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  false,
+                                   "adult":  "¥1.600 aprox.",
+                                   "notes":  "Consultar precio actualizado en la web oficial."
+                               },
+                     "duration_suggested":  "1.5–2 horas",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Llevar toalla pequeña si se quiere probar el baño de pies termal"
+                              ],
+                     "best_time":  "Tarde, tras el check-in",
+                     "access":  {
+                                    "metro":  "Chokoku-no-Mori Station (línea Hakone Tozan)",
+                                    "walk_minutes":  12,
+                                    "notes":  "10-15 min a pie del ryokan Mizunoto."
+                                },
+                     "image_url":  "/pois/hakone-openair.jpg",
+                     "website":  "https://www.hakone-oam.or.jp/en/",
+                     "source":  "https://www.japanfoodtravels.com/post/hakone-one-night-itinerary",
+                     "tags":  [
+                                  "museo",
+                                  "arte",
+                                  "hakone",
+                                  "cercano-al-ryokan"
+                              ]
+                 },
+                 {
+                     "id":  "nishiki-market",
+                     "name":  "Nishiki Market",
+                     "name_ja":  "錦市場",
+                     "name_ja_reading":  "Nishiki Ichiba",
+                     "city":  "Kyoto",
+                     "category":  "market",
+                     "address":  "Nishikikoji-dori, Nakagyo-ku, Kyoto",
+                     "lat":  35.0046,
+                     "lng":  135.7659,
+                     "description":  "Mercado techado de casi 400 metros conocido como \"la cocina de Kioto\", con más de 400 años de historia como zona de distribución de pescado y productos frescos para la ciudad.\n\nHoy combina puestos tradicionales (encurtidos tsukemono, tofu, cuchillos artesanales) con street food para comer al momento: tako tamago (mini pulpo con huevo de codorniz), tempura de gamba, dulces mochi.\n\nEstá a solo 4 minutos a pie de Kawaramachi, la zona donde se concentra buena parte de la vida nocturna y gastronómica de Kioto.",
+                     "significance":  "Parada obligada para probar street food kyotoense sin necesidad de reserva.",
+                     "opening_hours":  {
+                                           "grounds":  "Mayoría de puestos 09:00–18:00",
+                                           "notes":  "Horario varía por local; más animado a mediodía."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true,
+                                   "notes":  "Sin entrada; se paga por lo que se consume."
+                               },
+                     "duration_suggested":  "45–90 min",
+                     "restrictions":  [
+                                          "Evitar comer mientras se camina por el pasillo principal — hacerlo a un lado"
+                                      ],
+                     "tips":  [
+                                  "Ir con hambre y probar 3-4 puestos distintos en vez de sentarse a comer"
+                              ],
+                     "best_time":  "Mediodía o media tarde",
+                     "access":  {
+                                    "metro":  "Kawaramachi (Hankyu) / Karasuma-Oike (Tozai/Karasuma)",
+                                    "walk_minutes":  4
+                                },
+                     "image_url":  "/pois/nishiki-market.jpg",
+                     "website":  null,
+                     "source":  "https://www.kyoto-nishiki.or.jp/en/access/",
+                     "tags":  [
+                                  "mercado",
+                                  "street-food",
+                                  "kioto"
+                              ]
+                 },
+                 {
+                     "id":  "pontocho",
+                     "name":  "Pontocho",
+                     "name_ja":  "先斗町",
+                     "name_ja_reading":  "Pontochō",
+                     "city":  "Kyoto",
+                     "category":  "neighborhood",
+                     "address":  "Pontocho, Nakagyo-ku, Kyoto",
+                     "lat":  35.0072,
+                     "lng":  135.7694,
+                     "description":  "Callejón estrecho y empedrado que corre paralelo al río Kamo, uno de los distritos de entretenimiento tradicional (hanamachi) más antiguos de Kioto, en pie desde el periodo Edo.\n\nFarolillos de papel, fachadas de madera y restaurantes desde izakayas informales hasta ryotei de alta cocina se alinean a ambos lados. Es habitual cruzarse con geiko o maiko de camino a alguna cita, aunque fotografiarlas directamente se considera de mala educación.",
+                     "significance":  "El paseo nocturno más atmosférico de Kioto, a un paso de Kawaramachi.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas (calle pública)",
+                                           "notes":  "El ambiente cobra vida sobre todo a partir de las 18:00."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "30–45 min de paseo",
+                     "restrictions":  [
+                                          "No fotografiar a geiko/maiko de cerca sin permiso"
+                                      ],
+                     "tips":  [
+                                  "Cruzar hasta la orilla del río Kamo para ver las terrazas suspendidas (yuka) en verano"
+                              ],
+                     "best_time":  "Noche",
+                     "access":  {
+                                    "metro":  "Kawaramachi (Hankyu)",
+                                    "walk_minutes":  3
+                                },
+                     "image_url":  "/pois/pontocho.jpg",
+                     "website":  null,
+                     "source":  "https://blog.japanwondertravel.com/the-best-10-dinner-spots-in-pontocho-kyoto-8710",
+                     "tags":  [
+                                  "barrio",
+                                  "noche",
+                                  "gastronomía",
+                                  "kioto"
+                              ]
+                 },
+                 {
+                     "id":  "fushimi-inari",
+                     "name":  "Fushimi Inari Taisha",
+                     "name_ja":  "伏見稲荷大社",
+                     "name_ja_reading":  "Fushimi Inari Taisha",
+                     "city":  "Kyoto",
+                     "category":  "shrine",
+                     "address":  "68 Fukakusa Yabunouchicho, Fushimi Ward, Kyoto",
+                     "lat":  34.9671,
+                     "lng":  135.7727,
+                     "description":  "Santuario sintoísta fundado en el año 711, dedicado a Inari, deidad del arroz, la prosperidad y los negocios. Es la cabecera de miles de santuarios Inari repartidos por todo Japón.\n\nSu imagen más icónica son los senbon torii: miles de puertas torii de color naranja bermellón donadas por empresas y particulares a lo largo de los siglos, formando túneles que ascienden por la montaña sagrada Inariyama hasta la cima, a unos 4 km y 2-3 horas de subida completa.\n\nLos zorros (kitsune), mensajeros de Inari, aparecen representados por todo el recinto en forma de estatuas.",
+                     "significance":  "Abierto 24 horas y gratuito — la joya de Kioto que mejor se disfruta yendo muy temprano, antes de que lleguen los grupos de turistas.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas",
+                                           "notes":  "El recorrido completo hasta la cima toma 2-3 horas; la mayoría se queda en los primeros tramos, ya menos concurridos tras el primer mirador (Yotsutsuji)."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "1.5–3 horas según cuánto se suba",
+                     "restrictions":  [
+                                          "Recinto sagrado: mantener el respeto habitual de un santuario sintoísta"
+                                      ],
+                     "tips":  [
+                                  "Ir entre las 5:00 y las 8:00 de la mañana para evitar la masificación",
+                                  "No hace falta subir hasta arriba: el mirador de Yotsutsuji ya ofrece vistas y menos gente"
+                              ],
+                     "best_time":  "05:00–08:00",
+                     "access":  {
+                                    "metro":  "Fushimi Inari (línea JR Nara) o Fushimi-Inari (Keihan)",
+                                    "walk_minutes":  5,
+                                    "notes":  "Tren Keihan directo desde Sanjo, 10-15 min."
+                                },
+                     "image_url":  "/pois/fushimi-inari.jpg",
+                     "website":  "https://inari.jp/en/",
+                     "source":  "https://www.japan-guide.com/e/e3915.html",
+                     "tags":  [
+                                  "santuario",
+                                  "torii",
+                                  "imprescindible",
+                                  "madrugada"
+                              ]
+                 },
+                 {
+                     "id":  "kiyomizudera",
+                     "name":  "Kiyomizu-dera",
+                     "name_ja":  "清水寺",
+                     "name_ja_reading":  "Kiyomizu-dera",
+                     "city":  "Kyoto",
+                     "category":  "temple",
+                     "address":  "1-294 Kiyomizu, Higashiyama Ward, Kyoto",
+                     "lat":  34.9948,
+                     "lng":  135.7851,
+                     "description":  "Templo budista fundado en el año 778, Patrimonio Mundial de la UNESCO como parte de los \"Monumentos Históricos de la Antigua Kioto\". Su nombre significa \"templo del agua pura\", por la cascada Otowa que nace en la colina donde se asienta.\n\nEl elemento más famoso es su gran terraza de madera (el escenario principal), construida sin un solo clavo, suspendida sobre el valle a 13 metros de altura y con vistas espectaculares sobre Kioto, especialmente llamativas en primavera (cerezos) y otoño (arces).\n\nEl camino de acceso, a través de las calles empedradas de Sannenzaka y Ninenzaka, es en sí mismo parte de la experiencia: tiendas tradicionales, casas de té y arquitectura de la era Edo bien conservada.",
+                     "significance":  "Uno de los templos más visitados de Japón — combinarlo con el paseo por Higashiyama justifica media jornada.",
+                     "opening_hours":  {
+                                           "grounds":  "06:00–18:00 aprox. (varía por temporada, alguna apertura nocturna especial)",
+                                           "notes":  "Consultar horario exacto de temporada en la web oficial."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  false,
+                                   "adult":  "¥400-500 aprox."
+                               },
+                     "duration_suggested":  "1.5–2 horas incluyendo Sannenzaka/Ninenzaka",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Ir entre las 6:00 y las 8:00 para evitar la afluencia del bus 207",
+                                  "Combinar con el paseo por Sannenzaka y Ninenzaka antes o después"
+                              ],
+                     "best_time":  "06:00–08:00",
+                     "access":  {
+                                    "metro":  "Bus 207 desde Kyoto Station/Kawaramachi",
+                                    "walk_minutes":  10,
+                                    "notes":  "Bajada a pie desde la parada de bus."
+                                },
+                     "image_url":  "/pois/kiyomizudera.jpg",
+                     "website":  "https://www.kiyomizudera.or.jp/en/",
+                     "source":  "https://en.motenas-japan.jp/going-to-kiyomizu-dera-temple-in-kyoto-what-you-should-know/",
+                     "tags":  [
+                                  "templo",
+                                  "unesco",
+                                  "higashiyama",
+                                  "madrugada"
+                              ]
+                 },
+                 {
+                     "id":  "higashiyama",
+                     "name":  "Higashiyama (Sannenzaka y Ninenzaka)",
+                     "name_ja":  "東山・産寧坂・二年坂",
+                     "name_ja_reading":  "Higashiyama, Sannenzaka, Ninenzaka",
+                     "city":  "Kyoto",
+                     "category":  "neighborhood",
+                     "address":  "Higashiyama Ward, Kyoto",
+                     "lat":  34.9963,
+                     "lng":  135.7793,
+                     "description":  "El distrito histórico a los pies de las colinas del este de Kioto, con calles empedradas que conectan Kiyomizu-dera con Yasaka Shrine y Gion. Sannenzaka (\"cuesta de los tres años\") y Ninenzaka (\"cuesta de los dos años\") son sus tramos más fotogénicos, flanqueados por casas de madera de la era Edo convertidas en tiendas de té, dulces tradicionales y artesanía.\n\nEs el tipo de barrio donde perderse sin prisa entre visita y visita, con vistas ocasionales a la pagoda de Yasaka asomando entre los tejados.",
+                     "significance":  "El paseo que conecta Kiyomizu-dera con Gion — el corazón visual de la Kioto tradicional.",
+                     "opening_hours":  {
+                                           "grounds":  "Libre (calles públicas)",
+                                           "notes":  "Tiendas suelen abrir 10:00–18:00."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "1–1.5 horas",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Ir justo después de Kiyomizu-dera, cuesta abajo, en vez de subir"
+                              ],
+                     "best_time":  "Media mañana",
+                     "access":  {
+                                    "metro":  "Bus 207 / a pie desde Kiyomizu-dera",
+                                    "walk_minutes":  5
+                                },
+                     "image_url":  "/pois/higashiyama.jpg",
+                     "website":  null,
+                     "source":  "https://kyoto.travel/en/getting-around/comfortable-access-to-gion-yasaka-jinja-shrine/",
+                     "tags":  [
+                                  "barrio",
+                                  "histórico",
+                                  "paseo"
+                              ]
+                 },
+                 {
+                     "id":  "gion",
+                     "name":  "Gion",
+                     "name_ja":  "祇園",
+                     "name_ja_reading":  "Gion",
+                     "city":  "Kyoto",
+                     "category":  "neighborhood",
+                     "address":  "Gion, Higashiyama Ward, Kyoto",
+                     "lat":  35.0037,
+                     "lng":  135.7756,
+                     "description":  "El distrito de geishas más famoso de Japón, activo desde el periodo Edo como zona de entretenimiento tradicional en torno al santuario Yasaka. Sus calles principales, como Hanami-koji, conservan casas de té (ochaya) de madera oscura donde aún actúan geiko y maiko.\n\nDesde abril de 2024, algunos callejones privados de Gion (como Kosode Koji) están vetados a turistas por el comportamiento irrespetuoso de algunos visitantes hacia las geiko, con multas de hasta ¥10.000 por entrar. Hanami-koji, la calle principal, sigue siendo pública y accesible.",
+                     "significance":  "El barrio de geishas más icónico de Japón — pasear con respeto, sin acosar a las geiko con fotos.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas (calles públicas)",
+                                           "notes":  "Callejones privados señalizados están vetados al turismo desde 2024."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "1–1.5 horas",
+                     "restrictions":  [
+                                          "No entrar en callejones privados señalizados",
+                                          "No fotografiar a geiko/maiko sin su consentimiento"
+                                      ],
+                     "tips":  [
+                                  "Ir al atardecer, cuando el ambiente y la luz son mejores"
+                              ],
+                     "best_time":  "Atardecer",
+                     "access":  {
+                                    "metro":  "A pie cruzando el río Kamo desde Kawaramachi",
+                                    "walk_minutes":  10
+                                },
+                     "image_url":  "/pois/gion.jpg",
+                     "website":  null,
+                     "source":  "https://www.japantimes.co.jp/news/2024/03/07/japan/society/kyoto-tourists-geisha/",
+                     "tags":  [
+                                  "barrio",
+                                  "geishas",
+                                  "histórico",
+                                  "noche"
+                              ]
+                 },
+                 {
+                     "id":  "arashiyama",
+                     "name":  "Bosque de Bambú de Arashiyama",
+                     "name_ja":  "嵐山竹林の道",
+                     "name_ja_reading":  "Arashiyama Chikurin no Michi",
+                     "city":  "Kyoto",
+                     "category":  "garden",
+                     "address":  "Arashiyama, Ukyo Ward, Kyoto",
+                     "lat":  35.0170,
+                     "lng":  135.6727,
+                     "description":  "Uno de los paisajes más fotografiados de Japón: un sendero de unos 500 metros entre tallos de bambú gigante que se elevan varios metros, creando un túnel verde donde la luz se filtra en franjas. El sonido del viento entre las cañas está incluso catalogado como uno de los \"100 paisajes sonoros de Japón\".\n\nEstá integrado en los terrenos del templo Tenryu-ji (Patrimonio Mundial), a los pies de las montañas de Arashiyama, junto al río Katsura.",
+                     "significance":  "Imagen icónica de Japón — solo se disfruta de verdad yendo antes de que lleguen los grupos turísticos.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas (sendero público)",
+                                           "notes":  "Tenryu-ji, junto al bosque, abre normalmente 08:30–17:00."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true,
+                                   "notes":  "El sendero de bambú es gratuito; Tenryu-ji tiene entrada aparte."
+                               },
+                     "duration_suggested":  "45–60 min",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Ir antes de las 7:00-8:00, es el consejo más repetido por todas las guías",
+                                  "Después, aprovechar para visitar Tenryu-ji, justo al lado"
+                              ],
+                     "best_time":  "07:00–08:00",
+                     "access":  {
+                                    "metro":  "JR Sagano Line hasta Saga-Arashiyama",
+                                    "walk_minutes":  10
+                                },
+                     "image_url":  "/pois/arashiyama.jpg",
+                     "website":  null,
+                     "source":  "https://www.japanmanifest.com/best-times-to-visit-the-arashiyama-bamboo-forest/",
+                     "tags":  [
+                                  "naturaleza",
+                                  "icono",
+                                  "madrugada"
+                              ]
+                 },
+                 {
+                     "id":  "kinkakuji",
+                     "name":  "Kinkaku-ji (Pabellón Dorado)",
+                     "name_ja":  "金閣寺",
+                     "name_ja_reading":  "Kinkaku-ji",
+                     "city":  "Kyoto",
+                     "category":  "temple",
+                     "address":  "1 Kinkakujicho, Kita Ward, Kyoto",
+                     "lat":  35.0394,
+                     "lng":  135.7292,
+                     "description":  "Templo zen cuyo pabellón principal está recubierto de pan de oro en sus dos plantas superiores, reflejándose en el estanque Kyoko-chi (\"estanque del espejo\") que lo rodea. Construido originalmente en 1397 como villa de retiro del shogun Ashikaga Yoshimitsu, se convirtió en templo budista tras su muerte.\n\nEl edificio actual es una reconstrucción de 1955, tras el incendio provocado en 1950 por un monje. Es Patrimonio Mundial de la UNESCO y uno de los monumentos más fotografiados de Japón.",
+                     "significance":  "Imagen de postal de Kioto — la visita es breve pero la parada es casi obligatoria por su valor histórico y visual.",
+                     "opening_hours":  {
+                                           "grounds":  "09:00–17:00",
+                                           "notes":  "Abierto todos los días del año."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  false,
+                                   "adult":  "¥500 aprox."
+                               },
+                     "duration_suggested":  "45–60 min",
+                     "restrictions":  [
+                                          "Recorrido en un solo sentido, no se puede entrar al pabellón"
+                                      ],
+                     "tips":  [
+                                  "La visita es un paseo circular breve — no hace falta más de una hora"
+                              ],
+                     "best_time":  "Media mañana",
+                     "access":  {
+                                    "metro":  "Bus + metro desde el centro, ~28 min",
+                                    "walk_minutes":  5
+                                },
+                     "image_url":  "/pois/kinkakuji.jpg",
+                     "website":  "https://www.shokoku-ji.jp/en/kinkakuji/",
+                     "source":  "japon_info_base.md",
+                     "tags":  [
+                                  "templo",
+                                  "unesco",
+                                  "icono"
+                              ]
+                 },
+                 {
+                     "id":  "nijo-castle",
+                     "name":  "Castillo Nijo",
+                     "name_ja":  "二条城",
+                     "name_ja_reading":  "Nijō-jō",
+                     "city":  "Kyoto",
+                     "category":  "castle",
+                     "address":  "541 Nijojocho, Nakagyo Ward, Kyoto",
+                     "lat":  35.0142,
+                     "lng":  135.7480,
+                     "description":  "Residencia construida en 1603 para el primer shogun Tokugawa, Ieyasu, como base en Kioto — y también el lugar donde, en 1867, el último shogun Tokugawa devolvió formalmente el poder al emperador, cerrando 265 años de shogunato. Patrimonio Mundial de la UNESCO.\n\nSu característica más peculiar son los \"suelos que cantan\" (uguisubari) del palacio Ninomaru: un sistema de tablas y clavos diseñado para chirriar al pisarlas, como sistema de alarma antigua contra intrusos y asesinos.\n\nLos jardines que rodean el palacio, con estanques y pinos cuidados, se pueden recorrer después del interior.",
+                     "significance":  "El lugar exacto donde terminó el shogunato Tokugawa y empezó la era moderna de Japón.",
+                     "opening_hours":  {
+                                           "grounds":  "08:45–17:00 (última entrada al palacio 16:00)",
+                                           "notes":  "Cierra algunos martes en invierno; consultar calendario oficial."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  false,
+                                   "adult":  "¥600-1.300 aprox. según se visite solo el recinto o también el palacio"
+                               },
+                     "duration_suggested":  "1.5–2 horas",
+                     "restrictions":  [
+                                          "No se permiten fotos dentro del palacio Ninomaru"
+                                      ],
+                     "tips":  [
+                                  "Bus 12 directo desde el centro, 15 min, ¥230"
+                              ],
+                     "best_time":  "Media tarde",
+                     "access":  {
+                                    "metro":  "Bus 12 desde el centro / Metro Tozai línea, estación Nijojo-mae",
+                                    "walk_minutes":  2
+                                },
+                     "image_url":  "/pois/nijo-castle.jpg",
+                     "website":  "https://nijo-jocastle.city.kyoto.lg.jp/en/",
+                     "source":  "japon_info_base.md",
+                     "tags":  [
+                                  "castillo",
+                                  "unesco",
+                                  "historia",
+                                  "shogunato"
+                              ]
+                 },
+                 {
+                     "id":  "peace-park",
+                     "name":  "Parque Memorial de la Paz",
+                     "name_ja":  "平和記念公園",
+                     "name_ja_reading":  "Heiwa Kinen Kōen",
+                     "city":  "Hiroshima",
+                     "category":  "memorial",
+                     "address":  "1-2 Nakajimacho, Naka Ward, Hiroshima",
+                     "lat":  34.3916,
+                     "lng":  132.4533,
+                     "description":  "Parque construido sobre lo que fue el distrito comercial y político más animado de Hiroshima antes del 6 de agosto de 1945, cuando la ciudad se convirtió en el primer objetivo de un ataque nuclear en la historia. Hoy es un espacio dedicado a la memoria y a la paz mundial.\n\nDentro se encuentra el Monumento a la Paz de los Niños (dedicado a Sadako Sasaki y las víctimas infantiles), la Llama de la Paz —que arderá hasta que se elimine el último arma nuclear del planeta— y el Museo Memorial de la Paz, que documenta el bombardeo y sus consecuencias con objetos y testimonios reales.\n\nEste es un lugar de memoria, no una atracción turística al uso: conviene visitarlo con el tono adecuado, sin prisa ni ruido.",
+                     "significance":  "El motivo de peso por el que se visita Hiroshima — un lugar para entender, no solo para fotografiar.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas (parque)",
+                                           "museum":  "07:30–20:00 en agosto",
+                                           "notes":  "Reserva online del museo solo obligatoria del 8 al 16 de agosto — no aplica el 21 de agosto."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true,
+                                   "notes":  "El parque es gratuito; el museo cuesta ¥200 aprox."
+                               },
+                     "duration_suggested":  "3–5 horas incluyendo el museo",
+                     "restrictions":  [
+                                          "Lugar de memoria: mantener un tono respetuoso y silencioso"
+                                      ],
+                     "tips":  [
+                                  "Reservar 3-5 horas entre parque y museo",
+                                  "El museo abre hasta las 20:00 en agosto, permite ir por la tarde sin prisa"
+                              ],
+                     "best_time":  "Tarde",
+                     "access":  {
+                                    "metro":  "Tranvía (Hiroden) parada Genbaku Dome-mae",
+                                    "walk_minutes":  3
+                                },
+                     "image_url":  "/pois/peace-park.jpg",
+                     "website":  "http://hpmmuseum.jp/",
+                     "source":  "http://hpmmuseum.jp/modules/info/index.php?action=PageView\u0026page_id=47\u0026lang=eng",
+                     "tags":  [
+                                  "memorial",
+                                  "historia",
+                                  "imprescindible",
+                                  "hiroshima"
+                              ]
+                 },
+                 {
+                     "id":  "genbaku-dome",
+                     "name":  "Cúpula Genbaku",
+                     "name_ja":  "原爆ドーム",
+                     "name_ja_reading":  "Genbaku Dōmu",
+                     "city":  "Hiroshima",
+                     "category":  "memorial",
+                     "address":  "1-10 Otemachi, Naka Ward, Hiroshima",
+                     "lat":  34.3955,
+                     "lng":  132.4533,
+                     "description":  "Antiguo Salón de Promoción Industrial de la Prefectura de Hiroshima, diseñado por el checo Jan Letzel e inaugurado en 1915. Estaba a apenas 160 metros del hipocentro de la explosión atómica del 6 de agosto de 1945 y, sin embargo, su estructura vertical no llegó a colapsar del todo, quedando en pie como esqueleto de acero y ladrillo mientras casi todo alrededor era arrasado.\n\nSe conservó deliberadamente en ese estado como recordatorio permanente, y en 1996 fue declarada Patrimonio Mundial de la UNESCO. Es la imagen más reconocible de Hiroshima en todo el mundo.",
+                     "significance":  "Una de las pocas estructuras que quedó en pie cerca del hipocentro — el símbolo físico de la memoria de Hiroshima.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas (vista exterior; no se puede entrar al edificio)"
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "20–30 min",
+                     "restrictions":  [
+                                          "No se puede acceder al interior del edificio",
+                                          "Lugar de memoria: tono respetuoso"
+                                      ],
+                     "tips":  [
+                                  "Se ve bien desde el otro lado del río Motoyasu, junto al Parque de la Paz"
+                              ],
+                     "best_time":  "Cualquier hora",
+                     "access":  {
+                                    "metro":  "Tranvía (Hiroden) parada Genbaku Dome-mae",
+                                    "walk_minutes":  1
+                                },
+                     "image_url":  "/pois/genbaku-dome.jpg",
+                     "website":  null,
+                     "source":  "http://hpmmuseum.jp/modules/info/index.php?action=PageView\u0026page_id=47\u0026lang=eng",
+                     "tags":  [
+                                  "memorial",
+                                  "unesco",
+                                  "historia",
+                                  "hiroshima"
+                              ]
+                 },
+                 {
+                     "id":  "shukkei-en",
+                     "name":  "Shukkei-en Garden",
+                     "name_ja":  "縮景園",
+                     "name_ja_reading":  "Shukkei-en",
+                     "city":  "Hiroshima",
+                     "category":  "garden",
+                     "address":  "2-11 Kaminoborocho, Naka Ward, Hiroshima",
+                     "lat":  34.3987,
+                     "lng":  132.4636,
+                     "description":  "Jardín tradicional japonés construido en 1620 por orden del señor feudal Asano Nagaakira, diseñado en miniatura para recrear un paisaje del lago Xihu en Hangzhou (China) — de ahí su nombre, que significa \"jardín de paisaje condensado\".\n\nComo casi todo en el centro de Hiroshima, quedó destruido por la bomba atómica de 1945 y fue reconstruido y replantado en las décadas posteriores. Hoy ofrece un contraste sereno con la carga emocional del Parque de la Paz — un paseo tranquilo entre estanques, puentes y pabellones de té.",
+                     "significance":  "Alternativa tranquila si se prefiere completar la mañana con un jardín en vez de alargar la visita al Parque de la Paz.",
+                     "opening_hours":  {
+                                           "grounds":  "09:00–17:00 aprox. (varía por temporada)"
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  false,
+                                   "adult":  "¥260 aprox."
+                               },
+                     "duration_suggested":  "45–60 min",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Buena opción de mañana corta antes del tren a Osaka"
+                              ],
+                     "best_time":  "Mañana",
+                     "access":  {
+                                    "metro":  "A pie desde la estación de Hiroshima",
+                                    "walk_minutes":  12
+                                },
+                     "image_url":  "/pois/shukkei-en.jpg",
+                     "website":  null,
+                     "source":  "japon_info_base.md",
+                     "tags":  [
+                                  "jardín",
+                                  "tranquilo",
+                                  "hiroshima"
+                              ]
+                 },
+                 {
+                     "id":  "dotonbori",
+                     "name":  "Dotonbori",
+                     "name_ja":  "道頓堀",
+                     "name_ja_reading":  "Dōtonbori",
+                     "city":  "Osaka",
+                     "category":  "neighborhood",
+                     "address":  "Dotonbori, Chuo Ward, Osaka",
+                     "lat":  34.6687,
+                     "lng":  135.5017,
+                     "description":  "El barrio que mejor resume la fama de Osaka como \"la ciudad que come\": un canal flanqueado por carteles de neón gigantes y en 3D, entre los que destaca el icónico cartel del corredor Glico, en pie desde 1935 y renovado varias veces desde entonces.\n\nA lo largo del canal se concentran locales de takoyaki, okonomiyaki y kushikatsu, además del puente Ebisubashi, punto de encuentro clásico, y la posibilidad de hacer un crucero corto por el canal (Tonbori River Cruise, ~20 min).",
+                     "significance":  "El corazón gastronómico y visual de Osaka — la franja ideal es entre las 17:00 y las 22:00.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas (los neones y locales cierran progresivamente por la noche)"
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true,
+                                   "notes":  "Sin entrada; el crucero por el canal tiene coste aparte."
+                               },
+                     "duration_suggested":  "2–3 horas",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Combinar con Shinsaibashi-suji (calle comercial techada) y Hozenji Yokocho, justo al lado"
+                              ],
+                     "best_time":  "17:00–22:00",
+                     "access":  {
+                                    "metro":  "Namba",
+                                    "walk_minutes":  5
+                                },
+                     "image_url":  "/pois/dotonbori.jpg",
+                     "website":  null,
+                     "source":  "https://www.japannakama.co.uk/travel/osaka-guides/dotonbori-canal/",
+                     "tags":  [
+                                  "barrio",
+                                  "gastronomía",
+                                  "neón",
+                                  "imprescindible"
+                              ]
+                 },
+                 {
+                     "id":  "hozenji",
+                     "name":  "Hozenji Yokocho",
+                     "name_ja":  "法善寺横丁",
+                     "name_ja_reading":  "Hōzenji Yokochō",
+                     "city":  "Osaka",
+                     "category":  "neighborhood",
+                     "address":  "Hozenji, Chuo Ward, Osaka",
+                     "lat":  34.6680,
+                     "lng":  135.5030,
+                     "description":  "Callejón de piedra estrecho junto al templo Hozen-ji, con farolillos de papel y pequeños restaurantes que llevan generaciones en el mismo local. En el propio callejón está el templo homónimo, con una estatua de Fudo Myo-o completamente cubierta de musgo por la costumbre de los visitantes de mojarla con agua al rezar.\n\nEs un contraste deliberado y muy cercano con el bullicio de neón de Dotonbori, a apenas un par de calles.",
+                     "significance":  "El rincón tradicional escondido justo detrás del bullicio de Dotonbori.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas (calle pública)"
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true
+                               },
+                     "duration_suggested":  "15–20 min",
+                     "restrictions":  [
+                                          "Se pide mantener silencio al pasar, por respeto al templo y a los locales"
+                                      ],
+                     "tips":  [
+                                  "Ir de camino entre Dotonbori y Shinsaibashi, no requiere desvío"
+                              ],
+                     "best_time":  "Noche",
+                     "access":  {
+                                    "metro":  "Namba",
+                                    "walk_minutes":  6
+                                },
+                     "image_url":  "/pois/hozenji.jpg",
+                     "website":  null,
+                     "source":  "https://insideosaka.com/hozenji-yokocho/",
+                     "tags":  [
+                                  "callejón",
+                                  "tradicional",
+                                  "osaka"
+                              ]
+                 },
+                 {
+                     "id":  "osaka-castle",
+                     "name":  "Castillo de Osaka",
+                     "name_ja":  "大阪城",
+                     "name_ja_reading":  "Ōsaka-jō",
+                     "city":  "Osaka",
+                     "category":  "castle",
+                     "address":  "1-1 Osakajo, Chuo Ward, Osaka",
+                     "lat":  34.6873,
+                     "lng":  135.5262,
+                     "description":  "Construido originalmente en 1583 por Toyotomi Hideyoshi, uno de los grandes unificadores de Japón, como símbolo de su poder tras hacerse con el control del país. Fue destruido y reconstruido varias veces a lo largo de los siglos —incluida una reconstrucción de hormigón en 1931 tras un incendio— y hoy conserva el foso y los muros de piedra originales de la era Sengoku, con bloques de varias toneladas encajados sin argamasa.\n\nCon poco tiempo disponible, la visita realista es quedarse en los exteriores: el foso, los muros ciclópeos y los jardines que rodean la torre, sin entrar al museo de la torre principal.",
+                     "significance":  "Símbolo del poder de Toyotomi Hideyoshi — con checkout a las 11:00 el día de salida, mejor limitarse a exteriores y foso.",
+                     "opening_hours":  {
+                                           "grounds":  "24 horas (jardines exteriores)",
+                                           "tower_museum":  "09:00–17:00 aprox.",
+                                           "notes":  "Solo la torre (museo) tiene horario y entrada; el parque y el foso son libres."
+                                       },
+                     "closed_days":  [
+
+                                     ],
+                     "price":  {
+                                   "free":  true,
+                                   "notes":  "Exteriores gratuitos; entrada a la torre-museo ¥600 aprox."
+                               },
+                     "duration_suggested":  "30–45 min solo exteriores",
+                     "restrictions":  [
+
+                                      ],
+                     "tips":  [
+                                  "Con checkout a las 11:00, mejor no entrar al museo — solo foso y muros exteriores"
+                              ],
+                     "best_time":  "Mañana",
+                     "access":  {
+                                    "metro":  "Osakajokoen / Tanimachi 4-chome",
+                                    "walk_minutes":  10
+                                },
+                     "image_url":  "/pois/osaka-castle.jpg",
+                     "website":  "https://www.osakacastle.net/",
+                     "source":  "https://osakacastle.org/hours/",
+                     "tags":  [
+                                  "castillo",
+                                  "historia",
+                                  "exteriores"
+                              ]
+                 }
+             ]
 }

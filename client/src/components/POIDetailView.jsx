@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 /* ---------------------------------------------------------------
    POIDetailView
@@ -274,6 +274,51 @@ function CategoryFallbackIcon() {
   );
 }
 
+function ImageWithFallback({ imageUrl, poiId, altText }) {
+  const [source, setSource] = useState(imageUrl);
+  const [fallbackUrl, setFallbackUrl] = useState(null);
+  const [loadError, setLoadError] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const loadFallback = async () => {
+      try {
+        const res = await fetch('/pois/fallback-urls.json');
+        if (res.ok && mounted) {
+          const urls = await res.json();
+          if (urls[poiId]) {
+            setFallbackUrl(urls[poiId]);
+          }
+        }
+      } catch {}
+    };
+
+    loadFallback();
+    return () => { mounted = false; };
+  }, [poiId]);
+
+  const handleError = () => {
+    if (source === imageUrl && fallbackUrl) {
+      setSource(fallbackUrl);
+    } else {
+      setLoadError(true);
+    }
+  };
+
+  if (loadError) return null;
+
+  return (
+    <img
+      className="poi-hero__img"
+      src={source}
+      alt={altText}
+      loading="lazy"
+      onError={handleError}
+    />
+  );
+}
+
 export default function POIDetailView({ poi, onBack, onOpenMap }) {
   if (!poi) {
     return (
@@ -319,9 +364,7 @@ export default function POIDetailView({ poi, onBack, onOpenMap }) {
         {/* Hero */}
         <div className="poi-hero">
           {poi.image_url ? (
-            <img className="poi-hero__img" src={poi.image_url} alt={poi.name} loading="lazy"
-              onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextSibling.style.display = 'flex'; }}
-            />
+            <ImageWithFallback imageUrl={poi.image_url} poiId={poi.id} altText={poi.name} />
           ) : null}
           <div className="poi-hero__fallback" style={{ display: poi.image_url ? 'none' : 'flex', position: poi.image_url ? 'absolute' : 'relative', inset: 0 }}>
             <CategoryFallbackIcon />
