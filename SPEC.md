@@ -531,7 +531,7 @@ Grid de 8px. Contenedor con `padding: 0 20px`. Gaps entre cards: 12px. Secciones
 | Viaje | mapa de ruta | — | Ola 1 |
 | Alertas | campana | 🔴 nº no leídas | Ola 2 |
 | Restaurantes | tenedor | — | Ola 4 |
-| Más | grid 2×2 | — | Ola 2 |
+| Más | grid de herramientas operativas | — | Ola 2 |
 
 **El mapa es contextual, no un tab.** Accesible mediante botón "Ver en mapa" en cada card de hotel y POI. La pantalla de mapa completa sigue existiendo pero se navega desde el contenido, no desde la barra.
 
@@ -550,17 +550,13 @@ Comportamiento:
 - Estado leído/no leído en localStorage (nunca al servidor)
 - Datos en `data/alerts.json` — editables vía git como el resto del contenido estático
 
-**Tab "Más"** — hub de herramientas y documentos:
+**Tab "Más"** — hub de herramientas de viaje:
 - Billetes (vuelos, hoteles, trenes) — card prominente arriba
 - Frases en japonés
 - Conversor ¥ / €
-- Mis documentos (pasaporte, seguro) — localStorage
 - Emergencias
 - Guía Suica / IC card
-- Presupuesto diario — localStorage
-- Notas del viaje — localStorage
 
-Tabs inactivos (olas futuras): visibles, opacity reducida, sin navegación.
 Tab activo: icono + label en `--accent`. Tab inactivo: `--label-secondary`.
 
 ### Movimiento
@@ -780,22 +776,6 @@ trip.json[day].blocks → filtra los que tienen poi_id
 - ✅ Acceso directo a las alertas oficiales de JMA cuando hay conexión
 - ⬜ Detección automática de tifón: aplazada hasta disponer de una API oficial estable; nunca inferir alertas desde datos históricos
 
-### F14 — Mis documentos (Ola 6)
-- Campos: nº de pasaporte, nº de póliza del seguro, teléfono 24h seguro, contacto emergencia España
-- **Vive solo en localStorage del dispositivo — nunca se envía al servidor**
-- Cada viajero rellena los suyos en su móvil
-
-### F15 — Presupuesto diario (Ola 6)
-- Presupuesto estimado por día (configurable)
-- Gastos del día: el usuario los introduce manualmente
-- Resumen: gastado hoy / restante / total del viaje
-- **localStorage — sin servidor, sin sincronización entre viajeros**
-
-### F16 — Notas del viaje (Ola 6)
-- Una nota de texto libre por día
-- "El ramen de Tsuta estaba brutal"
-- **localStorage — personal, no compartida**
-
 ### F18 — Alertas proactivas (Ola 2)
 - Tab dedicado con badge de no leídas
 - Tres categorías: Acción (🔴), Aviso (🟡), Consejo (🔵)
@@ -832,7 +812,6 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | 4e | Convención horaria española | Franjas mañana/tarde/noche reajustadas a las 14h/20h + comidas 13h/cenas 20h | ✅ |
 | Q2 | Preparación operativa | F17 PWA/offline, fechas de splash desde datos, feedback del planificador y validación automática | ✅ |
 | 5 | Herramientas de viaje | F8-F13 completadas; detección automática de tifón aplazada, con acceso manual a JMA | ✅ |
-| 6 | Personal + privado | F14, F15, F16 — documentos, presupuesto, notas (localStorage) | ⬜ |
 | 7 | Offline + PWA | F17 — adelantada y completada en Calidad Q2 | ✅ |
 | 8 | Trenes reales + pulido | Localizadores post jul 18-24, success criteria, lanzamiento | ⬜ |
 
@@ -971,4 +950,4 @@ Deudas verificadas y conscientemente aplazadas (cada entrada indica el coste de 
 
 ---
 
-*Última actualización: 2026-07-15 — contador de Inicio y splash unificado sobre `trip.departure_datetime`: ambas vistas muestran los mismos días, horas y minutos exactos, actualizados al minuto.*
+*Última actualización: 2026-07-15 — documentos personales, presupuesto y notas eliminados del alcance. Las actualizaciones de la PWA se activan y recargan automáticamente para evitar que una instalación conserve interfaces antiguas.*

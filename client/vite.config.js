@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'autoUpdate',
+      registerType: 'prompt',
+      injectRegister: null,
       includeAssets: ['favicon.svg', 'JapanPics/*.jpg', 'pois/*.jpg', 'pois/*.json'],
       manifest: {
         name: 'Chelis en Japón',

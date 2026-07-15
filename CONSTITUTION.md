@@ -56,7 +56,6 @@ Si un dato (hora de tren, política de un ryokan, etc.) no está confirmado, mos
 Los siguientes puntos son backlog explícito — existen, no se han olvidado, pero no van en el MVP:
 
 - Recomendaciones dinámicas vía API (Google Places o similar)
-- Notas/fotos compartidas entre el grupo dentro de la guía
 - Seguimiento en vivo de retrasos de tren/vuelo
 - Lista de equipaje interactiva
 - Frases útiles de japonés con traducción interactiva
@@ -87,4 +86,4 @@ Los siguientes puntos son backlog explícito — existen, no se han olvidado, pe
 
 ---
 
-*Última actualización: 2026-07-15 — la regla 4 queda cubierta mediante PWA y caché de datos. Las seis herramientas de viaje funcionan offline; cambio y clima muestran fecha/origen y no se presentan como datos en vivo. Los contactos personales viven exclusivamente en localStorage.*
+*Última actualización: 2026-07-15 — la regla 4 queda cubierta mediante PWA y caché de datos. Las seis herramientas de viaje funcionan offline; cambio y clima muestran fecha/origen y no se presentan como datos en vivo. Documentos, presupuesto y notas quedan eliminados del producto.*

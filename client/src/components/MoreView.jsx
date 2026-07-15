@@ -2,8 +2,8 @@ import React from 'react';
 
 /* ---------------------------------------------------------------
    MoreView
-   Pantalla del tab "Más". Grid de herramientas con card principal
-   de Billetes y grid de 2 columnas de herramientas futuras.
+   Pantalla del tab "Más". Grid de herramientas operativas con card
+   principal de Billetes.
    --------------------------------------------------------------- */
 
 const STYLES = `
@@ -128,30 +128,15 @@ const STYLES = `
   line-height: 1.3;
 }
 
-.more-tool-coming {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: var(--bg-secondary);
-  color: var(--label-secondary);
-  font-size: 10px;
-  font-weight: 600;
-  padding: 2px 7px;
-  border-radius: 6px;
-  letter-spacing: 0.3px;
-}
 `;
 
 const TOOLS = [
   { icon: '🇯🇵', label: 'Frases japonesas', destination: 'phrases' },
   { icon: '¥', label: 'Conversor ¥/€', destination: 'currency' },
-  { icon: '📄', label: 'Mis documentos' },
   { icon: '🚨', label: 'Emergencias', destination: 'emergency' },
   { icon: '🚇', label: 'Guía Suica', destination: 'ic-card' },
   { icon: '🧳', label: 'Llegar al hotel', destination: 'last-mile' },
   { icon: '🌡️', label: 'Clima por etapa', destination: 'climate' },
-  { icon: '💰', label: 'Presupuesto' },
-  { icon: '📝', label: 'Notas del viaje' },
 ];
 
 export default function MoreView({ onNavigate }) {
@@ -173,20 +158,19 @@ export default function MoreView({ onNavigate }) {
           <div className="more-tickets-arrow" aria-hidden="true">›</div>
         </button>
 
-        {/* Herramientas futuras */}
+        {/* Herramientas operativas */}
         <div className="more-grid-header">Herramientas</div>
         <div className="more-grid">
           {TOOLS.map((tool) => (
             <button
               key={tool.label}
-              className={`more-tool-card${tool.destination ? ' more-tool-card--active' : ''}`}
-              disabled={!tool.destination}
-              aria-label={tool.destination ? tool.label : `${tool.label} — próximamente`}
-              onClick={() => tool.destination && onNavigate?.(tool.destination)}
+              className="more-tool-card more-tool-card--active"
+              aria-label={tool.label}
+              onClick={() => onNavigate?.(tool.destination)}
             >
               <div className="more-tool-icon" aria-hidden="true">{tool.icon}</div>
               <div className="more-tool-label">{tool.label}</div>
-              {tool.destination ? <div className="more-tool-arrow">›</div> : <div className="more-tool-coming">Próximamente</div>}
+              <div className="more-tool-arrow">›</div>
             </button>
           ))}
         </div>
