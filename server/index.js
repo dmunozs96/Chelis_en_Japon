@@ -36,6 +36,10 @@ if (!isProd) {
 
 app.use('/data', express.static(path.join(__dirname, '..', 'data')));
 
+// Un fichero de data inexistente debe ser un 404 diagnosticable, no caer al
+// fallback SPA y devolver index.html con status 200.
+app.use('/data', (_req, res) => res.status(404).json({ error: 'Data file not found' }));
+
 // ---------------------------------------------------------------------------
 // API routes
 // ---------------------------------------------------------------------------
@@ -67,6 +71,23 @@ if (hasDist) {
     res.json({ status: 'API running — frontend build not found (run npm run build)' });
   });
 }
+
+// ---------------------------------------------------------------------------
+// Error handling — sin esto, una promesa rechazada en un handler async
+// tumba el proceso entero en Node >= 15.
+// ---------------------------------------------------------------------------
+
+// eslint-disable-next-line no-unused-vars
+app.use((err, _req, res, _next) => {
+  console.error('[server] Unhandled route error:', err);
+  if (!res.headersSent) {
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('[server] Unhandled rejection:', reason);
+});
 
 // ---------------------------------------------------------------------------
 // Start

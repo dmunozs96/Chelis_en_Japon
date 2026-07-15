@@ -229,7 +229,9 @@ export default function AlertsView({ onBadgeChange }) {
     </>
   );
 
-  const today = new Date().toISOString().slice(0, 10);
+  // Fecha local del dispositivo (no UTC) — coherente con todayISO() de TodayView.
+  const d = new Date();
+  const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 
   // Filter out past tips
   const visibleAlerts = alerts.filter((a) => {

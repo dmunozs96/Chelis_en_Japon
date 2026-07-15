@@ -462,8 +462,10 @@ function timeToFranja(time) {
   if (!time) return '';
   const hour = parseInt(time.split(':')[0], 10);
   if (isNaN(hour)) return time;
-  if (hour < 13) return 'Mañana';
-  if (hour < 19) return 'Tarde';
+  // Umbrales de la convención horaria 4e (comidas a la española):
+  // mañana hasta las 14:00, tarde hasta las 20:00, noche después.
+  if (hour < 14) return 'Mañana';
+  if (hour < 20) return 'Tarde';
   return 'Noche';
 }
 

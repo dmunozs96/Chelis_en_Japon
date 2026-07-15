@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
+import { fetchJsonCached } from '../lib/fetchJsonCached.js';
 
 /**
  * useRestaurantsData
  *
  * Loads restaurants_db.json from the /data directory. Returns the flat
- * array of restaurants plus lookup/filter helpers. 100% offline — no
- * network calls beyond the initial static fetch.
+ * array of restaurants plus lookup/filter helpers. Cached: una sola
+ * descarga por sesión.
  *
  * Returns:
  *   { restaurants, getRestaurantById, getRestaurantsByCity, loading, error }
@@ -27,24 +28,20 @@ export function useRestaurantsData() {
   useEffect(() => {
     let cancelled = false;
 
-    async function load() {
-      try {
-        const res = await fetch('/data/restaurants_db.json');
-        if (!res.ok) throw new Error(`HTTP ${res.status} loading restaurants_db.json`);
-        const json = await res.json();
+    fetchJsonCached('/data/restaurants_db.json')
+      .then((json) => {
         if (!cancelled) {
           setRestaurants(json.restaurants ?? []);
           setLoading(false);
         }
-      } catch (err) {
+      })
+      .catch((err) => {
         if (!cancelled) {
           setError(err.message);
           setLoading(false);
         }
-      }
-    }
+      });
 
-    load();
     return () => { cancelled = true; };
   }, []);
 

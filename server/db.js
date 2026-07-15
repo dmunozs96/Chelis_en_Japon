@@ -1,4 +1,9 @@
-const { Pool } = require('pg');
+const { Pool, types } = require('pg');
+
+// Devolver las columnas DATE como texto 'YYYY-MM-DD' tal cual, sin pasar por
+// Date: evita que la zona horaria del servidor corra las fechas un día al
+// serializar a JSON (p.ej. 2026-08-17 → "2026-08-16T22:00:00Z" con TZ=+2).
+types.setTypeParser(types.builtins.DATE, (value) => value);
 
 let pool = null;
 

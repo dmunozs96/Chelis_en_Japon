@@ -1,0 +1,98 @@
+{
+  "sensoji": {
+    "article": "https://en.wikipedia.org/wiki/Sens%C5%8D-ji",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Sensoji_2023.jpg"
+  },
+  "hibiya-park": {
+    "article": "https://en.wikipedia.org/wiki/Hibiya_Park",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Hibiya_Park_summer.jpg"
+  },
+  "ginza-six": {
+    "article": "https://en.wikipedia.org/wiki/Ginza_Six",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Ginza_Six_02.jpg"
+  },
+  "tsukiji-outer-market": {
+    "article": "https://en.wikipedia.org/wiki/Tsukiji_fish_market",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:2018_Tsukiji_fish_market.jpg"
+  },
+  "imperial-east": {
+    "article": "https://en.wikipedia.org/wiki/Tokyo_Imperial_Palace",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:3840px-Seimon_Ishibashi.JPG"
+  },
+  "shibuya-crossing": {
+    "article": "https://en.wikipedia.org/wiki/Shibuya_Crossing",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Shibuya_Crossing,_Aerial.jpg"
+  },
+  "shibuya-sky": {
+    "article": "https://en.wikipedia.org/wiki/Shibuya_Scramble_Square",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg"
+  },
+  "yanaka": {
+    "article": "https://en.wikipedia.org/wiki/Yanaka%2C_Tokyo",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:3840px-Tokyo_-_Yanaka_143.jpg"
+  },
+  "hakone-openair": {
+    "article": "https://en.wikipedia.org/wiki/Hakone_Open-Air_Museum",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Hakone5.jpg"
+  },
+  "nishiki-market": {
+    "article": "https://en.wikipedia.org/wiki/Nishiki_Market",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Nishiki_Ichiba_by_matsuyuki.jpg"
+  },
+  "pontocho": {
+    "article": "https://en.wikipedia.org/wiki/Ponto-ch%C5%8D",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Pontocho_by_Wolfiewolf_in_Nabeyacho,_Kyoto.jpg"
+  },
+  "fushimi-inari": {
+    "article": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:3840px-Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg"
+  },
+  "kiyomizudera": {
+    "article": "https://en.wikipedia.org/wiki/Kiyomizu-dera",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Kiyomizu.jpg"
+  },
+  "higashiyama": {
+    "article": "https://en.wikipedia.org/wiki/Sannenzaka",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:3840px-Sannenzaka_street,_Kyoto_(3811257874).jpg"
+  },
+  "gion": {
+    "article": "https://en.wikipedia.org/wiki/Gion",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:3840px-150124_Gion_Kyoto_Japan01s3.jpg"
+  },
+  "arashiyama": {
+    "article": "https://en.wikipedia.org/wiki/Arashiyama",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Arashiyama_013.jpg"
+  },
+  "kinkakuji": {
+    "article": "https://en.wikipedia.org/wiki/Kinkaku-ji",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:3840px-Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg"
+  },
+  "nijo-castle": {
+    "article": "https://en.wikipedia.org/wiki/Nij%C5%8D_Castle",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:NinomaruPalace.jpg"
+  },
+  "peace-park": {
+    "article": "https://en.wikipedia.org/wiki/Hiroshima_Peace_Memorial_Park",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:3840px-20181111_Hiroshima_Memorial_Cenotaph-1.jpg"
+  },
+  "genbaku-dome": {
+    "article": "https://en.wikipedia.org/wiki/Hiroshima_Peace_Memorial",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:3840px-Genbaku_Dome04-r.JPG"
+  },
+  "shukkei-en": {
+    "article": "https://en.wikipedia.org/wiki/Shukkei-en",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Rainbow_bridge_in_Shukkei-en_Hiroshima.jpg"
+  },
+  "dotonbori": {
+    "article": "https://en.wikipedia.org/wiki/D%C5%8Dtonbori",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Osaka_Dotonbori_Ebisu_Bridge.jpg"
+  },
+  "hozenji": {
+    "article": "https://en.wikipedia.org/wiki/H%C5%8Dzen-ji_(Osaka)",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:法善寺_水掛不動.jpg"
+  },
+  "osaka-castle": {
+    "article": "https://en.wikipedia.org/wiki/Osaka_Castle",
+    "commons_file": "https://commons.wikimedia.org/wiki/File:Osaka_Castle_03bs3200.jpg"
+  }
+}

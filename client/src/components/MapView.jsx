@@ -460,7 +460,10 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
       }).addTo(map);
     }
 
-    // Geolocalización
+    // Geolocalización. Si se pidió enfocar un punto concreto (focusLatLng,
+    // p.ej. "Ver mapa" desde un POI), el GPS solo añade el marcador del
+    // usuario — nunca roba el centro del mapa.
+    const followUser = centerOn === 'user' && !focusLatLng;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
@@ -468,7 +471,7 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
           const { latitude, longitude } = pos.coords;
           const userMarker = L.marker([latitude, longitude], { icon: createUserIcon() });
           userMarker.addTo(mapInstanceRef.current);
-          if (centerOn === 'user') {
+          if (followUser) {
             mapInstanceRef.current.setView([latitude, longitude], 15);
           }
           setNoGps(false);
@@ -476,7 +479,7 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
         () => {
           // Sin permiso o fallo — centrar en hotel/ciudad
           setNoGps(true);
-          if (mapInstanceRef.current && centerOn === 'user') {
+          if (mapInstanceRef.current && followUser) {
             mapInstanceRef.current.setView(fallbackCenter, 14);
           }
         },

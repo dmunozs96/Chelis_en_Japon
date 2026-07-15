@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { fetchJsonCached } from '../lib/fetchJsonCached.js';
 
 /**
  * useTripData
  *
  * Loads trip.json from the /data directory (served as a static asset
- * by Vite in dev and by Express in production).
+ * by Vite in dev and by Express in production). Cached: se descarga una
+ * sola vez por sesión aunque varias vistas monten el hook.
  *
  * Returns:
  *   { tripData, days, flights, hotels, trains, loading, error }
@@ -19,24 +21,20 @@ export function useTripData() {
   useEffect(() => {
     let cancelled = false;
 
-    async function load() {
-      try {
-        const res = await fetch('/data/trip.json');
-        if (!res.ok) throw new Error(`HTTP ${res.status} loading trip.json`);
-        const json = await res.json();
+    fetchJsonCached('/data/trip.json')
+      .then((json) => {
         if (!cancelled) {
           setTripData(json);
           setLoading(false);
         }
-      } catch (err) {
+      })
+      .catch((err) => {
         if (!cancelled) {
           setError(err.message);
           setLoading(false);
         }
-      }
-    }
+      });
 
-    load();
     return () => { cancelled = true; };
   }, []);
 
@@ -67,24 +65,20 @@ export function useAlertsData() {
   useEffect(() => {
     let cancelled = false;
 
-    async function load() {
-      try {
-        const res = await fetch('/data/alerts.json');
-        if (!res.ok) throw new Error(`HTTP ${res.status} loading alerts.json`);
-        const json = await res.json();
+    fetchJsonCached('/data/alerts.json')
+      .then((json) => {
         if (!cancelled) {
           setAlerts(json.alerts ?? []);
           setLoading(false);
         }
-      } catch (err) {
+      })
+      .catch((err) => {
         if (!cancelled) {
           setError(err.message);
           setLoading(false);
         }
-      }
-    }
+      });
 
-    load();
     return () => { cancelled = true; };
   }, []);
 

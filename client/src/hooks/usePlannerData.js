@@ -84,9 +84,26 @@ export function usePlannerData() {
     return () => { cancelled = true; };
   }, []);
 
+  // fetch que falla también con respuestas no-2xx, con un reintento para
+  // tolerar cortes puntuales de red móvil.
+  async function fetchWithRetry(url, options) {
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        const res = await fetch(url, options);
+        if (res.ok) return;
+        if (res.status < 500) throw Object.assign(new Error(`HTTP ${res.status}`), { final: true });
+      } catch (err) {
+        if (err.final) throw err;
+      }
+      if (attempt === 0) await new Promise((r) => setTimeout(r, 1500));
+    }
+    throw new Error('sync failed');
+  }
+
   const saveSlot = useCallback(async (dayDate, mealSlot, patch) => {
     const key = slotKey(dayDate, mealSlot);
-    const next = { restaurant_id: null, status: 'assigned', confirmation_number: null, reserved_for: null, reserved_time: null, ...slots[key], ...patch };
+    const previous = slots[key];
+    const next = { restaurant_id: null, status: 'assigned', confirmation_number: null, reserved_for: null, reserved_time: null, ...previous, ...patch };
 
     setSlots((prev) => {
       const merged = { ...prev, [key]: next };
@@ -94,21 +111,30 @@ export function usePlannerData() {
       return merged;
     });
 
-    if (persisted) {
-      try {
-        await fetch(`/api/planner/${dayDate}/${mealSlot}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(next),
-        });
-      } catch {
-        // El estado local ya se actualizó de forma optimista; se reintentará en el próximo guardado.
-      }
+    if (!persisted) return true;
+    try {
+      await fetchWithRetry(`/api/planner/${dayDate}/${mealSlot}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(next),
+      });
+      return true;
+    } catch {
+      // No se pudo sincronizar: revertir para que la UI no muestre como
+      // guardado algo que el otro viajero nunca verá.
+      setSlots((prev) => {
+        const merged = { ...prev };
+        if (previous) merged[key] = previous;
+        else delete merged[key];
+        return merged;
+      });
+      return false;
     }
   }, [slots, persisted]);
 
   const clearSlot = useCallback(async (dayDate, mealSlot) => {
     const key = slotKey(dayDate, mealSlot);
+    const previous = slots[key];
     setSlots((prev) => {
       const merged = { ...prev };
       delete merged[key];
@@ -116,12 +142,15 @@ export function usePlannerData() {
       return merged;
     });
 
-    if (persisted) {
-      try {
-        await fetch(`/api/planner/${dayDate}/${mealSlot}`, { method: 'DELETE' });
-      } catch {}
+    if (!persisted) return true;
+    try {
+      await fetchWithRetry(`/api/planner/${dayDate}/${mealSlot}`, { method: 'DELETE' });
+      return true;
+    } catch {
+      setSlots((prev) => (previous ? { ...prev, [key]: previous } : prev));
+      return false;
     }
-  }, [persisted]);
+  }, [slots, persisted]);
 
   function getSlot(dayDate, mealSlot) {
     return slots[slotKey(dayDate, mealSlot)] ?? { restaurant_id: null, status: 'empty', confirmation_number: null, reserved_for: null, reserved_time: null };

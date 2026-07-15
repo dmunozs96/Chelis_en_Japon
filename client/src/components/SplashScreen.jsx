@@ -16,12 +16,13 @@ const TRIP_DAYS   = 13;
 const DEPARTURE_DATETIME = new Date(2026, 7, 13, 12, 30, 0);
 
 // Pseudo-vídeo de entrada: slideshow de las fotos en client/public/JapanPics
+// (JPG comprimidos — los PNG originales pesaban ~2 MB cada uno)
 const SLIDES = [
-  '/JapanPics/Tokyo.png',
-  '/JapanPics/Shibuya.png',
-  '/JapanPics/Kyoto.png',
-  '/JapanPics/Osaka.png',
-  '/JapanPics/Japaneselads.png',
+  '/JapanPics/Tokyo.jpg',
+  '/JapanPics/Shibuya.jpg',
+  '/JapanPics/Kyoto.jpg',
+  '/JapanPics/Osaka.jpg',
+  '/JapanPics/Japaneselads.jpg',
 ];
 const SLIDE_INTERVAL_MS = 900;
 
@@ -413,7 +414,9 @@ export default function SplashScreen({ onDismiss }) {
   const [now, setNow] = useState(() => new Date());
   const days    = daysUntil(TRIP_START);
   const tripDay = tripDayNumber();
-  const afterTrip = days < -TRIP_DAYS;
+  // El último día del viaje es TRIP_START + (TRIP_DAYS - 1); al día siguiente
+  // days vale exactamente -TRIP_DAYS, por eso <= y no <.
+  const afterTrip = days <= -TRIP_DAYS;
 
   const dismiss = () => {
     if (exiting) return;

@@ -3,7 +3,16 @@
     "name": "Chelis en Japón",
     "year": 2026,
     "origin": "Navalcarnero, Madrid",
-    "destinations": ["Tokio", "Hakone", "Kioto", "Hiroshima", "Osaka"]
+    "destinations": [
+      "Tokio",
+      "Hakone",
+      "Kioto",
+      "Hiroshima",
+      "Osaka"
+    ],
+    "start_date": "2026-08-13",
+    "end_date": "2026-08-25",
+    "departure_datetime": "2026-08-13T12:30:00+02:00"
   },
   "days": [
     {
@@ -15,22 +24,52 @@
       "pois": [],
       "blocks": [
         {
-          "time": "mañana", "label": "Salida", "activity": "Salida desde Navalcarnero hacia el aeropuerto Barajas T4",
+          "time": "mañana",
+          "label": "Salida",
+          "activity": "Salida desde Navalcarnero hacia el aeropuerto Barajas T4",
           "steps": [
-            { "time": "09:00", "type": "transfer", "mode": "taxi", "title": "Navalcarnero → Barajas T4", "detail": "~40 min en coche por la A-5 hasta la Terminal 4.", "duration_min": 40 },
-            { "time": "09:45", "type": "visit", "title": "Facturación y seguridad", "detail": "Facturación Iberia, control de pasaportes y seguridad. Llegar con ~3h de antelación por ser vuelo internacional.", "duration_min": 105 }
+            {
+              "time": "09:00",
+              "type": "transfer",
+              "mode": "taxi",
+              "title": "Navalcarnero → Barajas T4",
+              "detail": "~40 min en coche por la A-5 hasta la Terminal 4.",
+              "duration_min": 40
+            },
+            {
+              "time": "09:45",
+              "type": "visit",
+              "title": "Facturación y seguridad",
+              "detail": "Facturación Iberia, control de pasaportes y seguridad. Llegar con ~3h de antelación por ser vuelo internacional.",
+              "duration_min": 105
+            }
           ]
         },
         {
-          "time": "mediodía", "label": "Vuelo", "activity": "Vuelo IB0281 MAD → NRT — salida 12:30 desde Barajas T4",
+          "time": "mediodía",
+          "label": "Vuelo",
+          "activity": "Vuelo IB0281 MAD → NRT — salida 12:30 desde Barajas T4",
           "steps": [
-            { "time": "12:30", "type": "transfer", "mode": "avion", "title": "Despegue IB0281 MAD → NRT", "detail": "Salida desde Barajas T4. Vuelo directo Madrid–Narita, ~14h de duración." }
+            {
+              "time": "12:30",
+              "type": "transfer",
+              "mode": "avion",
+              "title": "Despegue IB0281 MAD → NRT",
+              "detail": "Salida desde Barajas T4. Vuelo directo Madrid–Narita, ~14h de duración."
+            }
           ]
         },
         {
-          "time": "noche", "label": "En vuelo", "activity": "Vuelo transatlántico hacia Tokio Narita",
+          "time": "noche",
+          "label": "En vuelo",
+          "activity": "Vuelo transatlántico hacia Tokio Narita",
           "steps": [
-            { "time": "20:00", "type": "free", "title": "Vuelo transatlántico", "detail": "Intentar dormir según el horario de destino, hidratarse y estirarse cada pocas horas. Llegada prevista a Narita 09:30 (hora de Japón) del día siguiente." }
+            {
+              "time": "20:00",
+              "type": "free",
+              "title": "Vuelo transatlántico",
+              "detail": "Intentar dormir según el horario de destino, hidratarse y estirarse cada pocas horas. Llegada prevista a Narita 09:30 (hora de Japón) del día siguiente."
+            }
           ]
         }
       ]
@@ -46,38 +85,124 @@
         "checkout": "11:00"
       },
       "pois": [
-        { "id": "hibiya-park", "name": "Hibiya Park", "type": "parque", "lat": 35.6734, "lng": 139.7578, "note": "Primer parque occidental de Japón (1903). A 8 min del hotel." },
-        { "id": "ginza-six", "name": "Ginza Six (azotea)", "type": "mirador", "lat": 35.6704, "lng": 139.7647, "note": "Jardín gratuito en la azotea con vistas. 5-10 min del hotel." }
+        {
+          "id": "hibiya-park",
+          "name": "Hibiya Park",
+          "type": "parque",
+          "lat": 35.6734,
+          "lng": 139.7578,
+          "note": "Primer parque occidental de Japón (1903). A 8 min del hotel."
+        },
+        {
+          "id": "ginza-six",
+          "name": "Ginza Six (azotea)",
+          "type": "mirador",
+          "lat": 35.6704,
+          "lng": 139.7647,
+          "note": "Jardín gratuito en la azotea con vistas. 5-10 min del hotel."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Llegada", "activity": "Aterrizaje Narita T2 a las 09:30 — control de pasaportes y aduana",
+          "time": "mañana",
+          "label": "Llegada",
+          "activity": "Aterrizaje Narita T2 a las 09:30 — control de pasaportes y aduana",
           "steps": [
-            { "time": "09:30", "type": "visit", "title": "Aterrizaje en Narita T2", "detail": "Vuelo IB0281 aterriza en Narita Terminal 2.", "duration_min": 5 },
-            { "time": "09:35", "type": "visit", "title": "Control de pasaportes y aduana", "detail": "Inmigración + recogida de equipaje + aduana. Puede tardar 45–90 min en temporada alta (agosto, Obon).", "duration_min": 75 },
-            { "time": "10:50", "type": "transfer", "mode": "tren", "title": "Narita Express (N'EX) → Tokyo Station", "detail": "Directo desde Narita Airport Terminal 2 hasta Tokyo Station, ~55 min. Reserva de asiento recomendada (se saca en la máquina JR East de la propia estación del aeropuerto).", "duration_min": 55 }
+            {
+              "time": "09:30",
+              "type": "visit",
+              "title": "Aterrizaje en Narita T2",
+              "detail": "Vuelo IB0281 aterriza en Narita Terminal 2.",
+              "duration_min": 5
+            },
+            {
+              "time": "09:35",
+              "type": "visit",
+              "title": "Control de pasaportes y aduana",
+              "detail": "Inmigración + recogida de equipaje + aduana. Puede tardar 45–90 min en temporada alta (agosto, Obon).",
+              "duration_min": 75
+            },
+            {
+              "time": "10:50",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Narita Express (N'EX) → Tokyo Station",
+              "detail": "Directo desde Narita Airport Terminal 2 hasta Tokyo Station, ~55 min. Reserva de asiento recomendada (se saca en la máquina JR East de la propia estación del aeropuerto).",
+              "duration_min": 55
+            }
           ]
         },
         {
-          "time": "mediodía", "label": "Traslado y comida", "activity": "Traslado en tren desde Narita al centro de Tokio y primera comida",
+          "time": "mediodía",
+          "label": "Traslado y comida",
+          "activity": "Traslado en tren desde Narita al centro de Tokio y primera comida",
           "steps": [
-            { "time": "11:45", "type": "transfer", "mode": "tren", "title": "Tokyo Station → Yurakucho", "detail": "1 parada en JR Yamanote/Keihin-Tohoku Line (~2 min) o 12 min a pie por la galería subterránea.", "duration_min": 12 },
-            { "time": "12:00", "type": "visit", "title": "Dejar maletas en el hotel", "detail": "El check-in oficial es a las 14:00, pero suelen guardar el equipaje antes si se llega pronto.", "duration_min": 15 },
-            { "time": "13:00", "type": "food", "title": "Yurakucho Sanchoku Inshokugai", "detail": "Callejón gastronómico bajo las vías del tren, junto al hotel — buena primera comida sin tener que buscar mucho tras el vuelo.", "duration_min": 60 }
+            {
+              "time": "11:45",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Tokyo Station → Yurakucho",
+              "detail": "1 parada en JR Yamanote/Keihin-Tohoku Line (~2 min) o 12 min a pie por la galería subterránea.",
+              "duration_min": 12
+            },
+            {
+              "time": "12:00",
+              "type": "visit",
+              "title": "Dejar maletas en el hotel",
+              "detail": "El check-in oficial es a las 14:00, pero suelen guardar el equipaje antes si se llega pronto.",
+              "duration_min": 15
+            },
+            {
+              "time": "13:00",
+              "type": "food",
+              "title": "Yurakucho Sanchoku Inshokugai",
+              "detail": "Callejón gastronómico bajo las vías del tren, junto al hotel — buena primera comida sin tener que buscar mucho tras el vuelo.",
+              "duration_min": 60
+            }
           ]
         },
         {
-          "time": "tarde", "label": "Check-in", "activity": "Check-in en The Gate Hotel Tokyo by HULIC a partir de las 14:00",
+          "time": "tarde",
+          "label": "Check-in",
+          "activity": "Check-in en The Gate Hotel Tokyo by HULIC a partir de las 14:00",
           "steps": [
-            { "time": "14:00", "type": "visit", "title": "Check-in y descanso", "detail": "Check-in oficial + un rato de descanso tras el vuelo nocturno.", "duration_min": 60 },
-            { "time": "15:00", "type": "walk", "title": "Hibiya Park", "detail": "~10 min a pie desde el hotel. Primer parque de estilo occidental de Japón (1903) — paseo suave para estirar las piernas.", "duration_min": 40, "poi_id": "hibiya-park" },
-            { "time": "15:45", "type": "visit", "title": "Azotea de Ginza Six", "detail": "5-10 min a pie desde Hibiya Park. Jardín gratuito en la azotea con vistas sobre Ginza.", "duration_min": 45, "poi_id": "ginza-six" }
+            {
+              "time": "14:00",
+              "type": "visit",
+              "title": "Check-in y descanso",
+              "detail": "Check-in oficial + un rato de descanso tras el vuelo nocturno.",
+              "duration_min": 60
+            },
+            {
+              "time": "15:00",
+              "type": "walk",
+              "title": "Hibiya Park",
+              "detail": "~10 min a pie desde el hotel. Primer parque de estilo occidental de Japón (1903) — paseo suave para estirar las piernas.",
+              "duration_min": 40,
+              "poi_id": "hibiya-park"
+            },
+            {
+              "time": "15:45",
+              "type": "visit",
+              "title": "Azotea de Ginza Six",
+              "detail": "5-10 min a pie desde Hibiya Park. Jardín gratuito en la azotea con vistas sobre Ginza.",
+              "duration_min": 45,
+              "poi_id": "ginza-six"
+            }
           ]
         },
         {
-          "time": "noche", "label": "Descanso", "activity": "Primer paseo por el barrio del hotel — recuperar el jet lag",
+          "time": "noche",
+          "label": "Descanso",
+          "activity": "Primer paseo por el barrio del hotel — recuperar el jet lag",
           "steps": [
-            { "time": "20:00", "type": "food", "title": "Cena en Yurakucho Gado-shita o Andy's Shin Hinomoto", "detail": "Ambos a 5-10 min a pie del hotel, bajo las vías del tren — ambiente izakaya clásico. Objetivo: cena tranquila, sin forzar nada por el jet lag.", "duration_min": 90 }
+            {
+              "time": "20:00",
+              "type": "food",
+              "title": "Cena en Yurakucho Gado-shita o Andy's Shin Hinomoto",
+              "detail": "Ambos a 5-10 min a pie del hotel, bajo las vías del tren — ambiente izakaya clásico. Objetivo: cena tranquila, sin forzar nada por el jet lag.",
+              "duration_min": 90
+            }
           ]
         }
       ]
@@ -93,49 +218,222 @@
         "checkout": null
       },
       "pois": [
-        { "id": "sensoji", "name": "Templo Senso-ji", "type": "templo", "lat": 35.7147, "lng": 139.7966, "note": "El templo más antiguo de Tokio. Mejor de mañana o de noche iluminado." },
-        { "id": "imperial-east", "name": "Jardines del Este del Palacio Imperial", "type": "jardín", "lat": 35.6852, "lng": 139.7528, "note": "Gratis. Cerrado lunes y viernes. Abierto hoy (sábado)." },
-        { "id": "shibuya-crossing", "name": "Shibuya Crossing", "type": "icono", "lat": 35.6595, "lng": 139.7004, "note": "El cruce más famoso del mundo. Mejor al atardecer." }
+        {
+          "id": "sensoji",
+          "name": "Templo Senso-ji",
+          "type": "templo",
+          "lat": 35.7147,
+          "lng": 139.7966,
+          "note": "El templo más antiguo de Tokio. Mejor de mañana o de noche iluminado."
+        },
+        {
+          "id": "imperial-east",
+          "name": "Jardines del Este del Palacio Imperial",
+          "type": "jardín",
+          "lat": 35.6852,
+          "lng": 139.7528,
+          "note": "Gratis. Cerrado lunes y viernes. Abierto hoy (sábado)."
+        },
+        {
+          "id": "shibuya-crossing",
+          "name": "Shibuya Crossing",
+          "type": "icono",
+          "lat": 35.6595,
+          "lng": 139.7004,
+          "note": "El cruce más famoso del mundo. Mejor al atardecer."
+        },
+        {
+          "id": "tsukiji-outer-market",
+          "name": "Tsukiji Outer Market",
+          "type": "mercado",
+          "lat": 35.6654,
+          "lng": 139.7707,
+          "note": "De camino entre el hotel y Ginza/Tsukiji — parada informal para picar sin reserva."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Asakusa", "activity": "Templo Senso-ji, Nakamise-dori y callejuelas de Asakusa", "poi_id": "sensoji",
+          "time": "mañana",
+          "label": "Asakusa",
+          "activity": "Templo Senso-ji, Nakamise-dori y callejuelas de Asakusa",
+          "poi_id": "sensoji",
           "steps": [
-            { "time": "08:30", "type": "transfer", "mode": "walk", "title": "Hotel → Estación Ginza", "detail": "~7 min a pie desde The Gate Hotel Tokyo (Yurakucho) hasta la boca de metro Ginza (líneas Ginza / Marunouchi / Hibiya).", "duration_min": 7 },
-            { "time": "08:40", "type": "transfer", "mode": "metro", "title": "Línea Ginza → Asakusa", "detail": "Tokyo Metro Ginza Line, dirección Asakusa (7 paradas). Bajar en Asakusa, salida 1.", "duration_min": 18 },
-            { "time": "09:00", "type": "visit", "title": "Kaminarimon (Puerta del Trueno)", "detail": "Entrada icónica con el gran farolillo rojo. Foto rápida — a estas horas ya hay cola, no merece la pena pararse mucho.", "duration_min": 10 },
-            { "time": "09:10", "type": "walk", "title": "Nakamise-dori", "detail": "Calle comercial de ~250 m hasta el templo: puestos de ningyo-yaki, senbei y souvenirs. Ir despacio, es parte de la experiencia (más lleno de lo normal por Obon).", "duration_min": 20 },
-            { "time": "09:30", "type": "visit", "title": "Templo Senso-ji", "detail": "Salón principal, incensario Jokoro, pagoda de cinco pisos. El templo budista más antiguo de Tokio (645 d.C.).", "duration_min": 35, "poi_id": "sensoji" },
-            { "time": "10:05", "type": "walk", "title": "Asakusa-jinja y Denboin-dori", "detail": "Santuario sintoísta contiguo al templo; después Denboin-dori, calle empedrada con tiendas de artesanos, mucho menos masificada que Nakamise.", "duration_min": 25 },
-            { "time": "10:30", "type": "food", "title": "Hoppy-dori (opcional)", "detail": "Callejón de tabernas retro a 5 min andando, bueno para un tentempié de pie si hay hambre antes de Tsukiji.", "duration_min": 15 }
+            {
+              "time": "08:30",
+              "type": "transfer",
+              "mode": "walk",
+              "title": "Hotel → Estación Ginza",
+              "detail": "~7 min a pie desde The Gate Hotel Tokyo (Yurakucho) hasta la boca de metro Ginza (líneas Ginza / Marunouchi / Hibiya).",
+              "duration_min": 7
+            },
+            {
+              "time": "08:40",
+              "type": "transfer",
+              "mode": "metro",
+              "title": "Línea Ginza → Asakusa",
+              "detail": "Tokyo Metro Ginza Line, dirección Asakusa (7 paradas). Bajar en Asakusa, salida 1.",
+              "duration_min": 18
+            },
+            {
+              "time": "09:00",
+              "type": "visit",
+              "title": "Kaminarimon (Puerta del Trueno)",
+              "detail": "Entrada icónica con el gran farolillo rojo. Foto rápida — a estas horas ya hay cola, no merece la pena pararse mucho.",
+              "duration_min": 10
+            },
+            {
+              "time": "09:10",
+              "type": "walk",
+              "title": "Nakamise-dori",
+              "detail": "Calle comercial de ~250 m hasta el templo: puestos de ningyo-yaki, senbei y souvenirs. Ir despacio, es parte de la experiencia (más lleno de lo normal por Obon).",
+              "duration_min": 20
+            },
+            {
+              "time": "09:30",
+              "type": "visit",
+              "title": "Templo Senso-ji",
+              "detail": "Salón principal, incensario Jokoro, pagoda de cinco pisos. El templo budista más antiguo de Tokio (645 d.C.).",
+              "duration_min": 35,
+              "poi_id": "sensoji"
+            },
+            {
+              "time": "10:05",
+              "type": "walk",
+              "title": "Asakusa-jinja y Denboin-dori",
+              "detail": "Santuario sintoísta contiguo al templo; después Denboin-dori, calle empedrada con tiendas de artesanos, mucho menos masificada que Nakamise.",
+              "duration_min": 25
+            },
+            {
+              "time": "10:30",
+              "type": "food",
+              "title": "Hoppy-dori (opcional)",
+              "detail": "Callejón de tabernas retro a 5 min andando, bueno para un tentempié de pie si hay hambre antes de Tsukiji.",
+              "duration_min": 15
+            }
           ]
         },
         {
-          "time": "mediodía", "label": "Tsukiji Outer Market", "activity": "Mercado exterior de Tsukiji — comida hacia el mediodía", "poi_id": "tsukiji-outer-market",
+          "time": "mediodía",
+          "label": "Tsukiji Outer Market",
+          "activity": "Mercado exterior de Tsukiji — comida hacia el mediodía",
+          "poi_id": "tsukiji-outer-market",
           "steps": [
-            { "time": "11:15", "type": "transfer", "mode": "walk", "title": "Vuelta a Asakusa Station", "detail": "~5 min a pie desde Senso-ji.", "duration_min": 5 },
-            { "time": "11:25", "type": "transfer", "mode": "metro", "title": "Asakusa → Tsukiji", "detail": "Ginza Line hasta Higashi-Ginza (~10 min), transbordo a línea Hibiya, 1 parada hasta Tsukiji (salida A1).", "duration_min": 22 },
-            { "time": "12:30", "type": "food", "title": "Tsukiji Outer Market", "detail": "Marisco fresco, tamagoyaki, ostras a la plancha, brochetas — se come de puesto en puesto, no en un único restaurante. Comer sobre las 13:00 va bien: el mercado sigue animado y muchos puestos empiezan a recoger a media tarde.", "duration_min": 60, "poi_id": "tsukiji-outer-market" }
+            {
+              "time": "11:15",
+              "type": "transfer",
+              "mode": "walk",
+              "title": "Vuelta a Asakusa Station",
+              "detail": "~5 min a pie desde Senso-ji.",
+              "duration_min": 5
+            },
+            {
+              "time": "11:25",
+              "type": "transfer",
+              "mode": "metro",
+              "title": "Asakusa → Tsukiji",
+              "detail": "Ginza Line hasta Higashi-Ginza (~10 min), transbordo a línea Hibiya, 1 parada hasta Tsukiji (salida A1).",
+              "duration_min": 22
+            },
+            {
+              "time": "12:30",
+              "type": "food",
+              "title": "Tsukiji Outer Market",
+              "detail": "Marisco fresco, tamagoyaki, ostras a la plancha, brochetas — se come de puesto en puesto, no en un único restaurante. Comer sobre las 13:00 va bien: el mercado sigue animado y muchos puestos empiezan a recoger a media tarde.",
+              "duration_min": 60,
+              "poi_id": "tsukiji-outer-market"
+            }
           ]
         },
         {
-          "time": "tarde", "label": "Palacio Imperial", "activity": "Jardines del Este del Palacio Imperial y zona de Chiyoda", "poi_id": "imperial-east",
+          "time": "tarde",
+          "label": "Palacio Imperial",
+          "activity": "Jardines del Este del Palacio Imperial y zona de Chiyoda",
+          "poi_id": "imperial-east",
           "steps": [
-            { "time": "13:30", "type": "transfer", "mode": "metro", "title": "Tsukiji → Hibiya", "detail": "Línea Hibiya, 3 paradas (~8 min) hasta la estación Hibiya.", "duration_min": 8 },
-            { "time": "13:40", "type": "walk", "title": "Hibiya Park → Otemon", "detail": "Atravesar el parque Hibiya (~12 min a pie) hasta la puerta Otemon, entrada a los Jardines del Este.", "duration_min": 12 },
-            { "time": "13:55", "type": "visit", "title": "Jardines del Este del Palacio Imperial", "detail": "Jardín Ninomaru, base de la antigua torre del castillo (Tenshudai), zona de Honmaru. Entrada gratuita. Abierto sábados (cerrado lunes y viernes).", "duration_min": 90, "poi_id": "imperial-east" },
-            { "time": "15:25", "type": "transfer", "mode": "walk", "title": "A Otemachi Station", "detail": "~10 min a pie desde la salida de Ote-mon hasta la estación Otemachi.", "duration_min": 10 },
-            { "time": "15:40", "type": "transfer", "mode": "metro", "title": "Otemachi → Shibuya", "detail": "Línea Chiyoda hasta Omotesando (~20 min), transbordo a línea Ginza/Hanzomon, 1 parada hasta Shibuya.", "duration_min": 30 }
+            {
+              "time": "13:30",
+              "type": "transfer",
+              "mode": "metro",
+              "title": "Tsukiji → Hibiya",
+              "detail": "Línea Hibiya, 3 paradas (~8 min) hasta la estación Hibiya.",
+              "duration_min": 8
+            },
+            {
+              "time": "13:40",
+              "type": "walk",
+              "title": "Hibiya Park → Otemon",
+              "detail": "Atravesar el parque Hibiya (~12 min a pie) hasta la puerta Otemon, entrada a los Jardines del Este.",
+              "duration_min": 12
+            },
+            {
+              "time": "13:55",
+              "type": "visit",
+              "title": "Jardines del Este del Palacio Imperial",
+              "detail": "Jardín Ninomaru, base de la antigua torre del castillo (Tenshudai), zona de Honmaru. Entrada gratuita. Abierto sábados (cerrado lunes y viernes).",
+              "duration_min": 90,
+              "poi_id": "imperial-east"
+            },
+            {
+              "time": "15:25",
+              "type": "transfer",
+              "mode": "walk",
+              "title": "A Otemachi Station",
+              "detail": "~10 min a pie desde la salida de Ote-mon hasta la estación Otemachi.",
+              "duration_min": 10
+            },
+            {
+              "time": "15:40",
+              "type": "transfer",
+              "mode": "metro",
+              "title": "Otemachi → Shibuya",
+              "detail": "Línea Chiyoda hasta Omotesando (~20 min), transbordo a línea Ginza/Hanzomon, 1 parada hasta Shibuya.",
+              "duration_min": 30
+            }
           ]
         },
         {
-          "time": "tarde-noche", "label": "Shibuya", "activity": "Cruce de Shibuya, Shibuya Sky y cena — Harajuku opcional", "poi_id": "shibuya-crossing",
+          "time": "tarde-noche",
+          "label": "Shibuya",
+          "activity": "Cruce de Shibuya, Shibuya Sky y cena — Harajuku opcional",
+          "poi_id": "shibuya-crossing",
           "steps": [
-            { "time": "16:15", "type": "visit", "title": "Llegada a Shibuya — Hachiko", "detail": "Salida Hachiko: estatua del perro Hachiko, punto de encuentro clásico de la ciudad.", "duration_min": 10 },
-            { "time": "16:30", "type": "visit", "title": "Shibuya Crossing", "detail": "El cruce peatonal más famoso del mundo. Cruzarlo y verlo desde arriba en el Starbucks del Tsutaya (2ª planta) o Magnet by Shibuya109.", "duration_min": 30, "poi_id": "shibuya-crossing" },
-            { "time": "17:00", "type": "free", "title": "Harajuku / Takeshita-dori (opcional)", "detail": "20 min a pie o 1 parada de JR Yamanote desde Shibuya, si queda energía y ganas de compras.", "duration_min": 60 },
-            { "time": "18:00", "type": "visit", "title": "Shibuya Sky", "detail": "Mirador al aire libre en la azotea del Shibuya Scramble Square. En agosto el atardecer en Tokio es sobre las 18:30-18:45 — reservar la franja horaria de esa hora con antelación (entradas con hora fija).", "duration_min": 90, "poi_id": "shibuya-sky" },
-            { "time": "20:00", "type": "food", "title": "Cena en Shibuya", "detail": "Izakaya o ramen en las callejuelas de Nonbei Yokocho o alrededor de Dogenzaka.", "duration_min": 90 }
+            {
+              "time": "16:15",
+              "type": "visit",
+              "title": "Llegada a Shibuya — Hachiko",
+              "detail": "Salida Hachiko: estatua del perro Hachiko, punto de encuentro clásico de la ciudad.",
+              "duration_min": 10
+            },
+            {
+              "time": "16:30",
+              "type": "visit",
+              "title": "Shibuya Crossing",
+              "detail": "El cruce peatonal más famoso del mundo. Cruzarlo y verlo desde arriba en el Starbucks del Tsutaya (2ª planta) o Magnet by Shibuya109.",
+              "duration_min": 30,
+              "poi_id": "shibuya-crossing"
+            },
+            {
+              "time": "17:00",
+              "type": "free",
+              "title": "Harajuku / Takeshita-dori (opcional)",
+              "detail": "20 min a pie o 1 parada de JR Yamanote desde Shibuya, si queda energía y ganas de compras.",
+              "duration_min": 60
+            },
+            {
+              "time": "18:00",
+              "type": "visit",
+              "title": "Shibuya Sky",
+              "detail": "Mirador al aire libre en la azotea del Shibuya Scramble Square. En agosto el atardecer en Tokio es sobre las 18:30-18:45 — reservar la franja horaria de esa hora con antelación (entradas con hora fija).",
+              "duration_min": 90,
+              "poi_id": "shibuya-sky"
+            },
+            {
+              "time": "20:00",
+              "type": "food",
+              "title": "Cena en Shibuya",
+              "detail": "Izakaya o ramen en las callejuelas de Nonbei Yokocho o alrededor de Dogenzaka.",
+              "duration_min": 90
+            }
           ]
         }
       ]
@@ -151,20 +449,64 @@
         "checkout": null
       },
       "pois": [
-        { "id": "yanaka", "name": "Barrio de Yanaka", "type": "barrio", "lat": 35.7267, "lng": 139.7693, "note": "Barrio histórico que sobrevivió los bombardeos de la WWII. Callejones y tiendas tradicionales." }
+        {
+          "id": "yanaka",
+          "name": "Barrio de Yanaka",
+          "type": "barrio",
+          "lat": 35.7267,
+          "lng": 139.7693,
+          "note": "Barrio histórico que sobrevivió los bombardeos de la WWII. Callejones y tiendas tradicionales."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Yanaka", "activity": "Barrio histórico de Yanaka — cementerio, callejuelas y tiendas artesanales", "poi_id": "yanaka",
+          "time": "mañana",
+          "label": "Yanaka",
+          "activity": "Barrio histórico de Yanaka — cementerio, callejuelas y tiendas artesanales",
+          "poi_id": "yanaka",
           "steps": [
-            { "time": "09:00", "type": "transfer", "mode": "tren", "title": "Yurakucho → Nippori", "detail": "JR Yamanote Line, ~25 min directos hasta Nippori Station.", "duration_min": 25 },
-            { "time": "09:30", "type": "walk", "title": "Yanaka Ginza", "detail": "Calle comercial tradicional a la salida oeste de Nippori — tiendas familiares y puestos de comida callejera.", "duration_min": 30, "poi_id": "yanaka" },
-            { "time": "10:00", "type": "visit", "title": "Cementerio de Yanaka", "detail": "Lápidas de la era Edo entre callejuelas tranquilas — textura de Tokio antiguo sin masificación.", "duration_min": 45 },
-            { "time": "10:50", "type": "walk", "title": "Callejones de Yanaka", "detail": "Templos pequeños y talleres artesanos en las calles que sobrevivieron a los bombardeos de la WWII.", "duration_min": 70 }
+            {
+              "time": "09:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Yurakucho → Nippori",
+              "detail": "JR Yamanote Line, ~25 min directos hasta Nippori Station.",
+              "duration_min": 25
+            },
+            {
+              "time": "09:30",
+              "type": "walk",
+              "title": "Yanaka Ginza",
+              "detail": "Calle comercial tradicional a la salida oeste de Nippori — tiendas familiares y puestos de comida callejera.",
+              "duration_min": 30,
+              "poi_id": "yanaka"
+            },
+            {
+              "time": "10:00",
+              "type": "visit",
+              "title": "Cementerio de Yanaka",
+              "detail": "Lápidas de la era Edo entre callejuelas tranquilas — textura de Tokio antiguo sin masificación.",
+              "duration_min": 45
+            },
+            {
+              "time": "10:50",
+              "type": "walk",
+              "title": "Callejones de Yanaka",
+              "detail": "Templos pequeños y talleres artesanos en las calles que sobrevivieron a los bombardeos de la WWII.",
+              "duration_min": 70
+            }
           ]
         },
-        { "time": "tarde", "label": "Libre", "activity": "Tarde completamente libre — explorar, descansar, compras o karaoke" },
-        { "time": "noche", "label": "Libre", "activity": "Noche libre — izakaya, ramen o lo que apetezca" }
+        {
+          "time": "tarde",
+          "label": "Libre",
+          "activity": "Tarde completamente libre — explorar, descansar, compras o karaoke"
+        },
+        {
+          "time": "noche",
+          "label": "Libre",
+          "activity": "Noche libre — izakaya, ramen o lo que apetezca"
+        }
       ]
     },
     {
@@ -178,36 +520,111 @@
         "checkout": "11:00"
       },
       "pois": [
-        { "id": "hakone-openair", "name": "Hakone Open-Air Museum", "type": "museo", "lat": 35.2349, "lng": 139.0457, "note": "10-15 min a pie del ryokan. Abre 9:00-17:00." }
+        {
+          "id": "hakone-openair",
+          "name": "Hakone Open-Air Museum",
+          "type": "museo",
+          "lat": 35.2349,
+          "lng": 139.0457,
+          "note": "10-15 min a pie del ryokan. Abre 9:00-17:00."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Check-out Tokio", "activity": "Check-out de The Gate Hotel Tokyo y traslado a la estación",
+          "time": "mañana",
+          "label": "Check-out Tokio",
+          "activity": "Check-out de The Gate Hotel Tokyo y traslado a la estación",
           "steps": [
-            { "time": "09:30", "type": "visit", "title": "Check-out The Gate Hotel Tokyo", "detail": "Antes de las 11:00. Si sobra tiempo, facturar el equipaje grande por Takkyubin y llevar solo una mochila al ryokan.", "duration_min": 20 },
-            { "time": "10:00", "type": "transfer", "mode": "tren", "title": "Yurakucho → Shinjuku", "detail": "JR Yamanote Line, ~20 min hasta Shinjuku Station.", "duration_min": 20 }
+            {
+              "time": "09:30",
+              "type": "visit",
+              "title": "Check-out The Gate Hotel Tokyo",
+              "detail": "Antes de las 11:00. Si sobra tiempo, facturar el equipaje grande por Takkyubin y llevar solo una mochila al ryokan.",
+              "duration_min": 20
+            },
+            {
+              "time": "10:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Yurakucho → Shinjuku",
+              "detail": "JR Yamanote Line, ~20 min hasta Shinjuku Station.",
+              "duration_min": 20
+            }
           ]
         },
         {
-          "time": "mediodía", "label": "Viaje", "activity": "Tren Romancecar o Shinkansen hasta Odawara/Hakone-Yumoto",
+          "time": "mediodía",
+          "label": "Viaje",
+          "activity": "Tren Romancecar o Shinkansen hasta Odawara/Hakone-Yumoto",
           "steps": [
-            { "time": "10:30", "type": "transfer", "mode": "tren", "title": "Romancecar Shinjuku → Hakone-Yumoto", "detail": "Odakyu Romancecar directo, ~80 min. Hora exacta pendiente de reserva (ventana abierta 18 jul).", "duration_min": 80 },
-            { "time": "11:50", "type": "transfer", "mode": "tren", "title": "Hakone-Yumoto → Chokoku-no-mori", "detail": "Hakone Tozan Line hasta la parada Chokoku-no-mori, la más cercana al museo, ~40 min con el cambio en Hakone-Yumoto.", "duration_min": 40 }
+            {
+              "time": "10:30",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Romancecar Shinjuku → Hakone-Yumoto",
+              "detail": "Odakyu Romancecar directo, ~80 min. Hora exacta pendiente de reserva (ventana abierta 18 jul).",
+              "duration_min": 80
+            },
+            {
+              "time": "11:50",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Hakone-Yumoto → Chokoku-no-mori",
+              "detail": "Hakone Tozan Line hasta la parada Chokoku-no-mori, la más cercana al museo, ~40 min con el cambio en Hakone-Yumoto.",
+              "duration_min": 40
+            }
           ]
         },
         {
-          "time": "tarde", "label": "Check-in Hakone", "activity": "Check-in en Mizunoto a las 15:00 — ryokan con onsen", "poi_id": "hakone-openair",
+          "time": "tarde",
+          "label": "Check-in Hakone",
+          "activity": "Check-in en Mizunoto a las 15:00 — ryokan con onsen",
+          "poi_id": "hakone-openair",
           "steps": [
-            { "time": "13:00", "type": "visit", "title": "Hakone Open-Air Museum", "detail": "A 2 min a pie de la estación Chokoku-no-mori. Esculturas al aire libre entre montañas.", "duration_min": 100, "poi_id": "hakone-openair" },
-            { "time": "14:40", "type": "transfer", "mode": "walk", "title": "Al ryokan Mizunoto", "detail": "10-15 min a pie, o shuttle gratuito del ryokan (servicio 14:00-17:00 desde Kowakidani Station — confirmar horario con el hotel).", "duration_min": 15 },
-            { "time": "15:00", "type": "visit", "title": "Check-in en Mizunoto", "detail": "Ryokan tradicional con onsen privado y kaiseki incluido.", "duration_min": 30 }
+            {
+              "time": "13:00",
+              "type": "visit",
+              "title": "Hakone Open-Air Museum",
+              "detail": "A 2 min a pie de la estación Chokoku-no-mori. Esculturas al aire libre entre montañas.",
+              "duration_min": 100,
+              "poi_id": "hakone-openair"
+            },
+            {
+              "time": "14:40",
+              "type": "transfer",
+              "mode": "walk",
+              "title": "Al ryokan Mizunoto",
+              "detail": "10-15 min a pie, o shuttle gratuito del ryokan (servicio 14:00-17:00 desde Kowakidani Station — confirmar horario con el hotel).",
+              "duration_min": 15
+            },
+            {
+              "time": "15:00",
+              "type": "visit",
+              "title": "Check-in en Mizunoto",
+              "detail": "Ryokan tradicional con onsen privado y kaiseki incluido.",
+              "duration_min": 30
+            }
           ]
         },
         {
-          "time": "tarde-noche", "label": "Onsen y cena", "activity": "Kaiseki (cena tradicional) y onsen en el ryokan",
+          "time": "tarde-noche",
+          "label": "Onsen y cena",
+          "activity": "Kaiseki (cena tradicional) y onsen en el ryokan",
           "steps": [
-            { "time": "18:00", "type": "visit", "title": "Onsen", "detail": "Baño termal separado por sexos o privado según reserva. Cubrir tatuajes si los hay — política del hotel no confirmada, llamar antes al +81 460-82-6011.", "duration_min": 60 },
-            { "time": "19:30", "type": "food", "title": "Cena kaiseki", "detail": "Cena tradicional de varios platos incluida en la reserva del ryokan (Aburi-yaki o Ashigara Yuzen, a elegir en el hotel). Los ryokan suelen fijar una hora concreta de cena (a menudo 18:00 o 19:00, no siempre tan tarde como 20:00) — confirmarla al hacer el check-in.", "duration_min": 90 }
+            {
+              "time": "18:00",
+              "type": "visit",
+              "title": "Onsen",
+              "detail": "Baño termal separado por sexos o privado según reserva. Cubrir tatuajes si los hay — política del hotel no confirmada, llamar antes al +81 460-82-6011.",
+              "duration_min": 60
+            },
+            {
+              "time": "19:30",
+              "type": "food",
+              "title": "Cena kaiseki",
+              "detail": "Cena tradicional de varios platos incluida en la reserva del ryokan (Aburi-yaki o Ashigara Yuzen, a elegir en el hotel). Los ryokan suelen fijar una hora concreta de cena (a menudo 18:00 o 19:00, no siempre tan tarde como 20:00) — confirmarla al hacer el check-in.",
+              "duration_min": 90
+            }
           ]
         }
       ]
@@ -223,36 +640,118 @@
         "checkout": "11:00"
       },
       "pois": [
-        { "id": "nishiki-market", "name": "Nishiki Market", "type": "mercado", "lat": 35.0046, "lng": 135.7659, "note": "El 'cocina de Kioto'. Street food y productos locales." },
-        { "id": "pontocho", "name": "Pontocho", "type": "barrio", "lat": 35.0072, "lng": 135.7694, "note": "Callejón gastronómico histórico junto al río Kamo." }
+        {
+          "id": "nishiki-market",
+          "name": "Nishiki Market",
+          "type": "mercado",
+          "lat": 35.0046,
+          "lng": 135.7659,
+          "note": "El 'cocina de Kioto'. Street food y productos locales."
+        },
+        {
+          "id": "pontocho",
+          "name": "Pontocho",
+          "type": "barrio",
+          "lat": 35.0072,
+          "lng": 135.7694,
+          "note": "Callejón gastronómico histórico junto al río Kamo."
+        },
+        {
+          "id": "gion",
+          "name": "Gion",
+          "type": "barrio",
+          "lat": 35.0037,
+          "lng": 135.7756,
+          "note": "El barrio de geishas más icónico de Japón — pasear con respeto, sin acosar a las geiko con fotos."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Hakone", "activity": "Última mañana en Hakone — Lago Ashi y vistas al Fuji si el cielo acompaña",
+          "time": "mañana",
+          "label": "Hakone",
+          "activity": "Última mañana en Hakone — Lago Ashi y vistas al Fuji si el cielo acompaña",
           "steps": [
-            { "time": "09:00", "type": "visit", "title": "Desayuno y onsen matutino", "detail": "Última mañana en el ryokan — aprovechar el onsen antes del check-out (11:00).", "duration_min": 90 },
-            { "time": "10:30", "type": "free", "title": "Lago Ashi (si hay tiempo)", "detail": "Si el horario del tren lo permite: teleférico Hakone Ropeway + crucero por el Lago Ashi, vistas al Fuji si el cielo acompaña. Si no, ir directo a la estación." }
+            {
+              "time": "09:00",
+              "type": "visit",
+              "title": "Desayuno y onsen matutino",
+              "detail": "Última mañana en el ryokan — aprovechar el onsen antes del check-out (11:00).",
+              "duration_min": 90
+            },
+            {
+              "time": "10:30",
+              "type": "free",
+              "title": "Lago Ashi (si hay tiempo)",
+              "detail": "Si el horario del tren lo permite: teleférico Hakone Ropeway + crucero por el Lago Ashi, vistas al Fuji si el cielo acompaña. Si no, ir directo a la estación."
+            }
           ]
         },
         {
-          "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen desde Odawara hasta Kioto",
+          "time": "mediodía",
+          "label": "Shinkansen",
+          "activity": "Shinkansen desde Odawara hasta Kioto",
           "steps": [
-            { "time": "11:00", "type": "transfer", "mode": "tren", "title": "Ryokan → Odawara Station", "detail": "Bus Hakone Tozan (~25 min) o combinación tren Hakone Tozan + Odakyu, según se venga del Lago Ashi o directo del ryokan.", "duration_min": 25 },
-            { "time": "12:00", "type": "transfer", "mode": "tren", "title": "Shinkansen Odawara → Kioto", "detail": "Shinkansen Hikari, ~1h50 directo. Hora exacta pendiente de reserva.", "duration_min": 110 }
+            {
+              "time": "11:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Ryokan → Odawara Station",
+              "detail": "Bus Hakone Tozan (~25 min) o combinación tren Hakone Tozan + Odakyu, según se venga del Lago Ashi o directo del ryokan.",
+              "duration_min": 25
+            },
+            {
+              "time": "12:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Shinkansen Odawara → Kioto",
+              "detail": "Shinkansen Hikari, ~1h50 directo. Hora exacta pendiente de reserva.",
+              "duration_min": 110
+            }
           ]
         },
         {
-          "time": "tarde", "label": "Check-in Kioto", "activity": "Check-in en Hotel Gracery Kyoto Sanjo a las 14:00",
+          "time": "tarde",
+          "label": "Check-in Kioto",
+          "activity": "Check-in en Hotel Gracery Kyoto Sanjo a las 14:00",
           "steps": [
-            { "time": "14:00", "type": "transfer", "mode": "tren", "title": "Kioto Station → Hotel Gracery", "detail": "Subway Karasuma Line hasta Karasuma-Oike (~5 min) + 5 min a pie, o taxi directo (~15 min).", "duration_min": 20 },
-            { "time": "14:30", "type": "visit", "title": "Check-in en Hotel Gracery Kyoto Sanjo", "detail": "En Sanjo, a un paso de Gion y Pontocho.", "duration_min": 20 }
+            {
+              "time": "14:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Kioto Station → Hotel Gracery",
+              "detail": "Subway Karasuma Line hasta Karasuma-Oike (~5 min) + 5 min a pie, o taxi directo (~15 min).",
+              "duration_min": 20
+            },
+            {
+              "time": "14:30",
+              "type": "visit",
+              "title": "Check-in en Hotel Gracery Kyoto Sanjo",
+              "detail": "En Sanjo, a un paso de Gion y Pontocho.",
+              "duration_min": 20
+            }
           ]
         },
         {
-          "time": "noche", "label": "Gion", "activity": "Cena y primer paseo por el barrio de Gion", "poi_id": "gion",
+          "time": "noche",
+          "label": "Gion",
+          "activity": "Cena y primer paseo por el barrio de Gion",
+          "poi_id": "gion",
           "steps": [
-            { "time": "20:00", "type": "food", "title": "Cena cerca de Gion", "detail": "Improvisar en las calles de Pontocho o Kawaramachi, muy cerca del hotel.", "duration_min": 90 },
-            { "time": "21:30", "type": "walk", "title": "Paseo por Gion", "detail": "10 min a pie desde el hotel. Primer contacto con el barrio de geishas — Hanamikoji-dori de noche, paseo digestivo tras la cena.", "duration_min": 45, "poi_id": "gion" }
+            {
+              "time": "20:00",
+              "type": "food",
+              "title": "Cena cerca de Gion",
+              "detail": "Improvisar en las calles de Pontocho o Kawaramachi, muy cerca del hotel.",
+              "duration_min": 90
+            },
+            {
+              "time": "21:30",
+              "type": "walk",
+              "title": "Paseo por Gion",
+              "detail": "10 min a pie desde el hotel. Primer contacto con el barrio de geishas — Hanamikoji-dori de noche, paseo digestivo tras la cena.",
+              "duration_min": 45,
+              "poi_id": "gion"
+            }
           ]
         }
       ]
@@ -268,31 +767,123 @@
         "checkout": null
       },
       "pois": [
-        { "id": "fushimi-inari", "name": "Fushimi Inari Taisha", "type": "santuario", "lat": 34.9671, "lng": 135.7727, "note": "Miles de torii rojos. Ir antes de las 8:00 para evitar masificación." },
-        { "id": "kiyomizudera", "name": "Kiyomizu-dera", "type": "templo", "lat": 34.9948, "lng": 135.7851, "note": "Templo del s.VIII con terraza de madera sobre el valle. Bus 207." }
+        {
+          "id": "fushimi-inari",
+          "name": "Fushimi Inari Taisha",
+          "type": "santuario",
+          "lat": 34.9671,
+          "lng": 135.7727,
+          "note": "Miles de torii rojos. Ir antes de las 8:00 para evitar masificación."
+        },
+        {
+          "id": "kiyomizudera",
+          "name": "Kiyomizu-dera",
+          "type": "templo",
+          "lat": 34.9948,
+          "lng": 135.7851,
+          "note": "Templo del s.VIII con terraza de madera sobre el valle. Bus 207."
+        },
+        {
+          "id": "pontocho",
+          "name": "Pontocho",
+          "type": "barrio",
+          "lat": 35.0072,
+          "lng": 135.7694,
+          "note": "El paseo nocturno más atmosférico de Kioto, a un paso de Kawaramachi."
+        },
+        {
+          "id": "higashiyama",
+          "name": "Higashiyama (Sannenzaka y Ninenzaka)",
+          "type": "barrio",
+          "lat": 34.9963,
+          "lng": 135.7793,
+          "note": "El paseo que conecta Kiyomizu-dera con Gion — el corazón visual de la Kioto tradicional."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Fushimi Inari", "activity": "Fushimi Inari-taisha — subir entre los miles de torii al amanecer", "poi_id": "fushimi-inari",
+          "time": "mañana",
+          "label": "Fushimi Inari",
+          "activity": "Fushimi Inari-taisha — subir entre los miles de torii al amanecer",
+          "poi_id": "fushimi-inari",
           "steps": [
-            { "time": "06:00", "type": "transfer", "mode": "tren", "title": "Hotel → Fushimi Inari", "detail": "Keihan Main Line desde Sanjo Station (5 min a pie del hotel) hasta Fushimi-Inari Station, ~15 min.", "duration_min": 20 },
-            { "time": "06:20", "type": "visit", "title": "Senbon Torii y subida", "detail": "Miles de torii naranjas. Subir hasta el mirador de Yotsutsuji (ida y vuelta ~1h) o continuar hasta la cima (2-3h más) si hay ganas. Ir a esta hora es clave para evitar la masificación total.", "duration_min": 150, "poi_id": "fushimi-inari" }
+            {
+              "time": "06:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Hotel → Fushimi Inari",
+              "detail": "Keihan Main Line desde Sanjo Station (5 min a pie del hotel) hasta Fushimi-Inari Station, ~15 min.",
+              "duration_min": 20
+            },
+            {
+              "time": "06:20",
+              "type": "visit",
+              "title": "Senbon Torii y subida",
+              "detail": "Miles de torii naranjas. Subir hasta el mirador de Yotsutsuji (ida y vuelta ~1h) o continuar hasta la cima (2-3h más) si hay ganas. Ir a esta hora es clave para evitar la masificación total.",
+              "duration_min": 150,
+              "poi_id": "fushimi-inari"
+            }
           ]
         },
         {
-          "time": "mañana", "label": "Higashiyama", "activity": "Paseo por Higashiyama — Sannenzaka, Ninenzaka y Kiyomizudera", "poi_id": "kiyomizudera",
+          "time": "mañana",
+          "label": "Higashiyama",
+          "activity": "Paseo por Higashiyama — Sannenzaka, Ninenzaka y Kiyomizudera",
+          "poi_id": "kiyomizudera",
           "steps": [
-            { "time": "09:30", "type": "transfer", "mode": "tren", "title": "Fushimi Inari → Kiyomizu-Gojo", "detail": "Keihan Main Line de vuelta, ~10-15 min.", "duration_min": 15 },
-            { "time": "10:00", "type": "walk", "title": "Sannenzaka y Ninenzaka", "detail": "Cuestas empedradas con tiendas tradicionales de camino a Kiyomizu-dera, ~20-25 min a pie desde la estación.", "duration_min": 30 },
-            { "time": "10:45", "type": "visit", "title": "Kiyomizu-dera", "detail": "Templo sobre pilares de madera con vistas a Kioto. Entrada de pago al recinto principal.", "duration_min": 75, "poi_id": "kiyomizudera" },
-            { "time": "13:00", "type": "food", "title": "Comida en Higashiyama", "detail": "Fideos o teishoku en las calles alrededor del templo antes de bajar.", "duration_min": 60 }
+            {
+              "time": "09:30",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Fushimi Inari → Kiyomizu-Gojo",
+              "detail": "Keihan Main Line de vuelta, ~10-15 min.",
+              "duration_min": 15
+            },
+            {
+              "time": "10:00",
+              "type": "walk",
+              "title": "Sannenzaka y Ninenzaka",
+              "detail": "Cuestas empedradas con tiendas tradicionales de camino a Kiyomizu-dera, ~20-25 min a pie desde la estación.",
+              "duration_min": 30
+            },
+            {
+              "time": "10:45",
+              "type": "visit",
+              "title": "Kiyomizu-dera",
+              "detail": "Templo sobre pilares de madera con vistas a Kioto. Entrada de pago al recinto principal.",
+              "duration_min": 75,
+              "poi_id": "kiyomizudera"
+            },
+            {
+              "time": "13:00",
+              "type": "food",
+              "title": "Comida en Higashiyama",
+              "detail": "Fideos o teishoku en las calles alrededor del templo antes de bajar.",
+              "duration_min": 60
+            }
           ]
         },
         {
-          "time": "noche", "label": "Gion", "activity": "Cena en Gion y paseo nocturno por Pontocho", "poi_id": "pontocho",
+          "time": "noche",
+          "label": "Gion",
+          "activity": "Cena en Gion y paseo nocturno por Pontocho",
+          "poi_id": "pontocho",
           "steps": [
-            { "time": "20:00", "type": "food", "title": "Cena — Kyogoku Kaneyo o Roan Kikunoi", "detail": "Unagi (Kyogoku Kaneyo) o kaiseki con reserva (Roan Kikunoi) — reservar con antelación si se elige esta segunda opción.", "duration_min": 90 },
-            { "time": "21:30", "type": "walk", "title": "Paseo nocturno por Pontocho", "detail": "Callejón junto al río Kamo, ambiente nocturno del barrio de Gion.", "duration_min": 40, "poi_id": "pontocho" }
+            {
+              "time": "20:00",
+              "type": "food",
+              "title": "Cena — Kyogoku Kaneyo o Roan Kikunoi",
+              "detail": "Unagi (Kyogoku Kaneyo) o kaiseki con reserva (Roan Kikunoi) — reservar con antelación si se elige esta segunda opción.",
+              "duration_min": 90
+            },
+            {
+              "time": "21:30",
+              "type": "walk",
+              "title": "Paseo nocturno por Pontocho",
+              "detail": "Callejón junto al río Kamo, ambiente nocturno del barrio de Gion.",
+              "duration_min": 40,
+              "poi_id": "pontocho"
+            }
           ]
         }
       ]
@@ -308,41 +899,162 @@
         "checkout": null
       },
       "pois": [
-        { "id": "arashiyama", "name": "Bosque de Bambú de Arashiyama", "type": "naturaleza", "lat": 35.0170, "lng": 135.6727, "note": "Llegar antes de las 7:00. JR Sagano Line desde Kyoto Station." },
-        { "id": "kinkakuji", "name": "Kinkaku-ji (Pabellón Dorado)", "type": "templo", "lat": 35.0394, "lng": 135.7292, "note": "Templo cubierto de pan de oro. Bus desde Arashiyama." },
-        { "id": "nijo-castle", "name": "Castillo Nijo", "type": "castillo", "lat": 35.0142, "lng": 135.7480, "note": "Residencia del shogunato Tokugawa. Bus 12 desde el centro, 15 min." }
+        {
+          "id": "arashiyama",
+          "name": "Bosque de Bambú de Arashiyama",
+          "type": "naturaleza",
+          "lat": 35.017,
+          "lng": 135.6727,
+          "note": "Llegar antes de las 7:00. JR Sagano Line desde Kyoto Station."
+        },
+        {
+          "id": "kinkakuji",
+          "name": "Kinkaku-ji (Pabellón Dorado)",
+          "type": "templo",
+          "lat": 35.0394,
+          "lng": 135.7292,
+          "note": "Templo cubierto de pan de oro. Bus desde Arashiyama."
+        },
+        {
+          "id": "nijo-castle",
+          "name": "Castillo Nijo",
+          "type": "castillo",
+          "lat": 35.0142,
+          "lng": 135.748,
+          "note": "Residencia del shogunato Tokugawa. Bus 12 desde el centro, 15 min."
+        },
+        {
+          "id": "nishiki-market",
+          "name": "Nishiki Market",
+          "type": "mercado",
+          "lat": 35.0046,
+          "lng": 135.7659,
+          "note": "Parada obligada para probar street food kyotoense sin necesidad de reserva."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Arashiyama", "activity": "Bosque de bambú de Arashiyama y templo Tenryu-ji", "poi_id": "arashiyama",
+          "time": "mañana",
+          "label": "Arashiyama",
+          "activity": "Bosque de bambú de Arashiyama y templo Tenryu-ji",
+          "poi_id": "arashiyama",
           "steps": [
-            { "time": "07:00", "type": "transfer", "mode": "tren", "title": "Hotel → Arashiyama", "detail": "JR Sagano Line desde Kyoto Station (~15 min) o tranvía Randen desde Shijo-Omiya — ~25-30 min en total con el trayecto desde el hotel.", "duration_min": 30 },
-            { "time": "07:30", "type": "visit", "title": "Bosque de bambú de Arashiyama", "detail": "Ir antes de las 09:00 es la única forma de evitar la masificación total. Paseo de 10-15 min por el sendero principal.", "duration_min": 30, "poi_id": "arashiyama" },
-            { "time": "08:00", "type": "visit", "title": "Templo Tenryu-ji", "detail": "Jardín Sogenchi, Patrimonio de la Humanidad, junto a la entrada del bosque de bambú.", "duration_min": 45 },
-            { "time": "08:45", "type": "walk", "title": "Puente Togetsukyo", "detail": "Paseo por el puente sobre el río Katsura antes de volver.", "duration_min": 15 }
+            {
+              "time": "07:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Hotel → Arashiyama",
+              "detail": "JR Sagano Line desde Kyoto Station (~15 min) o tranvía Randen desde Shijo-Omiya — ~25-30 min en total con el trayecto desde el hotel.",
+              "duration_min": 30
+            },
+            {
+              "time": "07:30",
+              "type": "visit",
+              "title": "Bosque de bambú de Arashiyama",
+              "detail": "Ir antes de las 09:00 es la única forma de evitar la masificación total. Paseo de 10-15 min por el sendero principal.",
+              "duration_min": 30,
+              "poi_id": "arashiyama"
+            },
+            {
+              "time": "08:00",
+              "type": "visit",
+              "title": "Templo Tenryu-ji",
+              "detail": "Jardín Sogenchi, Patrimonio de la Humanidad, junto a la entrada del bosque de bambú.",
+              "duration_min": 45
+            },
+            {
+              "time": "08:45",
+              "type": "walk",
+              "title": "Puente Togetsukyo",
+              "detail": "Paseo por el puente sobre el río Katsura antes de volver.",
+              "duration_min": 15
+            }
           ]
         },
         {
-          "time": "mañana", "label": "Kinkaku-ji", "activity": "Pabellón Dorado Kinkaku-ji", "poi_id": "kinkakuji",
+          "time": "mañana",
+          "label": "Kinkaku-ji",
+          "activity": "Pabellón Dorado Kinkaku-ji",
+          "poi_id": "kinkakuji",
           "steps": [
-            { "time": "09:30", "type": "transfer", "mode": "bus", "title": "Arashiyama → Kinkaku-ji", "detail": "Autobús urbano de Kioto, ~40 min (o taxi ~25 min para evitar transbordos).", "duration_min": 40 },
-            { "time": "10:30", "type": "visit", "title": "Kinkaku-ji (Pabellón Dorado)", "detail": "Recorrido de un solo sentido por el jardín con vistas al pabellón dorado sobre el estanque. Visita corta.", "duration_min": 45, "poi_id": "kinkakuji" }
+            {
+              "time": "09:30",
+              "type": "transfer",
+              "mode": "bus",
+              "title": "Arashiyama → Kinkaku-ji",
+              "detail": "Autobús urbano de Kioto, ~40 min (o taxi ~25 min para evitar transbordos).",
+              "duration_min": 40
+            },
+            {
+              "time": "10:30",
+              "type": "visit",
+              "title": "Kinkaku-ji (Pabellón Dorado)",
+              "detail": "Recorrido de un solo sentido por el jardín con vistas al pabellón dorado sobre el estanque. Visita corta.",
+              "duration_min": 45,
+              "poi_id": "kinkakuji"
+            }
           ]
         },
         {
-          "time": "mañana-tarde", "label": "Nijo", "activity": "Castillo Nijo-jo — los suelos que cantan", "poi_id": "nijo-castle",
+          "time": "mañana-tarde",
+          "label": "Nijo",
+          "activity": "Castillo Nijo-jo — los suelos que cantan",
+          "poi_id": "nijo-castle",
           "steps": [
-            { "time": "11:30", "type": "transfer", "mode": "bus", "title": "Kinkaku-ji → Castillo Nijo", "detail": "Autobús urbano, ~20-25 min.", "duration_min": 25 },
-            { "time": "13:00", "type": "food", "title": "Comida cerca de Nijo", "detail": "Teishoku o soba en los alrededores del castillo antes de la visita.", "duration_min": 60 },
-            { "time": "14:00", "type": "visit", "title": "Castillo Nijo-jo", "detail": "Suelos 'uguisubari' (que cantan) del Ninomaru Palace, jardines del recinto.", "duration_min": 90, "poi_id": "nijo-castle" }
+            {
+              "time": "11:30",
+              "type": "transfer",
+              "mode": "bus",
+              "title": "Kinkaku-ji → Castillo Nijo",
+              "detail": "Autobús urbano, ~20-25 min.",
+              "duration_min": 25
+            },
+            {
+              "time": "13:00",
+              "type": "food",
+              "title": "Comida cerca de Nijo",
+              "detail": "Teishoku o soba en los alrededores del castillo antes de la visita.",
+              "duration_min": 60
+            },
+            {
+              "time": "14:00",
+              "type": "visit",
+              "title": "Castillo Nijo-jo",
+              "detail": "Suelos 'uguisubari' (que cantan) del Ninomaru Palace, jardines del recinto.",
+              "duration_min": 90,
+              "poi_id": "nijo-castle"
+            }
           ]
         },
         {
-          "time": "tarde-noche", "label": "Nishiki", "activity": "Mercado Nishiki y cena cerca del centro", "poi_id": "nishiki-market",
+          "time": "tarde-noche",
+          "label": "Nishiki",
+          "activity": "Mercado Nishiki y cena cerca del centro",
+          "poi_id": "nishiki-market",
           "steps": [
-            { "time": "15:30", "type": "transfer", "mode": "walk", "title": "Nijo → Mercado Nishiki", "detail": "Subway Tozai Line desde Nijojo-mae hasta Karasuma-Oike (~5 min) + 10 min a pie, o 20 min a pie directo.", "duration_min": 20 },
-            { "time": "15:50", "type": "walk", "title": "Mercado Nishiki", "detail": "'La cocina de Kioto' — casi 400 m de puestos de comida y productos locales.", "duration_min": 60, "poi_id": "nishiki-market" },
-            { "time": "20:00", "type": "food", "title": "Cena cerca del centro", "detail": "Improvisar en Kawaramachi/Shijo, a 5-10 min a pie del hotel.", "duration_min": 90 }
+            {
+              "time": "15:30",
+              "type": "transfer",
+              "mode": "walk",
+              "title": "Nijo → Mercado Nishiki",
+              "detail": "Subway Tozai Line desde Nijojo-mae hasta Karasuma-Oike (~5 min) + 10 min a pie, o 20 min a pie directo.",
+              "duration_min": 20
+            },
+            {
+              "time": "15:50",
+              "type": "walk",
+              "title": "Mercado Nishiki",
+              "detail": "'La cocina de Kioto' — casi 400 m de puestos de comida y productos locales.",
+              "duration_min": 60,
+              "poi_id": "nishiki-market"
+            },
+            {
+              "time": "20:00",
+              "type": "food",
+              "title": "Cena cerca del centro",
+              "detail": "Improvisar en Kawaramachi/Shijo, a 5-10 min a pie del hotel.",
+              "duration_min": 90
+            }
           ]
         }
       ]
@@ -358,42 +1070,126 @@
         "checkout": "11:00"
       },
       "pois": [
-        { "id": "peace-park", "name": "Parque Memorial de la Paz", "type": "memorial", "lat": 34.3916, "lng": 132.4533, "note": "Lugar de memoria del bombardeo atómico del 6 ago 1945. Ir con el tono adecuado." },
-        { "id": "genbaku-dome", "name": "Cúpula Genbaku", "type": "memorial", "lat": 34.3955, "lng": 132.4533, "note": "Patrimonio UNESCO. Una de las pocas estructuras que quedó en pie cerca del hipocentro." }
+        {
+          "id": "peace-park",
+          "name": "Parque Memorial de la Paz",
+          "type": "memorial",
+          "lat": 34.3916,
+          "lng": 132.4533,
+          "note": "Lugar de memoria del bombardeo atómico del 6 ago 1945. Ir con el tono adecuado."
+        },
+        {
+          "id": "genbaku-dome",
+          "name": "Cúpula Genbaku",
+          "type": "memorial",
+          "lat": 34.3955,
+          "lng": 132.4533,
+          "note": "Patrimonio UNESCO. Una de las pocas estructuras que quedó en pie cerca del hipocentro."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Check-out Kioto", "activity": "Check-out de Hotel Gracery Kyoto Sanjo y traslado a la estación",
+          "time": "mañana",
+          "label": "Check-out Kioto",
+          "activity": "Check-out de Hotel Gracery Kyoto Sanjo y traslado a la estación",
           "steps": [
-            { "time": "09:30", "type": "visit", "title": "Check-out y últimas compras", "detail": "Check-out de Hotel Gracery antes de las 11:00. Últimas compras en Nishiki o alrededores si queda algo pendiente.", "duration_min": 90 }
+            {
+              "time": "09:30",
+              "type": "visit",
+              "title": "Check-out y últimas compras",
+              "detail": "Check-out de Hotel Gracery antes de las 11:00. Últimas compras en Nishiki o alrededores si queda algo pendiente.",
+              "duration_min": 90
+            }
           ]
         },
         {
-          "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Kioto → Hiroshima",
+          "time": "mediodía",
+          "label": "Shinkansen",
+          "activity": "Shinkansen Kioto → Hiroshima",
           "steps": [
-            { "time": "11:00", "type": "transfer", "mode": "tren", "title": "Hotel → Kioto Station", "detail": "Subway Karasuma Line + 5 min a pie, o taxi directo (~15 min).", "duration_min": 15 },
-            { "time": "11:30", "type": "transfer", "mode": "tren", "title": "Shinkansen Kioto → Hiroshima", "detail": "Shinkansen Hikari, ~1h40 directo. Hora exacta pendiente de reserva.", "duration_min": 100 }
+            {
+              "time": "11:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Hotel → Kioto Station",
+              "detail": "Subway Karasuma Line + 5 min a pie, o taxi directo (~15 min).",
+              "duration_min": 15
+            },
+            {
+              "time": "11:30",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Shinkansen Kioto → Hiroshima",
+              "detail": "Shinkansen Hikari, ~1h40 directo. Hora exacta pendiente de reserva.",
+              "duration_min": 100
+            }
           ]
         },
         {
-          "time": "mediodía", "label": "Check-in Hiroshima", "activity": "Check-in en Hotel Granvia Hiroshima a las 14:00",
+          "time": "mediodía",
+          "label": "Check-in Hiroshima",
+          "activity": "Check-in en Hotel Granvia Hiroshima a las 14:00",
           "steps": [
-            { "time": "13:30", "type": "visit", "title": "Check-in en Hotel Granvia Hiroshima", "detail": "El hotel está integrado en la propia estación de Hiroshima — no hace falta traslado adicional.", "duration_min": 20 }
+            {
+              "time": "13:30",
+              "type": "visit",
+              "title": "Check-in en Hotel Granvia Hiroshima",
+              "detail": "El hotel está integrado en la propia estación de Hiroshima — no hace falta traslado adicional.",
+              "duration_min": 20
+            }
           ]
         },
         {
-          "time": "tarde", "label": "Parque de la Paz", "activity": "Parque Memorial de la Paz y Museo de la Bomba Atómica", "poi_id": "peace-park",
+          "time": "tarde",
+          "label": "Parque de la Paz",
+          "activity": "Parque Memorial de la Paz y Museo de la Bomba Atómica",
+          "poi_id": "peace-park",
           "steps": [
-            { "time": "15:00", "type": "transfer", "mode": "tren", "title": "Estación Hiroshima → Genbaku Dome-mae", "detail": "Tranvía urbano (Hiroshima Electric Railway), líneas 2 o 6, ~15 min.", "duration_min": 15 },
-            { "time": "15:20", "type": "visit", "title": "Cúpula Genbaku (A-Bomb Dome)", "detail": "Estructura en ruinas conservada tal cual quedó tras la bomba atómica de 1945. Lugar de memoria, no atracción — silencio y respeto.", "duration_min": 20, "poi_id": "genbaku-dome" },
-            { "time": "15:45", "type": "visit", "title": "Parque Memorial de la Paz", "detail": "Monumento a la Paz de los Niños, Cenotafio, Llama de la Paz.", "duration_min": 60, "poi_id": "peace-park" },
-            { "time": "16:50", "type": "visit", "title": "Museo Memorial de la Paz", "detail": "Testimonios y objetos de las víctimas. Visita dura y necesaria, 1-1.5h.", "duration_min": 90 }
+            {
+              "time": "15:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Estación Hiroshima → Genbaku Dome-mae",
+              "detail": "Tranvía urbano (Hiroshima Electric Railway), líneas 2 o 6, ~15 min.",
+              "duration_min": 15
+            },
+            {
+              "time": "15:20",
+              "type": "visit",
+              "title": "Cúpula Genbaku (A-Bomb Dome)",
+              "detail": "Estructura en ruinas conservada tal cual quedó tras la bomba atómica de 1945. Lugar de memoria, no atracción — silencio y respeto.",
+              "duration_min": 20,
+              "poi_id": "genbaku-dome"
+            },
+            {
+              "time": "15:45",
+              "type": "visit",
+              "title": "Parque Memorial de la Paz",
+              "detail": "Monumento a la Paz de los Niños, Cenotafio, Llama de la Paz.",
+              "duration_min": 60,
+              "poi_id": "peace-park"
+            },
+            {
+              "time": "16:50",
+              "type": "visit",
+              "title": "Museo Memorial de la Paz",
+              "detail": "Testimonios y objetos de las víctimas. Visita dura y necesaria, 1-1.5h.",
+              "duration_min": 90
+            }
           ]
         },
         {
-          "time": "noche", "label": "Cena", "activity": "Okonomiyaki estilo Hiroshima — especialidad local imprescindible",
+          "time": "noche",
+          "label": "Cena",
+          "activity": "Okonomiyaki estilo Hiroshima — especialidad local imprescindible",
           "steps": [
-            { "time": "20:00", "type": "food", "title": "Okonomimura", "detail": "Edificio de varias plantas con decenas de puestos de okonomiyaki estilo Hiroshima (con fideos yakisoba dentro, a diferencia del estilo Osaka). ~15 min a pie del parque o 1 parada de tranvía.", "duration_min": 90 }
+            {
+              "time": "20:00",
+              "type": "food",
+              "title": "Okonomimura",
+              "detail": "Edificio de varias plantas con decenas de puestos de okonomiyaki estilo Hiroshima (con fideos yakisoba dentro, a diferencia del estilo Osaka). ~15 min a pie del parque o 1 parada de tranvía.",
+              "duration_min": 90
+            }
           ]
         }
       ]
@@ -409,37 +1205,129 @@
         "checkout": "11:00"
       },
       "pois": [
-        { "id": "dotonbori", "name": "Dotonbori", "type": "barrio", "lat": 34.6687, "lng": 135.5017, "note": "Canal con letreros de neón. El corazón gastronómico de Osaka." },
-        { "id": "hozenji", "name": "Hozenji Yokocho", "type": "callejón", "lat": 34.6680, "lng": 135.5030, "note": "Callejón tradicional de piedra. Mantener silencio al pasar." }
+        {
+          "id": "dotonbori",
+          "name": "Dotonbori",
+          "type": "barrio",
+          "lat": 34.6687,
+          "lng": 135.5017,
+          "note": "Canal con letreros de neón. El corazón gastronómico de Osaka."
+        },
+        {
+          "id": "hozenji",
+          "name": "Hozenji Yokocho",
+          "type": "callejón",
+          "lat": 34.668,
+          "lng": 135.503,
+          "note": "Callejón tradicional de piedra. Mantener silencio al pasar."
+        },
+        {
+          "id": "shukkei-en",
+          "name": "Shukkei-en Garden",
+          "type": "jardín",
+          "lat": 34.3987,
+          "lng": 132.4636,
+          "note": "Alternativa tranquila si se prefiere completar la mañana con un jardín en vez de alargar la visita al Parque de la Paz."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Shukkei-en", "activity": "Jardín Shukkei-en — Miyajima descartado, no llegaba el tiempo", "poi_id": "shukkei-en",
+          "time": "mañana",
+          "label": "Shukkei-en",
+          "activity": "Jardín Shukkei-en — Miyajima descartado, no llegaba el tiempo",
+          "poi_id": "shukkei-en",
           "steps": [
-            { "time": "09:00", "type": "visit", "title": "Jardín Shukkei-en", "detail": "A 10 min a pie de la estación de Hiroshima — versión en miniatura del Lago Xihu de Hangzhou, del s.XVII.", "duration_min": 60, "poi_id": "shukkei-en" },
-            { "time": "10:15", "type": "free", "title": "Tiempo extra en el Parque de la Paz (opcional)", "detail": "Si algo quedó pendiente del día anterior, buen momento para completarlo antes del check-out (12:00).", "duration_min": 60 }
+            {
+              "time": "09:00",
+              "type": "visit",
+              "title": "Jardín Shukkei-en",
+              "detail": "A 10 min a pie de la estación de Hiroshima — versión en miniatura del Lago Xihu de Hangzhou, del s.XVII.",
+              "duration_min": 60,
+              "poi_id": "shukkei-en"
+            },
+            {
+              "time": "10:15",
+              "type": "free",
+              "title": "Tiempo extra en el Parque de la Paz (opcional)",
+              "detail": "Si algo quedó pendiente del día anterior, buen momento para completarlo antes del check-out (12:00).",
+              "duration_min": 60
+            }
           ]
         },
         {
-          "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Hiroshima → Osaka",
+          "time": "mediodía",
+          "label": "Shinkansen",
+          "activity": "Shinkansen Hiroshima → Osaka",
           "steps": [
-            { "time": "11:45", "type": "transfer", "mode": "walk", "title": "Hotel → Andén Shinkansen", "detail": "El hotel está integrado en la estación — solo hace falta subir al andén.", "duration_min": 10 },
-            { "time": "12:00", "type": "transfer", "mode": "tren", "title": "Shinkansen Hiroshima → Shin-Osaka", "detail": "Nozomi/Sakura, ~1h20-1h30 directo. Hora exacta pendiente de reserva.", "duration_min": 85 }
+            {
+              "time": "11:45",
+              "type": "transfer",
+              "mode": "walk",
+              "title": "Hotel → Andén Shinkansen",
+              "detail": "El hotel está integrado en la estación — solo hace falta subir al andén.",
+              "duration_min": 10
+            },
+            {
+              "time": "12:00",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Shinkansen Hiroshima → Shin-Osaka",
+              "detail": "Nozomi/Sakura, ~1h20-1h30 directo. Hora exacta pendiente de reserva.",
+              "duration_min": 85
+            }
           ]
         },
         {
-          "time": "tarde", "label": "Check-in Osaka", "activity": "Check-in en Dormy Inn Premium Namba a las 15:00",
+          "time": "tarde",
+          "label": "Check-in Osaka",
+          "activity": "Check-in en Dormy Inn Premium Namba a las 15:00",
           "steps": [
-            { "time": "13:45", "type": "transfer", "mode": "tren", "title": "Shin-Osaka → Namba", "detail": "Subway Midosuji Line, directo, ~25 min.", "duration_min": 25 },
-            { "time": "14:15", "type": "visit", "title": "Check-in en Dormy Inn Premium Namba", "detail": "", "duration_min": 20 }
+            {
+              "time": "13:45",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Shin-Osaka → Namba",
+              "detail": "Subway Midosuji Line, directo, ~25 min.",
+              "duration_min": 25
+            },
+            {
+              "time": "14:15",
+              "type": "visit",
+              "title": "Check-in en Dormy Inn Premium Namba",
+              "detail": "",
+              "duration_min": 20
+            }
           ]
         },
         {
-          "time": "tarde-noche", "label": "Dotonbori", "activity": "Dotonbori — takoyaki, okonomiyaki y el globo de Glico", "poi_id": "dotonbori",
+          "time": "tarde-noche",
+          "label": "Dotonbori",
+          "activity": "Dotonbori — takoyaki, okonomiyaki y el globo de Glico",
+          "poi_id": "dotonbori",
           "steps": [
-            { "time": "18:00", "type": "walk", "title": "Puente Ebisubashi y letreros de neón", "detail": "5-10 min a pie desde el hotel. Ir al anochecer es el momento, para ver los letreros iluminados.", "duration_min": 30, "poi_id": "dotonbori" },
-            { "time": "18:30", "type": "walk", "title": "Crucero Tonbori River y Hozenji Yokocho", "detail": "Crucero corto por el canal + el callejón de piedra de Hozenji, mucho más tranquilo que la calle principal.", "duration_min": 90, "poi_id": "hozenji" },
-            { "time": "20:00", "type": "food", "title": "Cena — Kushikatsu Daruma o Ajinoya Honten", "detail": "Kushikatsu (brochetas fritas) o okonomiyaki estilo Osaka.", "duration_min": 90 }
+            {
+              "time": "18:00",
+              "type": "walk",
+              "title": "Puente Ebisubashi y letreros de neón",
+              "detail": "5-10 min a pie desde el hotel. Ir al anochecer es el momento, para ver los letreros iluminados.",
+              "duration_min": 30,
+              "poi_id": "dotonbori"
+            },
+            {
+              "time": "18:30",
+              "type": "walk",
+              "title": "Crucero Tonbori River y Hozenji Yokocho",
+              "detail": "Crucero corto por el canal + el callejón de piedra de Hozenji, mucho más tranquilo que la calle principal.",
+              "duration_min": 90,
+              "poi_id": "hozenji"
+            },
+            {
+              "time": "20:00",
+              "type": "food",
+              "title": "Cena — Kushikatsu Daruma o Ajinoya Honten",
+              "detail": "Kushikatsu (brochetas fritas) o okonomiyaki estilo Osaka.",
+              "duration_min": 90
+            }
           ]
         }
       ]
@@ -455,34 +1343,96 @@
         "checkout": "11:00"
       },
       "pois": [
-        { "id": "osaka-castle", "name": "Castillo de Osaka (exteriores)", "type": "castillo", "lat": 34.6873, "lng": 135.5262, "note": "Solo exteriores y foso — tiempo ajustado antes del check-out." }
+        {
+          "id": "osaka-castle",
+          "name": "Castillo de Osaka (exteriores)",
+          "type": "castillo",
+          "lat": 34.6873,
+          "lng": 135.5262,
+          "note": "Solo exteriores y foso — tiempo ajustado antes del check-out."
+        }
       ],
       "blocks": [
         {
-          "time": "mañana", "label": "Osaka", "activity": "Última mañana en Osaka — Castillo de Osaka o Shinsekai", "poi_id": "osaka-castle",
+          "time": "mañana",
+          "label": "Osaka",
+          "activity": "Última mañana en Osaka — Castillo de Osaka o Shinsekai",
+          "poi_id": "osaka-castle",
           "steps": [
-            { "time": "09:00", "type": "visit", "title": "Exteriores del Castillo de Osaka", "detail": "Subway Tanimachi Line desde Namba hasta Tanimachi 4-chome (~10 min) + 10 min a pie. Solo exteriores y foso — sin entrar al museo.", "duration_min": 90, "poi_id": "osaka-castle" }
+            {
+              "time": "09:00",
+              "type": "visit",
+              "title": "Exteriores del Castillo de Osaka",
+              "detail": "Subway Tanimachi Line desde Namba hasta Tanimachi 4-chome (~10 min) + 10 min a pie. Solo exteriores y foso — sin entrar al museo.",
+              "duration_min": 90,
+              "poi_id": "osaka-castle"
+            }
           ]
         },
         {
-          "time": "mediodía", "label": "Shinkansen", "activity": "Shinkansen Osaka → Tokio",
+          "time": "mediodía",
+          "label": "Shinkansen",
+          "activity": "Shinkansen Osaka → Tokio",
           "steps": [
-            { "time": "10:45", "type": "transfer", "mode": "tren", "title": "Castillo → Shin-Osaka Station", "detail": "Subway Tanimachi Line + transbordo a Midosuji Line, ~25 min.", "duration_min": 25 },
-            { "time": "11:15", "type": "transfer", "mode": "tren", "title": "Shinkansen Osaka → Tokio", "detail": "Shinkansen Hikari, ~3h directo hasta Tokyo Station. Hora exacta pendiente de reserva.", "duration_min": 180 }
+            {
+              "time": "10:45",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Castillo → Shin-Osaka Station",
+              "detail": "Subway Tanimachi Line + transbordo a Midosuji Line, ~25 min.",
+              "duration_min": 25
+            },
+            {
+              "time": "11:15",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Shinkansen Osaka → Tokio",
+              "detail": "Shinkansen Hikari, ~3h directo hasta Tokyo Station. Hora exacta pendiente de reserva.",
+              "duration_min": 180
+            }
           ]
         },
         {
-          "time": "tarde", "label": "Check-in Tokio", "activity": "Check-in en The Gate Hotel Tokyo by HULIC a las 14:00",
+          "time": "tarde",
+          "label": "Check-in Tokio",
+          "activity": "Check-in en The Gate Hotel Tokyo by HULIC a las 14:00",
           "steps": [
-            { "time": "14:30", "type": "transfer", "mode": "tren", "title": "Tokyo Station → Hotel", "detail": "1 parada JR Yamanote hasta Yurakucho o 12 min a pie.", "duration_min": 12 },
-            { "time": "14:45", "type": "visit", "title": "Check-in en The Gate Hotel Tokyo", "detail": "", "duration_min": 20 },
-            { "time": "15:30", "type": "free", "title": "Descanso o paseo por Ginza", "detail": "A elegir según el cansancio del viaje — Ginza está a 5-10 min a pie del hotel.", "duration_min": 120 }
+            {
+              "time": "14:30",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Tokyo Station → Hotel",
+              "detail": "1 parada JR Yamanote hasta Yurakucho o 12 min a pie.",
+              "duration_min": 12
+            },
+            {
+              "time": "14:45",
+              "type": "visit",
+              "title": "Check-in en The Gate Hotel Tokyo",
+              "detail": "",
+              "duration_min": 20
+            },
+            {
+              "time": "15:30",
+              "type": "free",
+              "title": "Descanso o paseo por Ginza",
+              "detail": "A elegir según el cansancio del viaje — Ginza está a 5-10 min a pie del hotel.",
+              "duration_min": 120
+            }
           ]
         },
         {
-          "time": "noche", "label": "Tokio", "activity": "Noche en Tokio — Roppongi, Akihabara o Shimokitazawa según el ánimo",
+          "time": "noche",
+          "label": "Tokio",
+          "activity": "Noche en Tokio — Roppongi, Akihabara o Shimokitazawa según el ánimo",
           "steps": [
-            { "time": "20:00", "type": "food", "title": "Cena tranquila en Yurakucho", "detail": "Vuelta a los izakayas bajo las vías cerca del hotel — cierre de trayecto sin planes ambiciosos.", "duration_min": 90 }
+            {
+              "time": "20:00",
+              "type": "food",
+              "title": "Cena tranquila en Yurakucho",
+              "detail": "Vuelta a los izakayas bajo las vías cerca del hotel — cierre de trayecto sin planes ambiciosos.",
+              "duration_min": 90
+            }
           ]
         }
       ]
@@ -499,12 +1449,28 @@
       },
       "pois": [],
       "blocks": [
-        { "time": "mañana", "label": "Libre", "activity": "Mañana libre — última oportunidad para compras, museos o barrios pendientes" },
-        { "time": "tarde", "label": "Libre", "activity": "Tarde libre — Odaiba, TeamLab, Harajuku o simplemente pasear" },
         {
-          "time": "noche", "label": "Última cena", "activity": "Última cena en Tokio — el restaurante que más haya gustado del viaje",
+          "time": "mañana",
+          "label": "Libre",
+          "activity": "Mañana libre — última oportunidad para compras, museos o barrios pendientes"
+        },
+        {
+          "time": "tarde",
+          "label": "Libre",
+          "activity": "Tarde libre — Odaiba, TeamLab, Harajuku o simplemente pasear"
+        },
+        {
+          "time": "noche",
+          "label": "Última cena",
+          "activity": "Última cena en Tokio — el restaurante que más haya gustado del viaje",
           "steps": [
-            { "time": "20:00", "type": "food", "title": "Cena de despedida — Bird Land Ginza o ESqUISSE", "detail": "Ambos en la zona de Ginza, a 10-15 min a pie del hotel. Las reservas con hora fija en restaurantes con Estrella Michelin como ESqUISSE suelen ofrecer turnos alrededor de esta hora — reservar con mucha antelación.", "duration_min": 120 }
+            {
+              "time": "20:00",
+              "type": "food",
+              "title": "Cena de despedida — Bird Land Ginza o ESqUISSE",
+              "detail": "Ambos en la zona de Ginza, a 10-15 min a pie del hotel. Las reservas con hora fija en restaurantes con Estrella Michelin como ESqUISSE suelen ofrecer turnos alrededor de esta hora — reservar con mucha antelación.",
+              "duration_min": 120
+            }
           ]
         }
       ]
@@ -518,24 +1484,68 @@
       "pois": [],
       "blocks": [
         {
-          "time": "madrugada", "label": "Check-out", "activity": "Check-out del hotel a las 07:00 — traslado al aeropuerto Narita",
+          "time": "madrugada",
+          "label": "Check-out",
+          "activity": "Check-out del hotel a las 07:00 — traslado al aeropuerto Narita",
           "steps": [
-            { "time": "07:00", "type": "visit", "title": "Check-out del hotel", "detail": "Salida 07:00-07:30 — el vuelo sale a las 11:10, no esperar al check-out oficial de las 11:00.", "duration_min": 15 },
-            { "time": "07:20", "type": "transfer", "mode": "tren", "title": "Tokyo Station → Narita", "detail": "Narita Express directo, ~55 min hasta Narita Terminal 2.", "duration_min": 55 }
+            {
+              "time": "07:00",
+              "type": "visit",
+              "title": "Check-out del hotel",
+              "detail": "Salida 07:00-07:30 — el vuelo sale a las 11:10, no esperar al check-out oficial de las 11:00.",
+              "duration_min": 15
+            },
+            {
+              "time": "07:20",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Tokyo Station → Narita",
+              "detail": "Narita Express directo, ~55 min hasta Narita Terminal 2.",
+              "duration_min": 55
+            }
           ]
         },
         {
-          "time": "mañana", "label": "Vuelo", "activity": "Vuelo IB0282 NRT → MAD — salida 11:10 desde Narita",
+          "time": "mañana",
+          "label": "Vuelo",
+          "activity": "Vuelo IB0282 NRT → MAD — salida 11:10 desde Narita",
           "steps": [
-            { "time": "08:30", "type": "visit", "title": "Facturación y seguridad", "detail": "Facturación Iberia + control de seguridad y pasaportes en Narita T2.", "duration_min": 100 },
-            { "time": "11:10", "type": "transfer", "mode": "avion", "title": "Despegue IB0282 NRT → MAD", "detail": "Vuelo directo Narita–Madrid." }
+            {
+              "time": "08:30",
+              "type": "visit",
+              "title": "Facturación y seguridad",
+              "detail": "Facturación Iberia + control de seguridad y pasaportes en Narita T2.",
+              "duration_min": 100
+            },
+            {
+              "time": "11:10",
+              "type": "transfer",
+              "mode": "avion",
+              "title": "Despegue IB0282 NRT → MAD",
+              "detail": "Vuelo directo Narita–Madrid."
+            }
           ]
         },
         {
-          "time": "noche", "label": "Llegada", "activity": "Llegada a Barajas T4 y vuelta a Navalcarnero — ¡fin de la aventura!",
+          "time": "noche",
+          "label": "Llegada",
+          "activity": "Llegada a Barajas T4 y vuelta a Navalcarnero — ¡fin de la aventura!",
           "steps": [
-            { "time": "19:45", "type": "visit", "title": "Aterrizaje en Barajas T4", "detail": "Hora española. Recogida de equipaje y salida.", "duration_min": 45 },
-            { "time": "20:30", "type": "transfer", "mode": "taxi", "title": "Barajas T4 → Navalcarnero", "detail": "~40 min en coche — fin de la aventura.", "duration_min": 40 }
+            {
+              "time": "19:45",
+              "type": "visit",
+              "title": "Aterrizaje en Barajas T4",
+              "detail": "Hora española. Recogida de equipaje y salida.",
+              "duration_min": 45
+            },
+            {
+              "time": "20:30",
+              "type": "transfer",
+              "mode": "taxi",
+              "title": "Barajas T4 → Navalcarnero",
+              "detail": "~40 min en coche — fin de la aventura.",
+              "duration_min": 40
+            }
           ]
         }
       ]
@@ -545,8 +1555,19 @@
     "outbound": {
       "flight": "IB0281",
       "date": "2026-08-13",
-      "departure": { "airport": "MAD", "terminal": "T4", "time": "12:30", "city": "Madrid" },
-      "arrival": { "airport": "NRT", "terminal": "T2", "time": "09:30", "date_arrival": "2026-08-14", "city": "Tokio (Narita)" },
+      "departure": {
+        "airport": "MAD",
+        "terminal": "T4",
+        "time": "12:30",
+        "city": "Madrid"
+      },
+      "arrival": {
+        "airport": "NRT",
+        "terminal": "T2",
+        "time": "09:30",
+        "date_arrival": "2026-08-14",
+        "city": "Tokio (Narita)"
+      },
       "booking_ref": "76HHZ9",
       "ticket_number": "075-2530016629",
       "airline": "Iberia",
@@ -555,8 +1576,19 @@
     "return": {
       "flight": "IB0282",
       "date": "2026-08-25",
-      "departure": { "airport": "NRT", "terminal": "T2", "time": "11:10", "city": "Tokio (Narita)" },
-      "arrival": { "airport": "MAD", "terminal": "T4", "time": "19:45", "date_arrival": "2026-08-25", "city": "Madrid" },
+      "departure": {
+        "airport": "NRT",
+        "terminal": "T2",
+        "time": "11:10",
+        "city": "Tokio (Narita)"
+      },
+      "arrival": {
+        "airport": "MAD",
+        "terminal": "T4",
+        "time": "19:45",
+        "date_arrival": "2026-08-25",
+        "city": "Madrid"
+      },
       "booking_ref": "76HHZ9",
       "ticket_number": "075-2530016629",
       "airline": "Iberia",
@@ -576,8 +1608,11 @@
       "checkin": "14:00",
       "checkout": "11:00",
       "lat": 35.6754,
-      "lng": 139.7630,
-      "dates": { "from": "2026-08-14", "to": "2026-08-17" },
+      "lng": 139.763,
+      "dates": {
+        "from": "2026-08-14",
+        "to": "2026-08-17"
+      },
       "notes": "Hotel en Yurakucho, junto a Ginza. 1ª estancia."
     },
     {
@@ -593,7 +1628,10 @@
       "checkout": "11:00",
       "lat": 35.2357,
       "lng": 139.0197,
-      "dates": { "from": "2026-08-17", "to": "2026-08-18" },
+      "dates": {
+        "from": "2026-08-17",
+        "to": "2026-08-18"
+      },
       "notes": "Ryokan con onsen. Shuttle gratuito 14:00-17:00 desde Kowakidani Station. Cena kaiseki incluida (elegir menú al llegar). Política de tatuajes: PENDIENTE DE CONFIRMAR.",
       "shuttle": "Gratuito 14:00–17:00 desde Kowakidani Station",
       "tattoo_policy": "pending_confirmation"
@@ -611,7 +1649,10 @@
       "checkout": "11:00",
       "lat": 35.0086,
       "lng": 135.7694,
-      "dates": { "from": "2026-08-18", "to": "2026-08-21" },
+      "dates": {
+        "from": "2026-08-18",
+        "to": "2026-08-21"
+      },
       "notes": "En Sanjo, cerca de Gion y Pontocho."
     },
     {
@@ -627,7 +1668,10 @@
       "checkout": "12:00",
       "lat": 34.3966,
       "lng": 132.4756,
-      "dates": { "from": "2026-08-21", "to": "2026-08-22" },
+      "dates": {
+        "from": "2026-08-21",
+        "to": "2026-08-22"
+      },
       "notes": "Junto a la estación de Hiroshima."
     },
     {
@@ -643,7 +1687,10 @@
       "checkout": "11:00",
       "lat": 34.6659,
       "lng": 135.5008,
-      "dates": { "from": "2026-08-22", "to": "2026-08-23" },
+      "dates": {
+        "from": "2026-08-22",
+        "to": "2026-08-23"
+      },
       "notes": "En Namba. Onsen natural (radón). Política de tatuajes: confirmar en recepción al llegar."
     },
     {
@@ -658,8 +1705,11 @@
       "checkin": "14:00",
       "checkout": "11:00",
       "lat": 35.6754,
-      "lng": 139.7630,
-      "dates": { "from": "2026-08-23", "to": "2026-08-25" },
+      "lng": 139.763,
+      "dates": {
+        "from": "2026-08-23",
+        "to": "2026-08-25"
+      },
       "notes": "2ª estancia en Tokio. Mismo hotel que la llegada."
     }
   ],
@@ -691,7 +1741,7 @@
       "service": "Shinkansen Hikari",
       "duration_approx": "1h 50min",
       "reservation_window_opens": "2026-07-19T10:00:00+09:00",
-      "reservation_url": "https://www.jrpass.com",
+      "reservation_url": "https://smart-ex.jp/en/",
       "departure_time": null,
       "arrival_time": null,
       "locator": null,
@@ -709,7 +1759,7 @@
       "service": "Shinkansen Hikari",
       "duration_approx": "1h 40min",
       "reservation_window_opens": "2026-07-22T10:00:00+09:00",
-      "reservation_url": "https://www.jrpass.com",
+      "reservation_url": "https://smart-ex.jp/en/",
       "departure_time": null,
       "arrival_time": null,
       "locator": null,
@@ -727,7 +1777,7 @@
       "service": "Shinkansen",
       "duration_approx": "1h 25min",
       "reservation_window_opens": "2026-07-23T10:00:00+09:00",
-      "reservation_url": "https://www.jrpass.com",
+      "reservation_url": "https://smart-ex.jp/en/",
       "departure_time": null,
       "arrival_time": null,
       "locator": null,
@@ -745,7 +1795,7 @@
       "service": "Shinkansen Hikari",
       "duration_approx": "3h",
       "reservation_window_opens": "2026-07-24T10:00:00+09:00",
-      "reservation_url": "https://www.jrpass.com",
+      "reservation_url": "https://smart-ex.jp/en/",
       "departure_time": null,
       "arrival_time": null,
       "locator": null,

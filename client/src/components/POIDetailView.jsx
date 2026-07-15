@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 /* ---------------------------------------------------------------
    POIDetailView
@@ -274,46 +274,56 @@ function CategoryFallbackIcon() {
   );
 }
 
+// El JSON de fallbacks se pide una sola vez por sesión, y solo si alguna
+// imagen local llega a fallar.
+let fallbackUrlsPromise = null;
+function getFallbackUrls() {
+  if (!fallbackUrlsPromise) {
+    fallbackUrlsPromise = fetch('/pois/fallback-urls.json')
+      .then((res) => (res.ok ? res.json() : {}))
+      .catch(() => ({}));
+  }
+  return fallbackUrlsPromise;
+}
+
 function ImageWithFallback({ imageUrl, poiId, altText }) {
   const [source, setSource] = useState(imageUrl);
-  const [fallbackUrl, setFallbackUrl] = useState(null);
-  const [loadError, setLoadError] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const triedFallback = useRef(false);
 
+  // Resetear estado si el componente se reutiliza para otro POI.
   useEffect(() => {
-    let mounted = true;
+    setSource(imageUrl);
+    setFailed(false);
+    triedFallback.current = false;
+  }, [imageUrl, poiId]);
 
-    const loadFallback = async () => {
-      try {
-        const res = await fetch('/pois/fallback-urls.json');
-        if (res.ok && mounted) {
-          const urls = await res.json();
-          if (urls[poiId]) {
-            setFallbackUrl(urls[poiId]);
-          }
-        }
-      } catch {}
-    };
-
-    loadFallback();
-    return () => { mounted = false; };
-  }, [poiId]);
-
-  const handleError = () => {
-    if (source === imageUrl && fallbackUrl) {
-      setSource(fallbackUrl);
-    } else {
-      setLoadError(true);
+  const handleError = async () => {
+    if (!triedFallback.current) {
+      triedFallback.current = true;
+      const urls = await getFallbackUrls();
+      const remote = urls[poiId];
+      if (remote && remote !== imageUrl) {
+        setSource(remote);
+        return;
+      }
     }
+    setFailed(true);
   };
 
-  if (loadError) return null;
+  if (failed) {
+    return (
+      <div className="poi-hero__fallback">
+        <CategoryFallbackIcon />
+      </div>
+    );
+  }
 
   return (
     <img
       className="poi-hero__img"
       src={source}
       alt={altText}
-      loading="lazy"
       onError={handleError}
     />
   );
@@ -365,10 +375,11 @@ export default function POIDetailView({ poi, onBack, onOpenMap }) {
         <div className="poi-hero">
           {poi.image_url ? (
             <ImageWithFallback imageUrl={poi.image_url} poiId={poi.id} altText={poi.name} />
-          ) : null}
-          <div className="poi-hero__fallback" style={{ display: poi.image_url ? 'none' : 'flex', position: poi.image_url ? 'absolute' : 'relative', inset: 0 }}>
-            <CategoryFallbackIcon />
-          </div>
+          ) : (
+            <div className="poi-hero__fallback">
+              <CategoryFallbackIcon />
+            </div>
+          )}
           <div className="poi-hero__overlay">
             {poi.name_ja && <div className="poi-hero__name-ja">{poi.name_ja}{poi.name_ja_reading ? ` · ${poi.name_ja_reading}` : ''}</div>}
             <h1 className="poi-hero__name">{poi.name}</h1>

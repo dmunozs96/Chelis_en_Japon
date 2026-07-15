@@ -575,7 +575,10 @@ function fmtWindowDate(isoStr) {
 
 /* ---- Is hotel currently active? ---- */
 function isHotelActive(hotel) {
-  const today = new Date().toISOString().slice(0, 10);
+  // Fecha local del dispositivo, no UTC: en Japón (UTC+9) toISOString()
+  // marcaría el hotel del día anterior entre las 00:00 y las 09:00.
+  const d = new Date();
+  const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   return today >= hotel.dates.from && today < hotel.dates.to;
 }
 

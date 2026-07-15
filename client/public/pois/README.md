@@ -1,56 +1,28 @@
 # Imágenes de Puntos de Interés
 
-Este directorio almacena las imágenes de los 24 puntos de interés (POIs) del viaje a Japón.
+Este directorio contiene las imágenes locales de los 24 POIs de la guía, más dos ficheros generados:
 
-## Cómo descargar las imágenes
+- `{poi-id}.jpg` — imagen local de cada POI (fuente primaria; funciona offline)
+- `fallback-urls.json` — URLs reales de Wikimedia verificadas, usadas solo si falta el fichero local
+- `credits.json` — atribución de cada imagen (artículo de Wikipedia + página del fichero en Commons)
 
-### Opción 1: Script automático (Windows)
+## Cómo se regeneran
 
-```powershell
-cd client/public/pois
-PowerShell -ExecutionPolicy Bypass -File download-images.ps1
+Todo este directorio se regenera con un único script (desde la raíz del repo):
+
+```bash
+node scripts/fetch-poi-images.mjs          # descarga solo lo que falte
+node scripts/fetch-poi-images.mjs --force  # re-descarga todo
 ```
 
-El script descargará automáticamente todas las imágenes desde Wikimedia. Si una imagen ya existe, la saltará.
+El script resuelve la imagen principal real de cada POI vía la API REST de Wikipedia
+(`/page/summary`), así que las URLs nunca son inventadas. Para añadir un POI nuevo:
+añadirlo al mapa `POI_TITLES` del script con su(s) título(s) de artículo de Wikipedia
+y volver a ejecutarlo.
 
-### Opción 2: Descarga manual
+## Cómo las consume la app
 
-Puedes descargar las imágenes manualmente desde los URLs en `fallback-urls.json` y colocarlas en este directorio con el nombre `{poi-id}.jpg`.
-
-Por ejemplo:
-- `sensoji.jpg` para Templo Senso-ji
-- `hibiya-park.jpg` para Hibiya Park
-- `kyomizudera.jpg` para Kiyomizu-dera
-
-Ver lista completa en `POI_LIST.json`.
-
-## Estructura
-
-```
-pois/
-├── sensoji.jpg              ← Imagen del Templo Senso-ji
-├── hibiya-park.jpg          ← Imagen de Hibiya Park
-├── ginza-six.jpg            ← etc...
-├── ...
-├── fallback-urls.json       ← URLs de fallback (Wikimedia)
-├── POI_LIST.json            ← Lista de todos los POIs
-└── README.md                ← Este archivo
-```
-
-## Cómo funciona el sistema de imágenes
-
-1. **Primera intención**: Cargar desde la ruta local `/pois/{id}.jpg`
-2. **Fallback**: Si el archivo local no existe, intenta desde Wikimedia (URLs en `fallback-urls.json`)
-3. **Sin imagen**: Si ambas fallan, muestra un icono genérico por categoría
-
-Esto permite que la app funcione incluso sin todas las imágenes descargadas, mejorando gradualmente conforme se agreguen.
-
-## Tamaño estimado
-
-Aproximadamente 15-20 MB en total para todas las imágenes.
-
-## Notas
-
-- Los archivos deben estar en formato JPG
-- Resolución recomendada: 1280x720 o superior
-- Licencia: Las imágenes provienen de Wikimedia Commons (ver `fallback-urls.json` para URLs originales)
+`POIDetailView.jsx` carga `/pois/{id}.jpg`; si falla, intenta la URL de
+`fallback-urls.json`; si también falla, muestra un icono por categoría.
+Las imágenes viajan dentro del build (`client/public` → `client/dist`), por lo que
+se ven sin conexión una vez cargada la app.

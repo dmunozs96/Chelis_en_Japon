@@ -29,6 +29,8 @@ No es una app de turismo genérica: está construida sobre este viaje concreto (
 ### 1. Contenido real, nunca inventado
 Toda recomendación de comida, sitio o punto de interés debe venir de una fuente real ya investigada (están en `japon_info_base.md`) o, si se añade contenido nuevo, debe citar su fuente. **Nunca** generar nombres de restaurantes, horarios o precios inventados.
 
+Esto incluye los recursos: las URLs (imágenes, webs de reserva) deben resolverse contra la fuente real (API de Wikipedia, web oficial), nunca construirse "de memoria" — una URL inventada es contenido inventado. Las imágenes de Wikimedia llevan su atribución en `client/public/pois/credits.json`.
+
 ### 2. Mobile-first sin excepción
 La guía se usa desde el móvil, caminando por la calle, con una mano y a veces con mala conexión. Cualquier decisión de diseño prioriza el móvil sobre el escritorio. Diseñar y probar primero en viewport de móvil.
 
@@ -85,4 +87,4 @@ Los siguientes puntos son backlog explícito — existen, no se han olvidado, pe
 
 ---
 
-*Última actualización: 2026-07-14 — arquitectura revisada: backend + PostgreSQL para planificador*
+*Última actualización: 2026-07-15 — regla 1 ampliada a recursos (URLs resueltas contra fuente real, nunca inventadas) tras la Ola de Calidad Q1. Pendiente de decisión: la regla 4 (offline) sigue sin service worker — ver deuda técnica en SPEC §10.*

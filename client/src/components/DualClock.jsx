@@ -58,8 +58,18 @@ export default function DualClock() {
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(id);
+    // Solo se muestra HH:MM — actualizar al cambio de minuto, no cada segundo
+    // (ahorra ~59 re-renders/min de batería en un viaje de 13 días).
+    let interval;
+    const msToNextMinute = (60 - new Date().getSeconds()) * 1000;
+    const timeout = setTimeout(() => {
+      setNow(new Date());
+      interval = setInterval(() => setNow(new Date()), 60_000);
+    }, msToNextMinute);
+    return () => {
+      clearTimeout(timeout);
+      if (interval) clearInterval(interval);
+    };
   }, []);
 
   const jstTime  = formatTime(now, +9);   // JST = UTC+9

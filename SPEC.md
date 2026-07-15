@@ -1,7 +1,7 @@
 # Especificación — Guía Interactiva Japón Ago26
 
 > Documento vivo. Cualquier modificación al producto, por pequeña que sea, debe reflejarse aquí.
-> Versión: 1.8 | Fecha: 2026-07-15 | Estado: Activo
+> Versión: 1.9 | Fecha: 2026-07-15 | Estado: Activo
 
 ---
 
@@ -192,7 +192,7 @@ El redeploy (git push) actualiza la guía automáticamente. Mismo flujo para act
 - Cada hotel: nombre, dirección, teléfono, CRS locator, check-in/check-out
 - Cada tren: origen, destino, hora (TBD hasta julio 18-24), localizador (TBD)
 - Accesible en 1-2 toques desde cualquier pantalla
-- Funciona sin conexión
+- Resiliente a cortes de red: los datos ya descargados se conservan en caché (memoria + localStorage). El offline completo con recarga (service worker) sigue pendiente — ver F17/Ola 7
 
 ### F4 — Mapa con posición en vivo
 - Geolocalización real del dispositivo sobre mapa (Leaflet.js + OpenStreetMap)
@@ -243,15 +243,20 @@ Cada restaurante tiene campos estructurados verificados en fuentes autorizadas (
 
 ---
 
-## 5. Esquema de datos (trip.json — borrador v1)
+## 5. Esquema de datos (trip.json)
+
+> La clave raíz real del fichero es `trip` (no `meta`). Desde v1.9 incluye
+> `start_date`, `end_date` y `departure_datetime` — pendiente de que
+> `SplashScreen.jsx` los consuma en vez de sus constantes hardcodeadas.
 
 ```json
 {
-  "meta": {
+  "trip": {
     "title": "Japón · Agosto 2026",
     "travelers": ["Daniel", "Compañero/a"],
     "start_date": "2026-08-13",
-    "end_date": "2026-08-25"
+    "end_date": "2026-08-25",
+    "departure_datetime": "2026-08-13T12:30:00+02:00"
   },
   "flights": {
     "outbound": {
@@ -375,7 +380,7 @@ Base de datos curada de todos los puntos de interés visitados en el viaje (~50-
 | `tips` | array | Consejos prácticos de visita |
 | `best_time` | string | Recomendación horaria o estacional |
 | `access` | object | Metro/bus más cercano + minutos a pie + notas |
-| `image_url` | string | URL Wikimedia Commons (libre, sin API key) |
+| `image_url` | string | Ruta local `/pois/{id}.jpg` (descargada de Wikimedia vía `scripts/fetch-poi-images.mjs`; fallback remoto en `pois/fallback-urls.json`, atribución en `pois/credits.json`) |
 | `website` | string | URL oficial si existe |
 | `tags` | array | Etiquetas libres para búsqueda/filtrado |
 
@@ -602,16 +607,16 @@ Fondo --bg-secondary, lista de items sobre --bg-surface
 
 | Decisión | Opciones | Estado |
 |---|---|---|
-| JR Pass vs billetes sueltos | Billetes sueltos | ✅ Confirmado |
-| Framework frontend | Vanilla JS + Vite / React / Svelte | **Pendiente** |
+| JR Pass vs billetes sueltos | Billetes sueltos (reserva shinkansen en SmartEX) | ✅ Confirmado |
+| Framework frontend | React + Vite | ✅ Implementado (Ola 1) |
 | Repositorio | GitHub | ✅ Confirmado |
 | Hosting | Railway | ✅ Confirmado |
 | Dominio | chelisenjapon-production.up.railway.app | ✅ Activo |
-| PWA instalable | Sí | ✅ Confirmado |
+| PWA instalable | Sí — service worker + manifest | ⬜ Pendiente (Ola 7 / F17) |
 | Dark premium | Implementado en Ola de Diseño | ✅ Activo |
 | Idioma | Solo español | ✅ Confirmado |
-| Detección "hoy" | Zona horaria JST / España | **Pendiente** |
-| QR codes de vuelo | Incluir / No incluir | **Pendiente** |
+| Detección "hoy" | Fecha local del dispositivo (nunca UTC) | ✅ Implementado |
+| QR codes de vuelo | No incluir | ✅ Fuera de alcance MVP (Constitución) |
 
 ---
 
@@ -678,7 +683,7 @@ Se abre como pantalla push (position fixed, z-index 200) desde cualquier bloque 
 ```
 
 **Campos mostrados por POI:**
-- Imagen hero (Wikimedia Commons URL, fallback: degradado oscuro con icono de categoría)
+- Imagen hero local (`/pois/{id}.jpg`, dentro del build → funciona offline; fallback 1: URL real de Wikimedia; fallback 2: degradado oscuro con icono de categoría)
 - Nombre español + nombre japonés (kanji + romanización)
 - Chip de categoría (templo, santuario, parque, barrio, mercado, museo, vista, memorial, jardín, castillo)
 - Descripción cultural en 3 párrafos: contexto histórico · qué ver exactamente · experiencia de la visita
@@ -694,10 +699,11 @@ Se abre como pantalla push (position fixed, z-index 200) desde cualquier bloque 
 - Enlace a website oficial (abre en navegador externo)
 - Botón "Ver en mapa" → centra MapView en ese POI
 
-**Comportamiento de la imagen:**
-- Se carga con lazy loading
-- Fallback si falla: degradado oscuro con icono SVG grande de la categoría
-- En PWA offline: el fallback siempre funciona; la imagen requiere conexión
+**Comportamiento de la imagen (v1.9):**
+- Fuente primaria: imagen local `/pois/{id}.jpg` (comprimida a ≤1280px, viaja dentro del build)
+- Fallback 1: URL real de Wikimedia desde `pois/fallback-urls.json` (se pide una sola vez por sesión, y solo si la local falla)
+- Fallback 2: degradado oscuro con icono SVG grande de la categoría
+- Pipeline de regeneración: `node scripts/fetch-poi-images.mjs` (resuelve la imagen principal real de cada artículo de Wikipedia — nunca URLs inventadas); atribución en `pois/credits.json`
 
 #### F7 — Mapa de ruta del día
 
@@ -917,13 +923,43 @@ Daniel planteó que su noción de "mañana/tarde/noche" (española: mañana hast
 
 ---
 
-## 8. Advertencias activas
+### Ola de Calidad Q1 — Auditoría integral: imágenes reales, 12 bugs y datos (2026-07-15)
 
-- ⚠️ **URGENTE (HOY):** Ventana de reserva del primer tren (Tokio→Hakone, Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Las siguientes ventanas abren del 19 al 24 de julio.
+Revisión general del proyecto (dos auditorías paralelas: bugs en client/server y specs vs implementación) con corrección inmediata de todo lo confirmado. Detalle completo en `HANDOVER_10.md`.
+
+**Bug principal — imágenes de POIs (reportado por Daniel):** ninguna imagen se veía. Causa triple: (1) no existía ningún `.jpg` en `client/public/pois/`; (2) las 24 URLs de Wikimedia de `fallback-urls.json` estaban **inventadas** (todas 404 — las rutas de Commons llevan hash del fichero real y no se pueden adivinar); (3) race condition en `ImageWithFallback` que rendía antes de que el JSON de fallbacks llegara. Arreglo: `scripts/fetch-poi-images.mjs` resuelve la imagen principal real de cada POI vía la API REST de Wikipedia (`/page/summary`), descarga las 24 (verificadas visualmente las dudosas), regenera `fallback-urls.json` con URLs reales y `credits.json` con atribución; componente reescrito (fallback bajo demanda, icono de categoría como último recurso).
+
+**Bugs corregidos (auditoría):** crash total del servidor por promesas rechazadas en Express 4 (`asyncHandler` + middleware de errores + validación de `:day`); GPS pisaba el centro del mapa al abrir "Ver mapa" desde un POI; 5 días con POIs referenciados por bloques pero ausentes del array del día (ruta del día vacía o incompleta) + `higashiyama` huérfano; guardado del planificador sin verificación (`res.ok`) ni reintento → pérdida silenciosa de reservas; fechas `DATE` de Postgres corridas un día según TZ del servidor; off-by-one en la splash el día después del regreso; 3 usos de fecha UTC en vez de local (hotel activo, tips pasados); estado de expansión de steps que sobrevivía al cambiar de día; fallback SPA devolviendo `index.html` con 200 para `/data/*` inexistentes; BOM UTF-8 en `pois_db.json`.
+
+**Datos:** `due_date` de las alertas de trenes corregidos a la ventana de reserva (18-24 jul; antes apuntaban a la fecha del viaje — habrían avisado un mes tarde); URLs de reserva jrpass.com → SmartEX (billetes sueltos); `trip.json` gana `start_date`/`end_date`/`departure_datetime`.
+
+**Eficiencias:** caché de JSON estáticos (memoria + snapshot localStorage como último recurso offline — un paso real hacia la regla 4); reloj del header actualiza por minuto, no por segundo; imágenes comprimidas 19,4 MB → 6,5 MB (POIs ≤1280px q78; splash PNG→JPG, −90%).
+
+---
+
+## 9. Advertencias activas
+
+- ⚠️ **Ventanas de reserva de trenes (18-24 jul):** Tokio→Hakone (Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Los 4 shinkansen abren del 19 al 24 de julio — reservar en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com).
 - ⚠️ **Política de tatuajes Mizunoto:** No confirmada oficialmente. Recomendación: llamar al hotel (+81 460-82-6011) antes del viaje.
 - ~~teamLab Borderless~~ descartado — reemplazado por Yanaka (16 ago mañana).
 - ⚠️ **Roan Kikunoi y Bird Land Ginza:** Necesitan reserva con antelación si se van a ir.
 
 ---
 
-*Última actualización: 2026-07-15 — Ola 4e completada: franjas mañana/tarde/noche reajustadas a la convención horaria española (14h/20h) y horarios de comida/cena movidos a 13h/20h, verificados como compatibles con la restauración japonesa. Siguiente: Ola 5 — Herramientas de viaje (F8-F13).*
+## 10. Deuda técnica conocida
+
+Deudas verificadas y conscientemente aplazadas (cada entrada indica el coste de no pagarla):
+
+| Deuda | Riesgo si no se paga | Prioridad |
+|---|---|---|
+| Sin service worker ni manifest (F17/Ola 7) | Recargar la app sin conexión = pantalla en blanco. Única regla no negociable de la Constitución sin cumplir, a 29 días del viaje | **Alta** |
+| `SplashScreen.jsx` hardcodea `TRIP_START`/`TRIP_DAYS`/`DEPARTURE_DATETIME` | Si cambia el vuelo hay que tocar código; `trip.json` ya expone estos campos desde v1.9 | Media |
+| `DualClock.jsx` con offsets fijos +9/+2 | Correcto para agosto 2026; rompería en otro viaje u otro mes (DST) | Baja |
+| Sección 2 del SPEC duplica el itinerario de `trip.json` | Ya divergió tras la Ola 4e (horas de comida); dos fuentes de verdad | Media |
+| Doble numeración F1-F18 entre secciones 4 y 7 | F6/F7/F8 significan cosas distintas según la sección; imposible auditar por número | Media |
+| `days[].pois` (inline) duplica datos de `pois_db.json` | Dos fuentes de coordenadas/nombres; hoy consistentes, sin validación automática | Baja |
+| `CITY_CENTERS` hardcodeado en `MapView.jsx` | Dato del viaje en código; solo afecta al centro por defecto del mapa | Baja |
+
+---
+
+*Última actualización: 2026-07-15 — Ola de Calidad Q1: sistema de imágenes de POIs reparado de raíz (imágenes reales locales + fallback verificado), 12 bugs corregidos tras auditoría integral, alertas de trenes con fechas límite operativas correctas, y 13 MB menos de peso. Siguiente: decidir si adelantar F17 (offline/PWA, única regla no negociable sin cumplir) antes de Ola 5 — Herramientas de viaje (F8-F13).*

@@ -179,6 +179,7 @@ export default function DayNav({ days, onOpenMap, onOpenPoi, onOpenRoute }) {
         <div className="daynav__detail" role="tabpanel">
           {selectedDay && (
             <DayCard
+              key={selectedDay.date}
               day={selectedDay}
               days={days}
               onOpenMap={onOpenMap}
