@@ -176,7 +176,7 @@ const TABS = [
   { id: 'today',       label: 'Hoy',         Icon: TodayIcon,   disabled: false },
   { id: 'trip',        label: 'Viaje',        Icon: TripIcon,    disabled: false },
   { id: 'alerts',      label: 'Alertas',      Icon: AlertsIcon,  disabled: false },
-  { id: 'restaurants', label: 'Restaurantes', Icon: ForkIcon,    disabled: true  },
+  { id: 'restaurants', label: 'Restaurantes', Icon: ForkIcon,    disabled: false },
   { id: 'more',        label: 'Más',          Icon: TicketIcon,  disabled: false },
 ];
 

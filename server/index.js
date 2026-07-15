@@ -4,6 +4,7 @@ const cors = require('cors');
 const fs = require('fs');
 
 const healthRouter = require('./routes/health');
+const plannerRouter = require('./routes/planner');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -40,6 +41,7 @@ app.use('/data', express.static(path.join(__dirname, '..', 'data')));
 // ---------------------------------------------------------------------------
 
 app.use('/api/health', healthRouter);
+app.use('/api/planner', plannerRouter);
 
 // Placeholder for future API routes (Ola 2+).
 app.get('/api', (_req, res) => {

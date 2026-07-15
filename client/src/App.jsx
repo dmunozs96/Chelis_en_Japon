@@ -5,13 +5,14 @@ import Header        from './components/Header.jsx';
 import BottomNav     from './components/BottomNav.jsx';
 import TodayView     from './components/TodayView.jsx';
 import DayNav        from './components/DayNav.jsx';
-import ComingSoon    from './components/ComingSoon.jsx';
 import AlertsView    from './components/AlertsView.jsx';
 import MoreView      from './components/MoreView.jsx';
 import TicketsView   from './components/TicketsView.jsx';
 import MapView       from './components/MapView.jsx';
 import POIDetailView from './components/POIDetailView.jsx';
 import SplashScreen  from './components/SplashScreen.jsx';
+import RestaurantsView from './components/RestaurantsView.jsx';
+import PlannerView   from './components/PlannerView.jsx';
 
 /* ---------------------------------------------------------------
    App — shell principal
@@ -53,6 +54,7 @@ export default function App() {
   const [mapRouteMode, setMapRouteMode] = useState(false);
   const [mapFocusLatLng, setMapFocusLatLng] = useState(null);
   const [poiId, setPoiId] = useState(null);
+  const [showPlanner, setShowPlanner] = useState(false);
   const [alertBadge, setAlertBadge] = useState(0);
 
   function openMap(day) {
@@ -141,6 +143,16 @@ export default function App() {
     );
   }
 
+  // If PlannerView is showing, render it over everything
+  if (showPlanner) {
+    return (
+      <>
+        <style>{LOADING_STYLES}</style>
+        <PlannerView onBack={() => setShowPlanner(false)} />
+      </>
+    );
+  }
+
   // If TicketsView is showing, render it over everything
   if (showTickets) {
     return (
@@ -170,7 +182,9 @@ export default function App() {
           {!loading && !error && activeTab === 'alerts'      && (
             <AlertsView onBadgeChange={setAlertBadge} />
           )}
-          {!loading && !error && activeTab === 'restaurants' && <ComingSoon label="Restaurantes" />}
+          {!loading && !error && activeTab === 'restaurants' && (
+            <RestaurantsView onOpenPlanner={() => setShowPlanner(true)} />
+          )}
           {!loading && !error && activeTab === 'more'        && (
             <MoreView onNavigate={(dest) => dest === 'tickets' && setShowTickets(true)} />
           )}

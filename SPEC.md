@@ -753,8 +753,8 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | 2 | Billetes + Alertas | F3 + F18 — vuelos, hoteles, trenes + alertas con 3 categorías | ✅ |
 | 3 | Mapa | F4 — Leaflet, geolocalización, POIs por día | ✅ |
 | 4a | Guía de Viaje Detallada | F6+F7 — pois_db.json (24 POIs), POIDetailView, ruta del día con polyline | ✅ |
-| 4b | Restaurantes | F5 — planificador (slots por día) + sugeridor con filtros offline | ⬜ **SIGUIENTE** |
-| 5 | Herramientas de viaje | F8, F9, F10, F11, F12, F13 — frases, conversor, emergencias, Suica, clima | ⬜ |
+| 4b | Restaurantes | F5 — planificador (slots por día) + sugeridor con filtros offline | ✅ |
+| 5 | Herramientas de viaje | F8, F9, F10, F11, F12, F13 — frases, conversor, emergencias, Suica, clima | ⬜ **SIGUIENTE** |
 | 6 | Personal + privado | F14, F15, F16 — documentos, presupuesto, notas (localStorage) | ⬜ |
 | 7 | Offline + PWA | F17 — service worker, instalable | ⬜ |
 | 8 | Trenes reales + pulido | Localizadores post jul 18-24, success criteria, lanzamiento | ⬜ |
@@ -786,6 +786,25 @@ Al no poder generarse un vídeo de entrada real, `SplashScreen.jsx` simula uno c
 - Los estados "durante el viaje" y "después del viaje" no llevan el slideshow con countdown (no aplica), pero sí ven el fondo de fotos.
 
 **Nota de alcance:** las imágenes viven en `client/public/JapanPics/` (git, ~10MB en 5 PNG) y se sirven como estáticos — no están optimizadas (comprimidas/redimensionadas) todavía; queda como mejora futura si el peso afecta a la carga en móvil con mala conexión.
+
+### Detalle Ola 4b — Restaurantes ✅ COMPLETADA (2026-07-15)
+
+**Entregables:**
+1. ✅ `data/restaurants_db.json` — movido desde la raíz del repo a `data/` para servirse igual que `trip.json`/`pois_db.json` (mismo patrón de estático Express + `/data` en dev/prod). 32 restaurantes sin cambios de contenido.
+2. ✅ `client/src/hooks/useRestaurantsData.js` — carga `restaurants_db.json`, mapea nombres de ciudad ES↔EN (`trip.json` usa "Tokio/Kioto", el dataset usa "Tokyo/Kyoto"), `getRestaurantById`, `getRestaurantsByCity`, `distanceKm` (haversine).
+3. ✅ `client/src/components/RestaurantsView.jsx` — sugeridor offline (F8b): chips de filtro por ciudad, tier de precio (¥–¥¥¥¥), "sin reserva" y ocasión (`good_for`, generados dinámicamente desde los datos, no hardcodeados); ordena por distancia si el navegador cede geolocalización, si no por nombre; tarjetas expandibles con `why_special`, horario, precio, política de reserva y días de cierre.
+4. ✅ `client/src/components/PlannerView.jsx` — planificador pre-viaje (F8a): overlay a pantalla completa con los 13 días × 2 slots (mediodía/noche); cada slot puede quedar vacío, asignado o reservado (con nº de confirmación); selector de restaurante filtrado por la ciudad del día; detección de conflictos en tiempo real (cierre semanal vs. día de la semana real, `meal_types`, `must_book_in_advance`).
+5. ✅ `client/src/hooks/usePlannerData.js` — persistencia compartida vía `/api/planner` (Postgres); si `DATABASE_URL` no está configurada, cae automáticamente a `localStorage` y avisa en la UI que el cambio no es compartido — el planificador nunca se bloquea por falta de base de datos.
+6. ✅ `server/routes/planner.js` + `server/index.js` — `GET/PUT/DELETE /api/planner[/:day/:slot]`, crea la tabla `planner_slots` en Postgres de forma perezosa (`CREATE TABLE IF NOT EXISTS`) la primera vez que hay pool disponible.
+7. ✅ `BottomNav.jsx` — tab "Restaurantes" activada (`disabled: false`).
+8. ✅ `App.jsx` — nuevo tab `restaurants` renderiza `RestaurantsView`; nuevo overlay `showPlanner` (mismo patrón de prioridad que `TicketsView`/`MapView`) para `PlannerView`.
+
+**Decisiones técnicas:**
+- **Ciudades sin restaurantes curados (Madrid, Hakone):** el planificador permite "Elegir restaurante" igualmente pero muestra el aviso de que no hay datos curados para esa ciudad — no bloquea, invita a improvisar sobre el terreno.
+- **`_research_notes` de `restaurants_db.json` no se consume todavía:** los avisos de Obon/temporada que vive ahí (no por restaurante) quedan fuera del detector de conflictos automatizado; el detector solo usa campos por-restaurante (`closed_days`, `must_book_in_advance`, `meal_types`). Backlog abierto si se necesita más adelante.
+- **Fallback a localStorage sin bloquear:** como el entorno de desarrollo no tiene `DATABASE_URL` configurada, el planificador es 100% funcional en local aunque no comparta datos entre los dos viajeros hasta que se despliegue con Postgres — coherente con la regla de "funciona offline" de `CONSTITUTION.md`.
+
+**Verificación:** Build de producción (`npm run build`) sin errores. Probado en navegador real (Playwright, viewport móvil 390×844) — ver notas de sesión.
 
 ---
 
