@@ -948,6 +948,16 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 
 **Verificación:** `npm run check` completo en verde (datos, tests y build PWA).
 
+### Top 50 gastronómico — Lote 1A (33/50) ✅ (2026-07-15)
+
+- Dos fichas profundas nuevas, elegidas por cobertura y no por volumen: Tamura Ginkatsutei en Hakone y Omen Shijo Pontocho en Kioto.
+- Ambas tienen identidad y sucursal inequívocas, coordenadas contrastadas, horarios, reserva, precios, nombre japonés, doble fuente y «qué pedir» trazable.
+- El directorio muestra ahora los platos recomendados y la justificación editorial dentro de cada ficha.
+- Reparada una regresión grave de Tsuta: la base publicada aún conservaba Sugamo, estrella vigente, reserva web, teléfono y cierres antiguos pese al resultado documentado de la auditoría. Corregido contra la web oficial y Tabelog.
+- Nuevas invariantes impiden que Tsuta vuelva a Sugamo, recupere una estrella histórica o una operativa obsoleta.
+
+**Estado:** 33 fichas totales; faltan 17 para completar el Top 50 profundo.
+
 ## 9. Advertencias activas
 
 - ⚠️ **Ventanas de reserva de trenes (18-24 jul):** Tokio→Hakone (Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Los 4 shinkansen abren del 19 al 24 de julio — reservar en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com).

@@ -65,6 +65,8 @@ Pendiente V2: campo `entity_type` (`restaurant` / `food_area` / `market` / `food
 
 ## 6. Deuda de esta auditoría (pendiente, consciente)
 
+> Corrección posterior (15 jul 2026): se detectó que la ficha de Tsuta en `main` no contenía realmente las correcciones descritas por esta auditoría. Se repararon ubicación, coordenadas, estrella, horario, cierre, reserva, teléfono, texto y fuentes, y se añadieron invariantes específicas al validador para evitar la regresión.
+
 1. **Coordenadas aproximadas:** los locales mudados o con sucursal re-fijada (Janomeya, Onikai, Kappa, Kaneyo, Sushi Taizō, Wanaka, Daruma, Bonkuraya, CREO-RU) llevan coordenadas de zona (±100-300 m), no geocodificación contrastada. Se corregirán en el paso de geocodificación del pipeline V2 antes de usarse para rutas.
 2. **Esquema de verificación:** los campos del contrato V2 (`verification_status`, `last_verified_at`, `verified_fields`, `source_count`, `closure_risk`, `entity_type`, `name_ja`) se añadirán con el esquema definitivo del lote 1; de momento la fecha de verificación consta en texto en cada ficha.
 3. **Planificador:** si algún slot del planificador (Postgres/localStorage) tenía asignado `kyoto_14_honke_owariya`, quedará huérfano; comprobar en el próximo despliegue.

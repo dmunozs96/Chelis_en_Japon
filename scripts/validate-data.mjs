@@ -89,6 +89,10 @@ export function validateProject() {
     for (const field of restaurant.verified_fields ?? []) check(verifiableFields.has(field), `Restaurante ${restaurant.id}: verified_field desconocido "${field}"`);
     check(closureRisks.has(restaurant.closure_risk), `Restaurante ${restaurant.id}: closure_risk invalido`);
     check(restaurant.source_count === restaurant.sources?.length, `Restaurante ${restaurant.id}: source_count no coincide con sources`);
+    for (const order of restaurant.what_to_order ?? []) {
+      check(Boolean(order.dish && order.why), `Restaurante ${restaurant.id}: recomendacion de plato incompleta`);
+      check(isHttpUrl(order.source_url), `Restaurante ${restaurant.id}: plato sin fuente valida`);
+    }
     for (const source of restaurant.sources ?? []) {
       check(['official', 'reference'].includes(source?.source_type), `Restaurante ${restaurant.id}: source_type invalido`);
       check(isDate(source?.accessed_at), `Restaurante ${restaurant.id}: fuente sin accessed_at valido`);
@@ -96,6 +100,10 @@ export function validateProject() {
       check(isHttpUrl(source?.url), `Restaurante ${restaurant.id}: fuente inválida`);
     }
   }
+  const tsuta = restaurants.find((restaurant) => restaurant.id === 'tokyo_09_tsuta_ramen');
+  check(tsuta?.neighborhood?.includes('Yoyogi-Uehara'), 'Tsuta: ha regresado la ubicacion antigua de Sugamo');
+  check(tsuta?.michelin_stars === 0, 'Tsuta: estrella Michelin historica marcada como vigente');
+  check(tsuta?.reservation_how === 'walk_in_only' && tsuta?.closed_days?.includes('Tuesday'), 'Tsuta: operativa desactualizada');
 
   unique(alerts.map((alert) => alert.id), 'Alertas');
   const dayDates = new Set(days.map((day) => day.date));

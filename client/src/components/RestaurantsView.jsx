@@ -151,6 +151,11 @@ const STYLES = `
   font-weight: 500;
   margin-bottom: 10px;
 }
+.rest-card__order { margin-top: 14px; }
+.rest-card__order-title { color: var(--label-primary); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .45px; }
+.rest-card__dish { margin-top: 8px; padding: 10px; border-radius: 10px; background: var(--bg-secondary); }
+.rest-card__dish strong { display: block; color: var(--label-primary); font-size: 14px; }
+.rest-card__dish span { display: block; margin-top: 3px; color: var(--label-secondary); font-size: 12px; line-height: 1.4; }
 
 .rest-info-grid {
   display: grid;
@@ -356,6 +361,7 @@ export default function RestaurantsView({ onOpenPlanner }) {
                 {isOpen && (
                   <div className="rest-card__body">
                     {r.why_special && <div className="rest-card__why">{r.why_special}</div>}
+                    {r.what_to_order?.length > 0 && <div className="rest-card__order"><div className="rest-card__order-title">Qué pedir</div>{r.what_to_order.map((item) => <div className="rest-card__dish" key={item.dish}><strong>{item.dish}</strong><span>{item.why}</span></div>)}</div>}
                     <div className="rest-info-grid">
                       <div>
                         <div className="rest-info-item__label">Precio</div>
