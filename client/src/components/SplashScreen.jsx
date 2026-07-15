@@ -9,12 +9,6 @@ import React, { useState, useEffect } from 'react';
    Auto-dismiss a los 5 segundos o tap para saltar.
    --------------------------------------------------------------- */
 
-const TRIP_START  = '2026-08-13';
-const TRIP_DAYS   = 13;
-
-// Fecha y hora exactas de despegue del vuelo IB0281 (hora local de Madrid)
-const DEPARTURE_DATETIME = new Date(2026, 7, 13, 12, 30, 0);
-
 // Pseudo-vídeo de entrada: slideshow de las fotos en client/public/JapanPics
 // (JPG comprimidos — los PNG originales pesaban ~2 MB cada uno)
 const SLIDES = [
@@ -397,26 +391,32 @@ function daysUntil(targetDateStr) {
   return Math.ceil((target - today) / (1000 * 60 * 60 * 24));
 }
 
-function tripDayNumber() {
+function tripDayNumber(startDateStr, tripDays) {
   // Returns 1-based day of trip if currently on trip, else null
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const [y, m, d] = TRIP_START.split('-').map(Number);
+  const [y, m, d] = startDateStr.split('-').map(Number);
   const start = new Date(y, m - 1, d);
   const diff = Math.ceil((today - start) / (1000 * 60 * 60 * 24));
-  if (diff >= 0 && diff < TRIP_DAYS) return diff + 1;
+  if (diff >= 0 && diff < tripDays) return diff + 1;
   return null;
 }
 
-export default function SplashScreen({ onDismiss }) {
+export default function SplashScreen({ trip, onDismiss }) {
   const [exiting, setExiting] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
   const [now, setNow] = useState(() => new Date());
-  const days    = daysUntil(TRIP_START);
-  const tripDay = tripDayNumber();
+  const tripStart = trip?.start_date;
+  const tripEnd = trip?.end_date;
+  const departureDatetime = trip?.departure_datetime ? new Date(trip.departure_datetime) : null;
+  const tripDays = tripStart && tripEnd
+    ? Math.round((new Date(`${tripEnd}T00:00:00`) - new Date(`${tripStart}T00:00:00`)) / 86400000) + 1
+    : 0;
+  const days = tripStart ? daysUntil(tripStart) : null;
+  const tripDay = tripStart ? tripDayNumber(tripStart, tripDays) : null;
   // El último día del viaje es TRIP_START + (TRIP_DAYS - 1); al día siguiente
   // days vale exactamente -TRIP_DAYS, por eso <= y no <.
-  const afterTrip = days <= -TRIP_DAYS;
+  const afterTrip = days !== null && days <= -tripDays;
 
   const dismiss = () => {
     if (exiting) return;
@@ -444,7 +444,7 @@ export default function SplashScreen({ onDismiss }) {
     return () => clearInterval(t);
   }, []);
 
-  const diffMs = Math.max(0, DEPARTURE_DATETIME - now);
+  const diffMs = departureDatetime ? Math.max(0, departureDatetime - now) : 0;
   const countdown = {
     days:    Math.floor(diffMs / 86400000),
     hours:   Math.floor((diffMs % 86400000) / 3600000),
@@ -453,6 +453,18 @@ export default function SplashScreen({ onDismiss }) {
   };
 
   const renderContent = () => {
+    if (!tripStart || !departureDatetime) {
+      return (
+        <div className="splash__content">
+          <div className="splash__special">
+            <div className="splash__special-emoji">🗾</div>
+            <div className="splash__special-title">Preparando el viaje…</div>
+            <div className="splash__brand" style={{ marginTop: 24 }}>Chelis en Japón</div>
+          </div>
+        </div>
+      );
+    }
+
     // Durante el viaje
     if (tripDay !== null) {
       return (
@@ -512,7 +524,12 @@ export default function SplashScreen({ onDismiss }) {
 
         <div className="splash__line" aria-hidden="true" />
 
-        <div className="splash__date">13 AGO · 25 AGO · 13 días</div>
+        <div className="splash__date">
+          {new Date(`${tripStart}T00:00:00`).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' })}
+          {' · '}
+          {new Date(`${tripEnd}T00:00:00`).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' })}
+          {` · ${tripDays} días`}
+        </div>
 
         <div className="splash__brand">Chelis en Japón</div>
       </div>

@@ -77,6 +77,12 @@ const STYLES = `
   padding: 10px 14px;
 }
 
+.planner-notice--error {
+  color: #fff;
+  background: rgba(232, 0, 45, 0.22);
+  border: 1px solid rgba(232, 0, 45, 0.5);
+}
+
 .planner-day-card {
   background: var(--bg-surface);
   border-radius: var(--radius-card);
@@ -242,6 +248,16 @@ export default function PlannerView({ onBack }) {
   const [picking, setPicking] = useState(null); // { dayDate, mealSlot, city }
   const [reservingKey, setReservingKey] = useState(null);
   const [confirmationInput, setConfirmationInput] = useState('');
+  const [saveError, setSaveError] = useState('');
+
+  async function runSave(action) {
+    setSaveError('');
+    const saved = await action();
+    if (!saved) {
+      setSaveError('No se pudo sincronizar el cambio. Se ha restaurado el estado anterior; comprueba la conexión e inténtalo de nuevo.');
+    }
+    return saved;
+  }
 
   const loading = loadingDays || loadingRest || loadingPlanner;
 
@@ -279,8 +295,8 @@ export default function PlannerView({ onBack }) {
                 key={r.id}
                 className="planner-picker-item"
                 onClick={async () => {
-                  await saveSlot(picking.dayDate, picking.mealSlot, { restaurant_id: r.id, status: 'assigned', confirmation_number: null });
-                  setPicking(null);
+                  const saved = await runSave(() => saveSlot(picking.dayDate, picking.mealSlot, { restaurant_id: r.id, status: 'assigned', confirmation_number: null }));
+                  if (saved) setPicking(null);
                 }}
               >
                 <div className="planner-picker-item__name">{r.name} {r.michelin_stars > 0 && '⭐'.repeat(r.michelin_stars)}</div>
@@ -303,9 +319,10 @@ export default function PlannerView({ onBack }) {
         </nav>
 
         <div className="planner-body">
+          {saveError && <div className="planner-notice planner-notice--error" role="alert">{saveError}</div>}
           {!persisted && (
             <div className="planner-notice">
-              Guardado solo en este dispositivo (sin conexión a la base de datos compartida). Chelis no verá estos cambios hasta que se configure el servidor.
+              Guardado solo en este dispositivo porque no hay conexión con la base de datos compartida. Los cambios no se verán en el otro móvil hasta recuperar la conexión y guardarlos de nuevo.
             </div>
           )}
 
@@ -354,9 +371,11 @@ export default function PlannerView({ onBack }) {
                             <button
                               className="planner-slot__btn planner-slot__btn--primary"
                               onClick={async () => {
-                                await saveSlot(day.date, mealSlot, { status: 'reserved', confirmation_number: confirmationInput || null });
-                                setReservingKey(null);
-                                setConfirmationInput('');
+                                const saved = await runSave(() => saveSlot(day.date, mealSlot, { status: 'reserved', confirmation_number: confirmationInput || null }));
+                                if (saved) {
+                                  setReservingKey(null);
+                                  setConfirmationInput('');
+                                }
                               }}
                             >
                               Confirmar reserva
@@ -381,7 +400,7 @@ export default function PlannerView({ onBack }) {
                             </button>
                           )}
                           {restaurant && (
-                            <button className="planner-slot__btn" onClick={() => clearSlot(day.date, mealSlot)}>Quitar</button>
+                            <button className="planner-slot__btn" onClick={() => runSave(() => clearSlot(day.date, mealSlot))}>Quitar</button>
                           )}
                         </div>
                       )}

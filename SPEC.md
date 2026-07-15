@@ -192,7 +192,7 @@ El redeploy (git push) actualiza la guía automáticamente. Mismo flujo para act
 - Cada hotel: nombre, dirección, teléfono, CRS locator, check-in/check-out
 - Cada tren: origen, destino, hora (TBD hasta julio 18-24), localizador (TBD)
 - Accesible en 1-2 toques desde cualquier pantalla
-- Resiliente a cortes de red: los datos ya descargados se conservan en caché (memoria + localStorage). El offline completo con recarga (service worker) sigue pendiente — ver F17/Ola 7
+- Resiliente a cortes de red: los datos se conservan en memoria/localStorage y el service worker permite recargar el shell completo sin conexión
 
 ### F4 — Mapa con posición en vivo
 - Geolocalización real del dispositivo sobre mapa (Leaflet.js + OpenStreetMap)
@@ -612,7 +612,7 @@ Fondo --bg-secondary, lista de items sobre --bg-surface
 | Repositorio | GitHub | ✅ Confirmado |
 | Hosting | Railway | ✅ Confirmado |
 | Dominio | chelisenjapon-production.up.railway.app | ✅ Activo |
-| PWA instalable | Sí — service worker + manifest | ⬜ Pendiente (Ola 7 / F17) |
+| PWA instalable | Sí — service worker + manifest | ✅ Implementado (Calidad Q2 / F17) |
 | Dark premium | Implementado en Ola de Diseño | ✅ Activo |
 | Idioma | Solo español | ✅ Confirmado |
 | Detección "hoy" | Fecha local del dispositivo (nunca UTC) | ✅ Implementado |
@@ -744,34 +744,41 @@ trip.json[day].blocks → filtra los que tienen poi_id
 3. Lugares mencionados como alternativa o improvisación en días libres
 
 ### F8 — Frases en japonés (Ola 5)
-- Categorías: restaurante, transporte, hotel, compras, emergencia, cortesía
-- Cada frase: español → japonés → pronunciación fonética en español
-- Sin internet, sin audio (texto puro)
+- ✅ Categorías: restaurante, transporte, hotel, compras, emergencia, cortesía
+- ✅ 25 frases: español → japonés → pronunciación aproximada para hispanohablantes
+- ✅ Sin internet, sin audio; cada frase se puede ampliar para enseñarla
+- ✅ Fuentes institucionales: JNTO y Japan Foundation
 
 ### F9 — Conversor ¥ / € (Ola 5)
-- Tipo de cambio guardado offline al arrancar la app (o fijo al salir de España)
-- Calculadora bidireccional ¥ ↔ €
-- Sin llamada a API — funciona sin conexión
+- ✅ Tipo inicial del BCE fechado y visible (1 € = ¥185,01; 14 jul 2026)
+- ✅ Tipo editable guardado solo en el dispositivo para reflejar el cambio real de la tarjeta
+- ✅ Calculadora bidireccional ¥ ↔ €
+- ✅ Sin llamada a API; funciona completamente offline
 
 ### F10 — Emergencias (Ola 5)
-- Policía: 110 | Ambulancia: 119
-- Embajada de España en Tokio (dirección + teléfono)
-- Teléfono 24h del seguro de viaje (campo editable por Daniel)
-- Contacto de emergencia en España
-- Pantalla accesible en 1 toque desde cualquier sitio (botón fijo o tab "Más")
+- ✅ Policía 110 | Ambulancia/bomberos 119 con llamada directa
+- ✅ Japan Visitor Hotline 24/7 y Embajada de España en Tokio, verificados en fuentes oficiales
+- ✅ Teléfono 24h del seguro de viaje (campo privado editable en cada móvil)
+- ✅ Contacto de emergencia en España (campo privado editable en cada móvil)
+- ✅ Pantalla accesible desde el tab "Más" y disponible offline
 
 ### F11 — Guía IC card / Suica (Ola 5)
-- Qué es, cómo cargarla en Narita, dónde funciona
-- Cómo recargarla (máquinas, 7-Eleven)
-- Aparece destacada el día 14 (llegada)
+- ✅ Recomendación específica: Welcome Suica física en Narita Terminal 2·3
+- ✅ Compra, uso, recarga en máquinas/Seven Bank, límites y billetes que necesita aparte
+- ✅ Validez y política de saldo contrastadas con JR East
+- ✅ Aparece destacada en la Vista Hoy del día de llegada
 
 ### F12 — Último kilómetro al hotel (Ola 5)
-- Para cada hotel: cómo llegar desde la estación principal de esa ciudad
-- Distancia a pie, tiempo, si hay shuttle gratuito (Mizunoto tiene shuttle 14:00-17:00)
+- ✅ Para cada hotel: cómo llegar desde la estación principal de esa ciudad
+- ✅ Distancia a pie, salida correcta y particularidades con equipaje
+- ✅ Shuttle de Mizunoto mostrado como pendiente de reconfirmar (14:00-17:00 según la reserva)
+- ✅ Fuentes oficiales enlazadas y ubicación externa disponible cuando hay conexión
 
 ### F13 — Clima por etapa (Ola 5)
-- Resumen del tiempo esperado por ciudad en agosto (de la investigación ya hecha)
-- Banner de alerta si hay aviso de tifón activo durante el viaje (requiere conexión para la alerta, el resumen base es offline)
+- ✅ Normales climatológicas de agosto por etapa, separadas explícitamente de un pronóstico
+- ✅ Consejos operativos contra calor y humedad disponibles offline
+- ✅ Acceso directo a las alertas oficiales de JMA cuando hay conexión
+- ⬜ Detección automática de tifón: aplazada hasta disponer de una API oficial estable; nunca inferir alertas desde datos históricos
 
 ### F14 — Mis documentos (Ola 6)
 - Campos: nº de pasaporte, nº de póliza del seguro, teléfono 24h seguro, contacto emergencia España
@@ -799,9 +806,12 @@ trip.json[day].blocks → filtra los que tienen poi_id
 - Ejemplos pre-cargados: ventanas de reserva de trenes, check-in vuelo, Obon, calor Kioto, tips de madrugada para POIs con masificación
 
 ### F17 — Offline + PWA (Ola 7)
-- Service worker completo
-- Instalable desde pantalla de inicio
-- Todo F1-F16 funciona sin conexión (excepto: mapa en vivo, alerta tifón)
+- ✅ Service worker con actualización automática y limpieza de cachés antiguas
+- ✅ Instalable desde pantalla de inicio mediante `manifest.webmanifest`
+- ✅ Shell, imágenes y contenido estático precacheados (69 recursos / ~7,1 MB en v1.10)
+- ✅ JSON servidos mediante caché `StaleWhileRevalidate`, además del respaldo localStorage
+- ✅ Aviso visible de estado offline; el planificador requiere red para sincronizar entre móviles
+- El mapa base en vivo continúa dependiendo de conexión, por diseño
 
 ---
 
@@ -820,9 +830,10 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | 4c | Plan operativo detallado (piloto) | `blocks[].steps` — traslados, calles y tiempos por sitio (solo 15 ago) | ✅ |
 | 4d | Plan operativo detallado (completo) | `blocks[].steps` en los 13 días del itinerario + corrección Miyajima→Shukkei-en | ✅ |
 | 4e | Convención horaria española | Franjas mañana/tarde/noche reajustadas a las 14h/20h + comidas 13h/cenas 20h | ✅ |
-| 5 | Herramientas de viaje | F8, F9, F10, F11, F12, F13 — frases, conversor, emergencias, Suica, clima | ⬜ **SIGUIENTE** |
+| Q2 | Preparación operativa | F17 PWA/offline, fechas de splash desde datos, feedback del planificador y validación automática | ✅ |
+| 5 | Herramientas de viaje | F8-F13 completadas; detección automática de tifón aplazada, con acceso manual a JMA | ✅ |
 | 6 | Personal + privado | F14, F15, F16 — documentos, presupuesto, notas (localStorage) | ⬜ |
-| 7 | Offline + PWA | F17 — service worker, instalable | ⬜ |
+| 7 | Offline + PWA | F17 — adelantada y completada en Calidad Q2 | ✅ |
 | 8 | Trenes reales + pulido | Localizadores post jul 18-24, success criteria, lanzamiento | ⬜ |
 
 ### Detalle Ola 4a — Guía de Viaje Detallada ✅ COMPLETADA (2026-07-14)
@@ -952,14 +963,12 @@ Deudas verificadas y conscientemente aplazadas (cada entrada indica el coste de 
 
 | Deuda | Riesgo si no se paga | Prioridad |
 |---|---|---|
-| Sin service worker ni manifest (F17/Ola 7) | Recargar la app sin conexión = pantalla en blanco. Única regla no negociable de la Constitución sin cumplir, a 29 días del viaje | **Alta** |
-| `SplashScreen.jsx` hardcodea `TRIP_START`/`TRIP_DAYS`/`DEPARTURE_DATETIME` | Si cambia el vuelo hay que tocar código; `trip.json` ya expone estos campos desde v1.9 | Media |
 | `DualClock.jsx` con offsets fijos +9/+2 | Correcto para agosto 2026; rompería en otro viaje u otro mes (DST) | Baja |
 | Sección 2 del SPEC duplica el itinerario de `trip.json` | Ya divergió tras la Ola 4e (horas de comida); dos fuentes de verdad | Media |
 | Doble numeración F1-F18 entre secciones 4 y 7 | F6/F7/F8 significan cosas distintas según la sección; imposible auditar por número | Media |
-| `days[].pois` (inline) duplica datos de `pois_db.json` | Dos fuentes de coordenadas/nombres; hoy consistentes, sin validación automática | Baja |
+| `days[].pois` (inline) duplica datos de `pois_db.json` | Dos fuentes de coordenadas/nombres; su consistencia está cubierta por `npm run validate:data`, pero persiste la duplicidad | Baja |
 | `CITY_CENTERS` hardcodeado en `MapView.jsx` | Dato del viaje en código; solo afecta al centro por defecto del mapa | Baja |
 
 ---
 
-*Última actualización: 2026-07-15 — Ola de Calidad Q1: sistema de imágenes de POIs reparado de raíz (imágenes reales locales + fallback verificado), 12 bugs corregidos tras auditoría integral, alertas de trenes con fechas límite operativas correctas, y 13 MB menos de peso. Siguiente: decidir si adelantar F17 (offline/PWA, única regla no negociable sin cumplir) antes de Ola 5 — Herramientas de viaje (F8-F13).*
+*Última actualización: 2026-07-15 — Ola 5 completada: Frases, Conversor, Emergencias, Suica, Último kilómetro y Clima offline. La alerta automática de tifón queda aplazada por depender de una API oficial estable.*

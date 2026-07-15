@@ -103,6 +103,19 @@ const STYLES = `
   overflow: hidden;
 }
 
+.more-tool-card--active {
+  opacity: 1;
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  font-family: var(--font);
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.more-tool-card--active:active { transform: scale(0.98); }
+
+.more-tool-arrow { position: absolute; right: 14px; bottom: 12px; color: var(--accent); font-size: 20px; }
+
 .more-tool-icon {
   font-size: 28px;
   line-height: 1;
@@ -130,11 +143,13 @@ const STYLES = `
 `;
 
 const TOOLS = [
-  { icon: '🇯🇵', label: 'Frases japonesas' },
-  { icon: '¥', label: 'Conversor ¥/€' },
+  { icon: '🇯🇵', label: 'Frases japonesas', destination: 'phrases' },
+  { icon: '¥', label: 'Conversor ¥/€', destination: 'currency' },
   { icon: '📄', label: 'Mis documentos' },
-  { icon: '🚨', label: 'Emergencias' },
-  { icon: '🚇', label: 'Guía Suica' },
+  { icon: '🚨', label: 'Emergencias', destination: 'emergency' },
+  { icon: '🚇', label: 'Guía Suica', destination: 'ic-card' },
+  { icon: '🧳', label: 'Llegar al hotel', destination: 'last-mile' },
+  { icon: '🌡️', label: 'Clima por etapa', destination: 'climate' },
   { icon: '💰', label: 'Presupuesto' },
   { icon: '📝', label: 'Notas del viaje' },
 ];
@@ -162,17 +177,17 @@ export default function MoreView({ onNavigate }) {
         <div className="more-grid-header">Herramientas</div>
         <div className="more-grid">
           {TOOLS.map((tool) => (
-            <div
+            <button
               key={tool.label}
-              className="more-tool-card"
-              aria-disabled="true"
-              role="button"
-              aria-label={`${tool.label} — próximamente`}
+              className={`more-tool-card${tool.destination ? ' more-tool-card--active' : ''}`}
+              disabled={!tool.destination}
+              aria-label={tool.destination ? tool.label : `${tool.label} — próximamente`}
+              onClick={() => tool.destination && onNavigate?.(tool.destination)}
             >
               <div className="more-tool-icon" aria-hidden="true">{tool.icon}</div>
               <div className="more-tool-label">{tool.label}</div>
-              <div className="more-tool-coming">Próximamente</div>
-            </div>
+              {tool.destination ? <div className="more-tool-arrow">›</div> : <div className="more-tool-coming">Próximamente</div>}
+            </button>
           ))}
         </div>
       </div>

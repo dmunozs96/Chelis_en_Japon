@@ -1,8 +1,45 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.svg', 'JapanPics/*.jpg', 'pois/*.jpg', 'pois/*.json'],
+      manifest: {
+        name: 'Chelis en Japón',
+        short_name: 'Chelis Japón',
+        description: 'Guía interactiva del viaje a Japón — agosto 2026',
+        lang: 'es',
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#060610',
+        theme_color: '#060610',
+        icons: [
+          { src: '/favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+          { src: '/favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'maskable' },
+        ],
+      },
+      workbox: {
+        cleanupOutdatedCaches: true,
+        globPatterns: ['**/*.{js,css,html,svg,jpg,json}'],
+        maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/data/'),
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'trip-data',
+              expiration: { maxEntries: 10, maxAgeSeconds: 30 * 24 * 60 * 60 },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
+        ],
+      },
+    }),
+  ],
   assetsInclude: ['**/*.png'],
   server: {
     port: 5173,

@@ -16,6 +16,26 @@ const STYLES = `
   gap: var(--gap-card);
 }
 
+.arrival-tool-card {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border: 1px solid rgba(232, 0, 45, .45);
+  border-radius: var(--radius-card);
+  background: var(--accent-soft);
+  color: var(--label-primary);
+  font-family: var(--font);
+  text-align: left;
+  cursor: pointer;
+}
+.arrival-tool-card__icon { font-size: 28px; }
+.arrival-tool-card__body { flex: 1; }
+.arrival-tool-card__title { font-size: 15px; font-weight: 700; }
+.arrival-tool-card__text { margin-top: 3px; color: var(--label-secondary); font-size: 13px; line-height: 1.35; }
+.arrival-tool-card__arrow { color: var(--accent); font-size: 22px; }
+
 /* ---- Cuenta atrás ---- */
 .countdown-hero {
   display: flex;
@@ -524,7 +544,7 @@ function StepsList({ steps, onOpenPoi }) {
 }
 
 /* --- DayCard: exportado para uso en DayNav --- */
-export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute }) {
+export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide }) {
   const isFree = day.type === 'free';
   const dayNum = days.length > 0 ? getDayNumber(days, day) : null;
   const hasRoutePois = (day.blocks ?? []).some(b => b.poi_id);
@@ -563,6 +583,17 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute }) {
 
         {/* Hotel */}
         {day.hotel && <HotelCard hotel={day.hotel} />}
+
+        {day.type === 'arrival' && onOpenIcGuide && (
+          <button className="arrival-tool-card" onClick={onOpenIcGuide}>
+            <span className="arrival-tool-card__icon" aria-hidden="true">🚇</span>
+            <span className="arrival-tool-card__body">
+              <span className="arrival-tool-card__title">Compra la Welcome Suica al llegar</span>
+              <span className="arrival-tool-card__text">Narita Terminal 2·3 · guía de compra, uso y recarga</span>
+            </span>
+            <span className="arrival-tool-card__arrow" aria-hidden="true">›</span>
+          </button>
+        )}
 
         {/* Bloques del día */}
         {day.blocks && day.blocks.length > 0 && (
@@ -625,7 +656,7 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute }) {
 }
 
 /* --- Vista principal de "Hoy" --- */
-export default function TodayView({ days, onOpenMap, onOpenPoi, onOpenRoute }) {
+export default function TodayView({ days, onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide }) {
   const today = todayISO();
 
   const currentDay = useMemo(
@@ -678,5 +709,5 @@ export default function TodayView({ days, onOpenMap, onOpenPoi, onOpenRoute }) {
     );
   }
 
-  return <DayCard day={currentDay} days={days} onOpenMap={onOpenMap} onOpenPoi={onOpenPoi} onOpenRoute={onOpenRoute} />;
+  return <DayCard day={currentDay} days={days} onOpenMap={onOpenMap} onOpenPoi={onOpenPoi} onOpenRoute={onOpenRoute} onOpenIcGuide={onOpenIcGuide} />;
 }

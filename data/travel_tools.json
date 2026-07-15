@@ -1,0 +1,190 @@
+{
+  "emergency": {
+    "police": { "label": "Policía", "number": "110", "note": "Delitos, robos, agresiones o accidentes de tráfico" },
+    "ambulance": { "label": "Ambulancia y bomberos", "number": "119", "note": "Enfermedad o lesión grave, incendio o accidente" },
+    "visitor_hotline": { "label": "Japan Visitor Hotline", "number": "050-3816-2787", "note": "Asistencia 24/7 en inglés, chino y coreano para enfermedad, desastre e información turística" },
+    "embassy": {
+      "label": "Embajada de España en Tokio",
+      "address": "1-3-29 Roppongi, Minato-ku, Tokio 106-0032",
+      "switchboard": "+81-3-3583-8531",
+      "consular_emergency": "+81-80-4368-2817",
+      "note": "Emergencia consular 24/7 solo para situaciones graves de ciudadanos españoles en Japón"
+    },
+    "sources": [
+      { "name": "JNTO — Emergency contact information", "url": "https://www.jnto.go.jp/emergency/eng/mi_guide.html" },
+      { "name": "Embajada de España en Japón — contacto", "url": "https://www.exteriores.gob.es/Embajadas/tokio/es/Paginas/index.aspx" }
+    ]
+  },
+  "currency": {
+    "base": "EUR",
+    "quote": "JPY",
+    "default_rate": 185.01,
+    "rate_date": "2026-07-14",
+    "note": "Tipo de referencia inicial del BCE. Es orientativo: el banco o la tarjeta aplicarán su propio cambio y posibles comisiones.",
+    "source": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"
+  },
+  "climate": {
+    "period": "Normales climatológicas 1991–2020 para agosto",
+    "forecast_notice": "Estos datos describen el clima habitual, no el tiempo que hará. Consulta JMA con conexión antes de cada etapa.",
+    "cities": [
+      { "city": "Tokio", "mean_c": 26.9, "max_c": 31.3, "min_c": 23.5, "humidity_pct": 74, "rain_mm": 154.7, "note": "Calor húmedo incluso por la noche; prioriza interiores y descansos al mediodía." },
+      { "city": "Hakone", "mean_c": null, "max_c": null, "min_c": null, "humidity_pct": null, "rain_mm": null, "note": "Zona montañosa: normalmente más fresca que Tokio, pero con cambios rápidos, niebla y lluvia. Lleva una capa ligera impermeable." },
+      { "city": "Kioto", "mean_c": 28.5, "max_c": 33.7, "min_c": 24.7, "humidity_pct": 66, "rain_mm": null, "note": "La etapa más exigente por calor interior y poca brisa. Empieza templos muy temprano y reduce actividad entre 12:00 y 16:00." },
+      { "city": "Hiroshima", "mean_c": 28.5, "max_c": 32.8, "min_c": 25.1, "humidity_pct": 69, "rain_mm": 131.4, "note": "Calor intenso y noches cálidas; lleva agua durante el recorrido del Parque de la Paz." },
+      { "city": "Osaka", "mean_c": 29.0, "max_c": 33.7, "min_c": 25.8, "humidity_pct": 66, "rain_mm": 113.0, "note": "Muy calurosa, especialmente en zonas asfaltadas. Alterna paseos con centros comerciales o metro climatizado." }
+    ],
+    "essentials": [
+      "Agua frecuente y sales/electrolitos; no esperes a tener sed.",
+      "Sombrero, protector solar y abanico o ventilador portátil.",
+      "Paradas climatizadas en las horas centrales; adapta el plan si aparece mareo, dolor de cabeza o náuseas.",
+      "Paraguas compacto: sirve tanto para lluvia intensa como para sombra.",
+      "Revisa alertas oficiales de calor, lluvia y tifón antes de salir."
+    ],
+    "sources": [
+      { "name": "JMA — normales climatológicas 1991–2020", "url": "https://www.data.jma.go.jp/stats/en/normal/normal.html" },
+      { "name": "JNTO — Japón en agosto", "url": "https://www.japan.travel/en/guide/august/" },
+      { "name": "JMA — información meteorológica actual", "url": "https://www.jma.go.jp/bosai/#lang=en" }
+    ]
+  },
+  "ic_card": {
+    "recommendation": "Comprar una Welcome Suica física al llegar a Narita Terminal 2·3",
+    "why": "Es una opción oficial para visitantes, cubre de sobra los 13 días del viaje y funciona en las principales redes compatibles de Tokio, Kioto, Hiroshima y Osaka.",
+    "purchase": [
+      "En Narita Airport Terminal 2·3 Station, busca una Welcome Suica Ticket Vending Machine o el JR EAST Travel Service Center.",
+      "Se vende una tarjeta por persona. No tiene depósito.",
+      "Elige un saldo inicial prudente, por ejemplo ¥2.000–¥3.000; el saldo restante no se devuelve."
+    ],
+    "use": [
+      "Toca el lector al entrar y al salir del tren o metro; en autobuses, sigue la indicación de tocar al subir y/o bajar.",
+      "También sirve en muchas tiendas, máquinas expendedoras y taquillas con el logotipo IC compatible.",
+      "No sustituye el billete de N’EX, shinkansen, limited express o asiento reservado: compra esos billetes aparte."
+    ],
+    "recharge": [
+      "Recarga en máquinas de billetes o ajuste de tarifa con el logotipo Suica.",
+      "También se puede recargar en cajeros Seven Bank, incluidos muchos 7-Eleven.",
+      "La Welcome Suica física se recarga solo con yenes; no admite tarjeta de crédito. Límite de saldo: ¥20.000."
+    ],
+    "warnings": [
+      "Validez: 28 días incluyendo el día de compra; empieza inmediatamente.",
+      "Guarda el reference paper y llévalo durante el viaje.",
+      "No hay reembolso del saldo ni reemisión si se pierde: no cargues más de lo necesario.",
+      "Las áreas IC son interoperables, pero no se puede hacer un único viaje continuo atravesando áreas incompatibles. Si dudas, pregunta al personal."
+    ],
+    "sources": [
+      { "name": "JR East — Welcome Suica: compra y recarga", "url": "https://www.jreast.co.jp/en/multi/welcomesuica/purchase.html" },
+      { "name": "JR East — dónde se puede utilizar", "url": "https://www.jreast.co.jp/en/multi/welcomesuica/welcomesuica.html" },
+      { "name": "JNTO — IC Travel Cards", "url": "https://www.japan.travel/en/plan/ic-card/" }
+    ]
+  },
+  "phrases": {
+    "categories": [
+      { "id": "courtesy", "label": "Cortesía", "icon": "🙏" },
+      { "id": "restaurant", "label": "Restaurante", "icon": "🍜" },
+      { "id": "transport", "label": "Transporte", "icon": "🚆" },
+      { "id": "hotel", "label": "Hotel", "icon": "🏨" },
+      { "id": "shopping", "label": "Compras", "icon": "🛍️" },
+      { "id": "emergency", "label": "Emergencia", "icon": "🆘" }
+    ],
+    "items": [
+      { "category": "courtesy", "es": "Disculpe / perdón", "ja": "すみません", "reading": "Sumimasén" },
+      { "category": "courtesy", "es": "Muchas gracias", "ja": "ありがとうございます", "reading": "Arigató gozaimás" },
+      { "category": "courtesy", "es": "No entiendo", "ja": "わかりません", "reading": "Wakarimasén" },
+      { "category": "courtesy", "es": "Buenos días", "ja": "おはようございます", "reading": "Ohayó gozaimás" },
+      { "category": "courtesy", "es": "Hola / buenas tardes", "ja": "こんにちは", "reading": "Konnichiwá" },
+      { "category": "restaurant", "es": "Somos dos personas", "ja": "二人です", "reading": "Futari dés" },
+      { "category": "restaurant", "es": "¿Qué recomienda?", "ja": "おすすめは何ですか？", "reading": "Osusume wa nan dés ka" },
+      { "category": "restaurant", "es": "Esto, por favor", "ja": "これをください", "reading": "Kore o kudasái" },
+      { "category": "restaurant", "es": "La cuenta, por favor", "ja": "お会計をお願いします", "reading": "Okaikei o onegái shimás" },
+      { "category": "restaurant", "es": "Está delicioso", "ja": "おいしいです", "reading": "Oishí dés" },
+      { "category": "transport", "es": "¿Dónde está ___?", "ja": "___はどこですか？", "reading": "___ wa doko dés ka" },
+      { "category": "transport", "es": "¿Este tren va a ___?", "ja": "この電車は___に行きますか？", "reading": "Kono densha wa ___ ni ikimás ka" },
+      { "category": "transport", "es": "Hasta esta dirección, por favor", "ja": "この住所までお願いします", "reading": "Kono juusho made onegái shimás" },
+      { "category": "transport", "es": "Quiero recargar la Suica", "ja": "Suicaをチャージしたいです", "reading": "Suica o chaayi shitái dés" },
+      { "category": "hotel", "es": "Tengo una reserva", "ja": "予約しています", "reading": "Yoyaku shité imás" },
+      { "category": "hotel", "es": "Quiero hacer el check-in", "ja": "チェックインをお願いします", "reading": "Chekku-in o onegái shimás" },
+      { "category": "hotel", "es": "¿Pueden guardar el equipaje?", "ja": "荷物を預かってもらえますか？", "reading": "Nimotsu o azukatte moraemás ka" },
+      { "category": "hotel", "es": "¿Dónde está el baño?", "ja": "トイレはどこですか？", "reading": "Toire wa doko dés ka" },
+      { "category": "shopping", "es": "¿Cuánto cuesta?", "ja": "いくらですか？", "reading": "Ikura dés ka" },
+      { "category": "shopping", "es": "¿Puedo pagar con tarjeta?", "ja": "カードで払えますか？", "reading": "Kaado de haraemás ka" },
+      { "category": "shopping", "es": "¿Se puede comprar libre de impuestos?", "ja": "免税できますか？", "reading": "Menzei dekimás ka" },
+      { "category": "emergency", "es": "¡Ayúdeme, por favor!", "ja": "助けてください！", "reading": "Tasukete kudasái" },
+      { "category": "emergency", "es": "Llame a una ambulancia", "ja": "救急車を呼んでください", "reading": "Kyuukyuusha o yonde kudasái" },
+      { "category": "emergency", "es": "Llame a la policía", "ja": "警察を呼んでください", "reading": "Keisatsu o yonde kudasái" },
+      { "category": "emergency", "es": "¿Dónde está el hospital?", "ja": "病院はどこですか？", "reading": "Byooin wa doko dés ka" }
+    ],
+    "sources": [
+      { "name": "JNTO — Japanese Language", "url": "https://www.japan.travel/en/plan/japanese-language/" },
+      { "name": "JNTO — Language SOS", "url": "https://www.japan.travel/en/uk/inspiration/language-sos/" },
+      { "name": "Japan Foundation — Irodori", "url": "https://www.irodori.jpf.go.jp/en/" }
+    ]
+  },
+  "hotel_access": [
+    {
+      "hotel_ids": ["tokyo_1", "tokyo_2"],
+      "from_station": "Tokyo Station",
+      "summary": "Un trayecto corto hasta Yurakucho y 3 min a pie",
+      "steps": [
+        "Desde Tokyo Station, toma JR Yamanote o Keihin-Tohoku una parada hasta Yurakucho.",
+        "Sal por Ginza Exit. El hotel está a 3 min a pie.",
+        "Alternativa con equipaje: taxi desde Tokyo Station, unos 5 min según el hotel."
+      ],
+      "final_station": "Yurakucho Station · Ginza Exit",
+      "walk_minutes": 3,
+      "source": "https://www.gate-hotel.jp/en/tokyo/"
+    },
+    {
+      "hotel_ids": ["hakone"],
+      "from_station": "Kowakidani Station",
+      "summary": "10–15 min a pie o shuttle del ryokan",
+      "steps": [
+        "Baja en Kowakidani Station y consulta el shuttle del ryokan.",
+        "La reserva indica shuttle gratuito entre 14:00 y 17:00; confirma horario y punto de recogida con Mizunoto.",
+        "Si no está disponible, el itinerario estima 10–15 min a pie hasta el ryokan."
+      ],
+      "final_station": "Kowakidani Station",
+      "walk_minutes": 15,
+      "shuttle": "Pendiente de reconfirmar: gratuito 14:00–17:00",
+      "needs_confirmation": true,
+      "source": "https://dormy-hotels.com/resort/hotels/mizunoto/"
+    },
+    {
+      "hotel_ids": ["kyoto"],
+      "from_station": "JR Kyoto Station",
+      "summary": "Taxi ~15 min; últimos 3 min a pie dentro de la galería",
+      "steps": [
+        "Con maletas, toma taxi desde JR Kyoto Station y pide bajar en Kawaramachi Rokkaku (frente a Mina Kyoto).",
+        "El hotel está dentro de una galería donde no entran vehículos: camina unos 3 min desde ese punto.",
+        "Alternativa: Keihan Sanjo, salida 7, y 7 min a pie."
+      ],
+      "final_station": "Kawaramachi Rokkaku / Keihan Sanjo Exit 7",
+      "walk_minutes": 3,
+      "source": "https://gracery.com/kyoto/access/"
+    },
+    {
+      "hotel_ids": ["hiroshima"],
+      "from_station": "JR Hiroshima Station",
+      "summary": "Conectado directamente con la salida Shinkansen",
+      "steps": [
+        "Sigue las señales hacia Shinkansen Exit / North Gate.",
+        "Hotel Granvia Hiroshima está conectado directamente con la estación.",
+        "Comprueba que vas al edificio principal de 1-5 Matsubara-cho, no al nuevo South Gate."
+      ],
+      "final_station": "Hiroshima Station · Shinkansen Exit",
+      "walk_minutes": 2,
+      "source": "https://www.hgh.co.jp/english/location/index.html"
+    },
+    {
+      "hotel_ids": ["osaka"],
+      "from_station": "Shin-Osaka Station",
+      "summary": "Metro hasta Nipponbashi y 5 min a pie",
+      "steps": [
+        "Toma Osaka Metro Midosuji desde Shin-Osaka hasta Namba.",
+        "Cambia a la línea Sennichimae una parada hasta Nipponbashi.",
+        "Usa la salida 6; el hotel está a 5 min a pie. También queda a 5 min de Nagahoribashi, salida 7."
+      ],
+      "final_station": "Nipponbashi Exit 6",
+      "walk_minutes": 5,
+      "source": "https://dormy-hotels.com/dormyinn/hotels/premium_nanba/access/"
+    }
+  ]
+}

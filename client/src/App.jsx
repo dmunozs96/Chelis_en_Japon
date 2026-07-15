@@ -13,6 +13,13 @@ import POIDetailView from './components/POIDetailView.jsx';
 import SplashScreen  from './components/SplashScreen.jsx';
 import RestaurantsView from './components/RestaurantsView.jsx';
 import PlannerView   from './components/PlannerView.jsx';
+import OfflineBanner from './components/OfflineBanner.jsx';
+import EmergencyView from './components/EmergencyView.jsx';
+import LastMileView   from './components/LastMileView.jsx';
+import IcCardGuideView from './components/IcCardGuideView.jsx';
+import PhrasesView     from './components/PhrasesView.jsx';
+import CurrencyConverterView from './components/CurrencyConverterView.jsx';
+import ClimateView from './components/ClimateView.jsx';
 
 /* ---------------------------------------------------------------
    App — shell principal
@@ -45,7 +52,7 @@ const LOADING_STYLES = `
 `;
 
 export default function App() {
-  const { days, hotels, loading, error } = useTripData();
+  const { tripData, days, hotels, loading, error } = useTripData();
   const { alerts } = useAlertsData();
   const { getPoiById } = usePoisData();
   const [activeTab, setActiveTab] = useState('today');
@@ -55,6 +62,7 @@ export default function App() {
   const [mapFocusLatLng, setMapFocusLatLng] = useState(null);
   const [poiId, setPoiId] = useState(null);
   const [showPlanner, setShowPlanner] = useState(false);
+  const [activeTool, setActiveTool] = useState(null);
   const [alertBadge, setAlertBadge] = useState(0);
 
   function openMap(day) {
@@ -109,7 +117,7 @@ export default function App() {
 
   // Splash screen (primera visita de la sesión)
   if (showSplash) {
-    return <SplashScreen onDismiss={dismissSplash} />;
+    return <><OfflineBanner /><SplashScreen trip={tripData?.trip} onDismiss={dismissSplash} /></>;
   }
 
   // If POIDetailView is showing, render it over everything (highest priority overlay)
@@ -117,6 +125,7 @@ export default function App() {
     return (
       <>
         <style>{LOADING_STYLES}</style>
+        <OfflineBanner />
         <POIDetailView
           poi={getPoiById(poiId)}
           onBack={() => setPoiId(null)}
@@ -131,6 +140,7 @@ export default function App() {
     return (
       <>
         <style>{LOADING_STYLES}</style>
+        <OfflineBanner />
         <MapView
           dayData={mapDayData}
           allHotels={hotels}
@@ -148,6 +158,7 @@ export default function App() {
     return (
       <>
         <style>{LOADING_STYLES}</style>
+        <OfflineBanner />
         <PlannerView onBack={() => setShowPlanner(false)} />
       </>
     );
@@ -158,15 +169,41 @@ export default function App() {
     return (
       <>
         <style>{LOADING_STYLES}</style>
+        <OfflineBanner />
         <TicketsView onBack={() => setShowTickets(false)} />
       </>
     );
+  }
+
+  if (activeTool === 'emergency') {
+    return <><OfflineBanner /><EmergencyView onBack={() => setActiveTool(null)} /></>;
+  }
+
+  if (activeTool === 'last-mile') {
+    return <><OfflineBanner /><LastMileView onBack={() => setActiveTool(null)} /></>;
+  }
+
+  if (activeTool === 'ic-card') {
+    return <><OfflineBanner /><IcCardGuideView onBack={() => setActiveTool(null)} /></>;
+  }
+
+  if (activeTool === 'phrases') {
+    return <><OfflineBanner /><PhrasesView onBack={() => setActiveTool(null)} /></>;
+  }
+
+  if (activeTool === 'currency') {
+    return <><OfflineBanner /><CurrencyConverterView onBack={() => setActiveTool(null)} /></>;
+  }
+
+  if (activeTool === 'climate') {
+    return <><OfflineBanner /><ClimateView onBack={() => setActiveTool(null)} /></>;
   }
 
   return (
     <>
       <style>{LOADING_STYLES}</style>
       <div className="app-shell">
+        <OfflineBanner />
         <Header />
 
         <main className="main-content">
@@ -174,7 +211,7 @@ export default function App() {
           {error   && <div className="app-error">Error cargando datos: {error}</div>}
 
           {!loading && !error && activeTab === 'today'       && (
-            <TodayView days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} />
+            <TodayView days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} />
           )}
           {!loading && !error && activeTab === 'trip'        && (
             <DayNav days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} />
@@ -186,7 +223,7 @@ export default function App() {
             <RestaurantsView onOpenPlanner={() => setShowPlanner(true)} />
           )}
           {!loading && !error && activeTab === 'more'        && (
-            <MoreView onNavigate={(dest) => dest === 'tickets' && setShowTickets(true)} />
+            <MoreView onNavigate={(dest) => dest === 'tickets' ? setShowTickets(true) : setActiveTool(dest)} />
           )}
         </main>
 

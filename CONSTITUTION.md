@@ -87,4 +87,4 @@ Los siguientes puntos son backlog explícito — existen, no se han olvidado, pe
 
 ---
 
-*Última actualización: 2026-07-15 — regla 1 ampliada a recursos (URLs resueltas contra fuente real, nunca inventadas) tras la Ola de Calidad Q1. Pendiente de decisión: la regla 4 (offline) sigue sin service worker — ver deuda técnica en SPEC §10.*
+*Última actualización: 2026-07-15 — la regla 4 queda cubierta mediante PWA y caché de datos. Las seis herramientas de viaje funcionan offline; cambio y clima muestran fecha/origen y no se presentan como datos en vivo. Los contactos personales viven exclusivamente en localStorage.*
