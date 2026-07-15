@@ -927,6 +927,17 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 
 ---
 
+### Dominio A V2 — Centro de preparación ✅ (2026-07-15)
+
+- `data/preparation_checklist.json`: catálogo inicial de 15 tareas por hitos, con vencimiento absoluto o relativo, prioridad, responsable, dependencias, sensibilidad y fuentes.
+- `PreparationView.jsx`: pantalla completa con progreso, filtros por categoría, bloqueos y estados pendiente/en curso/completada/no aplica.
+- `TodayView.jsx`: antes del viaje sustituye la cuenta atrás aislada por un resumen operativo con progreso y siguiente tarea prioritaria.
+- `usePreparationData.js`: persiste únicamente el estado por ID en `localStorage`; no almacena documentos ni datos personales.
+- Acceso adicional permanente desde el tab «Más» y funcionamiento offline mediante el mismo caché de JSON de la PWA.
+- El validador comprueba IDs, categorías, prioridades, reglas de vencimiento, responsables, dependencias y fuentes.
+
+**Verificación:** `npm run check` completo en verde (datos, tests y build PWA).
+
 ## 9. Advertencias activas
 
 - ⚠️ **Ventanas de reserva de trenes (18-24 jul):** Tokio→Hakone (Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Los 4 shinkansen abren del 19 al 24 de julio — reservar en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com).

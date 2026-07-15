@@ -20,6 +20,7 @@ import IcCardGuideView from './components/IcCardGuideView.jsx';
 import PhrasesView     from './components/PhrasesView.jsx';
 import CurrencyConverterView from './components/CurrencyConverterView.jsx';
 import ClimateView from './components/ClimateView.jsx';
+import PreparationView from './components/PreparationView.jsx';
 
 /* ---------------------------------------------------------------
    App — shell principal
@@ -199,6 +200,10 @@ export default function App() {
     return <><OfflineBanner /><ClimateView onBack={() => setActiveTool(null)} /></>;
   }
 
+  if (activeTool === 'preparation') {
+    return <><OfflineBanner /><PreparationView onBack={() => setActiveTool(null)} /></>;
+  }
+
   return (
     <>
       <style>{LOADING_STYLES}</style>
@@ -211,7 +216,7 @@ export default function App() {
           {error   && <div className="app-error">Error cargando datos: {error}</div>}
 
           {!loading && !error && activeTab === 'today'       && (
-            <TodayView trip={tripData?.trip} days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} />
+            <TodayView trip={tripData?.trip} days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} onOpenPreparation={() => setActiveTool('preparation')} />
           )}
           {!loading && !error && activeTab === 'trip'        && (
             <DayNav days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} />

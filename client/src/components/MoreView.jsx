@@ -131,6 +131,7 @@ const STYLES = `
 `;
 
 const TOOLS = [
+  { icon: '✅', label: 'Preparar viaje', destination: 'preparation' },
   { icon: '🇯🇵', label: 'Frases japonesas', destination: 'phrases' },
   { icon: '¥', label: 'Conversor ¥/€', destination: 'currency' },
   { icon: '🚨', label: 'Emergencias', destination: 'emergency' },

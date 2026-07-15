@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { useDepartureCountdown } from '../hooks/useDepartureCountdown.js';
+import { usePreparationData } from '../hooks/usePreparationData.js';
 
 /* ---------------------------------------------------------------
    TodayView
@@ -90,6 +91,13 @@ const STYLES = `
   color: var(--label-secondary);
   margin-top: 8px;
 }
+.prep-home-card { width:100%; max-width:440px; margin-top:18px; padding:17px; border:1px solid var(--glass-border); border-radius:var(--radius-card); background:var(--bg-surface); color:var(--label-primary); text-align:left; font-family:var(--font); }
+.prep-home-card__top { display:flex; justify-content:space-between; gap:12px; align-items:center; }
+.prep-home-card__title { font-size:17px; font-weight:700; }
+.prep-home-card__count { color:var(--accent); font-size:13px; font-weight:700; }
+.prep-home-card__next { margin-top:7px; color:var(--label-secondary); font-size:13px; line-height:1.4; }
+.prep-home-card__bar { height:6px; margin-top:12px; overflow:hidden; border-radius:6px; background:var(--bg-secondary); }
+.prep-home-card__bar span { display:block; height:100%; background:#30d158; }
 
 /* ---- After-trip ---- */
 .after-trip {
@@ -663,9 +671,10 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
 }
 
 /* --- Vista principal de "Hoy" --- */
-export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide }) {
+export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide, onOpenPreparation }) {
   const today = todayISO();
   const countdown = useDepartureCountdown(trip?.departure_datetime);
+  const { tasks: preparationTasks } = usePreparationData();
 
   const currentDay = useMemo(
     () => days.find(d => d.date === today),
@@ -681,6 +690,10 @@ export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRout
   if (!days.length) return null;
 
   if (beforeTrip) {
+    const completed = preparationTasks.filter((task) => ['completed', 'not_applicable'].includes(task.status)).length;
+    const pending = preparationTasks.filter((task) => !['completed', 'not_applicable'].includes(task.status));
+    const urgent = pending.filter((task) => task.due_date_resolved <= today || task.priority === 'critical').sort((a, b) => a.due_date_resolved.localeCompare(b.due_date_resolved));
+    const nextTask = urgent[0] ?? pending.sort((a, b) => a.due_date_resolved.localeCompare(b.due_date_resolved))[0];
     return (
       <>
         <style>{STYLES}</style>
@@ -694,6 +707,11 @@ export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRout
             </div>
           )}
           <p className="countdown-hero__date">Salida: {formatDateEs(firstDay)}</p>
+          <button className="prep-home-card" onClick={onOpenPreparation}>
+            <div className="prep-home-card__top"><span className="prep-home-card__title">Preparar viaje</span><span className="prep-home-card__count">{completed}/{preparationTasks.length || '—'}</span></div>
+            <p className="prep-home-card__next">{nextTask ? `Siguiente: ${nextTask.title}` : 'Todo listo para salir ✓'}</p>
+            <div className="prep-home-card__bar"><span style={{ width: preparationTasks.length ? `${(completed / preparationTasks.length) * 100}%` : '0%' }} /></div>
+          </button>
         </div>
       </>
     );

@@ -28,6 +28,7 @@ export function validateProject() {
   const { restaurants } = readJson('data/restaurants_db.json');
   const { alerts } = readJson('data/alerts.json');
   const travelTools = readJson('data/travel_tools.json');
+  const preparation = readJson('data/preparation_checklist.json');
   const days = tripData.days ?? [];
   const trip = tripData.trip ?? {};
 
@@ -71,10 +72,25 @@ export function validateProject() {
   }
 
   unique(restaurants.map((restaurant) => restaurant.id), 'Restaurantes');
+  const restaurantEntityTypes = new Set(['restaurant', 'food_area', 'market', 'food_hall']);
+  const verificationStatuses = new Set(['verified', 'partial', 'needs_review', 'closed']);
+  const closureRisks = new Set(['low', 'medium', 'high']);
+  const verifiableFields = new Set(['identity', 'operating_status', 'location', 'hours', 'closed_days', 'reservation_policy', 'price', 'menu', 'accessibility']);
   for (const restaurant of restaurants) {
     check(Number.isFinite(restaurant.lat) && Number.isFinite(restaurant.lng), `Restaurante ${restaurant.id}: coordenadas inválidas`);
     check(isHttpUrl(restaurant.reservation_url), `Restaurante ${restaurant.id}: URL de reserva inválida`);
+    check(restaurantEntityTypes.has(restaurant.entity_type), `Restaurante ${restaurant.id}: entity_type invalido`);
+    check(verificationStatuses.has(restaurant.verification_status), `Restaurante ${restaurant.id}: verification_status invalido`);
+    check(isDate(restaurant.last_verified_at), `Restaurante ${restaurant.id}: last_verified_at invalido`);
+    check(isDate(restaurant.revalidate_on), `Restaurante ${restaurant.id}: revalidate_on invalido`);
+    check(restaurant.name_ja === null || (typeof restaurant.name_ja === 'string' && restaurant.name_ja.length > 0), `Restaurante ${restaurant.id}: name_ja debe ser texto o null`);
+    check(Array.isArray(restaurant.verified_fields) && restaurant.verified_fields.length > 0, `Restaurante ${restaurant.id}: verified_fields vacio`);
+    for (const field of restaurant.verified_fields ?? []) check(verifiableFields.has(field), `Restaurante ${restaurant.id}: verified_field desconocido "${field}"`);
+    check(closureRisks.has(restaurant.closure_risk), `Restaurante ${restaurant.id}: closure_risk invalido`);
+    check(restaurant.source_count === restaurant.sources?.length, `Restaurante ${restaurant.id}: source_count no coincide con sources`);
     for (const source of restaurant.sources ?? []) {
+      check(['official', 'reference'].includes(source?.source_type), `Restaurante ${restaurant.id}: source_type invalido`);
+      check(isDate(source?.accessed_at), `Restaurante ${restaurant.id}: fuente sin accessed_at valido`);
       check(typeof source?.name === 'string' && source.name.length > 0, `Restaurante ${restaurant.id}: fuente sin nombre`);
       check(isHttpUrl(source?.url), `Restaurante ${restaurant.id}: fuente inválida`);
     }
@@ -143,7 +159,28 @@ export function validateProject() {
   }
   for (const source of climate.sources ?? []) check(isHttpUrl(source.url), 'Clima: fuente inválida');
 
-  return { errors, counts: { days: days.length, pois: pois.length, restaurants: restaurants.length, alerts: alerts.length, hotelAccess: coveredHotelIds.size, phrases: phraseData.items?.length ?? 0 } };
+  const preparationTasks = preparation.tasks ?? [];
+  const preparationIds = unique(preparationTasks.map((task) => task.id), 'Tareas de preparacion');
+  const preparationCategories = new Set(['documentacion', 'frontera', 'salud', 'reservas', 'dinero', 'conectividad', 'equipaje', 'hogar']);
+  const preparationPriorities = new Set(['critical', 'important', 'convenient']);
+  check(isDate(preparation.departure_date), 'Checklist: departure_date invalida');
+  check(preparation.departure_date === trip.start_date, 'Checklist: departure_date no coincide con el viaje');
+  for (const task of preparationTasks) {
+    check(Boolean(task.title && task.description), `Checklist ${task.id}: contenido incompleto`);
+    check(preparationCategories.has(task.category), `Checklist ${task.id}: categoria invalida`);
+    check(preparationPriorities.has(task.priority), `Checklist ${task.id}: prioridad invalida`);
+    check(['Daniel', 'acompanante', 'ambos'].includes(task.assignee), `Checklist ${task.id}: responsable invalido`);
+    check(typeof task.sensitive === 'boolean', `Checklist ${task.id}: sensitive debe ser booleano`);
+    check(Boolean(task.due_date) !== Number.isFinite(task.due_days_before), `Checklist ${task.id}: debe tener una unica regla de vencimiento`);
+    if (task.due_date) check(isDate(task.due_date), `Checklist ${task.id}: due_date invalida`);
+    for (const dependency of task.depends_on ?? []) check(preparationIds.has(dependency), `Checklist ${task.id}: dependencia desconocida "${dependency}"`);
+    for (const source of task.source_refs ?? []) {
+      check(isHttpUrl(source.url), `Checklist ${task.id}: fuente invalida`);
+      check(isDate(source.verified_at), `Checklist ${task.id}: fuente sin fecha valida`);
+    }
+  }
+
+  return { errors, counts: { days: days.length, pois: pois.length, restaurants: restaurants.length, alerts: alerts.length, hotelAccess: coveredHotelIds.size, phrases: phraseData.items?.length ?? 0, preparation: preparationTasks.length } };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

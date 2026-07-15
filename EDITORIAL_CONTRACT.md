@@ -1,0 +1,38 @@
+# Contrato editorial y de fuentes V2
+
+> Versión 1.0 · 15 de julio de 2026 · Aplica a `data/restaurants_db.json`
+
+## Principios
+
+Cada ficha debe identificar una entidad real e inequívoca, separar hechos de criterio editorial y permitir reconstruir cuándo y con qué fuentes se verificó. Un dato desconocido se expresa como `null` o como pendiente; nunca se completa por inferencia.
+
+## Campos obligatorios de control
+
+| Campo | Valores / regla |
+|---|---|
+| `entity_type` | `restaurant`, `food_area`, `market` o `food_hall` |
+| `verification_status` | `verified`, `partial`, `needs_review` o `closed` |
+| `last_verified_at` | Fecha ISO de la última comprobación sustantiva |
+| `revalidate_on` | Fecha ISO de la próxima revisión |
+| `name_ja` | Nombre japonés confirmado o `null`; nunca transliterado de memoria |
+| `verified_fields` | Lista explícita de grupos comprobados |
+| `closure_risk` | `low`, `medium` o `high` |
+| `source_count` | Debe coincidir con la longitud de `sources` |
+
+Los grupos admitidos en `verified_fields` son `identity`, `operating_status`, `location`, `hours`, `closed_days`, `reservation_policy`, `price`, `menu` y `accessibility`.
+
+## Fuentes
+
+Cada fuente requiere `name`, URL HTTP(S), `source_type` (`official` o `reference`) y `accessed_at`. La web oficial prima para identidad, dirección, horarios, cierres y reservas. Las fuentes de referencia pueden complementar contexto, reconocimiento y platos, pero no deben contradecir una fuente oficial más reciente.
+
+Una ficha profunda del Top 50 necesitará al menos dos fuentes y evidencia trazable para «qué pedir». Las fichas operativas pueden tener una sola fuente si es oficial y suficiente. `source_count` es un control de integridad, no una valoración de calidad.
+
+## Ejemplos
+
+Válido: `name_ja: null` cuando el nombre oficial japonés aún no se ha comprobado; `entity_type: "market"` para Tsukiji Outer Market; horario descrito como variable cuando agrupa múltiples puestos.
+
+No válido: etiquetar un mercado como restaurante; inventar caracteres japoneses; copiar un horario de una reseña antigua ignorando la web oficial; marcar `verified` sin fecha o sin fuente.
+
+## Ciclo de revisión
+
+La migración inicial refleja la auditoría del 15 de julio de 2026. Todas las fichas se revalidarán a partir del 3 de agosto antes de congelar contenido. Una revisión debe actualizar la fecha, los campos realmente comprobados y el riesgo de cierre; no basta con confirmar que la URL sigue respondiendo.

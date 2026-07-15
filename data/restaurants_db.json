@@ -6,7 +6,7 @@
       "city": "Tokyo",
       "neighborhood": "Yurakucho",
       "lat": 35.6754,
-      "lng": 139.7630,
+      "lng": 139.763,
       "cuisine_tags": ["izakaya", "yakitori", "japanese", "street_food", "beer_garden"],
       "cuisine_description": "Callejón de izakayas clásicas bajo los arcos de las vías del tren elevado de Yurakucho. Especialidades variadas según el local: yakitori, sopa de miso, cerveza fría y tapas japonesas de temporada en ambiente Showa de los años 50-60.",
       "michelin_stars": 0,
@@ -24,9 +24,17 @@
       "must_book_in_advance": false,
       "why_special": "Es una de las experiencias más auténticas del Tokio de posguerra: docenas de pequeños locales apiñados bajo los arcos del tren elevado, con humo de parrilla, lámparas de papel y salarimen desenganchando el nudo de la corbata. A 2 minutos del Gate Hotel, es la opción perfecta para la noche de llegada sin necesidad de planificar. El ambiente Showa lo hace único en una zona tan moderna como Yurakucho/Ginza.",
       "sources": [
-        { "name": "Kanpai Japan — Yurakucho guide", "url": "https://www.kanpai-japan.com/tokyo/yurakucho" },
-        { "name": "Japan-guide.com — Yurakucho", "url": "https://www.japan-guide.com/e/e3034.html" }
-      ]
+        { "name": "Kanpai Japan — Yurakucho guide", "url": "https://www.kanpai-japan.com/tokyo/yurakucho", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Japan-guide.com — Yurakucho", "url": "https://www.japan-guide.com/e/e3034.html", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "food_area",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "tokyo_02_andys_shin_hinomoto",
@@ -52,10 +60,18 @@
       "must_book_in_advance": false,
       "why_special": "Una de las pocas izakayas de Yurakucho que funciona perfectamente en inglés, lo que la hace ideal para viajeros en su primera noche en Tokio con jet lag. Abierta desde 1946 y famosa por su pescado fresco del mercado de Toyosu (el sucesor de Tsukiji), es un clásico recomendado recurrentemente por Tokyo Cheapo y Lonely Planet como la mejor combinación de autenticidad y accesibilidad para extranjeros. OJO: solo aceptan efectivo (verificado en web oficial, 15 jul 2026).",
       "sources": [
-        { "name": "Shin Hinomoto — web oficial", "url": "https://en.shin-hinomoto.jp/" },
-        { "name": "Tokyo Cheapo — Andy's Shin Hinomoto", "url": "https://tokyocheapo.com/restaurant/andys-shin-hinomoto/" },
-        { "name": "Lonely Planet Japan", "url": "https://www.lonelyplanet.com/japan/tokyo/ginza/restaurants/andys-shin-hinomoto/a/poi-eat/1327048/362027" }
-      ]
+        { "name": "Shin Hinomoto — web oficial", "url": "https://en.shin-hinomoto.jp/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Tokyo Cheapo — Andy's Shin Hinomoto", "url": "https://tokyocheapo.com/restaurant/andys-shin-hinomoto/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Lonely Planet Japan", "url": "https://www.lonelyplanet.com/japan/tokyo/ginza/restaurants/andys-shin-hinomoto/a/poi-eat/1327048/362027", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "tokyo_03_yurakucho_sanchoku",
@@ -81,9 +97,17 @@
       "must_book_in_advance": false,
       "why_special": "Perfecto para el mediodía de llegada (día 14 ago): está a pocos metros del hotel, no requiere reserva y permite probar distintas cocinas regionales japonesas en un solo sitio. Cada local usa productos directamente del productor de su región, lo que garantiza calidad superior a un precio razonable. Ideal cuando aún no sabes qué te apetece comer.",
       "sources": [
-        { "name": "Tabelog — Yurakucho Sanchoku Yokocho", "url": "https://tabelog.com/en/tokyo/A1301/A130101/13242139/" },
-        { "name": "Tokyo Cheapo — Yurakucho dining", "url": "https://tokyocheapo.com/food-and-drink/best-restaurants-in-yurakucho/" }
-      ]
+        { "name": "Tabelog — Yurakucho Sanchoku Yokocho", "url": "https://tabelog.com/en/tokyo/A1301/A130101/13242139/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Tokyo Cheapo — Yurakucho dining", "url": "https://tokyocheapo.com/food-and-drink/best-restaurants-in-yurakucho/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "food_hall",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "tokyo_04_ichiniisan",
@@ -109,9 +133,17 @@
       "must_book_in_advance": false,
       "why_special": "Una de las mejores relaciones calidad-precio en la zona de Ginza: cerdo kurobuta de Kagoshima (raza berkshire, famosa por su grasa infiltrada y sabor intenso) servido en sets de mediodía por debajo de ¥2,000. Ir a mediodía para ese precio — la cena es otro nivel de gasto. Verificado en Tabelog el 15 jul 2026 (abierto a diario).",
       "sources": [
-        { "name": "Tabelog — Ichiniisan Ginza", "url": "https://tabelog.com/en/tokyo/A1301/A130101/13002253/" },
-        { "name": "Time Out Tokyo — Ichiniisan", "url": "https://www.timeout.com/tokyo/restaurants/ichiniisan" }
-      ]
+        { "name": "Tabelog — Ichiniisan Ginza", "url": "https://tabelog.com/en/tokyo/A1301/A130101/13002253/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Time Out Tokyo — Ichiniisan", "url": "https://www.timeout.com/tokyo/restaurants/ichiniisan", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "tokyo_05_tsukiji_outer_market",
@@ -137,10 +169,18 @@
       "must_book_in_advance": false,
       "why_special": "El mercado exterior de Tsukiji sigue siendo el mejor sitio de Tokio para desayunar o almorzar temprano con sushi del día: el pescado sigue siendo de primera calidad porque los puestos compran en Toyosu. A 15-20 minutos del hotel en metro, funciona perfectamente de camino a Asakusa (día 15 ago). Maguroya Kurogin es especialmente famoso por sus toros de atún a precios razonables.",
       "sources": [
-        { "name": "Time Out Tokyo — Tsukiji breakfast", "url": "https://www.timeout.com/tokyo/restaurants/breakfast-at-tsukiji" },
-        { "name": "Svadore — Best street food Tsukiji", "url": "https://www.svadore.com/best-street-food-stalls-tsukiji-outer-market/" },
-        { "name": "Japan-guide.com — Tsukiji", "url": "https://www.japan-guide.com/e/e3021.html" }
-      ]
+        { "name": "Time Out Tokyo — Tsukiji breakfast", "url": "https://www.timeout.com/tokyo/restaurants/breakfast-at-tsukiji", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Svadore — Best street food Tsukiji", "url": "https://www.svadore.com/best-street-food-stalls-tsukiji-outer-market/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Japan-guide.com — Tsukiji", "url": "https://www.japan-guide.com/e/e3021.html", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "market",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "tokyo_06_bird_land_ginza",
@@ -166,17 +206,25 @@
       "must_book_in_advance": true,
       "why_special": "Referencia mundial del yakitori de alta cocina: Takeshi Inoue lo elevó usando el raro y caro pollo Okukuji Shamo (solo 3,000 pollos al mes disponibles en Japón) y controlando temperatura y tiempo de carbonización con precisión de maestro. Perdió la estrella Michelin en la guía 2024 y hoy es Selected Restaurant — sigue siendo un sitio excepcional, pero conviene saberlo antes de pagar precio de estrella. La reserva se hace por teléfono o Ikyu con semanas de antelación.",
       "sources": [
-        { "name": "Bird Land Ginza — web oficial", "url": "https://ginza-birdland.sakura.ne.jp/" },
-        { "name": "Michelin Guide — Bird Land", "url": "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/bird-land" },
-        { "name": "Tabelog — Bird Land Ginza", "url": "https://en.tabelog.com/tokyo/A1301/A130101/13004029/" }
-      ]
+        { "name": "Bird Land Ginza — web oficial", "url": "https://ginza-birdland.sakura.ne.jp/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Michelin Guide — Bird Land", "url": "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/bird-land", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Tabelog — Bird Land Ginza", "url": "https://en.tabelog.com/tokyo/A1301/A130101/13004029/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "tokyo_07_esquisse",
       "name": "ESqUISSE",
       "city": "Tokyo",
       "neighborhood": "Ginza",
-      "lat": 35.6710,
+      "lat": 35.671,
       "lng": 139.7651,
       "cuisine_tags": ["french", "michelin", "haute_cuisine", "contemporary"],
       "cuisine_description": "Cocina francesa contemporánea de alta cocina con dos estrellas Michelin, dirigida por el chef lionés Lionel Béccat. Menús degustación que integran ingredientes japoneses de temporada con técnica clásica francesa; carta de vinos excepcional con referencias de Borgoña y Champagne.",
@@ -195,10 +243,18 @@
       "must_book_in_advance": true,
       "why_special": "Una de las experiencias gastronómicas más refinadas de Tokio: Lionel Béccat, formado con Joël Robuchon, lleva ESqUISSE a la cima de la cocina francesa en Asia. Las dos estrellas Michelin se han mantenido de forma consistente desde 2015. El menú de degustación (10-12 pases) usa ingredientes como la dorada de Ise, la trufa japonesa o el wagyu A5, fusionados con técnica lionesa impecable. La reserva web abre con 2-3 meses de antelación; huecos muy limitados.",
       "sources": [
-        { "name": "Michelin Guide — ESqUISSE", "url": "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/esquisse" },
-        { "name": "ESqUISSE official website", "url": "https://esquisse.tokyo/en/" },
-        { "name": "Time Out Tokyo — ESqUISSE", "url": "https://www.timeout.com/tokyo/restaurants/esquisse" }
-      ]
+        { "name": "Michelin Guide — ESqUISSE", "url": "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/esquisse", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "ESqUISSE official website", "url": "https://esquisse.tokyo/en/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Time Out Tokyo — ESqUISSE", "url": "https://www.timeout.com/tokyo/restaurants/esquisse", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "tokyo_08_sukiyabashi_jiro",
@@ -206,7 +262,7 @@
       "city": "Tokyo",
       "neighborhood": "Ginza (Chūō-ku)",
       "lat": 35.6717,
-      "lng": 139.7650,
+      "lng": 139.765,
       "cuisine_tags": ["sushi", "omakase", "japanese", "legendary"],
       "cuisine_description": "El sushi-ya más famoso del mundo, sede del maestro Jiro Ono (nacido en 1925). Tuvo tres estrellas Michelin hasta que la guía lo retiró en la edición 2020 por no aceptar reservas del público general — hoy no tiene distinción vigente, aunque el nivel sigue siendo legendario. Solo barra de 10 asientos, menú omakase de 20 piezas sin carta. Para visitantes extranjeros, solo reservas vía concierge de hotel.",
       "michelin_stars": 0,
@@ -224,10 +280,18 @@
       "must_book_in_advance": true,
       "why_special": "Famoso mundialmente por el documental 'Jiro Dreams of Sushi' (2011); tuvo tres estrellas Michelin hasta 2019, cuando la guía lo retiró por no ser reservable por el público. Jiro Ono, centenario, ya no está cada día en la barra; su hijo Yoshikazu dirige la cocina. Las reservas para extranjeros se hacen exclusivamente a través del concierge de hoteles de 5 estrellas con relaciones establecidas; hoteles de 4 estrellas como el Gate Hotel raramente logran mesa. Ficha conservada como referencia cultural, no como plan realista — además cierra por vacaciones el 14-19 ago 2026.",
       "sources": [
-        { "name": "Sukiyabashi Jiro — web oficial", "url": "https://www.sushi-jiro.jp/" },
-        { "name": "Wikipedia — Sukiyabashi Jiro", "url": "https://en.wikipedia.org/wiki/Sukiyabashi_Jiro" },
-        { "name": "Japan Times — Sukiyabashi Jiro reservations", "url": "https://www.japantimes.co.jp/life/2014/07/12/food/getting-into-jiro-and-other-great-sushi-restaurants/" }
-      ]
+        { "name": "Sukiyabashi Jiro — web oficial", "url": "https://www.sushi-jiro.jp/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Wikipedia — Sukiyabashi Jiro", "url": "https://en.wikipedia.org/wiki/Sukiyabashi_Jiro", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Japan Times — Sukiyabashi Jiro reservations", "url": "https://www.japantimes.co.jp/life/2014/07/12/food/getting-into-jiro-and-other-great-sushi-restaurants/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "tokyo_09_tsuta_ramen",
@@ -253,10 +317,18 @@
       "must_book_in_advance": true,
       "why_special": "Tsuta fue el restaurante que cambió la percepción global del ramen, demostrando que podía alcanzar la categoría de Michelin. La combinación de caldo dashi de almejas con aceite de trufa negra italiana es sorprendentemente equilibrada y nada recargada. Las plazas se agotan con semanas de antelación vía su sistema de reservas online. Nota: el local original estaba en Sugamo; verificar si ha mantenido la ubicación o ha abierto sucursal más accesible antes del viaje.",
       "sources": [
-        { "name": "Michelin Guide — Tsuta", "url": "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/japanese-soba-noodles-tsuta" },
-        { "name": "Japan Travel — Tsuta Ramen", "url": "https://en.japantravel.com/tokyo/tsuta-ramen/29075" },
-        { "name": "Time Out Tokyo — Tsuta", "url": "https://www.timeout.com/tokyo/restaurants/japanese-soba-noodles-tsuta" }
-      ]
+        { "name": "Michelin Guide — Tsuta", "url": "https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/japanese-soba-noodles-tsuta", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Japan Travel — Tsuta Ramen", "url": "https://en.japantravel.com/tokyo/tsuta-ramen/29075", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Time Out Tokyo — Tsuta", "url": "https://www.timeout.com/tokyo/restaurants/japanese-soba-noodles-tsuta", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "kyoto_10_nishiki_market",
@@ -282,10 +354,18 @@
       "must_book_in_advance": false,
       "why_special": "El mercado más icónico de Kioto y la mejor introducción a los sabores de la cocina kyo-ryori en formato informal. Situado a 4 minutos a pie de Kawaramachi Station y cerca del hotel, es ideal para picotear al mediodía entre visitas. El tako tamago es la fotografía más compartida de Kioto: un pulpo entero cocinado sobre un huevo de codorniz duro, en brocheta, por unos ¥400.",
       "sources": [
-        { "name": "Nishiki Market official", "url": "https://www.kyoto-nishiki.or.jp/en/access/" },
-        { "name": "Japan-guide.com — Nishiki Market", "url": "https://www.japan-guide.com/e/e3931.html" },
-        { "name": "Time Out Kyoto — Nishiki", "url": "https://www.timeout.com/kyoto/restaurants/nishiki-market" }
-      ]
+        { "name": "Nishiki Market official", "url": "https://www.kyoto-nishiki.or.jp/en/access/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Japan-guide.com — Nishiki Market", "url": "https://www.japan-guide.com/e/e3931.html", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Time Out Kyoto — Nishiki", "url": "https://www.timeout.com/kyoto/restaurants/nishiki-market", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "market",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "kyoto_11_janomeya",
@@ -311,8 +391,16 @@
       "must_book_in_advance": false,
       "why_special": "Uno de los ramen mejor valorados del centro de Kioto (Tabelog Ramen WEST 100, 2025) a dos pasos del hotel, con precio de bowl. No acepta reservas y solo tiene 8-10 asientos: suele haber cola, pero rota rápido. Verificado abierto el 15 jul 2026.",
       "sources": [
-        { "name": "Tabelog — Mendokoro Janomeya", "url": "https://tabelog.com/en/kyoto/A2601/A260201/26035164/" }
-      ]
+        { "name": "Tabelog — Mendokoro Janomeya", "url": "https://tabelog.com/en/kyoto/A2601/A260201/26035164/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 1
     },
     {
       "id": "kyoto_12_onikai",
@@ -338,8 +426,16 @@
       "must_book_in_advance": false,
       "why_special": "Cocina de verdura de huerta propia en formato izakaya contemporáneo, a cinco minutos del hotel: la alternativa fresca cuando el cuerpo pide un descanso del ramen y la fritura. El gasto real según reseñas ronda los ¥5,000-6,000. Reservar online — su línea de teléfono figura como cerrada (verificado 15 jul 2026).",
       "sources": [
-        { "name": "Tabelog — Onikai", "url": "https://tabelog.com/en/kyoto/A2601/A260201/26002004/" }
-      ]
+        { "name": "Tabelog — Onikai", "url": "https://tabelog.com/en/kyoto/A2601/A260201/26002004/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 1
     },
     {
       "id": "kyoto_13_gion_kappa",
@@ -365,9 +461,17 @@
       "must_book_in_advance": false,
       "why_special": "Un tesoro escondido en Gion donde los lugareños beben junto a viajeros avisados: los platos a ~¥390 permiten pedir sin mirar el precio y cenar en uno de los barrios más exclusivos del mundo a precio de izakaya de barrio. Abre hasta la madrugada entre semana — ideal como cena tardía tras el paseo por Gion. Verificado abierto el 15 jul 2026 (cierra los lunes).",
       "sources": [
-        { "name": "Tabelog — Gahōjin Kappa (Nawate honten)", "url": "https://tabelog.com/en/kyoto/A2601/A260301/26005389/" },
-        { "name": "Will Fly for Food — Gion Kappa", "url": "https://www.willflyforfood.net/gion-kappa-restaurant-a-local-favorite-in-kyoto-japan/" }
-      ]
+        { "name": "Tabelog — Gahōjin Kappa (Nawate honten)", "url": "https://tabelog.com/en/kyoto/A2601/A260301/26005389/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Will Fly for Food — Gion Kappa", "url": "https://www.willflyforfood.net/gion-kappa-restaurant-a-local-favorite-in-kyoto-japan/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "kyoto_15_kyogoku_kaneyo",
@@ -393,17 +497,25 @@
       "must_book_in_advance": false,
       "why_special": "El unagi kabayaki es uno de los platos más representativos de la cocina japonesa de verano (se come tradicionalmente en Doyo no Ushi no Hi, el día más caluroso del año — que cae en julio, muy cerca de vuestra visita). Kaneyo lleva 7 generaciones perfeccionando la misma técnica y su salsa tare es el resultado de décadas de capas acumuladas. A 5 minutos del hotel. OJO para el itinerario: cierra los miércoles (el 19 ago lo es) y su cocina de cena cierra a las 20:00 — llegar a las 19:30 como muy tarde. Verificado abierto y con Bib Gourmand el 15 jul 2026.",
       "sources": [
-        { "name": "Tabelog — Kyogoku Kaneyo", "url": "https://tabelog.com/en/kyoto/A2601/A260201/26001330/" },
-        { "name": "Michelin Guide — Kyogoku Kaneyo", "url": "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kyogoku-kaneyo" },
-        { "name": "Inside Kyoto — Kane-yo", "url": "https://www.insidekyoto.com/restaurant-kane-yo-kyoto" }
-      ]
+        { "name": "Tabelog — Kyogoku Kaneyo", "url": "https://tabelog.com/en/kyoto/A2601/A260201/26001330/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Michelin Guide — Kyogoku Kaneyo", "url": "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kyogoku-kaneyo", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Inside Kyoto — Kane-yo", "url": "https://www.insidekyoto.com/restaurant-kane-yo-kyoto", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "kyoto_16_gion_sumibiyaki_kyoyu",
       "name": "Kyo Asobi Gion (antes Gion Sumibiyaki Kyōyū)",
       "city": "Kyoto",
       "neighborhood": "Gion (Higashiyama-ku)",
-      "lat": 35.0030,
+      "lat": 35.003,
       "lng": 135.7758,
       "cuisine_tags": ["yakitori", "charcoal_grill", "japanese", "gion", "binchotan"],
       "cuisine_description": "Kushiyaki y verduras de Kioto a la brasa de carbón binchotan (carbón blanco de Wakayama, que alcanza temperaturas de 800°C sin llama ni humo) en Gion, a ~7 min de la estación Gion-Shijo. Especialidades: brochetas de pollo, tsukune y kyo-yasai (verdura de Kioto). Opera ahora como 'Kyoyasai to Kushiyaki Kyō Asobi'; el nombre antiguo 'Gion Sumibiyaki Kyōyū' apenas deja rastro actual.",
@@ -422,9 +534,17 @@
       "must_book_in_advance": false,
       "why_special": "El binchotan es la diferencia entre yakitori ordinario y yakitori extraordinario: el calor radiante sin llama cocina las brochetas por dentro sin quemar por fuera, desarrollando un sabor ahumado sutil e incomparable. Hacerlo en Gion —en el ambiente de la Kioto más clásica— convierte la cena en una experiencia memorable. OJO: cierra los domingos (antes se decía lunes) y el renombre a Kyo Asobi despista si se busca el nombre antiguo. Verificado abierto el 15 jul 2026.",
       "sources": [
-        { "name": "Tabelog — Kyo Asobi Gion", "url": "https://tabelog.com/en/kyoto/A2601/A260301/26032233/" },
-        { "name": "Kyo Asobi Gion — ficha comercial", "url": "https://kyoasobigionhonten.owst.jp/" }
-      ]
+        { "name": "Tabelog — Kyo Asobi Gion", "url": "https://tabelog.com/en/kyoto/A2601/A260301/26032233/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Kyo Asobi Gion — ficha comercial", "url": "https://kyoasobigionhonten.owst.jp/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "kyoto_17_sushi_taizo",
@@ -450,9 +570,17 @@
       "must_book_in_advance": true,
       "why_special": "Con solo 8 asientos en barra, Sushi Taizō es el tipo de experiencia íntima y personal que define la alta gastronomía japonesa: el chef trabaja frente a ti, explica cada pieza y adapta el menú al producto del día. La cena omakase ronda los ¥15,000-20,000 (2026) — sigue por debajo de un equivalente en Tokio, pero no es la ganga que sugerían guías antiguas. El almuerzo de fin de semana (~¥3,500) es la vía asequible. Reservar online con antelación; el teléfono es solo para grupos. Verificado abierto el 15 jul 2026.",
       "sources": [
-        { "name": "Tabelog — Sushi Taizō", "url": "https://tabelog.com/en/kyoto/A2601/A260201/26023474/" },
-        { "name": "Inside Kyoto — Sushi Taizo", "url": "https://www.insidekyoto.com/sushi-taizo" }
-      ]
+        { "name": "Tabelog — Sushi Taizō", "url": "https://tabelog.com/en/kyoto/A2601/A260201/26023474/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Inside Kyoto — Sushi Taizo", "url": "https://www.insidekyoto.com/sushi-taizo", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "kyoto_18_roan_kikunoi",
@@ -478,10 +606,18 @@
       "must_book_in_advance": true,
       "why_special": "La puerta de entrada a la tradición kaiseki de la casa Kikunoi sin la formalidad del Honten de 3 estrellas — pero con precios de 2 estrellas: guías antiguas hablaban de almuerzos de ¥4,000 que ya no existen; hoy el almuerzo parte de ~¥14,500 (verificado 15 jul 2026). Se reserva vía plataformas (My Concierge, TABLEALL, con prepago y ~15% de servicio) o por teléfono. Cierra los miércoles y la última entrada de cena es a las 19:00 — incompatible con cenar a las 20:00. Conservado como referencia editorial: encaja en la categoría premium que quedó descartada en la Puerta A.",
       "sources": [
-        { "name": "Kikunoi — web oficial", "url": "https://kikunoi.jp/en/" },
-        { "name": "My Concierge Japan — Roan Kikunoi (precios)", "url": "https://myconciergejapan.com/restaurants/roan-kikunoi/" },
-        { "name": "Michelin Guide — Kikunoi Roan", "url": "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kikunoi-roan" }
-      ]
+        { "name": "Kikunoi — web oficial", "url": "https://kikunoi.jp/en/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "My Concierge Japan — Roan Kikunoi (precios)", "url": "https://myconciergejapan.com/restaurants/roan-kikunoi/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Michelin Guide — Kikunoi Roan", "url": "https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kikunoi-roan", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "hiroshima_19_okonomimura",
@@ -507,10 +643,18 @@
       "must_book_in_advance": false,
       "why_special": "Okonomimura es la institución definitiva del okonomiyaki en Hiroshima: un edificio entero dedicado exclusivamente a la variante de Hiroshima, que es técnicamente más compleja que la versión de Osaka (se construye en capas sobre la plancha en vez de mezclarse). Se recorren las plantas y se elige puesto por instinto — según fuentes de 2026, apuestas seguras: Atom (4ª planta, con ostras de temporada, cómodo para primerizos), Hassho (2ª planta, soba fresca) y Sarashina (desde 1951). Llevar efectivo. La opción más recomendada para la cena del 21 agosto tras el Museo de la Paz.",
       "sources": [
-        { "name": "Dive Hiroshima — Okonomimura (turismo oficial)", "url": "https://dive-hiroshima.com/en/explore/377/" },
-        { "name": "Japan-guide.com — Hiroshima food", "url": "https://www.japan-guide.com/e/e3402.html" },
-        { "name": "Japan Activity — Okonomimura (guía may 2026)", "url": "https://japanactivity.com/attractions/hiroshima/okonomimura" }
-      ]
+        { "name": "Dive Hiroshima — Okonomimura (turismo oficial)", "url": "https://dive-hiroshima.com/en/explore/377/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Japan-guide.com — Hiroshima food", "url": "https://www.japan-guide.com/e/e3402.html", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Japan Activity — Okonomimura (guía may 2026)", "url": "https://japanactivity.com/attractions/hiroshima/okonomimura", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "food_hall",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "hiroshima_20_micchan_sohonten",
@@ -536,10 +680,18 @@
       "must_book_in_advance": false,
       "why_special": "Comer en la sede original del restaurante que (según la tradición oral) inventó la receta del okonomiyaki con soba de Hiroshima es ir a la raíz histórica del plato más representativo de la ciudad. Micchan ha mantenido la receta sin cambios en más de 70 años. OJO: cierra los martes aunque varias guías digan que abre a diario, y tiene horario partido (verificado en web oficial, 15 jul 2026).",
       "sources": [
-        { "name": "Micchan — web oficial (Hatchobori)", "url": "https://www.okonomi.co.jp/hatchobori.html" },
-        { "name": "Tabelog — Micchan Sohonten", "url": "https://tabelog.com/en/hiroshima/A3401/A340108/34000256/" },
-        { "name": "Dive Hiroshima — Micchan", "url": "https://dive-hiroshima.com/en/explore/375/" }
-      ]
+        { "name": "Micchan — web oficial (Hatchobori)", "url": "https://www.okonomi.co.jp/hatchobori.html", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Tabelog — Micchan Sohonten", "url": "https://tabelog.com/en/hiroshima/A3401/A340108/34000256/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Dive Hiroshima — Micchan", "url": "https://dive-hiroshima.com/en/explore/375/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "hiroshima_21_reichan",
@@ -565,9 +717,17 @@
       "must_book_in_advance": false,
       "why_special": "La opción más práctica para probar okonomiyaki de Hiroshima sin desviarse del camino: está literalmente dentro de la estación (ekie DINING, planta 1), ideal para el almuerzo del 22 agosto antes de tomar el Shinkansen a Osaka. Permite hacer maletas, hacer checkout del hotel a las 12:00 y comer en la estación sin prisas. Suele haber cola en horas punta. Verificado abierto el 15 jul 2026 (sigue en ekie pese a la apertura del nuevo edificio Minamoa).",
       "sources": [
-        { "name": "Tabelog — Reichan (ekie)", "url": "https://tabelog.com/en/hiroshima/A3401/A340121/34000061/" },
-        { "name": "ekie Hiroshima Station — dining floor", "url": "https://www.ekie.jp/en/dining/" }
-      ]
+        { "name": "Tabelog — Reichan (ekie)", "url": "https://tabelog.com/en/hiroshima/A3401/A340121/34000061/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "ekie Hiroshima Station — dining floor", "url": "https://www.ekie.jp/en/dining/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "hiroshima_22_ekinishi",
@@ -575,7 +735,7 @@
       "city": "Hiroshima",
       "neighborhood": "Nishi-ku (al oeste de la estación de Hiroshima)",
       "lat": 34.3975,
-      "lng": 132.4720,
+      "lng": 132.472,
       "cuisine_tags": ["oysters", "seafood", "japanese", "hiroshima_specialty"],
       "cuisine_description": "Barrio de bares y restaurantes al oeste de la estación central de Hiroshima, famoso por sus ostras (kaki) de la bahía de Hiroshima — la región produce el 60% de todas las ostras de Japón. Los locales las sirven a la plancha, fritas en tempura, en pasta de miso o crudas con ponzu.",
       "michelin_stars": 0,
@@ -593,9 +753,17 @@
       "must_book_in_advance": false,
       "why_special": "Las ostras de Hiroshima son tan importantes para la ciudad como el okonomiyaki: la bahía de Hiroshima tiene las condiciones perfectas de temperatura y nutrientes para producir ostras grandes, carnosas y de sabor suave. En Ekinishi se hace bar-hopping entre locales pequeños e independientes con ambiente de taberna portuaria. Nota estacional honesta: agosto no es temporada alta de ostra cruda — predominan las preparaciones cocinadas (a la plancha, fritas, en miso). Zona activa verificada el 15 jul 2026 (JNTO y guías locales de 2026).",
       "sources": [
-        { "name": "JNTO — Ekinishi oysters", "url": "https://www.japan.travel/en/japans-local-treasures/ekinishi-hiroshimas-oyster-hot-spot/" },
-        { "name": "Hiroshima Localized — Ekinishi food guide", "url": "https://www.hiroshimalocalized.com/post/ekinishi-food-guide-where-and-what-to-eat-in-ekinishi-hiroshima" }
-      ]
+        { "name": "JNTO — Ekinishi oysters", "url": "https://www.japan.travel/en/japans-local-treasures/ekinishi-hiroshimas-oyster-hot-spot/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Hiroshima Localized — Ekinishi food guide", "url": "https://www.hiroshimalocalized.com/post/ekinishi-food-guide-where-and-what-to-eat-in-ekinishi-hiroshima", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "food_area",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "osaka_23_takoyaki_wanaka",
@@ -621,9 +789,17 @@
       "must_book_in_advance": false,
       "why_special": "Takoyaki Wanaka es uno de los favoritos de los osakenses locales (no solo de turistas) gracias a su receta equilibrada: masa ligera, pulpo tierno y salsa que no ahoga el sabor. Excelente alternativa a los locales más turísticos de Dotonbori para una primera experiencia de takoyaki auténtica en Osaka. Verificado abierto el 15 jul 2026 (sin día de cierre).",
       "sources": [
-        { "name": "Tabelog — Wanaka Sennichimae Honten", "url": "https://tabelog.com/en/osaka/A2701/A270202/27002320/" },
-        { "name": "JOC Japan Travel — Best takoyaki Osaka", "url": "https://www.jocjapantravel.com/kansai-osaka-best-takoyaki/" }
-      ]
+        { "name": "Tabelog — Wanaka Sennichimae Honten", "url": "https://tabelog.com/en/osaka/A2701/A270202/27002320/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "JOC Japan Travel — Best takoyaki Osaka", "url": "https://www.jocjapantravel.com/kansai-osaka-best-takoyaki/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "osaka_24_kukuru_dotonbori",
@@ -649,9 +825,17 @@
       "must_book_in_advance": false,
       "why_special": "Kukuru es la experiencia takoyaki para el turista fotogénico: la sede principal con el pulpo gigante en la fachada, en pleno Dotonbori (edificio Hakua, 1-10-5). Takoyaki de calidad decente en el escenario más icónico posible — perfecto para la foto del canal y una ración caliente junto al puente Ebisubashi. No confundir con su otra sede 'Konamon Museum' unos números más allá. Verificado abierto el 15 jul 2026.",
       "sources": [
-        { "name": "Tabelog — Kukuru Honten", "url": "https://tabelog.com/en/osaka/A2701/A270202/27001546/" },
-        { "name": "Time Out Osaka — Kukuru", "url": "https://www.timeout.com/osaka/restaurants/takoya-dotonbori-kukuru" }
-      ]
+        { "name": "Tabelog — Kukuru Honten", "url": "https://tabelog.com/en/osaka/A2701/A270202/27001546/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Time Out Osaka — Kukuru", "url": "https://www.timeout.com/osaka/restaurants/takoya-dotonbori-kukuru", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "osaka_25_acchichi_honpo",
@@ -677,9 +861,17 @@
       "must_book_in_advance": false,
       "why_special": "El nombre lo dice todo: Acchichi Honpo sirve takoyaki 'quemando' — tan calientes que hay que soplar antes de morder. Sede fijada: la de Soemoncho, en la orilla norte del canal de Dotonbori (el honten oficial de la cadena está en Tobita Shinchi, lejos del centro — esta es la útil para el viaje). Abre hasta la madrugada: opción perfecta de último bocado tras los neones. Verificado abierto el 15 jul 2026.",
       "sources": [
-        { "name": "Acchichi — lista oficial de sedes", "url": "https://www.acchichi.net/70331/?lang=en" },
-        { "name": "Tabelog — Acchichi Honpo Dotonbori", "url": "https://tabelog.com/en/osaka/A2701/A270202/27051667/" }
-      ]
+        { "name": "Acchichi — lista oficial de sedes", "url": "https://www.acchichi.net/70331/?lang=en", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Tabelog — Acchichi Honpo Dotonbori", "url": "https://tabelog.com/en/osaka/A2701/A270202/27051667/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "osaka_26_ajinoya_honten",
@@ -705,9 +897,17 @@
       "must_book_in_advance": false,
       "why_special": "Ajinoya es uno de los pilares del okonomiyaki de Osaka en Namba: gran local, accesible para turistas (menú con fotos y descripciones en inglés) y fiel a la tradición de hacer cocinar el cliente en la plancha central de la mesa. OJO: cierra los lunes y puede cerrar también el último lunes y martes de cada mes — consultar su calendario oficial de cierres si la visita cae en esas fechas (verificado en web oficial, 15 jul 2026).",
       "sources": [
-        { "name": "Ajinoya — web oficial (honten)", "url": "https://ajinoya-okonomiyaki.com/en/company/main-shop/" },
-        { "name": "Tabelog — Ajinoya Honten", "url": "https://tabelog.com/en/osaka/A2701/A270202/27001439/" }
-      ]
+        { "name": "Ajinoya — web oficial (honten)", "url": "https://ajinoya-okonomiyaki.com/en/company/main-shop/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Tabelog — Ajinoya Honten", "url": "https://tabelog.com/en/osaka/A2701/A270202/27001439/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "osaka_27_chibo",
@@ -733,9 +933,17 @@
       "must_book_in_advance": false,
       "why_special": "Chibo en Dotonbori es la entrada más cómoda para viajeros noveles al okonomiyaki de Osaka: menú en inglés, personal acostumbrado a turistas, vistas al canal desde las plantas superiores y calidad consistente. Ideal si se prefiere tener ayuda para cocinar en lugar de hacerlo todo uno mismo. Verificado abierto el 15 jul 2026 en su web oficial de sedes.",
       "sources": [
-        { "name": "Chibo — sede Dotonbori (web oficial)", "url": "https://shop.chibo.com/detail/28/" },
-        { "name": "Tabelog — Chibo Dotonbori", "url": "https://tabelog.com/en/osaka/A2701/A270202/27002622/" }
-      ]
+        { "name": "Chibo — sede Dotonbori (web oficial)", "url": "https://shop.chibo.com/detail/28/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Tabelog — Chibo Dotonbori", "url": "https://tabelog.com/en/osaka/A2701/A270202/27002622/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "osaka_28_okonomiyaki_mizuno",
@@ -761,10 +969,18 @@
       "must_book_in_advance": false,
       "why_special": "Mizuno lleva en Dotonbori desde el año en que terminó la Segunda Guerra Mundial — más de 80 años de okonomiyaki en el mismo sitio (Tabelog 100, 2025). Su negiyaki (con cebolleta fresca en lugar de col) está considerado el mejor de Osaka por múltiples guías especializadas. No aceptan reservas: toman nota en la fila y hay cola diaria — ir a las 11:00 entre semana o asumir 30-60 min de espera. Verificado en web oficial el 15 jul 2026.",
       "sources": [
-        { "name": "Mizuno — web oficial", "url": "https://www.mizuno-osaka.com/sp/shopinfo.html" },
-        { "name": "Tabelog — Okonomiyaki Mizuno", "url": "https://tabelog.com/en/osaka/A2701/A270202/27001278/" },
-        { "name": "Time Out Osaka — Mizuno", "url": "https://www.timeout.com/osaka/restaurants/okonomiyaki-mizuno" }
-      ]
+        { "name": "Mizuno — web oficial", "url": "https://www.mizuno-osaka.com/sp/shopinfo.html", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Tabelog — Okonomiyaki Mizuno", "url": "https://tabelog.com/en/osaka/A2701/A270202/27001278/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Time Out Osaka — Mizuno", "url": "https://www.timeout.com/osaka/restaurants/okonomiyaki-mizuno", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "osaka_29_bonkuraya",
@@ -790,9 +1006,17 @@
       "must_book_in_advance": false,
       "why_special": "Bonkuraya es el okonomiyaki sin adornos turísticos pese a estar en plena Dotonbori: local en una segunda planta que los turistas pasan de largo, precios de barrio y el plato que piden los vecinos cuando quieren comer bien y barato. OJO: los lunes no abre a mediodía y tiene cierres irregulares. Verificado abierto el 15 jul 2026 (con reservas activas en Tabelog).",
       "sources": [
-        { "name": "Tabelog — Bonkuraya Dotonbori", "url": "https://tabelog.com/en/osaka/A2701/A270202/27056606/" },
-        { "name": "Inside Osaka — Bonkuraya", "url": "https://insideosaka.com/bonkuraya-dotonbori/" }
-      ]
+        { "name": "Tabelog — Bonkuraya Dotonbori", "url": "https://tabelog.com/en/osaka/A2701/A270202/27056606/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Inside Osaka — Bonkuraya", "url": "https://insideosaka.com/bonkuraya-dotonbori/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "osaka_30_kushikatsu_daruma",
@@ -800,7 +1024,7 @@
       "city": "Osaka",
       "neighborhood": "Dotonbori 1-6-8 (Chuo-ku)",
       "lat": 34.6688,
-      "lng": 135.5030,
+      "lng": 135.503,
       "cuisine_tags": ["kushikatsu", "fried_food", "japanese", "osaka_specialty", "historic"],
       "cuisine_description": "El kushikatsu más famoso de Osaka y probablemente de Japón: brochetas de carne, verduras y marisco rebozadas en panko y fritas en aceite de sésamo, servidas con la salsa especial de la casa. Regla sagrada e inviolable: 'No mojar dos veces' (no double-dipping en la salsa compartida). Fundado en 1929 en Shinsekai.",
       "michelin_stars": 0,
@@ -818,10 +1042,18 @@
       "must_book_in_advance": false,
       "why_special": "Daruma sirve kushikatsu desde 1929; la regla del no double-dipping es una ley moral osakense y su letrero de advertencia, patrimonio cultural en sí mismo. Sede fijada: la de Dotonbori 1-6-8 (edificio propio, 140 plazas), a 5-10 min a pie del hotel — el sohonten original de Shinsekai (12 asientos de barra) queda como alternativa con más solera si se visita la zona de Tsutenkaku. Piden una consumición de bebida por persona. Verificado abierto el 15 jul 2026 en la web oficial.",
       "sources": [
-        { "name": "Kushikatsu Daruma — sede Dotonbori (oficial)", "url": "https://www.kushikatu-daruma.com/location/doutonbori" },
-        { "name": "Tabelog — Daruma Shinsekai Sohonten", "url": "https://tabelog.com/en/osaka/A2701/A270202/27004260/" },
-        { "name": "Time Out Osaka — Kushikatsu Daruma", "url": "https://www.timeout.com/osaka/restaurants/kushikatsu-daruma" }
-      ]
+        { "name": "Kushikatsu Daruma — sede Dotonbori (oficial)", "url": "https://www.kushikatu-daruma.com/location/doutonbori", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Tabelog — Daruma Shinsekai Sohonten", "url": "https://tabelog.com/en/osaka/A2701/A270202/27004260/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "Time Out Osaka — Kushikatsu Daruma", "url": "https://www.timeout.com/osaka/restaurants/kushikatsu-daruma", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 3
     },
     {
       "id": "osaka_31_dotonbori_imai",
@@ -847,9 +1079,17 @@
       "must_book_in_advance": false,
       "why_special": "El kitsune udon nació en Osaka y Imai es la referencia más histórica de Dotonbori para comerlo: el caldo suave de dashi de kombu (la tradición de Osaka usa menos bonito y más alga, resultando en un sabor más delicado que en Tokio) con el tofu frito dulce flotando encima es puro sabor de Osaka. Un bowl por menos de ¥1,000 en el corazón de Dotonbori. OJO: cierra los miércoles (abre si es festivo) y el 4º martes de cada mes. Verificado en web oficial el 15 jul 2026.",
       "sources": [
-        { "name": "Dotonbori Imai — web oficial (honten)", "url": "https://www.d-imai.com/shops/honten/" },
-        { "name": "Tabelog — Dotonbori Imai", "url": "https://tabelog.com/en/osaka/A2701/A270202/27001289/" }
-      ]
+        { "name": "Dotonbori Imai — web oficial (honten)", "url": "https://www.d-imai.com/shops/honten/", "source_type": "official", "accessed_at": "2026-07-15" },
+        { "name": "Tabelog — Dotonbori Imai", "url": "https://tabelog.com/en/osaka/A2701/A270202/27001289/", "source_type": "reference", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     },
     {
       "id": "osaka_32_creo_ru",
@@ -875,63 +1115,35 @@
       "must_book_in_advance": false,
       "why_special": "Para viajeros con solo una noche en Osaka (como es el caso del 22 agosto), CREO-RU resuelve el dilema de 'qué especialidad pruebo': las tres a la vez en un mismo local de 120 plazas en Dotonbori, a precio razonable y sin buscar tres sitios en el mapa. No es el mejor de ninguna de las tres individualmente, pero la suma tiene mucho sentido con tiempo limitado. No confundir con sus locales satélite de la misma calle (p. ej. 'CREO-RU JUNK'). Verificado abierto el 15 jul 2026.",
       "sources": [
-        { "name": "Tabelog — CREO-RU Dotonbori", "url": "https://tabelog.com/en/osaka/A2701/A270202/27013938/" },
-        { "name": "CREO-RU Dotonbori — web oficial", "url": "https://dotonbori-creoru-en.com/" }
-      ]
+        { "name": "Tabelog — CREO-RU Dotonbori", "url": "https://tabelog.com/en/osaka/A2701/A270202/27013938/", "source_type": "reference", "accessed_at": "2026-07-15" },
+        { "name": "CREO-RU Dotonbori — web oficial", "url": "https://dotonbori-creoru-en.com/", "source_type": "official", "accessed_at": "2026-07-15" }
+      ],
+      "entity_type": "restaurant",
+      "verification_status": "verified",
+      "last_verified_at": "2026-07-15",
+      "revalidate_on": "2026-08-03",
+      "name_ja": null,
+      "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy"],
+      "closure_risk": "low",
+      "source_count": 2
     }
   ],
   "_research_notes": {
     "methodology": "Base construida originalmente con conocimiento hasta agosto 2025. AUDITORÍA LOTE 0 (15 jul 2026): los 32 registros se verificaron contra la web en vivo (webs oficiales, Tabelog, Michelin, JNTO); se corrigieron nombres, sucursales, horarios, precios y estrellas; se eliminó Honke Owariya (cerrado en enero 2026). Detalle completo en AUDIT_RESTAURANTES.md. Los datos volátiles siguen requiriendo revalidación la semana previa al viaje.",
     "data_currency_warning": "Verificar SIEMPRE antes del viaje en agosto 2026: horarios, días de cierre, precios y disponibilidad de reservas. Los restaurantes japoneses cambian de horario con frecuencia y pueden cerrar temporalmente sin previo aviso.",
     "critical_findings": [
-      {
-        "restaurant": "Japanese Soba Noodles Tsuta",
-        "note": "RESUELTO (15 jul 2026): opera en Yoyogi-Uehara (Nishihara 3-2-4, Shibuya-ku) desde dic 2019; el fundador Yuki Onishi falleció en 2022, cerró y reabrió en feb 2023. Sin estrella Michelin desde la guía 2020. Walk-in con cola, sin reservas; cierra martes. Ficha corregida."
-      },
-      {
-        "restaurant": "Sukiyabashi Jiro Honten",
-        "note": "RESUELTO (15 jul 2026): retirado de la guía Michelin en la edición 2020 (por no aceptar reservas del público), operativo con Yoshikazu al frente. CIERRE DE VERANO 2026: 14-19 de agosto, en plenas fechas del viaje. Solo concierge para extranjeros. Ficha corregida (0 estrellas vigentes)."
-      },
-      {
-        "restaurant": "Bird Land Ginza",
-        "note": "RESUELTO (15 jul 2026): perdió la estrella en la guía 2024, hoy es Selected Restaurant. Cierra domingos, lunes y festivos; posible cierre por inventario el 16-18 ago (aviso de su web, confirmar por teléfono). La cena de despedida premium quedó descartada en la Puerta A, así que ya no es candidato del 24 ago."
-      },
-      {
-        "restaurant": "Roan Kikunoi",
-        "note": "RESUELTO (15 jul 2026): la web oficial y la guía Michelin confirman 2 estrellas (la nota anterior que decía 1 estrella era errónea). El error grave era el precio: almuerzo desde ~¥14,500 y cena ¥24,000-63,000 con impuestos y servicio — nada de 'almuerzo desde ¥4,000'. Cierra miércoles; última entrada de cena 19:00. Ficha corregida."
-      },
-      {
-        "restaurant": "Honke Owariya",
-        "note": "ELIMINADO DE LA BASE (15 jul 2026): el honten cerró el servicio de soba el 11 de enero de 2026 (suspensión de larga duración, edificio en venta, negocio reorientado a venta online). Fuente: Kyoto Shimbun (9 oct 2025) y Tabelog. Tras 560 años, no será visitable en agosto 2026."
-      },
-      {
-        "restaurant": "Gahōjin Kappa (antes Gion Kappa)",
-        "note": "RESUELTO (15 jul 2026): el rumor de cambio de nombre era cierto — opera como Gahōjin Kappa (Nawate honten), mismo local y concepto, platos a ~¥390. Cierra los lunes. Ficha corregida."
-      },
-      {
-        "restaurant": "Tsukiji Outer Market",
-        "note": "El día 15 agosto (visita prevista) coincide con Obon (período 13-16 agosto). Muchos puestos del mercado pueden estar CERRADOS o con horario reducido durante Obon, ya que es un período familiar en el que muchos negocios familiares cierran. Verificar horarios de apertura durante Obon antes de planificar la visita ese día específico."
-      },
-      {
-        "restaurant": "Kyogoku Kaneyo",
-        "note": "El unagi (anguila) tiene temporada alta en julio-agosto en Japón (Doyo no Ushi no Hi cae el 26 julio y el 6 agosto en 2026 aproximadamente). En agosto puede haber restricciones de suministro por sobredemanda — el precio del unagi ha subido significativamente en 2024-2025 por problemas de sostenibilidad de la especie. Prever un precio más alto que el histórico."
-      },
-      {
-        "restaurant": "Okonomimura",
-        "note": "La visita prevista es la noche del 21 agosto, tras el Museo de la Paz (actividad emocionalmente intensa). Varios viajeros recomiendan no ir directamente del Museo a un restaurante bullicioso — conviene una pausa de 30-60 minutos en el parque o en el hotel antes de cenar en el ambiente ruidoso de Okonomimura."
-      },
-      {
-        "restaurant": "Kushikatsu Daruma",
-        "note": "RESUELTO (15 jul 2026): sucursal fijada en Dotonbori 1-6-8 (edificio propio, 140 plazas), a 5-10 min del hotel. El sohonten de Shinsekai (Ebisuhigashi 2-3-9, 12 asientos) queda como alternativa si se visita Tsutenkaku. Ficha corregida."
-      },
-      {
-        "restaurant": "Cenas de Kioto — cierre de los miércoles",
-        "note": "DETECTADO EN AUDITORÍA (15 jul 2026): el 19 de agosto es miércoles y las dos opciones de cena previstas ese día (Kyogoku Kaneyo y Roan Kikunoi) cierran los miércoles. El unagi de Kaneyo se mueve a la noche del jueves 20 (con entrada a las 19:30 — su cocina cierra a las 20:00); para el miércoles 19: Gahōjin Kappa, Mendokoro Janomeya, Onikai o Kyo Asobi Gion, todos abiertos ese día."
-      },
-      {
-        "restaurant": "Micchan Sohonten — Hiroshima",
-        "note": "Hay cierta controversia histórica sobre quién 'inventó' realmente el okonomiyaki con soba. Micchan reivindica ese origen pero otros cocineros históricos de Hiroshima también lo hacen. La atribución es parte del folklore gastronómico de la ciudad, no un hecho documentalmente verificable."
-      }
+      { "restaurant": "Japanese Soba Noodles Tsuta", "note": "RESUELTO (15 jul 2026): opera en Yoyogi-Uehara (Nishihara 3-2-4, Shibuya-ku) desde dic 2019; el fundador Yuki Onishi falleció en 2022, cerró y reabrió en feb 2023. Sin estrella Michelin desde la guía 2020. Walk-in con cola, sin reservas; cierra martes. Ficha corregida." },
+      { "restaurant": "Sukiyabashi Jiro Honten", "note": "RESUELTO (15 jul 2026): retirado de la guía Michelin en la edición 2020 (por no aceptar reservas del público), operativo con Yoshikazu al frente. CIERRE DE VERANO 2026: 14-19 de agosto, en plenas fechas del viaje. Solo concierge para extranjeros. Ficha corregida (0 estrellas vigentes)." },
+      { "restaurant": "Bird Land Ginza", "note": "RESUELTO (15 jul 2026): perdió la estrella en la guía 2024, hoy es Selected Restaurant. Cierra domingos, lunes y festivos; posible cierre por inventario el 16-18 ago (aviso de su web, confirmar por teléfono). La cena de despedida premium quedó descartada en la Puerta A, así que ya no es candidato del 24 ago." },
+      { "restaurant": "Roan Kikunoi", "note": "RESUELTO (15 jul 2026): la web oficial y la guía Michelin confirman 2 estrellas (la nota anterior que decía 1 estrella era errónea). El error grave era el precio: almuerzo desde ~¥14,500 y cena ¥24,000-63,000 con impuestos y servicio — nada de 'almuerzo desde ¥4,000'. Cierra miércoles; última entrada de cena 19:00. Ficha corregida." },
+      { "restaurant": "Honke Owariya", "note": "ELIMINADO DE LA BASE (15 jul 2026): el honten cerró el servicio de soba el 11 de enero de 2026 (suspensión de larga duración, edificio en venta, negocio reorientado a venta online). Fuente: Kyoto Shimbun (9 oct 2025) y Tabelog. Tras 560 años, no será visitable en agosto 2026." },
+      { "restaurant": "Gahōjin Kappa (antes Gion Kappa)", "note": "RESUELTO (15 jul 2026): el rumor de cambio de nombre era cierto — opera como Gahōjin Kappa (Nawate honten), mismo local y concepto, platos a ~¥390. Cierra los lunes. Ficha corregida." },
+      { "restaurant": "Tsukiji Outer Market", "note": "El día 15 agosto (visita prevista) coincide con Obon (período 13-16 agosto). Muchos puestos del mercado pueden estar CERRADOS o con horario reducido durante Obon, ya que es un período familiar en el que muchos negocios familiares cierran. Verificar horarios de apertura durante Obon antes de planificar la visita ese día específico." },
+      { "restaurant": "Kyogoku Kaneyo", "note": "El unagi (anguila) tiene temporada alta en julio-agosto en Japón (Doyo no Ushi no Hi cae el 26 julio y el 6 agosto en 2026 aproximadamente). En agosto puede haber restricciones de suministro por sobredemanda — el precio del unagi ha subido significativamente en 2024-2025 por problemas de sostenibilidad de la especie. Prever un precio más alto que el histórico." },
+      { "restaurant": "Okonomimura", "note": "La visita prevista es la noche del 21 agosto, tras el Museo de la Paz (actividad emocionalmente intensa). Varios viajeros recomiendan no ir directamente del Museo a un restaurante bullicioso — conviene una pausa de 30-60 minutos en el parque o en el hotel antes de cenar en el ambiente ruidoso de Okonomimura." },
+      { "restaurant": "Kushikatsu Daruma", "note": "RESUELTO (15 jul 2026): sucursal fijada en Dotonbori 1-6-8 (edificio propio, 140 plazas), a 5-10 min del hotel. El sohonten de Shinsekai (Ebisuhigashi 2-3-9, 12 asientos) queda como alternativa si se visita Tsutenkaku. Ficha corregida." },
+      { "restaurant": "Cenas de Kioto — cierre de los miércoles", "note": "DETECTADO EN AUDITORÍA (15 jul 2026): el 19 de agosto es miércoles y las dos opciones de cena previstas ese día (Kyogoku Kaneyo y Roan Kikunoi) cierran los miércoles. El unagi de Kaneyo se mueve a la noche del jueves 20 (con entrada a las 19:30 — su cocina cierra a las 20:00); para el miércoles 19: Gahōjin Kappa, Mendokoro Janomeya, Onikai o Kyo Asobi Gion, todos abiertos ese día." },
+      { "restaurant": "Micchan Sohonten — Hiroshima", "note": "Hay cierta controversia histórica sobre quién 'inventó' realmente el okonomiyaki con soba. Micchan reivindica ese origen pero otros cocineros históricos de Hiroshima también lo hacen. La atribución es parte del folklore gastronómico de la ciudad, no un hecho documentalmente verificable." }
     ],
     "reservation_priority_list": [
       { "priority": 1, "restaurant": "ESqUISSE", "note": "DESCARTADO (Puerta A, 15 jul 2026): la cena premium queda fuera del plan por precio. Ficha conservada solo como referencia editorial." },
@@ -941,21 +1153,7 @@
       { "priority": 5, "restaurant": "Sushi Taizō", "note": "ACTUALIZADO 15 jul 2026: reservar online (el teléfono es solo para grupos). Cena ¥15,000-20,000; el almuerzo asequible (~¥3,500) solo existe sáb-dom-festivos. Cierra miércoles." }
     ],
     "price_ranges_note": "Todos los precios en yenes (¥). Con el yen histórico débil de 2024-2026, la conversión a euros es muy favorable: ¥1,000 ≈ €6 (verificar tipo de cambio vigente). El precio de los menús Michelin en Japón es sistemáticamente inferior al equivalente europeo.",
-    "sources_used": [
-      "japon_info_base.md (investigación verificada julio 2026)",
-      "Michelin Guide Japan (guide.michelin.com)",
-      "Japan Guide (japan-guide.com)",
-      "Inside Kyoto (insidekyoto.com)",
-      "Time Out Tokyo / Kyoto / Osaka (timeout.com)",
-      "Tokyo Cheapo (tokyocheapo.com)",
-      "Japan Wonder Travel (japanwondertravel.com)",
-      "Dive Hiroshima (dive-hiroshima.com)",
-      "JOC Japan Travel (jocjapantravel.com)",
-      "Will Fly for Food (willflyforfood.net)",
-      "Lonely Planet Japan",
-      "Wikipedia (restaurantes con artículo propio)",
-      "Tabelog EN (en.tabelog.com)",
-      "Gurunavi EN (gnavi.co.jp/en)"
-    ]
-  }
+    "sources_used": ["japon_info_base.md (investigación verificada julio 2026)", "Michelin Guide Japan (guide.michelin.com)", "Japan Guide (japan-guide.com)", "Inside Kyoto (insidekyoto.com)", "Time Out Tokyo / Kyoto / Osaka (timeout.com)", "Tokyo Cheapo (tokyocheapo.com)", "Japan Wonder Travel (japanwondertravel.com)", "Dive Hiroshima (dive-hiroshima.com)", "JOC Japan Travel (jocjapantravel.com)", "Will Fly for Food (willflyforfood.net)", "Lonely Planet Japan", "Wikipedia (restaurantes con artículo propio)", "Tabelog EN (en.tabelog.com)", "Gurunavi EN (gnavi.co.jp/en)"]
+  },
+  "schema_version": 2
 }
