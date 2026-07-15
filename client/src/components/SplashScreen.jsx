@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useDepartureCountdown } from '../hooks/useDepartureCountdown.js';
 
 /* ---------------------------------------------------------------
    SplashScreen — Intro cinematográfica
    Muestra una pantalla de entrada oscura con cuenta atrás al viaje,
    con un pseudo-vídeo de fondo (slideshow de fotos de Japón) y un
-   countdown dinámico (días/horas/minutos/segundos hasta el despegue).
+   countdown dinámico (días/horas/minutos hasta el despegue).
    Se muestra una vez por sesión (sessionStorage).
    Auto-dismiss a los 5 segundos o tap para saltar.
    --------------------------------------------------------------- */
@@ -405,10 +406,10 @@ function tripDayNumber(startDateStr, tripDays) {
 export default function SplashScreen({ trip, onDismiss }) {
   const [exiting, setExiting] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
-  const [now, setNow] = useState(() => new Date());
   const tripStart = trip?.start_date;
   const tripEnd = trip?.end_date;
   const departureDatetime = trip?.departure_datetime ? new Date(trip.departure_datetime) : null;
+  const countdown = useDepartureCountdown(trip?.departure_datetime);
   const tripDays = tripStart && tripEnd
     ? Math.round((new Date(`${tripEnd}T00:00:00`) - new Date(`${tripStart}T00:00:00`)) / 86400000) + 1
     : 0;
@@ -438,22 +439,8 @@ export default function SplashScreen({ trip, onDismiss }) {
     return () => clearInterval(t);
   }, []);
 
-  // Countdown en vivo (días/horas/minutos/segundos hasta el despegue)
-  useEffect(() => {
-    const t = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(t);
-  }, []);
-
-  const diffMs = departureDatetime ? Math.max(0, departureDatetime - now) : 0;
-  const countdown = {
-    days:    Math.floor(diffMs / 86400000),
-    hours:   Math.floor((diffMs % 86400000) / 3600000),
-    minutes: Math.floor((diffMs % 3600000) / 60000),
-    seconds: Math.floor((diffMs % 60000) / 1000),
-  };
-
   const renderContent = () => {
-    if (!tripStart || !departureDatetime) {
+    if (!tripStart || !departureDatetime || !countdown) {
       return (
         <div className="splash__content">
           <div className="splash__special">
@@ -515,9 +502,6 @@ export default function SplashScreen({ trip, onDismiss }) {
           <span className="splash__live-countdown-sep">·</span>
           <span className="splash__live-countdown-unit">{pad2(countdown.minutes)}</span>
           <span className="splash__live-countdown-suffix">min</span>
-          <span className="splash__live-countdown-sep">·</span>
-          <span className="splash__live-countdown-unit">{pad2(countdown.seconds)}</span>
-          <span className="splash__live-countdown-suffix">s</span>
         </div>
 
         <div className="splash__destination">TOKIO</div>

@@ -211,7 +211,7 @@ export default function App() {
           {error   && <div className="app-error">Error cargando datos: {error}</div>}
 
           {!loading && !error && activeTab === 'today'       && (
-            <TodayView days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} />
+            <TodayView trip={tripData?.trip} days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} />
           )}
           {!loading && !error && activeTab === 'trip'        && (
             <DayNav days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} />

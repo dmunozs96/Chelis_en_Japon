@@ -971,4 +971,4 @@ Deudas verificadas y conscientemente aplazadas (cada entrada indica el coste de 
 
 ---
 
-*Última actualización: 2026-07-15 — Ola 5 completada: Frases, Conversor, Emergencias, Suica, Último kilómetro y Clima offline. La alerta automática de tifón queda aplazada por depender de una API oficial estable.*
+*Última actualización: 2026-07-15 — contador de Inicio y splash unificado sobre `trip.departure_datetime`: ambas vistas muestran los mismos días, horas y minutos exactos, actualizados al minuto.*

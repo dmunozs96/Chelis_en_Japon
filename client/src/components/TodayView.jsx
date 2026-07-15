@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useDepartureCountdown } from '../hooks/useDepartureCountdown.js';
 
 /* ---------------------------------------------------------------
    TodayView
@@ -68,6 +69,20 @@ const STYLES = `
   font-weight: 600;
   color: var(--label-primary);
   letter-spacing: -0.3px;
+}
+
+.countdown-hero__time {
+  margin-top: 10px;
+  color: var(--label-primary);
+  font-size: 17px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-hero__time span {
+  color: var(--label-secondary);
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .countdown-hero__date {
@@ -425,14 +440,6 @@ function todayISO() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-function daysUntil(targetDateStr) {
-  const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const [y, m, d] = targetDateStr.split('-').map(Number);
-  const target = new Date(y, m - 1, d);
-  return Math.ceil((target - today) / (1000 * 60 * 60 * 24));
-}
-
 function formatDateEs(dateStr) {
   const [y, m, d] = dateStr.split('-').map(Number);
   const date = new Date(y, m - 1, d);
@@ -656,8 +663,9 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
 }
 
 /* --- Vista principal de "Hoy" --- */
-export default function TodayView({ days, onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide }) {
+export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide }) {
   const today = todayISO();
+  const countdown = useDepartureCountdown(trip?.departure_datetime);
 
   const currentDay = useMemo(
     () => days.find(d => d.date === today),
@@ -673,14 +681,18 @@ export default function TodayView({ days, onOpenMap, onOpenPoi, onOpenRoute, onO
   if (!days.length) return null;
 
   if (beforeTrip) {
-    const diff = daysUntil(firstDay);
     return (
       <>
         <style>{STYLES}</style>
         <div className="countdown-hero" role="main" aria-label="Cuenta atrás para el viaje">
           <p className="countdown-hero__pre">¡El viaje empieza en…!</p>
-          <div className="countdown-hero__number" aria-label={`${diff} días`}>{diff}</div>
-          <div className="countdown-hero__label">{diff === 1 ? 'día para Japón' : 'días para Japón'}</div>
+          <div className="countdown-hero__number" aria-label={`${countdown?.days ?? 0} días`}>{countdown?.days ?? 0}</div>
+          <div className="countdown-hero__label">{countdown?.days === 1 ? 'día para Japón' : 'días para Japón'}</div>
+          {countdown && (
+            <div className="countdown-hero__time" aria-label={`${countdown.hours} horas y ${countdown.minutes} minutos`}>
+              {String(countdown.hours).padStart(2, '0')}<span> h</span> · {String(countdown.minutes).padStart(2, '0')}<span> min</span>
+            </div>
+          )}
           <p className="countdown-hero__date">Salida: {formatDateEs(firstDay)}</p>
         </div>
       </>
