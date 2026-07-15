@@ -938,6 +938,16 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 
 **Verificación:** `npm run check` completo en verde (datos, tests y build PWA).
 
+### Dominio C V2 — Guía cultural esencial ✅ (2026-07-15)
+
+- Siete artículos estructurados y offline aplicados al itinerario: convivencia cotidiana, trenes, templos/santuarios, memoria de Hiroshima, onsen/ryokan, mesa y cocina regional.
+- Cada artículo responde «qué es», «por qué importa», «qué observar», «cómo comportarse», «qué error evitar» y «dónde resulta útil».
+- Nueva pantalla `CulturalGuideView` con filtros, artículos desplegables y fuentes visibles, accesible desde «Más».
+- Contenido contrastado con JNTO y el Museo Memorial de la Paz de Hiroshima; fecha y referencias estructuradas en `data/cultural_guide.json`.
+- Validador ampliado para impedir temas incompletos, referencias huérfanas o fuentes sin fecha.
+
+**Verificación:** `npm run check` completo en verde (datos, tests y build PWA).
+
 ## 9. Advertencias activas
 
 - ⚠️ **Ventanas de reserva de trenes (18-24 jul):** Tokio→Hakone (Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Los 4 shinkansen abren del 19 al 24 de julio — reservar en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com).

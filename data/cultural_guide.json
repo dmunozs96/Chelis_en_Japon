@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "last_verified_at": "2026-07-15",
+  "topics": [
+    {
+      "id": "daily-manners",
+      "category": "Cultura cotidiana",
+      "icon": "🙇",
+      "title": "Moverse con cortesía",
+      "what": "En Japón la convivencia pública suele apoyarse en reducir la fricción: observar, hacer cola, ocupar poco espacio y adaptar el volumen al entorno.",
+      "why": "No se espera perfección ritual de un visitante, pero sí atención a las señales y a las personas que comparten el espacio.",
+      "observe": ["Las filas marcadas en andenes y ascensores", "Bandejas para entregar dinero o tarjetas", "Zonas donde hay que quitarse el calzado"],
+      "behave": ["Usa una inclinación leve como saludo y «sumimasen» para disculparte o pedir paso", "Habla bajo en espacios cerrados", "Espera a que salgan antes de entrar"],
+      "avoid": "No conviertas una costumbre en una regla universal: mira carteles y sigue al personal cuando un lugar funcione de otra manera.",
+      "useful_on": ["Todos los días", "Hoteles", "Restaurantes", "Transporte"],
+      "source_ids": ["jnto-manners"]
+    },
+    {
+      "id": "trains-public-space",
+      "category": "Cultura cotidiana",
+      "icon": "🚆",
+      "title": "Trenes, colas y equipaje",
+      "what": "El tren es un espacio compartido muy ordenado: las marcas del suelo organizan la espera y los asientos prioritarios protegen a quien los necesita.",
+      "why": "El itinerario depende diariamente de metro, tren y shinkansen; pequeños gestos evitan bloquear flujos muy densos.",
+      "observe": ["Flechas de entrada y salida", "Vagones o asientos reservados", "Normas locales sobre escaleras mecánicas"],
+      "behave": ["Haz cola donde indique el suelo", "Pon el móvil en silencio y evita llamadas", "Mantén el equipaje fuera del paso y cede asientos prioritarios"],
+      "avoid": "No des por hecho un lado fijo en la escalera: Tokio y Osaka han tenido usos distintos y las campañas actuales priorizan quedarse quieto sin caminar.",
+      "useful_on": ["Tokio", "Kioto", "Hiroshima", "Osaka", "Shinkansen"],
+      "source_ids": ["jnto-manners"]
+    },
+    {
+      "id": "shrines-temples",
+      "category": "Templos y santuarios",
+      "icon": "⛩️",
+      "title": "Santuario sintoísta o templo budista",
+      "what": "El torii suele señalar un santuario sintoísta; una puerta sanmon y las imágenes budistas, un templo. Son lugares de culto activos, no solo monumentos.",
+      "why": "El viaje visita ambos tipos y el gesto de oración no es igual: en el templo no se dan palmadas.",
+      "observe": ["Torii y figuras de zorros en Fushimi Inari", "Incensario y guardianes en Senso-ji", "Ema, omikuji y sellos goshuin"],
+      "behave": ["En un santuario, entra a un lado del centro y haz una inclinación si quieres", "Si usas el temizuya, vierte agua sobre manos y lleva agua a la boca desde la mano, nunca desde el cazo", "En el templo mantén silencio; junta las manos sin palmadas"],
+      "avoid": "No fotografíes donde esté prohibido ni bloquees a quien está rezando. La secuencia de dos inclinaciones, dos palmadas y una inclinación corresponde al santuario, no al templo.",
+      "useful_on": ["15 ago · Senso-ji", "19 ago · Fushimi Inari y Kiyomizu-dera", "20 ago · Kinkaku-ji", "22 ago · Hozen-ji"],
+      "source_ids": ["jnto-shrines"]
+    },
+    {
+      "id": "hiroshima-memory",
+      "category": "Memoria",
+      "icon": "🕊️",
+      "title": "Hiroshima como lugar de memoria",
+      "what": "El Parque y el Museo Memorial de la Paz recuerdan el bombardeo atómico del 6 de agosto de 1945 y sus víctimas. La Cúpula Genbaku permanece como testimonio físico.",
+      "why": "No es una atracción convencional: el sentido de la visita está en escuchar testimonios, comprender consecuencias humanas y respetar el duelo.",
+      "observe": ["La relación visual entre la Cúpula, el cenotafio y el museo", "Objetos y testimonios personales", "Grullas de papel y mensajes de paz"],
+      "behave": ["Reserva tiempo y recorre el museo sin prisa", "Habla bajo y respeta momentos de emoción", "Haz una pausa antes de pasar directamente a una zona de ocio"],
+      "avoid": "Evita posar de forma frívola, reducir la visita a una foto o convertir el debate histórico en espectáculo dentro del memorial.",
+      "useful_on": ["21 ago · Parque y Museo de la Paz", "21 ago · Cúpula Genbaku"],
+      "source_ids": ["hiroshima-museum"]
+    },
+    {
+      "id": "onsen-ryokan",
+      "category": "Onsen y ryokan",
+      "icon": "♨️",
+      "title": "La secuencia completa del onsen",
+      "what": "Un onsen es un baño de agua termal para relajarse, no una piscina ni un lugar para lavarse dentro del vaso común.",
+      "why": "Mizunoto es la única noche de ryokan y uno de los cambios culturales más grandes del viaje. Conocer la secuencia elimina casi toda la incertidumbre.",
+      "observe": ["Acceso separado por género y símbolos 男/女", "Puestos bajos de ducha antes de las piscinas", "Yukata y zapatillas proporcionados por el ryokan"],
+      "behave": ["Desnúdate en el vestuario y lávate completamente sentado antes de entrar", "Aclara todo el jabón, entra despacio y habla bajo", "Mantén toalla y pelo fuera del agua; deja el teléfono fuera"],
+      "avoid": "No entres con bañador, no nades y no vayas tras beber alcohol. La política de tatuajes de Mizunoto sigue pendiente: hay que confirmarla directamente.",
+      "useful_on": ["17 ago · Mizunoto, Hakone"],
+      "source_ids": ["jnto-onsen", "jnto-ryokan"]
+    },
+    {
+      "id": "food-etiquette",
+      "category": "Comer y beber",
+      "icon": "🥢",
+      "title": "Palillos, pago y mesa",
+      "what": "La etiqueta gastronómica expresa consideración por quien cocina y por el grupo. En locales informales basta con observar y actuar con cuidado.",
+      "why": "Se comerá en formatos muy distintos: barra de sushi, ramen con ticket, izakaya, mercado, kaiseki y puestos callejeros.",
+      "observe": ["Máquinas de tickets antes de entrar", "Pago en caja en vez de en la mesa", "Toalla oshibori para las manos"],
+      "behave": ["Di «itadakimasu» si te sale natural y «gochisōsama deshita» al terminar", "En platos compartidos pasa primero la comida a tu plato", "Entrega dinero o tarjeta en la bandeja cuando la haya"],
+      "avoid": "Nunca claves los palillos verticalmente en el arroz ni pases comida de palillos a palillos: ambos gestos recuerdan rituales funerarios. No dejes propina salvo que el establecimiento indique expresamente otro sistema.",
+      "useful_on": ["Todos los días", "Planificador gastronómico"],
+      "source_ids": ["jnto-food", "jnto-manners"]
+    },
+    {
+      "id": "regional-food",
+      "category": "Comer y beber",
+      "icon": "🍜",
+      "title": "Qué cambia en cada etapa",
+      "what": "La cocina regional permite leer el viaje: Tokio combina tradición edomae y cultura de izakaya; Kioto prioriza temporada y presentación; Hiroshima y Osaka tienen estilos propios de okonomiyaki.",
+      "why": "Elegir platos por etapa da contexto sin convertir cada comida en una reserva rígida.",
+      "observe": ["Tokio: sushi, tempura, soba y yakitori", "Kioto: obanzai, yudofu, matcha y kaiseki", "Hiroshima: capas de okonomiyaki con fideos", "Osaka: mezcla en la masa, takoyaki y kushikatsu"],
+      "behave": ["Usa el directorio para relacionar platos con barrios reales", "Pregunta la especialidad del local", "Comparte varios platos en izakayas y puestos cuando sea práctico"],
+      "avoid": "No busques una única versión «auténtica» universal: estilos, salsas y formas de servir cambian por región y establecimiento.",
+      "useful_on": ["Tokio 14–17 y 23–25 ago", "Kioto 18–21 ago", "Hiroshima 21–22 ago", "Osaka 22–23 ago"],
+      "source_ids": ["jnto-food"]
+    }
+  ],
+  "sources": [
+    { "id": "jnto-manners", "name": "JNTO — Japanese Manners", "url": "https://www.japan.travel/en/guide/japanese-manners-dos-and-donts/", "accessed_at": "2026-07-15" },
+    { "id": "jnto-shrines", "name": "JNTO — Shrine and Temple Traditions", "url": "https://www.japan.travel/en/guide/shrine-and-temple-traditions/", "accessed_at": "2026-07-15" },
+    { "id": "jnto-onsen", "name": "JNTO — How to Best Enjoy Onsen", "url": "https://www.japan.travel/en/guide/how-to-best-enjoy-onsen/", "accessed_at": "2026-07-15" },
+    { "id": "jnto-ryokan", "name": "JNTO — Japanese Ryokan Guide", "url": "https://www.japan.travel/en/guide/japanese-ryokan/", "accessed_at": "2026-07-15" },
+    { "id": "jnto-food", "name": "JNTO — Japanese Food Etiquette", "url": "https://www.japan.travel/en/guide/japanese-food-etiquette/", "accessed_at": "2026-07-15" },
+    { "id": "hiroshima-museum", "name": "Hiroshima Peace Memorial Museum", "url": "https://hpmmuseum.jp/?lang=eng", "accessed_at": "2026-07-15" }
+  ]
+}

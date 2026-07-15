@@ -29,6 +29,7 @@ export function validateProject() {
   const { alerts } = readJson('data/alerts.json');
   const travelTools = readJson('data/travel_tools.json');
   const preparation = readJson('data/preparation_checklist.json');
+  const culturalGuide = readJson('data/cultural_guide.json');
   const days = tripData.days ?? [];
   const trip = tripData.trip ?? {};
 
@@ -181,7 +182,23 @@ export function validateProject() {
     }
   }
 
-  return { errors, counts: { days: days.length, pois: pois.length, restaurants: restaurants.length, alerts: alerts.length, hotelAccess: coveredHotelIds.size, phrases: phraseData.items?.length ?? 0, preparation: preparationTasks.length } };
+  const culturalSources = unique((culturalGuide.sources ?? []).map((source) => source.id), 'Fuentes culturales');
+  const culturalTopics = culturalGuide.topics ?? [];
+  unique(culturalTopics.map((topic) => topic.id), 'Temas culturales');
+  check(isDate(culturalGuide.last_verified_at), 'Guia cultural: fecha de verificacion invalida');
+  for (const source of culturalGuide.sources ?? []) {
+    check(isHttpUrl(source.url), `Guia cultural: fuente ${source.id} invalida`);
+    check(isDate(source.accessed_at), `Guia cultural: fuente ${source.id} sin fecha`);
+  }
+  for (const topic of culturalTopics) {
+    check(Boolean(topic.title && topic.category && topic.what && topic.why && topic.avoid), `Guia cultural ${topic.id}: contenido incompleto`);
+    check(Array.isArray(topic.observe) && topic.observe.length > 0, `Guia cultural ${topic.id}: falta que observar`);
+    check(Array.isArray(topic.behave) && topic.behave.length > 0, `Guia cultural ${topic.id}: falta comportamiento`);
+    check(Array.isArray(topic.useful_on) && topic.useful_on.length > 0, `Guia cultural ${topic.id}: falta relacion con el viaje`);
+    for (const sourceId of topic.source_ids ?? []) check(culturalSources.has(sourceId), `Guia cultural ${topic.id}: fuente desconocida "${sourceId}"`);
+  }
+
+  return { errors, counts: { days: days.length, pois: pois.length, restaurants: restaurants.length, alerts: alerts.length, hotelAccess: coveredHotelIds.size, phrases: phraseData.items?.length ?? 0, preparation: preparationTasks.length, culturalTopics: culturalTopics.length } };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
