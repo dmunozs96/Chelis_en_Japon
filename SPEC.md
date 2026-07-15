@@ -966,6 +966,16 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 
 **Estado:** 35 fichas totales; faltan 15 para completar el Top 50 profundo.
 
+### Top 50 gastronómico — Lote 1C (37/50) ✅ (2026-07-15)
+
+- `Tousuiro Kiyamachi Honten`: incorpora una experiencia de tofu y yuba en Kioto que cubre tanto cocina kaiseki como una opción vegetariana real. La ficha distingue el menú vegetariano Rokuhara —sin carne, pescado, huevo, lácteos ni caldo de pescado— del resto de menús y documenta precios, reserva telefónica y horarios desde la web oficial.
+- `Ginza Tonkatsu Aoki (Ginza 4-chome)`: añade tonkatsu especializado en cerdo Hayashi SPF en una ubicación útil para los días de Ginza. Se ha fijado la sucursal exacta para no mezclarla con los otros locales de la marca, incluyendo planta, teléfono, horarios diferenciados y precios actuales.
+- Ambas fichas incluyen identidad japonesa, coordenadas de la sucursal, rango de precio, operativa, dos recomendaciones concretas de pedido y fuentes trazables. Tousuiro amplía la cobertura vegetariana y Aoki aporta una alternativa de coste medio frente a la restauración premium de Ginza.
+
+**Verificación:** esquema editorial, invariantes, tests y build PWA completos en verde.
+
+**Estado:** 37 fichas totales; faltan 13 para completar el Top 50 profundo.
+
 ## 9. Advertencias activas
 
 - ⚠️ **Ventanas de reserva de trenes (18-24 jul):** Tokio→Hakone (Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Los 4 shinkansen abren del 19 al 24 de julio — reservar en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com).
