@@ -166,7 +166,8 @@ export function validateProject() {
   check(isDate(preparation.departure_date), 'Checklist: departure_date invalida');
   check(preparation.departure_date === trip.start_date, 'Checklist: departure_date no coincide con el viaje');
   for (const task of preparationTasks) {
-    check(Boolean(task.title && task.description), `Checklist ${task.id}: contenido incompleto`);
+    check(Boolean(task.title && task.description && task.context), `Checklist ${task.id}: contenido incompleto`);
+    check(Array.isArray(task.completion_criteria) && task.completion_criteria.length > 0, `Checklist ${task.id}: sin criterios de finalizacion`);
     check(preparationCategories.has(task.category), `Checklist ${task.id}: categoria invalida`);
     check(preparationPriorities.has(task.priority), `Checklist ${task.id}: prioridad invalida`);
     check(['Daniel', 'acompanante', 'ambos'].includes(task.assignee), `Checklist ${task.id}: responsable invalido`);

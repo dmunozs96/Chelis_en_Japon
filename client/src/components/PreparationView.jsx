@@ -18,6 +18,12 @@ const STYLES = `
 .prep-task__title { color:var(--label-primary); font-size:16px; font-weight:700; }
 .prep-task__description { margin-top:5px; color:var(--label-secondary); font-size:13px; line-height:1.4; }
 .prep-task__blocked { margin-top:7px; color:#ffcc00; font-size:12px; }
+.prep-details { margin-top:10px; border-top:1px solid var(--separator); padding-top:9px; }
+.prep-details summary { color:var(--accent); font-size:13px; font-weight:700; cursor:pointer; }
+.prep-details h3 { margin-top:11px; color:var(--label-primary); font-size:12px; text-transform:uppercase; letter-spacing:.4px; }
+.prep-details p { margin-top:4px; color:var(--label-secondary); font-size:13px; line-height:1.45; }
+.prep-criteria { margin:5px 0 0; padding-left:19px; color:var(--label-secondary); font-size:13px; line-height:1.45; }
+.prep-criteria li + li { margin-top:4px; }
 .prep-status { margin-top:10px; border:1px solid var(--glass-border); border-radius:9px; padding:8px; background:var(--bg-secondary); color:var(--label-primary); font:13px var(--font); }
 `;
 
@@ -48,7 +54,7 @@ export default function PreparationView({ onBack }) {
           const blockers = task.depends_on.filter((id) => !completedIds.has(id));
           return <article className="travel-card prep-task" key={task.id}>
             <button className={`prep-check ${task.status === 'completed' ? 'prep-check--done' : ''}`} onClick={() => setStatus(task.id, task.status === 'completed' ? 'pending' : 'completed')} aria-label={`Marcar ${task.title}`}>{task.status === 'completed' ? '✓' : ''}</button>
-            <div><div className="prep-task__meta"><span className={`prep-task__priority--${task.priority}`}>{task.priority}</span><span>{task.assignee}</span><span>vence {new Date(`${task.due_date_resolved}T12:00:00`).toLocaleDateString('es-ES', { day:'numeric', month:'short' })}</span></div><h2 className="prep-task__title">{task.title}</h2><p className="prep-task__description">{task.description}</p>{blockers.length > 0 && <p className="prep-task__blocked">Bloqueada por {blockers.length} tarea{blockers.length > 1 ? 's' : ''} pendiente{blockers.length > 1 ? 's' : ''}</p>}<select className="prep-status" value={task.status} onChange={(event) => setStatus(task.id, event.target.value)}>{Object.entries(LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></div>
+            <div><div className="prep-task__meta"><span className={`prep-task__priority--${task.priority}`}>{task.priority}</span><span>{task.assignee}</span><span>vence {new Date(`${task.due_date_resolved}T12:00:00`).toLocaleDateString('es-ES', { day:'numeric', month:'short' })}</span></div><h2 className="prep-task__title">{task.title}</h2><p className="prep-task__description">{task.description}</p>{blockers.length > 0 && <p className="prep-task__blocked">Bloqueada por {blockers.length} tarea{blockers.length > 1 ? 's' : ''} pendiente{blockers.length > 1 ? 's' : ''}</p>}<details className="prep-details"><summary>Explicación y cómo completarla</summary><h3>Por qué importa</h3><p>{task.context}</p><h3>Márcala como hecha cuando…</h3><ul className="prep-criteria">{task.completion_criteria.map((criterion) => <li key={criterion}>{criterion}</li>)}</ul>{task.source_refs.length > 0 && <><h3>Fuentes</h3>{task.source_refs.map((source) => <a className="travel-source" key={source.url} href={source.url} target="_blank" rel="noreferrer">{source.name} ↗</a>)}</>}</details><select className="prep-status" value={task.status} onChange={(event) => setStatus(task.id, event.target.value)}>{Object.entries(LABELS).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></div>
           </article>;
         })}
       </>}
