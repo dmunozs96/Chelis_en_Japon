@@ -958,6 +958,14 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 
 **Estado:** 33 fichas totales; faltan 17 para completar el Top 50 profundo.
 
+### Top 50 gastronómico — Lote 1B (35/50) ✅ (2026-07-15)
+
+- `Nihonbashi Kaisendon Tsujihan (Honten)`: kaisendon asequible cerca de Ginza, cuatro niveles de precio y segundo pase en ochazuke; identidad, mapa, operativa y precios contrastados en la web oficial.
+- `Bakudanya (Shintenchi)`: tsukemen frío y picante de Hiroshima, abierto hasta tarde y situado junto a Okonomimura como Plan B inmediato; contrastado con la asociación hostelera y la guía 2026 de la ciudad.
+- Ambos registros incluyen nombre japonés, sucursal, coordenadas, doble fuente y «qué pedir» trazable.
+
+**Estado:** 35 fichas totales; faltan 15 para completar el Top 50 profundo.
+
 ## 9. Advertencias activas
 
 - ⚠️ **Ventanas de reserva de trenes (18-24 jul):** Tokio→Hakone (Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Los 4 shinkansen abren del 19 al 24 de julio — reservar en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com).
