@@ -1,7 +1,7 @@
 # Especificación — Guía Interactiva Japón Ago26
 
 > Documento vivo. Cualquier modificación al producto, por pequeña que sea, debe reflejarse aquí.
-> Versión: 1.7 | Fecha: 2026-07-15 | Estado: Activo
+> Versión: 1.8 | Fecha: 2026-07-15 | Estado: Activo
 
 ---
 
@@ -435,6 +435,27 @@ El bloque mañana/mediodía/tarde/noche es demasiado grueso para ser operativo s
 
 **Alcance actual:** validado como piloto en el 15 de agosto y replicado en **los 13 días del itinerario** (Ola 4d, ver detalle más abajo). Los días completamente libres (16 y 24 ago) solo llevan `steps` en su bloque fijo (Yanaka / última cena), no en las franjas libres — coherente con su naturaleza de "sin plan cerrado".
 
+### 5d. Convención horaria de las franjas del día (mañana/tarde/noche)
+
+Daniel es español y su noción coloquial de las franjas del día no coincide con el reparto que se usó al principio (más genérico/turístico). Convención acordada, y verificada como compatible con los horarios de restauración japonesa:
+
+| Franja | Horario | Nota |
+|---|---|---|
+| `mañana` | hasta las 14:00 | Incluye actividades de última hora de la mañana, no solo el amanecer |
+| `mediodía` | ~11:00-14:30 | Reservado para comida/traslados de mediodía — no sigue la regla estricta de mañana/tarde, es su propia franja |
+| `tarde` | 14:00-20:00 | Empieza justo después de comer |
+| `noche` | desde las 20:00 | Empieza con la cena |
+| `madrugada` | antes de las 07:00 | Solo para el check-out de madrugada del último día |
+
+**Horarios de comida ajustados a la convención española, verificados contra la restauración japonesa:**
+- **Comida ~13:00-14:00:** compatible. El servicio de mediodía japonés (`ranchi`) va normalmente de 11:00/11:30 a 14:00-14:30, último pedido sobre las 14:00 — llegar a las 13:00 tiene margen cómodo.
+- **Cena a partir de las 20:00:** compatible en la mayoría de casos, con una excepción real a tener en cuenta: los restaurantes japoneses (sobre todo los tradicionales) suelen abrir el servicio de cena a las 17:00-18:00 y cerrar cocina sobre las 21:00-21:30 — ir a las 20:00 en punto va bien para izakayas/ramen-ya normales, pero las cenas kaiseki de ryokan (Hakone) tienen **hora fija del propio hotel** (a menudo 18:00 o 19:00, no negociable) y los sitios con reserva de asiento (ESqUISSE, Roan Kikunoi, Shibuya Sky) ofrecen turnos concretos que pueden no coincidir exactamente con las 20:00. Estos casos llevan una nota explícita en el `detail` del step correspondiente.
+- Japón comparte con España el patrón de "horario partido" (cocina cerrada entre comida y cena) — a diferencia del mundo anglosajón, que sirve todo el día. Encaja mejor con el ritmo español que con otros.
+
+**Etiquetas híbridas:** cuando un bloque mezcla contenido de dos franjas adyacentes de forma sustancial (no un solape de pocos minutos en el límite), su campo `time` usa una etiqueta compuesta: `"mañana-tarde"` o `"tarde-noche"`. Ejemplos reales: el bloque "Nijo" del 20 de agosto (comida a las 13:00 + castillo hasta las 15:30 → `mañana-tarde`); el bloque "Shibuya" del 15 de agosto (sightseeing de tarde + cena a las 20:00 → `tarde-noche`); la cena kaiseki de Hakone, cuya hora exacta depende del ryokan (→ `tarde-noche`). Donde ha sido posible, se ha preferido **reordenar los pasos** (p. ej. mover un paseo digestivo después de la cena) para que el bloque quede limpio dentro de una sola franja, en vez de recurrir a la etiqueta híbrida — el híbrido se reserva para los casos donde el contenido realmente no se puede partir.
+
+**UI:** `client/src/components/TodayView.jsx` — la columna de franja (`.block-left`, 58px) soporta las etiquetas compuestas con `word-break`/`hyphens: auto`, envolviéndolas en dos líneas sin romper el layout.
+
 ---
 
 ## 6. Sistema de diseño
@@ -792,6 +813,7 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | 4b | Restaurantes | F5 — planificador (slots por día) + sugeridor con filtros offline | ✅ |
 | 4c | Plan operativo detallado (piloto) | `blocks[].steps` — traslados, calles y tiempos por sitio (solo 15 ago) | ✅ |
 | 4d | Plan operativo detallado (completo) | `blocks[].steps` en los 13 días del itinerario + corrección Miyajima→Shukkei-en | ✅ |
+| 4e | Convención horaria española | Franjas mañana/tarde/noche reajustadas a las 14h/20h + comidas 13h/cenas 20h | ✅ |
 | 5 | Herramientas de viaje | F8, F9, F10, F11, F12, F13 — frases, conversor, emergencias, Suica, clima | ⬜ **SIGUIENTE** |
 | 6 | Personal + privado | F14, F15, F16 — documentos, presupuesto, notas (localStorage) | ⬜ |
 | 7 | Offline + PWA | F17 — service worker, instalable | ⬜ |
@@ -874,6 +896,25 @@ Daniel validó el formato del piloto (15 ago) y pidió extenderlo a todo el itin
 
 **Verificación:** Build de producción sin errores. Probado en navegador real (Playwright, viewport móvil 390×844): tab Viaje → días 20, 21 y 22 (elegidos por tener bloques duplicados de la misma franja horaria) → cada bloque expande su plan detallado correctamente, sin errores de consola. Recuento de botones "Ver plan detallado" por día coincide con el número de bloques de cada uno.
 
+### Detalle Ola 4e — Convención horaria española ✅ COMPLETADA (2026-07-15)
+
+Daniel planteó que su noción de "mañana/tarde/noche" (española: mañana hasta las 14h, comida 13-14h, tarde justo después, noche desde las 20h) no coincidía con el reparto original de los bloques, más genérico. Se debatió primero si era compatible con los horarios de restauración japonesa (ver sección 5d) antes de tocar datos.
+
+**Entregables:**
+1. ✅ `SPEC.md` sección 5d — convención horaria documentada (franjas, horarios de comida, compatibilidad con Japón, regla de etiquetas híbridas).
+2. ✅ `data/trip.json` — recorrido de los 13 días reajustando:
+   - Horas de comida movidas a ~13:00 (antes repartidas entre 11:00-12:30 según el día).
+   - Horas de cena movidas a ~20:00 (antes entre 18:00-19:30 según el día).
+   - Bloques enteramente mal etiquetados (contenido 100% de mañana pero etiquetados "tarde") corregidos a su franja real: Higashiyama (19 ago) y Kinkaku-ji (20 ago).
+   - Bloques que genuinamente mezclan dos franjas reetiquetados con la nueva etiqueta compuesta: `Shibuya` (15 ago) y `Onsen y cena` (17 ago) y `Dotonbori` (22 ago) → `tarde-noche`; `Nijo` (20 ago) → `mañana-tarde`; `Nishiki` (20 ago) → `tarde-noche`.
+   - Donde ha sido posible, se reordenaron pasos en vez de usar etiqueta híbrida: Gion (18 y 19 ago) ahora hacen la cena primero y el paseo nocturno después (paseo digestivo), quedando limpiamente dentro de "noche".
+   - Bloque "Check-in Hiroshima" (21 ago), de solo 20 min y enteramente antes de las 14:00, reetiquetado de "tarde" a "mediodía" por ser más representativo que forzarlo a "mañana" aislado.
+3. ✅ `client/src/components/TodayView.jsx` — columna de franja ensanchada (48px → 58px) y con `word-break`/`hyphens: auto` para que las etiquetas compuestas (`mañana-tarde`, `tarde-noche`) envuelvan en dos líneas sin romper el layout.
+
+**Excepciones documentadas explícitamente (regla 7 de `CONSTITUTION.md`):** no todas las cenas se movieron mecánicamente a las 20:00 sin más — donde el horario real no es negociable (cena kaiseki del ryokan de Hakone, sujeta a la hora que fije el hotel; reservas con turno fijo como ESqUISSE; Shibuya Sky, atado a la hora real de la puesta de sol en agosto) se dejó una nota explícita en el `detail` del step en vez de inventar que siempre se puede cenar exactamente a las 20:00.
+
+**Verificación:** Build de producción sin errores. Probado en navegador real (Playwright, viewport móvil 390×844): días 15, 20 y 22 con las nuevas etiquetas híbridas visibles y bien envueltas en la columna de franja, sin errores de consola.
+
 ---
 
 ## 8. Advertencias activas
@@ -885,4 +926,4 @@ Daniel validó el formato del piloto (15 ago) y pidió extenderlo a todo el itin
 
 ---
 
-*Última actualización: 2026-07-15 — Ola 4d completada: plan operativo detallado (`blocks[].steps`) extendido a los 13 días del itinerario, con corrección de datos (Miyajima→Shukkei-en) incluida. Siguiente: Ola 5 — Herramientas de viaje (F8-F13).*
+*Última actualización: 2026-07-15 — Ola 4e completada: franjas mañana/tarde/noche reajustadas a la convención horaria española (14h/20h) y horarios de comida/cena movidos a 13h/20h, verificados como compatibles con la restauración japonesa. Siguiente: Ola 5 — Herramientas de viaje (F8-F13).*

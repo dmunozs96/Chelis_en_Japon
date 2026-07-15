@@ -233,7 +233,7 @@ const STYLES = `
 }
 
 .block-left {
-  width: 48px;
+  width: 58px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -257,11 +257,15 @@ const STYLES = `
   text-align: center;
   letter-spacing: 0.2px;
   line-height: 1.2;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .block-franja {
   font-size: 11px;
   color: var(--label-secondary);
+  word-break: break-word;
+  hyphens: auto;
   text-align: center;
   margin-top: 2px;
 }
