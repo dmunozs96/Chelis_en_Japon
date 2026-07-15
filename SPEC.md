@@ -983,6 +983,16 @@ Regla de prioridad: si algo compite con billetes, medicación, Top 50 o rutas cr
 
 Toda ficha nueva o auditada lleva: identidad inequívoca (nombre oficial + japonés + sucursal con dirección), estado operativo verificado con fecha, fuentes con URL real consultada, «qué pedir» trazable a menú o evidencia repetida, y clasificación honesta (`restaurant` vs. zona/mercado/food hall). El detalle completo está en `PLAN_V2.md` §7 y el resultado del lote 0 en `AUDIT_RESTAURANTES.md`.
 
+### F19 — Mejoras del directorio al completar la base (comprometido: Daniel, 15 jul 2026)
+
+Cuando la base alcance su objetivo (Top 50 + ~150 fichas operativas), `RestaurantsView` evoluciona de sugeridor a buscador completo:
+
+1. **Mejores filtros de búsqueda:** búsqueda por texto libre (nombre, plato, tipo de cocina) + filtros nuevos por barrio, tipo de plato concreto (ramen, sushi, okonomiyaki…), «abierto hoy» (cruzando `closed_days` con el día de la semana real) y franja de comida (`meal_types`). Los filtros actuales (ciudad, precio, sin reserva, ocasión) se mantienen.
+2. **Vista mapa de resultados:** los restaurantes filtrados se pueden ver sobre el mapa (Leaflet, mismo stack — sin dependencias nuevas), con pin por restaurante, color por tier de precio y tap → tarjeta expandida. Requiere haber pagado antes la deuda de geocodificación del lote 0 (`AUDIT_RESTAURANTES.md` §6.1): sin coordenadas contrastadas no se pinta el pin.
+3. **Precio medio aproximado en euros:** cada ficha muestra, junto al rango en yenes, la conversión aproximada del precio medio (p. ej. «¥3.000-6.000 · ~24 € por persona»). Se calcula con el tipo del conversor F9 (BCE fechado, o el tipo real editado por el usuario) — una sola fuente de verdad para el cambio, sin API nueva. Siempre etiquetado como aproximado y con la fecha del tipo visible, coherente con la regla 7 de la Constitución.
+
+Dependencia: entra tras completar los lotes de contenido (no antes, para no diseñar filtros sobre una base que aún cambia de esquema). Se implementa junto al modo «Comer ahora» del Dominio G de `PLAN_V2.md`.
+
 ---
 
-*Última actualización: 2026-07-15 — V2 aprobada (sección 11): enmienda constitucional v2.0, cena de despedida abierta (sin Michelin), decisiones de compras/privacidad/APIs registradas, auditoría lote 0 de restaurantes en curso. Anteriores: documentos personales, presupuesto y notas eliminados del alcance; las actualizaciones de la PWA se activan y recargan automáticamente.*
+*Última actualización: 2026-07-15 — V2 aprobada (sección 11): enmienda constitucional v2.0, cena de despedida abierta (sin Michelin), decisiones de compras/privacidad/APIs registradas, auditoría lote 0 de restaurantes completada (31 fichas verificadas). Añadido F19: al completar la base de restaurantes — búsqueda/filtros avanzados, vista mapa de resultados y precio medio aproximado en euros con el tipo del conversor F9. Anteriores: documentos personales, presupuesto y notas eliminados del alcance; las actualizaciones de la PWA se activan y recargan automáticamente.*
