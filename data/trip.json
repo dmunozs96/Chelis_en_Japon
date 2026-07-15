@@ -56,10 +56,46 @@
         { "id": "shibuya-crossing", "name": "Shibuya Crossing", "type": "icono", "lat": 35.6595, "lng": 139.7004, "note": "El cruce más famoso del mundo. Mejor al atardecer." }
       ],
       "blocks": [
-        { "time": "mañana", "label": "Asakusa", "activity": "Templo Senso-ji, Nakamise-dori y callejuelas de Asakusa", "poi_id": "sensoji" },
-        { "time": "tarde", "label": "Palacio Imperial", "activity": "Jardines del Palacio Imperial y zona de Chiyoda", "poi_id": "imperial-east" },
-        { "time": "tarde", "label": "Shibuya", "activity": "Cruce de Shibuya y alrededores — Harajuku opcional", "poi_id": "shibuya-crossing" },
-        { "time": "noche", "label": "Cena", "activity": "Cena en Shibuya o Shinjuku" }
+        {
+          "time": "mañana", "label": "Asakusa", "activity": "Templo Senso-ji, Nakamise-dori y callejuelas de Asakusa", "poi_id": "sensoji",
+          "steps": [
+            { "time": "08:30", "type": "transfer", "mode": "walk", "title": "Hotel → Estación Ginza", "detail": "~7 min a pie desde The Gate Hotel Tokyo (Yurakucho) hasta la boca de metro Ginza (líneas Ginza / Marunouchi / Hibiya).", "duration_min": 7 },
+            { "time": "08:40", "type": "transfer", "mode": "metro", "title": "Línea Ginza → Asakusa", "detail": "Tokyo Metro Ginza Line, dirección Asakusa (7 paradas). Bajar en Asakusa, salida 1.", "duration_min": 18 },
+            { "time": "09:00", "type": "visit", "title": "Kaminarimon (Puerta del Trueno)", "detail": "Entrada icónica con el gran farolillo rojo. Foto rápida — a estas horas ya hay cola, no merece la pena pararse mucho.", "duration_min": 10 },
+            { "time": "09:10", "type": "walk", "title": "Nakamise-dori", "detail": "Calle comercial de ~250 m hasta el templo: puestos de ningyo-yaki, senbei y souvenirs. Ir despacio, es parte de la experiencia (más lleno de lo normal por Obon).", "duration_min": 20 },
+            { "time": "09:30", "type": "visit", "title": "Templo Senso-ji", "detail": "Salón principal, incensario Jokoro, pagoda de cinco pisos. El templo budista más antiguo de Tokio (645 d.C.).", "duration_min": 35, "poi_id": "sensoji" },
+            { "time": "10:05", "type": "walk", "title": "Asakusa-jinja y Denboin-dori", "detail": "Santuario sintoísta contiguo al templo; después Denboin-dori, calle empedrada con tiendas de artesanos, mucho menos masificada que Nakamise.", "duration_min": 25 },
+            { "time": "10:30", "type": "food", "title": "Hoppy-dori (opcional)", "detail": "Callejón de tabernas retro a 5 min andando, bueno para un tentempié de pie si hay hambre antes de Tsukiji.", "duration_min": 15 }
+          ]
+        },
+        {
+          "time": "mediodía", "label": "Tsukiji Outer Market", "activity": "Mercado exterior de Tsukiji — marisco fresco de camino",
+          "steps": [
+            { "time": "10:50", "type": "transfer", "mode": "walk", "title": "Vuelta a Asakusa Station", "detail": "~5 min a pie desde Senso-ji.", "duration_min": 5 },
+            { "time": "11:00", "type": "transfer", "mode": "metro", "title": "Asakusa → Tsukiji", "detail": "Ginza Line hasta Higashi-Ginza (~10 min), transbordo a línea Hibiya, 1 parada hasta Tsukiji (salida A1).", "duration_min": 22 },
+            { "time": "11:25", "type": "food", "title": "Tsukiji Outer Market", "detail": "Marisco fresco, tamagoyaki, ostras a la plancha, brochetas — se come de puesto en puesto, no en un único restaurante.", "duration_min": 65 }
+          ]
+        },
+        {
+          "time": "tarde", "label": "Palacio Imperial", "activity": "Jardines del Este del Palacio Imperial y zona de Chiyoda", "poi_id": "imperial-east",
+          "steps": [
+            { "time": "12:35", "type": "transfer", "mode": "metro", "title": "Tsukiji → Hibiya", "detail": "Línea Hibiya, 3 paradas (~8 min) hasta la estación Hibiya.", "duration_min": 8 },
+            { "time": "12:45", "type": "walk", "title": "Hibiya Park → Otemon", "detail": "Atravesar el parque Hibiya (~12 min a pie) hasta la puerta Otemon, entrada a los Jardines del Este.", "duration_min": 12 },
+            { "time": "13:00", "type": "visit", "title": "Jardines del Este del Palacio Imperial", "detail": "Jardín Ninomaru, base de la antigua torre del castillo (Tenshudai), zona de Honmaru. Entrada gratuita. Abierto sábados (cerrado lunes y viernes).", "duration_min": 90, "poi_id": "imperial-east" },
+            { "time": "14:30", "type": "transfer", "mode": "walk", "title": "A Otemachi Station", "detail": "~10 min a pie desde la salida de Ote-mon hasta la estación Otemachi.", "duration_min": 10 },
+            { "time": "14:45", "type": "transfer", "mode": "metro", "title": "Otemachi → Shibuya", "detail": "Línea Chiyoda hasta Omotesando (~20 min), transbordo a línea Ginza/Hanzomon, 1 parada hasta Shibuya.", "duration_min": 30 }
+          ]
+        },
+        {
+          "time": "noche", "label": "Shibuya", "activity": "Cruce de Shibuya, Shibuya Sky y cena — Harajuku opcional", "poi_id": "shibuya-crossing",
+          "steps": [
+            { "time": "15:15", "type": "visit", "title": "Llegada a Shibuya — Hachiko", "detail": "Salida Hachiko: estatua del perro Hachiko, punto de encuentro clásico de la ciudad.", "duration_min": 10 },
+            { "time": "15:30", "type": "visit", "title": "Shibuya Crossing", "detail": "El cruce peatonal más famoso del mundo. Cruzarlo y verlo desde arriba en el Starbucks del Tsutaya (2ª planta) o Magnet by Shibuya109.", "duration_min": 30, "poi_id": "shibuya-crossing" },
+            { "time": "16:00", "type": "free", "title": "Harajuku / Takeshita-dori (opcional)", "detail": "20 min a pie o 1 parada de JR Yamanote desde Shibuya, si queda energía y ganas de compras.", "duration_min": 90 },
+            { "time": "18:00", "type": "visit", "title": "Shibuya Sky", "detail": "Mirador al aire libre en la azotea del Shibuya Scramble Square. Mejor franja: 30-45 min antes de la puesta de sol. Reservar franja horaria con antelación (entradas con hora fija).", "duration_min": 75 },
+            { "time": "19:30", "type": "food", "title": "Cena en Shibuya", "detail": "Izakaya o ramen en las callejuelas de Nonbei Yokocho o alrededor de Dogenzaka.", "duration_min": 90 }
+          ]
+        }
       ]
     },
     {

@@ -1,7 +1,7 @@
 # Especificación — Guía Interactiva Japón Ago26
 
 > Documento vivo. Cualquier modificación al producto, por pequeña que sea, debe reflejarse aquí.
-> Versión: 1.5 | Fecha: 2026-07-14 | Estado: Activo
+> Versión: 1.6 | Fecha: 2026-07-15 | Estado: Activo
 
 ---
 
@@ -399,6 +399,42 @@ Los bloques sin POI asociado (tren, comida, descanso) no llevan `poi_id` y no so
 { "time": "12:00-14:00", "label": "Comida", "activity": "Tsukiji Outer Market", "type": "food" }
 ```
 
+### 5c. Plan operativo detallado — `blocks[].steps` (piloto Ola 4c, 15 ago)
+
+El bloque mañana/mediodía/tarde/noche es demasiado grueso para ser operativo sobre el terreno (no dice cómo llegar, ni cuánto tarda cada tramo, ni qué calles recorrer dentro de un barrio). Cada bloque puede llevar ahora un array `steps` opcional: una sub-línea de tiempo cronológica con traslados, visitas y comidas.
+
+```json
+{
+  "time": "mañana",
+  "label": "Asakusa",
+  "activity": "Templo Senso-ji, Nakamise-dori y callejuelas de Asakusa",
+  "poi_id": "sensoji",
+  "steps": [
+    { "time": "08:30", "type": "transfer", "mode": "walk", "title": "Hotel → Estación Ginza", "detail": "~7 min a pie...", "duration_min": 7 },
+    { "time": "08:40", "type": "transfer", "mode": "metro", "title": "Línea Ginza → Asakusa", "detail": "Tokyo Metro Ginza Line, dirección Asakusa (7 paradas)...", "duration_min": 18 },
+    { "time": "09:30", "type": "visit", "title": "Templo Senso-ji", "detail": "...", "duration_min": 35, "poi_id": "sensoji" }
+  ]
+}
+```
+
+**Campos de cada `step`:**
+
+| Campo | Tipo | Descripción |
+|---|---|---|
+| `time` | string | Hora de inicio del paso (`"08:30"`) |
+| `type` | string | `transfer` (traslado), `walk` (paseo/recorrido a pie sin traslado), `visit` (parada en un lugar), `food` (comida/mercado), `free` (tiempo libre/opcional) |
+| `mode` | string | Solo para `type: "transfer"` — `walk`, `metro`, `tren`, `taxi` |
+| `title` | string | Título corto del paso (nombre de la parada, línea de metro, etc.) |
+| `detail` | string | Descripción operativa: línea concreta, nº de paradas, calle a seguir, qué hacer en el sitio |
+| `duration_min` | number | Duración estimada en minutos |
+| `poi_id` | string opcional | Si el paso corresponde a un POI de `pois_db.json`, lo hace tappable hacia `POIDetailView` |
+
+**Honestidad sobre incertidumbre (regla 7 de `CONSTITUTION.md`):** los tiempos de trayecto y transbordo de `steps` son **estimaciones basadas en la geografía real de Tokio** (líneas de metro reales, distancias reales), no confirmaciones de Google Maps para la fecha exacta del viaje. Se recomienda verificarlos con la app de Google Maps o Navitime la semana antes del viaje, especialmente si hay obras o cambios de horario. No son localizadores reservados como los trenes de larga distancia (esos sí llevan estado `pending`/`reserved` en la sección 3).
+
+**UI:** en `DayCard` (`TodayView.jsx`), cada bloque con `steps` muestra un botón "Ver plan detallado (N pasos) ▼" que despliega la sub-línea de tiempo con icono por tipo de paso (🚶 andar, 🚇 metro, 🍜 comida, 📍 visita, ✨ libre), hora, título, duración y detalle. Colapsado por defecto para no saturar la vista rápida de "Hoy".
+
+**Alcance actual:** implementado como piloto solo para el **15 de agosto**. Pendiente de decidir si se extiende al resto del itinerario (backlog, no bloqueante).
+
 ---
 
 ## 6. Sistema de diseño
@@ -754,6 +790,7 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | 3 | Mapa | F4 — Leaflet, geolocalización, POIs por día | ✅ |
 | 4a | Guía de Viaje Detallada | F6+F7 — pois_db.json (24 POIs), POIDetailView, ruta del día con polyline | ✅ |
 | 4b | Restaurantes | F5 — planificador (slots por día) + sugeridor con filtros offline | ✅ |
+| 4c | Plan operativo detallado (piloto) | `blocks[].steps` — traslados, calles y tiempos por sitio (solo 15 ago) | ✅ |
 | 5 | Herramientas de viaje | F8, F9, F10, F11, F12, F13 — frases, conversor, emergencias, Suica, clima | ⬜ **SIGUIENTE** |
 | 6 | Personal + privado | F14, F15, F16 — documentos, presupuesto, notas (localStorage) | ⬜ |
 | 7 | Offline + PWA | F17 — service worker, instalable | ⬜ |
@@ -806,6 +843,21 @@ Al no poder generarse un vídeo de entrada real, `SplashScreen.jsx` simula uno c
 
 **Verificación:** Build de producción (`npm run build`) sin errores. Probado en navegador real (Playwright, viewport móvil 390×844) — ver notas de sesión.
 
+### Detalle Ola 4c — Plan operativo detallado (piloto) ✅ COMPLETADA (2026-07-15)
+
+**Motivo:** el bloque mañana/tarde/noche mostraba solo un barrio y una frase ("Asakusa — templo, calle y callejuelas"), sin decir cómo llegar desde el hotel, cuánto tardaba cada tramo ni qué recorrido seguir dentro del barrio. No era operativo sobre el terreno.
+
+**Entregables:**
+1. ✅ Schema `blocks[].steps` (sección 5c de este documento) — sub-línea de tiempo cronológica por bloque, con traslados (modo, línea de metro, duración), visitas (con detalle y `poi_id` opcional) y comidas.
+2. ✅ `data/trip.json` — día **15 de agosto** reescrito con `steps` completos en sus 4 bloques (Asakusa, Tsukiji Outer Market, Palacio Imperial, Shibuya): 20 pasos en total, con líneas de metro reales (Ginza Line, Hibiya Line, Chiyoda Line), tiempos de trayecto estimados y puntos concretos dentro de cada barrio (Kaminarimon, Nakamise-dori, Denboin-dori, Hoppy-dori, Hibiya Park → Otemon, Hachiko, Dogenzaka/Nonbei Yokocho).
+3. ✅ `client/src/components/TodayView.jsx` (`DayCard`) — cada bloque con `steps` muestra un botón "Ver plan detallado (N pasos) ▼" colapsable; al expandir, sub-timeline con icono por tipo de paso (🚶🚇🍜📍✨), hora, título, duración estimada y detalle. Los pasos con `poi_id` son tappables hacia `POIDetailView`, igual que los bloques.
+
+**Decisión de alcance:** piloto limitado al 15 de agosto para validar el formato con Daniel antes de invertir en investigar y escribir el mismo nivel de detalle para los 12 días restantes (cada día requiere reconstruir rutas de metro/trenes reales entre POIs, no es mecánico).
+
+**Verificación:** Build de producción sin errores. Probado en navegador real (Playwright, viewport móvil 390×844): tab Viaje → día 15 → cada uno de los 4 bloques expande su plan detallado sin errores de consola.
+
+**Siguiente paso:** si el formato convence, replicar en los 12 días restantes del itinerario (Ola 4d, backlog abierto).
+
 ---
 
 ## 8. Advertencias activas
@@ -817,4 +869,4 @@ Al no poder generarse un vídeo de entrada real, `SplashScreen.jsx` simula uno c
 
 ---
 
-*Última actualización: 2026-07-14 — Ola D2 completada: splash con slideshow de fotos + countdown en vivo hasta el despegue. Siguiente: Ola 4b — Restaurantes.*
+*Última actualización: 2026-07-15 — Ola 4c completada: plan operativo detallado (`blocks[].steps`) como piloto en el 15 de agosto — traslados con línea de metro y duración, recorridos con calles concretas dentro de cada barrio. Siguiente: decidir con Daniel si se replica en el resto del itinerario (Ola 4d) o se pasa a Ola 5.*

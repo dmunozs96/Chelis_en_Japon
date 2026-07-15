@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 
 /* ---------------------------------------------------------------
    TodayView
@@ -304,6 +304,73 @@ const STYLES = `
   margin-top: 4px;
 }
 
+/* ---- Sub-pasos operativos dentro de un bloque ---- */
+.steps-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.steps-list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 2px solid var(--separator);
+  padding-left: 14px;
+}
+
+.step-row {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.step-icon {
+  font-size: 13px;
+  flex-shrink: 0;
+  width: 18px;
+}
+
+.step-time {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--label-secondary);
+  flex-shrink: 0;
+  width: 40px;
+  font-variant-numeric: tabular-nums;
+}
+
+.step-body {
+  flex: 1;
+}
+
+.step-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--label-primary);
+  line-height: 1.3;
+}
+
+.step-detail {
+  font-size: 13px;
+  color: var(--label-secondary);
+  line-height: 1.4;
+  margin-top: 1px;
+}
+
+.step-duration {
+  font-size: 12px;
+  color: var(--label-tertiary);
+  margin-left: 4px;
+}
+
 .route-btn {
   background: var(--bg-secondary);
   color: var(--accent);
@@ -396,11 +463,72 @@ function timeToFranja(time) {
   return 'Noche';
 }
 
+/* --- Icono por tipo de paso operativo --- */
+const STEP_ICONS = {
+  walk: '🚶',
+  transfer: '🚇',
+  visit: '📍',
+  food: '🍜',
+  free: '✨',
+  rest: '💤',
+};
+
+function stepIcon(step) {
+  if (step.type === 'transfer') {
+    if (step.mode === 'walk') return STEP_ICONS.walk;
+    if (step.mode === 'tren' || step.mode === 'train') return '🚆';
+    if (step.mode === 'taxi') return '🚕';
+    return STEP_ICONS.transfer;
+  }
+  return STEP_ICONS[step.type] || '•';
+}
+
+/* --- Sub-timeline de pasos operativos de un bloque --- */
+function StepsList({ steps, onOpenPoi }) {
+  if (!steps || steps.length === 0) return null;
+  return (
+    <div className="steps-list">
+      {steps.map((step, i) => {
+        const tappable = Boolean(step.poi_id && onOpenPoi);
+        return (
+          <div
+            className="step-row"
+            key={i}
+            role={tappable ? 'button' : undefined}
+            tabIndex={tappable ? 0 : undefined}
+            onClick={tappable ? () => onOpenPoi(step.poi_id) : undefined}
+            style={tappable ? { cursor: 'pointer' } : undefined}
+          >
+            <span className="step-icon" aria-hidden="true">{stepIcon(step)}</span>
+            <span className="step-time">{step.time}</span>
+            <div className="step-body">
+              <div className="step-title">
+                {step.title}
+                {step.duration_min && <span className="step-duration">· {step.duration_min} min</span>}
+              </div>
+              {step.detail && <div className="step-detail">{step.detail}</div>}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 /* --- DayCard: exportado para uso en DayNav --- */
 export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute }) {
   const isFree = day.type === 'free';
   const dayNum = days.length > 0 ? getDayNumber(days, day) : null;
   const hasRoutePois = (day.blocks ?? []).some(b => b.poi_id);
+  const [expandedSteps, setExpandedSteps] = useState(() => new Set());
+
+  const toggleSteps = (i) => {
+    setExpandedSteps(prev => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i); else next.add(i);
+      return next;
+    });
+  };
 
   return (
     <>
@@ -435,6 +563,8 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute }) {
             <div className="blocks-list">
               {day.blocks.map((block, i) => {
                 const tappable = Boolean(block.poi_id && onOpenPoi);
+                const hasSteps = Boolean(block.steps && block.steps.length > 0);
+                const stepsOpen = expandedSteps.has(i);
                 return (
                   <div className="block-row" key={i}>
                     <div className="block-left">
@@ -442,23 +572,37 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute }) {
                       {block.time && <span className="block-time">{block.time}</span>}
                       <span className="block-franja">{timeToFranja(block.time) || block.label}</span>
                     </div>
-                    <div
-                      className={`block-right${tappable ? ' block-right--tappable' : ''}`}
-                      role={tappable ? 'button' : undefined}
-                      tabIndex={tappable ? 0 : undefined}
-                      onClick={tappable ? () => onOpenPoi(block.poi_id) : undefined}
-                      onKeyDown={tappable ? (e) => e.key === 'Enter' && onOpenPoi(block.poi_id) : undefined}
-                    >
-                      <div>
-                        <div className="block-activity-title">{block.label}</div>
-                        {block.activity && block.activity !== block.label && (
-                          <div className="block-activity-detail">{block.activity}</div>
+                    <div style={{ flex: 1 }}>
+                      <div
+                        className={`block-right${tappable ? ' block-right--tappable' : ''}`}
+                        role={tappable ? 'button' : undefined}
+                        tabIndex={tappable ? 0 : undefined}
+                        onClick={tappable ? () => onOpenPoi(block.poi_id) : undefined}
+                        onKeyDown={tappable ? (e) => e.key === 'Enter' && onOpenPoi(block.poi_id) : undefined}
+                      >
+                        <div>
+                          <div className="block-activity-title">{block.label}</div>
+                          {block.activity && block.activity !== block.label && (
+                            <div className="block-activity-detail">{block.activity}</div>
+                          )}
+                        </div>
+                        {tappable && (
+                          <svg className="block-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none" aria-hidden="true">
+                            <path d="M1 1L7 7L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
                         )}
                       </div>
-                      {tappable && (
-                        <svg className="block-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none" aria-hidden="true">
-                          <path d="M1 1L7 7L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                      {hasSteps && (
+                        <>
+                          <button
+                            className="steps-toggle"
+                            onClick={() => toggleSteps(i)}
+                            aria-expanded={stepsOpen}
+                          >
+                            {stepsOpen ? 'Ocultar plan detallado ▲' : `Ver plan detallado (${block.steps.length} pasos) ▼`}
+                          </button>
+                          {stepsOpen && <StepsList steps={block.steps} onOpenPoi={onOpenPoi} />}
+                        </>
                       )}
                     </div>
                   </div>
