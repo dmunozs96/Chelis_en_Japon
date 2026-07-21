@@ -139,6 +139,7 @@ const TOOLS = [
   { icon: '🚇', label: 'Guía Suica', destination: 'ic-card' },
   { icon: '🧳', label: 'Llegar al hotel', destination: 'last-mile' },
   { icon: '🌡️', label: 'Clima por etapa', destination: 'climate' },
+  { icon: '🛍️', label: 'Guía de compras', destination: 'shopping' },
 ];
 
 export default function MoreView({ onNavigate }) {

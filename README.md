@@ -8,7 +8,8 @@ Guía interactiva mobile-first para el viaje a Japón del 13 al 25 de agosto de 
 - Billetes, localizadores, hoteles y alertas.
 - Mapa Leaflet, geolocalización y rutas diarias.
 - 24 POIs con imágenes locales y contenido cultural.
-- 32 restaurantes curados y planificador compartido.
+- 37 restaurantes curados (Top 50 en curso) y planificador compartido.
+- Guía de compras: 13 zonas, 49 tiendas verificadas, 10 categorías, normativa fiscal/aduanera y calculadora.
 - Herramientas offline: frases, conversor, emergencias, Welcome Suica, acceso a hoteles y clima por etapa.
 - PWA instalable con service worker y caché de contenido.
 - Validación automática de datos.
@@ -64,6 +65,8 @@ npm run check
 - `data/pois_db.json`: contenido cultural y práctico de POIs.
 - `data/restaurants_db.json`: restaurantes y fuentes.
 - `data/travel_tools.json`: emergencias, accesos, Suica, frases, cambio y clima.
+- `data/cultural_guide.json`: guía cultural aplicada al itinerario.
+- `data/shopping_guide.json`: zonas, tiendas, categorías y normativa de la guía de compras.
 
 No se deben introducir horarios, precios, URLs o recomendaciones inventadas. Todo contenido nuevo debe citar una fuente real y respetar la incertidumbre cuando un dato no esté confirmado.
 

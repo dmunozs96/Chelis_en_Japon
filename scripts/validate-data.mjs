@@ -30,6 +30,7 @@ export function validateProject() {
   const travelTools = readJson('data/travel_tools.json');
   const preparation = readJson('data/preparation_checklist.json');
   const culturalGuide = readJson('data/cultural_guide.json');
+  const shoppingGuide = readJson('data/shopping_guide.json');
   const days = tripData.days ?? [];
   const trip = tripData.trip ?? {};
 
@@ -206,7 +207,33 @@ export function validateProject() {
     for (const sourceId of topic.source_ids ?? []) check(culturalSources.has(sourceId), `Guia cultural ${topic.id}: fuente desconocida "${sourceId}"`);
   }
 
-  return { errors, counts: { days: days.length, pois: pois.length, restaurants: restaurants.length, alerts: alerts.length, hotelAccess: coveredHotelIds.size, phrases: phraseData.items?.length ?? 0, preparation: preparationTasks.length, culturalTopics: culturalTopics.length } };
+  const shoppingZoneIds = unique((shoppingGuide.zones ?? []).map((zone) => zone.id), 'Compras: zonas');
+  const shoppingStoreIds = unique((shoppingGuide.stores ?? []).map((store) => store.id), 'Compras: tiendas');
+  unique((shoppingGuide.categories ?? []).map((cat) => cat.id), 'Compras: categorías');
+  check(isDate(shoppingGuide.last_verified_at), 'Guia de compras: fecha de verificacion invalida');
+  for (const zone of shoppingGuide.zones ?? []) {
+    check(Number.isFinite(zone.lat) && zone.lat >= -90 && zone.lat <= 90, `Compras zona ${zone.id}: latitud inválida`);
+    check(Number.isFinite(zone.lng) && zone.lng >= -180 && zone.lng <= 180, `Compras zona ${zone.id}: longitud inválida`);
+  }
+  for (const store of shoppingGuide.stores ?? []) {
+    check(shoppingZoneIds.has(store.zone_id), `Compras tienda ${store.id}: zona desconocida "${store.zone_id}"`);
+    check(Boolean(store.name && store.address && store.specialty), `Compras tienda ${store.id}: contenido incompleto`);
+    check(Array.isArray(store.sources) && store.sources.length > 0, `Compras tienda ${store.id}: sin fuentes`);
+    for (const source of store.sources ?? []) {
+      check(isHttpUrl(source.url), `Compras tienda ${store.id}: fuente inválida`);
+      check(isDate(store.last_verified_at), `Compras tienda ${store.id}: fecha de verificacion invalida`);
+    }
+  }
+  for (const cat of shoppingGuide.categories ?? []) {
+    for (const zoneId of cat.zone_ids ?? []) check(shoppingZoneIds.has(zoneId), `Compras categoría ${cat.id}: zona desconocida "${zoneId}"`);
+    for (const storeId of cat.store_ids ?? []) check(shoppingStoreIds.has(storeId), `Compras categoría ${cat.id}: tienda desconocida "${storeId}"`);
+  }
+  check(Array.isArray(shoppingGuide.day24_routes) && shoppingGuide.day24_routes.length >= 3, 'Guia de compras: faltan variantes de ruta del 24 de agosto');
+  for (const route of shoppingGuide.day24_routes ?? []) {
+    for (const zoneId of route.zone_ids ?? []) check(shoppingZoneIds.has(zoneId), `Compras ruta ${route.id}: zona desconocida "${zoneId}"`);
+  }
+
+  return { errors, counts: { days: days.length, pois: pois.length, restaurants: restaurants.length, alerts: alerts.length, hotelAccess: coveredHotelIds.size, phrases: phraseData.items?.length ?? 0, preparation: preparationTasks.length, culturalTopics: culturalTopics.length, shoppingStores: shoppingStoreIds.size } };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
@@ -216,7 +243,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     result.errors.forEach((error) => console.error(`- ${error}`));
     process.exitCode = 1;
   } else {
-    const { days, pois, restaurants, alerts, hotelAccess, phrases } = result.counts;
-    console.log(`Datos válidos: ${days} días, ${pois} POIs, ${restaurants} restaurantes, ${alerts} alertas, ${hotelAccess} accesos y ${phrases} frases.`);
+    const { days, pois, restaurants, alerts, hotelAccess, phrases, shoppingStores } = result.counts;
+    console.log(`Datos válidos: ${days} días, ${pois} POIs, ${restaurants} restaurantes, ${alerts} alertas, ${hotelAccess} accesos, ${phrases} frases y ${shoppingStores} tiendas de compras.`);
   }
 }

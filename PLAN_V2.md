@@ -421,6 +421,8 @@ Ningún lote pasa a producción por alcanzar su cifra; pasa por superar el contr
 
 ## 8. Dominio E — Guía de compras
 
+> **Entregado el 21 de julio de 2026.** El entregable editorial de §8.6 está en `data/shopping_guide.json` + `ShoppingGuideView.jsx` (acceso desde «Más»); detalle completo en `SPEC.md` §7 «Dominio E V2 — Guía de compras». Gotemba (§8.5) se estudió y se descartó explícitamente como ruta del 24 de agosto, con la comparativa de tiempos documentada en la propia guía.
+
 ### 8.1 Propósito
 
 La guía no afirmará que algo es una ganga solo por el cambio euro/yen. Calculará o explicará el coste total considerando:

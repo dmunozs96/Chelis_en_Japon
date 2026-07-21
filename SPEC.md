@@ -814,6 +814,7 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | 5 | Herramientas de viaje | F8-F13 completadas; detección automática de tifón aplazada, con acceso manual a JMA | ✅ |
 | 7 | Offline + PWA | F17 — adelantada y completada en Calidad Q2 | ✅ |
 | 8 | Trenes reales + pulido | Localizadores post jul 18-24, success criteria, lanzamiento | ⬜ |
+| V2-E | Guía de compras | F20 — 13 zonas, 49 tiendas verificadas, 10 guías de categoría, normativa fiscal/aduanera, calculadora y 3 rutas del 24 ago | ✅ |
 
 ### Detalle Ola 4a — Guía de Viaje Detallada ✅ COMPLETADA (2026-07-14)
 
@@ -976,6 +977,17 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 
 **Estado:** 37 fichas totales; faltan 13 para completar el Top 50 profundo.
 
+### Dominio E V2 — Guía de compras ✅ (2026-07-21)
+
+- Nuevo `data/shopping_guide.json` (13 zonas, 49 tiendas verificadas, 10 guías de categoría, normativa fiscal/aduanera, riesgos, 3 rutas del 24 de agosto y lista personal de objetivos) y `ShoppingGuideView.jsx` con 4 pestañas (Tiendas, Ruta 24 ago, Normativa, Calculadora), accesible desde «Más».
+- Cobertura de las 10 categorías del plan (§8.2 de `PLAN_V2.md`): moda, denim/workwear, streetwear, relojes, electrónica/gaming, cuchillos/cerámica, papelería, cosmética, artesanía/té/regalos y segunda mano — con tiendas concretas en Ginza-Yurakucho, Shibuya, Harajuku, Shinjuku, Akihabara, Nakano Broadway, Kappabashi, Ueno, Ebisu-Daikanyama, Shimokitazawa, Kioto (Teramachi/Gojozaka) y Osaka (Doguyasuji).
+- Normativa fiscal investigada y fechada: sistema tax-free vigente durante el viaje (umbrales, tramitación, comisión documentada del 1,55% en Takashimaya) y la reforma que entra en vigor el 1 de noviembre de 2026 (después del viaje, señalada como no aplicable a estas fechas pero documentada para referencia futura). Franquicia aduanera de vuelta a España (430 €/300 €/150 €, Directiva 2007/74/CE), compatibilidad eléctrica y riesgos de cámaras de mercado japonés y falsificación de relojes, todo con fuente y fecha de acceso.
+- **Decisión editorial documentada:** Gotemba Premium Outlets se estudió y se descarta como ruta del 24 de agosto (100 min de bus por trayecto desde Tokio frente a 45 min desde Hakone-Gora); queda registrado como posible parada de camino Hakone→Tokio (17-18 ago) en vez de excursión del día libre.
+- Calculadora de «precio final estimado» (tax-free 10% + tipo de cambio del conversor ya existente) con advertencias sobre comisiones de tarjeta no verificables de forma genérica.
+- Validador ampliado (`scripts/validate-data.mjs`): referencias entre categorías/zonas/tiendas, fuentes obligatorias por tienda y fecha de verificación.
+
+**Verificación:** `npm run check` completo en verde; probado en navegador (Playwright) las 4 pestañas sin errores de consola.
+
 ## 9. Advertencias activas
 
 - ⚠️ **Ventanas de reserva de trenes (18-24 jul):** Tokio→Hakone (Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Los 4 shinkansen abren del 19 al 24 de julio — reservar en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com).
@@ -984,6 +996,9 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 - ~~Cena premium Michelin (ESqUISSE / Bird Land)~~ descartada en la Puerta A (15 jul) por precio — la cena de despedida del 24 queda abierta. Si en algún momento se retomara, ambos exigen reserva con semanas de antelación y Bird Land cierra los lunes (el 24 ago es lunes).
 - ⚠️ **Roan Kikunoi:** la auditoría del 15 jul corrigió su ficha — el precio real es ¥14.000+ el almuerzo y ¥24.000-63.000 la cena (no «desde ¥4.000»), cierra los miércoles y la última entrada de cena es a las 19:00. Entra en la categoría premium descartada; se conserva solo como referencia.
 - ⚠️ **Cierres que afectan al viaje detectados en la auditoría (15 jul):** Honke Owariya cerró definitivamente en enero 2026 (eliminado de la base); Sukiyabashi Jiro cierra por vacaciones el 14-19 ago; Bird Land menciona un posible cierre por inventario el 16-18 ago; el 19 ago (miércoles) cierran Kyogoku Kaneyo, Roan Kikunoi y Dōtonbori Imai.
+- ⚠️ **Reforma tax-free en Japón (21 jul):** el 1 de noviembre de 2026 cambia el sistema de exención (pago íntegro + reembolso a la salida) — no afecta a este viaje (13-25 ago 2026), que sigue el sistema actual, pero conviene saberlo si se reserva algún envío o segunda visita posterior a esa fecha.
+- ⚠️ **Hands Shibuya cierra en noviembre de 2026** tras 48 años — el viaje es de las últimas ventanas para visitarla en su ubicación histórica de Udagawacho.
+- ~~Gotemba Premium Outlets como ruta del 24 de agosto~~ estudiado y descartado (21 jul): desde Tokio son ~100 min de bus por trayecto frente a ~45 min desde Hakone-Gora; mejor como parada de camino Hakone→Tokio (17-18 ago) que como excursión del día libre.
 
 ---
 
@@ -1042,6 +1057,10 @@ Cuando la base alcance su objetivo (Top 50 + ~150 fichas operativas), `Restauran
 
 Dependencia: entra tras completar los lotes de contenido (no antes, para no diseñar filtros sobre una base que aún cambia de esquema). Se implementa junto al modo «Comer ahora» del Dominio G de `PLAN_V2.md`.
 
+### F20 — Guía de compras (Dominio E, entregado 2026-07-21)
+
+Entregable completo de `PLAN_V2.md` §8: `data/shopping_guide.json` + `ShoppingGuideView.jsx`, accesible desde «Más». Cubre las 10 categorías (§8.2), los tipos de destino (§8.3: grandes almacenes/depachika, tiendas insignia, electrónica, barrios, outlet, segunda mano, artesanía), la normativa tax-free/aduanas (§8.4) y las 3 variantes de ruta del 24 de agosto (§8.5), incluida la decisión razonada de excluir Gotemba de esas 3 rutas. Ver detalle completo en «Dominio E V2 — Guía de compras» más arriba.
+
 ---
 
-*Última actualización: 2026-07-15 — V2 aprobada (sección 11): enmienda constitucional v2.0, cena de despedida abierta (sin Michelin), decisiones de compras/privacidad/APIs registradas, auditoría lote 0 de restaurantes completada (31 fichas verificadas). Añadido F19: al completar la base de restaurantes — búsqueda/filtros avanzados, vista mapa de resultados y precio medio aproximado en euros con el tipo del conversor F9. Anteriores: documentos personales, presupuesto y notas eliminados del alcance; las actualizaciones de la PWA se activan y recargan automáticamente.*
+*Última actualización: 2026-07-21 — Entregado el Dominio E completo (F20): guía de compras con 13 zonas, 49 tiendas verificadas, 10 categorías, normativa fiscal/aduanera fechada, calculadora de precio final y 3 rutas del 24 de agosto (Gotemba estudiado y descartado con justificación). Anterior (2026-07-15): V2 aprobada (sección 11): enmienda constitucional v2.0, cena de despedida abierta (sin Michelin), decisiones de compras/privacidad/APIs registradas, auditoría lote 0 de restaurantes completada (31 fichas verificadas). Añadido F19: al completar la base de restaurantes — búsqueda/filtros avanzados, vista mapa de resultados y precio medio aproximado en euros con el tipo del conversor F9. Anteriores: documentos personales, presupuesto y notas eliminados del alcance; las actualizaciones de la PWA se activan y recargan automáticamente.*
