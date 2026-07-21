@@ -297,6 +297,8 @@ Los artículos serán datos estructurados, no JSX: `guide_topics`, `guide_cards`
 
 ## 7. Dominio D — Directorio gastronómico de 400 establecimientos
 
+> **Lote 1 (Top 50) completado el 21 de julio de 2026.** Las 50 fichas profundas de §7.3 Nivel A están en `data/restaurants_db.json`; detalle por lote en `SPEC.md` §8 (Lotes 1A-1D). El lote 2 (150 fichas operativas, Nivel B) sigue pendiente y su prioridad frente a otras entregas queda a decisión de Daniel.
+
 ### 7.1 Alcance geográfico
 
 El objetivo no es cubrir «todo Japón» indiscriminadamente, sino crear gran densidad donde realmente estarán los viajeros:

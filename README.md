@@ -8,7 +8,7 @@ Guía interactiva mobile-first para el viaje a Japón del 13 al 25 de agosto de 
 - Billetes, localizadores, hoteles y alertas.
 - Mapa Leaflet, geolocalización y rutas diarias.
 - 24 POIs con imágenes locales y contenido cultural.
-- 37 restaurantes curados (Top 50 en curso) y planificador compartido.
+- Top 50 gastronómico completo (50 restaurantes) y planificador compartido.
 - Guía de compras: 13 zonas, 49 tiendas verificadas, 10 categorías, normativa fiscal/aduanera y calculadora.
 - Herramientas offline: frases, conversor, emergencias, Welcome Suica, acceso a hoteles y clima por etapa.
 - PWA instalable con service worker y caché de contenido.

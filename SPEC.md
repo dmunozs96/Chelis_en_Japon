@@ -815,6 +815,7 @@ trip.json[day].blocks → filtra los que tienen poi_id
 | 7 | Offline + PWA | F17 — adelantada y completada en Calidad Q2 | ✅ |
 | 8 | Trenes reales + pulido | Localizadores post jul 18-24, success criteria, lanzamiento | ⬜ |
 | V2-E | Guía de compras | F20 — 13 zonas, 49 tiendas verificadas, 10 guías de categoría, normativa fiscal/aduanera, calculadora y 3 rutas del 24 ago | ✅ |
+| V2-D | Top 50 gastronómico completo | Lotes 1A-1D — 50/50 fichas profundas, huecos de cocina (yoshoku, yakiniku, curry, kissaten, shojin ryori, obanzai) cerrados | ✅ |
 
 ### Detalle Ola 4a — Guía de Viaje Detallada ✅ COMPLETADA (2026-07-14)
 
@@ -977,6 +978,22 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 
 **Estado:** 37 fichas totales; faltan 13 para completar el Top 50 profundo.
 
+### Top 50 gastronómico — Lote 1D (50/50) ✅ COMPLETADO (2026-07-21)
+
+Últimas 13 fichas, elegidas para cerrar huecos reales de cocina y ciudad frente a la cobertura mínima de `PLAN_V2.md` §7.2 (antes ausentes: yoshoku, yakiniku/horumon, curry japonés, kissaten/dulces, bar de sake, shojin ryori, obanzai, kappo casual):
+
+- **Tokio:** Rengatei (yoshoku, origen del omurice, Ginza), Ginza Chikamitsu (yakiniku de gama alta), Kitchen Nankai Jimbocho (curry), Café de l'Ambre y Ginza West (kissaten — café puro y pastelería), Saki Bar Uraku (bar de sake, evidencia más débil de este lote).
+- **Hakone:** Hatsuhana Soba Honten, junto a la estación Hakone-Yumoto.
+- **Kioto:** Shigetsu (shojin ryori en el templo Tenryu-ji), Kikkoya (obanzai), Inoda Coffee Honten (kissaten histórico), Roko (kappo/kaiseki accesible con terraza yuka).
+- **Hiroshima:** Anagomeshi Ueno, en Miyajimaguchi frente al embarcadero a Miyajima.
+- **Osaka:** Yakiniku Kana, en Tsuruhashi (barrio histórico de yakiniku).
+
+Cada ficha lleva identidad, fuentes con URL y fecha, y `what_to_order` trazable. Cinco fichas (Café de l'Ambre, Ginza West, Saki Bar Uraku, Roko, Anagomeshi Ueno, Yakiniku Kana) llevan `verification_status: "partial"` porque al menos un campo (horario, política de reserva o vigencia de un reconocimiento) tiene fuentes contradictorias o insuficientes — documentado explícitamente en cada ficha en vez de forzar un dato limpio. Se descartó deliberadamente una segunda sucursal de Bakudanya en Hiroshima (Hatchobori) por ser la misma cadena y plato que la ficha ya existente (Shintenchi Honten) — no aporta cobertura nueva y se evita el riesgo de duplicado que la Constitución prohíbe.
+
+**Estado final:** 50/50 — Top 50 profundo completado. Distribución por ciudad: Tokio 15, Kioto 13, Osaka 11, Hiroshima 6, Hakone 2.
+
+**Verificación:** `npm run check` completo en verde; probado en navegador (Playwright) el listado de restaurantes con las 50 fichas visibles y filtrables sin errores de consola.
+
 ### Dominio E V2 — Guía de compras ✅ (2026-07-21)
 
 - Nuevo `data/shopping_guide.json` (13 zonas, 49 tiendas verificadas, 10 guías de categoría, normativa fiscal/aduanera, riesgos, 3 rutas del 24 de agosto y lista personal de objetivos) y `ShoppingGuideView.jsx` con 4 pestañas (Tiendas, Ruta 24 ago, Normativa, Calculadora), accesible desde «Más».
@@ -1049,6 +1066,8 @@ Toda ficha nueva o auditada lleva: identidad inequívoca (nombre oficial + japon
 
 ### F19 — Mejoras del directorio al completar la base (comprometido: Daniel, 15 jul 2026)
 
+> **Top 50 alcanzado el 21 jul 2026** (ver Lote 1D más arriba). F19 sigue pendiente de implementación: su disparador original era «Top 50 + ~150 fichas operativas»; queda a decisión de Daniel si se adelanta ya con el Top 50 completo o se espera al lote 2 (150 fichas) según el plan por fases de `PLAN_V2.md` §7.8.
+
 Cuando la base alcance su objetivo (Top 50 + ~150 fichas operativas), `RestaurantsView` evoluciona de sugeridor a buscador completo:
 
 1. **Mejores filtros de búsqueda:** búsqueda por texto libre (nombre, plato, tipo de cocina) + filtros nuevos por barrio, tipo de plato concreto (ramen, sushi, okonomiyaki…), «abierto hoy» (cruzando `closed_days` con el día de la semana real) y franja de comida (`meal_types`). Los filtros actuales (ciudad, precio, sin reserva, ocasión) se mantienen.
@@ -1063,4 +1082,4 @@ Entregable completo de `PLAN_V2.md` §8: `data/shopping_guide.json` + `ShoppingG
 
 ---
 
-*Última actualización: 2026-07-21 — Entregado el Dominio E completo (F20): guía de compras con 13 zonas, 49 tiendas verificadas, 10 categorías, normativa fiscal/aduanera fechada, calculadora de precio final y 3 rutas del 24 de agosto (Gotemba estudiado y descartado con justificación). Anterior (2026-07-15): V2 aprobada (sección 11): enmienda constitucional v2.0, cena de despedida abierta (sin Michelin), decisiones de compras/privacidad/APIs registradas, auditoría lote 0 de restaurantes completada (31 fichas verificadas). Añadido F19: al completar la base de restaurantes — búsqueda/filtros avanzados, vista mapa de resultados y precio medio aproximado en euros con el tipo del conversor F9. Anteriores: documentos personales, presupuesto y notas eliminados del alcance; las actualizaciones de la PWA se activan y recargan automáticamente.*
+*Última actualización: 2026-07-21 — Top 50 gastronómico completado (50/50, lote 1D) cerrando huecos de yoshoku, yakiniku, curry, kissaten, shojin ryori, obanzai y kappo; y entregado el Dominio E completo (F20): guía de compras con 13 zonas, 49 tiendas verificadas, 10 categorías, normativa fiscal/aduanera fechada, calculadora de precio final y 3 rutas del 24 de agosto (Gotemba estudiado y descartado con justificación). Anterior (2026-07-15): V2 aprobada (sección 11): enmienda constitucional v2.0, cena de despedida abierta (sin Michelin), decisiones de compras/privacidad/APIs registradas, auditoría lote 0 de restaurantes completada (31 fichas verificadas). Añadido F19: al completar la base de restaurantes — búsqueda/filtros avanzados, vista mapa de resultados y precio medio aproximado en euros con el tipo del conversor F9. Anteriores: documentos personales, presupuesto y notas eliminados del alcance; las actualizaciones de la PWA se activan y recargan automáticamente.*
