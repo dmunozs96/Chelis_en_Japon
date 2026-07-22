@@ -204,7 +204,7 @@ const STYLES = `
 
 const CITY_OPTIONS = ['Todas', 'Tokyo', 'Kyoto', 'Osaka', 'Hiroshima'];
 const CITY_LABELS_ES = { Tokyo: 'Tokio', Kyoto: 'Kioto', Osaka: 'Osaka', Hiroshima: 'Hiroshima' };
-const PRICE_TIER_LABELS = { 1: '¥', 2: '¥¥', 3: '¥¥¥', 4: '¥¥¥¥' };
+const PRICE_TIER_LABELS = { 1: '¥', 2: '¥¥', 3: '¥¥¥', 4: '¥¥¥¥', 5: '¥¥¥¥¥' };
 
 export default function RestaurantsView({ onOpenPlanner }) {
   const { restaurants, loading, error } = useRestaurantsData();
@@ -294,7 +294,7 @@ export default function RestaurantsView({ onOpenPlanner }) {
             ))}
           </div>
           <div className="rest-filter-row">
-            {[1, 2, 3, 4].map((tier) => (
+            {[1, 2, 3, 4, 5].map((tier) => (
               <button
                 key={tier}
                 className={`rest-chip${priceTiers.includes(tier) ? ' rest-chip--active' : ''}`}

@@ -203,13 +203,25 @@ El redeploy (git push) actualiza la guía automáticamente. Mismo flujo para act
 
 #### Base de datos enriquecida
 Cada restaurante tiene campos estructurados verificados en fuentes autorizadas (Michelin Guide, Time Out, Japan Guide, Tabelog, Lonely Planet):
-- Estrellas Michelin, precio por persona (yenes), tier de precio (¥ a ¥¥¥¥)
+- Estrellas Michelin, precio por persona (yenes), tier de precio (¥ a ¥¥¥¥¥, 5 tramos — ver escala abajo)
 - Tipo de cocina (tags), descripción en español
 - Si necesita reserva (true/false/recomendada) + cómo reservar + URL/teléfono
 - Horario + días de cierre
 - Coordenadas GPS (para el mapa)
 - Walk-in friendly, tipo de ocasión (casual / especial / street food / rápido)
 - Flag `must_book_in_advance` para los que se agotan con antelación
+
+**Escala de `price_tier`** (definida por Daniel el 22 jul 2026). Es el **tope de gasto por persona en una comida o cena**; el tramo se asigna por el **extremo superior** del rango de precio de la ficha:
+
+| Tier | Símbolo | Tope aprox. por persona |
+|---|---|---|
+| 1 | ¥ | hasta ~¥3.000 (por debajo o en el entorno de 3k) |
+| 2 | ¥¥ | ~¥3.000–5.000 |
+| 3 | ¥¥¥ | ~¥5.000–10.000 |
+| 4 | ¥¥¥¥ | ~¥10.000–15.000 |
+| 5 | ¥¥¥¥¥ | ~¥15.000–20.000 o más |
+
+Las 44 fichas existentes se re-tramaron con esta escala el 22 jul 2026 (antes se usaba una escala de 4 tramos más comprimida). El cliente (`RestaurantsView`) muestra el filtro y la etiqueta con los 5 símbolos.
 
 #### F8a — Planificador pre-viaje
 - Cada día tiene slots de comida: mediodía y noche
@@ -225,7 +237,7 @@ Cada restaurante tiene campos estructurados verificados en fuentes autorizadas (
 
 #### F8b — Sugeridor espontáneo (offline)
 - Funciona con filtros sobre la base de datos curada (sin llamada a API de IA)
-- Filtros: presupuesto (¥/¥¥/¥¥¥/¥¥¥¥), tipo de cocina, sin reserva / con reserva, tipo de ocasión
+- Filtros: presupuesto (¥/¥¥/¥¥¥/¥¥¥¥/¥¥¥¥¥), tipo de cocina, sin reserva / con reserva, tipo de ocasión
 - Usa geolocalización para ordenar por distancia al restaurante
 - Devuelve resultados de la ciudad/etapa actual con justificación de por qué encaja
 - Fallback si sin conexión: funciona igualmente (todo el dato está embebido)
