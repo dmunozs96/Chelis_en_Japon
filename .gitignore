@@ -12,5 +12,8 @@ dist/
 .vscode/
 .idea/
 
+# Claude Code (config y memoria locales)
+.claude/
+
 # Logs
 *.log
