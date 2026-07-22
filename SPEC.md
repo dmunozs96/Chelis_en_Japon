@@ -976,6 +976,17 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 
 **Estado:** 37 fichas totales; faltan 13 para completar el Top 50 profundo.
 
+### Top 50 gastronómico — Lote 1D (40/50) ✅ (2026-07-22)
+
+Tres clásicos accesibles de Tokio, elegidos para cerrar huecos de categoría flagrantes en la base (no por volumen):
+- `Kanda Matsuya (Honten)`: **soba** al estilo Edo (1884), en Kanda. Cubre la categoría soba, que había quedado a cero tras eliminar Honke Owariya en el lote 0. Walk-in, solo efectivo, edificio histórico catalogado. Sin web oficial accesible (fallo de certificado TLS del dominio); verificado con Tabelog (actualizado jul-2026) y JTB/Good Luck Trip. `closure_risk: medium` por la incógnita del calendario de Obon; cierra domingo y lunes.
+- `Nihonbashi Tendon Kaneko Hannosuke (Nihonbashi Sohonten)`: **tempura/tendon** — categoría antes inexistente. El tendon más famoso de Tokio (~¥1.000), walk-in con colas largas; sucursal honten de Muromachi fijada y desambiguada de otros conceptos de la marca. Web oficial verificada.
+- `Umegaoka Sushi no Midori (Ginza)`: **sushi sentado y accesible** — antes solo había puestos del mercado de Tsukiji y un Jiro premium descartado. Nigiri de piezas grandes a buen precio, por ticket numerado. Web oficial verificada.
+
+Las tres con nombre japonés, sucursal y coordenadas concretas, doble o triple fuente y «qué pedir» trazable. Las tres URLs primarias fueron reverificadas en vivo el 22-jul (nombre, dirección y horario coincidentes).
+
+**Estado:** 40 fichas totales; faltan 10 para completar el Top 50 profundo. Huecos aún abiertos: wagyu/yakiniku (0 en toda la guía), anago/Miyajima, kissaten/café, wagashi.
+
 ## 9. Advertencias activas
 
 - ⚠️ **Ventanas de reserva de trenes (17-23 jul, corregido 16 jul):** regla oficial = 10:00 JST del **mismo día un mes antes** (03:00 hora española). Romancecar (17 ago) abrió el **17 jul** en [e-Romancecar](https://www.web-odakyu.com/e-romancecar/?language=en) — la URL `odakyu-romance.jp` era errónea. Los 4 shinkansen abren 18, 21, 22 y 23 jul en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com). N'EX: Round Trip Ticket ¥5.000 comprado en Narita al llegar. Detalle operativo completo en `DOSIER_TRENES.md`. La app reflejará los localizadores reales en `trip.json` (`status: "reserved"`) cuando se reserven — Ola 8.
