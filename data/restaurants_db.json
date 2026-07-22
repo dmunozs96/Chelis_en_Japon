@@ -1213,13 +1213,13 @@
       "cuisine_tags": ["kaisendon", "seafood", "donburi", "japanese", "walk_in"],
       "cuisine_description": "Especialista en un único formato de bol de arroz con pescado y marisco picado. Las variantes Ume, Take, Matsu y Tokujō añaden progresivamente ikura, cangrejo y uni; al final se transforma el resto en ochazuke con caldo.",
       "michelin_stars": 0,
-      "price_per_person_yen": "¥1,350-3,900",
+      "price_per_person_yen": "¥1,350-3,900 (ración grande de arroz +¥150 desde dic 2025)",
       "price_tier": 2,
       "reservation_required": false,
       "reservation_how": "walk_in_only",
       "reservation_url": null,
       "phone": "+81-3-6262-0823",
-      "hours": "10:00-22:30 (LO 22:00); la web también conserva un aviso anterior de cierre 21:30, confirmar antes de ir",
+      "hours": "Lunes-viernes 11:00-21:00 (LO 20:30); sábado-domingo 10:00-21:30 (LO 21:00). Cierre irregular ~un domingo al mes (sin fecha de agosto publicada; riesgo el dom 16 ago — reconfirmar en la web de noticias o por teléfono)",
       "closed_days": [],
       "meal_types": ["lunch", "dinner"],
       "walk_in_friendly": true,
@@ -1231,17 +1231,18 @@
         { "dish": "Segundo pase en ochazuke", "why": "Guardar una parte del bol para añadir caldo es parte del formato propio de la casa y cambia por completo la textura.", "source_url": "https://www.tsujihan-jp.com/" }
       ],
       "sources": [
-        { "name": "Tsujihan — web y menú oficiales", "url": "https://www.tsujihan-jp.com/", "source_type": "official", "accessed_at": "2026-07-15" },
-        { "name": "Tsujihan — tiendas oficiales", "url": "https://www.tsujihan-jp.com/blank", "source_type": "official", "accessed_at": "2026-07-15" }
+        { "name": "Tsujihan — web y menú oficiales (aviso de horario vigente)", "url": "https://www.tsujihan-jp.com/", "source_type": "official", "accessed_at": "2026-07-16" },
+        { "name": "Tsujihan — tiendas oficiales (dirección y teléfono; su horario está desactualizado)", "url": "https://www.tsujihan-jp.com/blank", "source_type": "official", "accessed_at": "2026-07-16" },
+        { "name": "Hot Pepper — Tsujihan honten (horario contrastado)", "url": "https://www.hotpepper.jp/strJ001066685/", "source_type": "reference", "accessed_at": "2026-07-16" }
       ],
       "entity_type": "restaurant",
       "verification_status": "verified",
-      "last_verified_at": "2026-07-15",
+      "last_verified_at": "2026-07-16",
       "revalidate_on": "2026-08-03",
       "name_ja": "日本橋海鮮丼 つじ半 日本橋本店",
       "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy", "price", "menu"],
       "closure_risk": "medium",
-      "source_count": 2
+      "source_count": 3
     },
     {
       "id": "hiroshima_36_bakudanya_shintenchi",
@@ -1336,7 +1337,7 @@
       "reservation_how": "website",
       "reservation_url": "https://booking.ebica.jp/webrsv/vacant/e014224601/35959",
       "phone": "+81-3-3528-6527",
-      "hours": "Lunes-viernes 11:00-15:00 (LO 14:30), 17:00-20:30 (LO 20:00); sábado, domingo y festivo cena hasta 21:00",
+      "hours": "Almuerzo todos los días 11:00-15:00 (LO 14:30); cena lunes-viernes 17:00-20:30 (LO 20:00), sábado/domingo/festivo 17:00-21:00 (LO 20:30). Cierres irregulares puntuales (p. ej. fin de año)",
       "closed_days": [],
       "meal_types": ["lunch", "dinner"],
       "walk_in_friendly": true,
@@ -1348,12 +1349,12 @@
         { "dish": "Cerdo de marca del día", "why": "Para comparar razas y marmoleo; el precio y la disponibilidad cambian, por lo que conviene decidir viendo el menú actual.", "source_url": "https://ginza-aoki.com/" }
       ],
       "sources": [
-        { "name": "Tonkatsu Aoki Ginza 4-chome — web oficial", "url": "https://ginza-aoki.com/", "source_type": "official", "accessed_at": "2026-07-15" },
-        { "name": "Tabelog — Aoki Ginza 4-chome (información del establecimiento)", "url": "https://tabelog.com/tokyo/A1301/A130101/13289487/", "source_type": "reference", "accessed_at": "2026-07-15" }
+        { "name": "Tonkatsu Aoki Ginza 4-chome — web oficial", "url": "https://ginza-aoki.com/", "source_type": "official", "accessed_at": "2026-07-16" },
+        { "name": "Tabelog — Aoki Ginza 4-chome (información del establecimiento)", "url": "https://tabelog.com/tokyo/A1301/A130101/13289487/", "source_type": "reference", "accessed_at": "2026-07-16" }
       ],
       "entity_type": "restaurant",
       "verification_status": "verified",
-      "last_verified_at": "2026-07-15",
+      "last_verified_at": "2026-07-16",
       "revalidate_on": "2026-08-03",
       "name_ja": "銀座 とんかつ 檍 銀座4丁目店",
       "verified_fields": ["identity", "operating_status", "location", "hours", "closed_days", "reservation_policy", "price", "menu"],

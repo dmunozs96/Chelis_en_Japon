@@ -978,7 +978,7 @@ Revisión general del proyecto (dos auditorías paralelas: bugs en client/server
 
 ## 9. Advertencias activas
 
-- ⚠️ **Ventanas de reserva de trenes (18-24 jul):** Tokio→Hakone (Odakyu Romancecar) abre **18 jul 10:00 JST** — [odakyu-romance.jp](https://odakyu-romance.jp). Los 4 shinkansen abren del 19 al 24 de julio — reservar en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com).
+- ⚠️ **Ventanas de reserva de trenes (17-23 jul, corregido 16 jul):** regla oficial = 10:00 JST del **mismo día un mes antes** (03:00 hora española). Romancecar (17 ago) abrió el **17 jul** en [e-Romancecar](https://www.web-odakyu.com/e-romancecar/?language=en) — la URL `odakyu-romance.jp` era errónea. Los 4 shinkansen abren 18, 21, 22 y 23 jul en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com). N'EX: Round Trip Ticket ¥5.000 comprado en Narita al llegar. Detalle operativo completo en `DOSIER_TRENES.md`. La app reflejará los localizadores reales en `trip.json` (`status: "reserved"`) cuando se reserven — Ola 8.
 - ⚠️ **Política de tatuajes Mizunoto:** No confirmada oficialmente. Recomendación: llamar al hotel (+81 460-82-6011) antes del viaje.
 - ~~teamLab Borderless~~ descartado — reemplazado por Yanaka (16 ago mañana).
 - ~~Cena premium Michelin (ESqUISSE / Bird Land)~~ descartada en la Puerta A (15 jul) por precio — la cena de despedida del 24 queda abierta. Si en algún momento se retomara, ambos exigen reserva con semanas de antelación y Bird Land cierra los lunes (el 24 ago es lunes).
