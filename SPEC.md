@@ -987,6 +987,18 @@ Las tres con nombre japonés, sucursal y coordenadas concretas, doble o triple f
 
 **Estado:** 40 fichas totales; faltan 10 para completar el Top 50 profundo. Huecos aún abiertos: wagyu/yakiniku (0 en toda la guía), anago/Miyajima, kissaten/café, wagashi.
 
+### Top 50 gastronómico — Lote 1E (44/50) ✅ (2026-07-22)
+
+Cuatro fichas que cierran huecos de categoría y equilibran ciudades (Osaka salía de un perfil 100 % street food; Kioto no tenía café ni dulces; Tokio solo tenía un ramen atípico):
+- `osaka_42_tsuruichi_tsuruhashi` — **yakiniku accesible** en Tsuruhashi (Koreatown de Osaka). Sustituye a un primer candidato de wagyu premium (¥10.000-15.000, tier 4) descartado por chocar con el criterio cost-conscious de la Puerta A; Tsuruichi es tier 3 (¥4.000-5.000), superfamoso, web oficial verificada. Teléfono en `null` (no lo publican; solo reserva online). Cierra lunes; `closure_risk: medium` por Obon.
+- `kyoto_43_inoda_coffee` — **kissaten** histórico (1940), categoría nueva. Web oficial verificada; abierto todo el año.
+- `kyoto_44_kagizen_yoshifusa` — **wagashi + salón de té** en Gion (>300 años), categoría nueva. Web oficial verificada (salón sin reservas, cierra lunes); `closure_risk: medium` por Obon.
+- `tokyo_45_afuri_ebisu` — **ramen** clásico accesible (yuzu shio), local original de Ebisu fijado y desambiguado de las demás sedes de la marca. Web oficial verificada; abierto a diario hasta las 05:00.
+
+Método idéntico al lote 1D: agente verificador por ficha + reverificación propia vía WebFetch de las URLs oficiales de Tsuruichi, Kagizen y AFURI (dirección, horario y cierre coincidentes). Descarte editorial documentado (el wagyu premium) por coherencia con la Puerta A.
+
+**Estado:** 44 fichas totales; faltan 6 para completar el Top 50 profundo. Huecos aún abiertos: anago, tempura de gama alta o unagi en Tokio, kappo/sushi accesible en Osaka, un dulce/matcha en Tokio, y quizá una segunda opción de ramen regional.
+
 ## 9. Advertencias activas
 
 - ⚠️ **Ventanas de reserva de trenes (17-23 jul, corregido 16 jul):** regla oficial = 10:00 JST del **mismo día un mes antes** (03:00 hora española). Romancecar (17 ago) abrió el **17 jul** en [e-Romancecar](https://www.web-odakyu.com/e-romancecar/?language=en) — la URL `odakyu-romance.jp` era errónea. Los 4 shinkansen abren 18, 21, 22 y 23 jul en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com). N'EX: Round Trip Ticket ¥5.000 comprado en Narita al llegar. Detalle operativo completo en `DOSIER_TRENES.md`. La app reflejará los localizadores reales en `trip.json` (`status: "reserved"`) cuando se reserven — Ola 8.
