@@ -1,0 +1,83 @@
+{
+  "note": "Fotografías seleccionadas para las portadas diarias. Las copias locales permiten que la guía funcione sin conexión.",
+  "images": [
+    {
+      "file": "day-01.jpg",
+      "subject": "Salida desde Madrid-Barajas",
+      "source": "Unsplash",
+      "source_url": "https://unsplash.com/photos/4wjHzo1N8QU"
+    },
+    {
+      "file": "day-02.jpg",
+      "subject": "Llegada en avión",
+      "source": "Unsplash",
+      "source_url": "https://unsplash.com/photos/photo-1464037866556-6812c9d1c72e"
+    },
+    {
+      "file": "day-03.jpg",
+      "subject": "Senso-ji de noche",
+      "source": "Unsplash",
+      "source_url": "https://unsplash.com/photos/QzqgMgfVxmE"
+    },
+    {
+      "file": "day-04.jpg",
+      "subject": "Yanaka",
+      "source": "Wikimedia Commons",
+      "source_url": "https://commons.wikimedia.org/wiki/File:3840px-Tokyo_-_Yanaka_143.jpg"
+    },
+    {
+      "file": "day-05.jpg",
+      "subject": "Monte Fuji",
+      "source": "Unsplash",
+      "source_url": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65"
+    },
+    {
+      "file": "day-06.jpg",
+      "subject": "Kioto",
+      "source": "Unsplash",
+      "source_url": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e"
+    },
+    {
+      "file": "day-07.jpg",
+      "subject": "Fushimi Inari",
+      "source": "Wikimedia Commons",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg"
+    },
+    {
+      "file": "day-08.jpg",
+      "subject": "Bosque de bambú de Arashiyama",
+      "source": "Unsplash",
+      "source_url": "https://images.unsplash.com/photo-1528360983277-13d401cdc186"
+    },
+    {
+      "file": "day-09.jpg",
+      "subject": "Cúpula de la Bomba Atómica, Hiroshima",
+      "source": "Wikimedia Commons",
+      "source_url": "https://commons.wikimedia.org/wiki/File:3840px-Genbaku_Dome04-r.JPG"
+    },
+    {
+      "file": "day-10.jpg",
+      "subject": "Osaka de noche",
+      "source": "Unsplash",
+      "source_url": "https://images.unsplash.com/photo-1590559899731-a382839e5549"
+    },
+    {
+      "file": "day-11.jpg",
+      "subject": "Shinkansen y Monte Fuji",
+      "source": "Wikimedia Commons",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Shinkansen_N700_with_Mount_Fuji.jpg"
+    },
+    {
+      "file": "day-12.jpg",
+      "subject": "Tokio nocturno bajo la lluvia",
+      "source": "Unsplash",
+      "source_url": "https://unsplash.com/photos/f8gVsGmUHEA"
+    },
+    {
+      "file": "day-13.jpg",
+      "subject": "Vuelo de vuelta",
+      "source": "Unsplash",
+      "source_url": "https://images.unsplash.com/photo-1436491865332-7a61a109cc05"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import '@fontsource-variable/inter';
+import '@fontsource-variable/inter-tight';
 import App from './App.jsx';
 import './index.css';
 import { registerSW } from 'virtual:pwa-register';

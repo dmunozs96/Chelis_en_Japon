@@ -491,6 +491,33 @@ const STYLES = `
 .hotel-card .section-label { grid-column:1/-1; margin-bottom:0; font-size:10px; letter-spacing:.14em; }
 .hotel-name { margin:0; font-size:17px; }
 .hotel-times-row { flex-direction:column; gap:4px; }
+/* ---- Pre-trip editorial cover ---- */
+.countdown-hero.countdown-hero--editorial { position:relative; min-height:calc(100dvh - 144px); padding:0 var(--page-padding) 24px; align-items:stretch; justify-content:flex-end; gap:0; overflow:hidden; text-align:left; isolation:isolate; }
+.countdown-hero--editorial::before { position:absolute; z-index:-3; inset:0; background:url('/JapanPics/Tokyo.jpg') center 34% / cover no-repeat; content:""; filter:saturate(.78) contrast(1.08) brightness(.72); transform:scale(1.015); }
+.countdown-hero--editorial::after { position:absolute; z-index:-2; inset:0; background:linear-gradient(180deg,rgb(8 9 10 / 8%) 0%,rgb(8 9 10 / 16%) 24%,rgb(8 9 10 / 78%) 60%,var(--ink-950) 84%),linear-gradient(90deg,rgb(8 9 10 / 48%) 0%,transparent 78%); content:""; }
+.countdown-hero__edition { position:absolute; top:24px; right:var(--page-padding); left:var(--page-padding); display:flex; align-items:center; justify-content:space-between; color:rgb(241 237 229 / 76%); font-size:10px; font-weight:680; letter-spacing:.15em; text-transform:uppercase; }
+.countdown-hero__edition::before { width:28px; height:2px; margin-right:10px; background:var(--torii-500); content:""; }
+.countdown-hero__edition span:first-child { margin-right:auto; }
+.countdown-hero__main { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:end; gap:14px; }
+.countdown-hero__copy { min-width:0; }
+.countdown-hero--editorial .countdown-hero__pre { margin-bottom:8px; color:var(--paper-300); font-size:10px; font-weight:680; letter-spacing:.14em; text-transform:uppercase; }
+.countdown-hero--editorial .countdown-hero__number { color:var(--paper-100); font:520 clamp(96px,29vw,132px)/.72 var(--font-display); letter-spacing:-.08em; }
+.countdown-hero--editorial .countdown-hero__label { max-width:220px; margin-top:20px; color:var(--paper-100); font:560 28px/1.03 var(--font-display); letter-spacing:-.04em; }
+.countdown-hero--editorial .countdown-hero__time { margin:0; padding-bottom:2px; color:var(--paper-100); font-size:14px; font-weight:650; white-space:nowrap; }
+.countdown-hero--editorial .countdown-hero__time span { color:var(--stone-500); font-size:10px; font-weight:650; letter-spacing:.06em; text-transform:uppercase; }
+.countdown-hero--editorial .countdown-hero__date { margin-top:18px; padding-top:12px; border-top:1px solid rgb(241 237 229 / 24%); color:var(--paper-300); font-size:12px; }
+.countdown-hero__route { display:flex; margin-top:8px; align-items:center; color:var(--stone-500); font-size:10px; font-weight:600; letter-spacing:.03em; }
+.countdown-hero__route span { color:var(--paper-300); }
+.countdown-hero__route i { height:1px; min-width:7px; margin:0 6px; flex:1; background:rgb(241 237 229 / 24%); }
+.countdown-hero--editorial .prep-home-card { position:relative; width:100%; max-width:440px; min-height:94px; margin-top:20px; padding:16px 48px 16px 16px; overflow:hidden; border:1px solid rgb(241 237 229 / 15%); border-radius:var(--radius-card); background:rgb(20 21 23 / 86%); box-shadow:0 14px 36px rgb(0 0 0 / 30%); color:var(--paper-100); text-align:left; backdrop-filter:blur(18px) saturate(120%); transition:transform var(--duration-press) var(--ease),border-color var(--duration-press) var(--ease); }
+.countdown-hero--editorial .prep-home-card::after { position:absolute; top:50%; right:17px; color:var(--torii-500); content:"→"; font-size:22px; transform:translateY(-50%); }
+.countdown-hero--editorial .prep-home-card:active { border-color:rgb(241 237 229 / 34%); transform:scale(.985); }
+.countdown-hero--editorial .prep-home-card__title { font:650 17px var(--font-display); letter-spacing:-.02em; }
+.countdown-hero--editorial .prep-home-card__count { color:var(--paper-300); font-size:11px; font-variant-numeric:tabular-nums; }
+.countdown-hero--editorial .prep-home-card__next { margin-top:5px; overflow:hidden; color:var(--stone-500); font-size:12px; text-overflow:ellipsis; white-space:nowrap; }
+.countdown-hero--editorial .prep-home-card__bar { height:2px; margin-top:12px; border-radius:0; background:rgb(241 237 229 / 10%); }
+.countdown-hero--editorial .prep-home-card__bar span { background:var(--torii-500); }
+
 @media (max-width:350px) {
   .day-hero__content { grid-template-columns:60px minmax(0,1fr); gap:10px; }
   .day-hero__number { font-size:62px; }
@@ -515,7 +542,10 @@ function getDayNumber(days, day) {
   return idx >= 0 ? idx + 1 : null;
 }
 
-function dayHeroImage(day) {
+function dayHeroImage(day, dayNumber) {
+  if (dayNumber >= 1 && dayNumber <= 13) {
+    return `/days/day-${String(dayNumber).padStart(2, '0')}.jpg`;
+  }
   const city = (day.city ?? '').toLowerCase();
   if (city.includes('kioto')) return '/JapanPics/Kyoto.jpg';
   if (city.includes('osaka')) return '/JapanPics/Osaka.jpg';
@@ -679,7 +709,7 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
       <style>{STYLES}</style>
       <div className="today-view">
         <section className="day-hero" aria-labelledby={`day-title-${day.date}`}>
-          <img className="day-hero__image" src={dayHeroImage(day)} alt="" />
+          <img className="day-hero__image" src={dayHeroImage(day, dayNum)} alt="" />
           <div className="day-hero__content">
             <div className="day-hero__number" aria-hidden="true">{dayNum ?? '·'}</div>
             <div>
@@ -793,16 +823,24 @@ export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRout
     return (
       <>
         <style>{STYLES}</style>
-        <div className="countdown-hero" role="main" aria-label="Cuenta atrás para el viaje">
-          <p className="countdown-hero__pre">¡El viaje empieza en…!</p>
-          <div className="countdown-hero__number" aria-label={`${countdown?.days ?? 0} días`}>{countdown?.days ?? 0}</div>
-          <div className="countdown-hero__label">{countdown?.days === 1 ? 'día para Japón' : 'días para Japón'}</div>
-          {countdown && (
-            <div className="countdown-hero__time" aria-label={`${countdown.hours} horas y ${countdown.minutes} minutos`}>
-              {String(countdown.hours).padStart(2, '0')}<span> h</span> · {String(countdown.minutes).padStart(2, '0')}<span> min</span>
+        <div className="countdown-hero countdown-hero--editorial" role="main" aria-label="Cuenta atrás para el viaje">
+          <div className="countdown-hero__edition"><span>Japón / 2026</span><span>13 días</span></div>
+          <div className="countdown-hero__main">
+            <div className="countdown-hero__copy">
+              <p className="countdown-hero__pre">La cuenta atrás</p>
+              <div className="countdown-hero__number" aria-label={`${countdown?.days ?? 0} días`}>{countdown?.days ?? 0}</div>
+              <div className="countdown-hero__label">{countdown?.days === 1 ? 'día para Japón' : 'días para Japón'}</div>
             </div>
-          )}
-          <p className="countdown-hero__date">Salida: {formatDateEs(firstDay)}</p>
+            {countdown && (
+              <div className="countdown-hero__time" aria-label={`${countdown.hours} horas y ${countdown.minutes} minutos`}>
+                {String(countdown.hours).padStart(2, '0')}<span> h</span> · {String(countdown.minutes).padStart(2, '0')}<span> min</span>
+              </div>
+            )}
+          </div>
+          <p className="countdown-hero__date">Salida · {formatDateEs(firstDay)}</p>
+          <div className="countdown-hero__route" aria-label="Tokio, Hakone, Kioto, Hiroshima y Osaka">
+            <span>Tokio</span><i /><span>Hakone</span><i /><span>Kioto</span><i /><span>Hiroshima</span><i /><span>Osaka</span>
+          </div>
           <button className="prep-home-card" onClick={onOpenPreparation}>
             <div className="prep-home-card__top"><span className="prep-home-card__title">Preparar viaje</span><span className="prep-home-card__count">{completed}/{preparationTasks.length || '—'}</span></div>
             <p className="prep-home-card__next">{nextTask ? `Siguiente: ${nextTask.title}` : 'Todo listo para salir ✓'}</p>
