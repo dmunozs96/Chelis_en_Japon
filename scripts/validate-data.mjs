@@ -78,11 +78,20 @@ export function validateProject() {
   }
 
   unique(restaurants.map((restaurant) => restaurant.id), 'Restaurantes');
-  const restaurantCoverage = { Tokyo: 72, Kyoto: 46, Osaka: 46, Hiroshima: 31, Hakone: 5 };
-  check(restaurants.length === 200, `Restaurantes: se esperaban 200 fichas profundas y hay ${restaurants.length}`);
-  for (const [city, expected] of Object.entries(restaurantCoverage)) {
+  const restaurantBaseline = { Tokyo: 26, Kyoto: 15, Osaka: 14, Hiroshima: 6, Hakone: 1 };
+  const restaurantReleaseTarget = { Tokyo: 72, Kyoto: 46, Osaka: 46, Hiroshima: 31, Hakone: 5 };
+  const releaseTargetEnabled = process.env.RESTAURANTS_RELEASE_TARGET === '200';
+  check(restaurants.length >= 62, `Restaurantes: no se puede bajar de la base auditada de 62 fichas; hay ${restaurants.length}`);
+  for (const [city, minimum] of Object.entries(restaurantBaseline)) {
     const actual = restaurants.filter((restaurant) => restaurant.city === city).length;
-    check(actual === expected, `Restaurantes ${city}: se esperaban ${expected} y hay ${actual}`);
+    check(actual >= minimum, `Restaurantes ${city}: no se puede bajar de la base auditada de ${minimum}; hay ${actual}`);
+  }
+  if (releaseTargetEnabled) {
+    check(restaurants.length === 200, `Release gastronómica: se esperaban 200 fichas profundas y hay ${restaurants.length}`);
+    for (const [city, expected] of Object.entries(restaurantReleaseTarget)) {
+      const actual = restaurants.filter((restaurant) => restaurant.city === city).length;
+      check(actual === expected, `Release gastronómica ${city}: se esperaban ${expected} y hay ${actual}`);
+    }
   }
   const restaurantEntityTypes = new Set(['restaurant', 'food_area', 'market', 'food_hall']);
   const verificationStatuses = new Set(['verified', 'partial', 'needs_review', 'closed']);

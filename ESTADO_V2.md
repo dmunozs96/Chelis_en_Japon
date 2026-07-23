@@ -14,7 +14,7 @@ El siguiente objetivo no es ampliar contenido indiscriminadamente, sino cerrar u
 
 - 13 días de itinerario, con 5 trenes interurbanos confirmados y reconciliados con el plan diario.
 - 24 POIs con ficha y coordenadas.
-- 200 restaurantes profundos: Tokio 72, Kioto 46, Osaka 46, Hiroshima 31 y Hakone 5; 17 fichas etiquetadas como «sobre la marcha».
+- 62 restaurantes profundos: Tokio 26, Kioto 15, Osaka 14, Hiroshima 6 y Hakone 1; 17 fichas etiquetadas como «sobre la marcha». La ampliación fallida de 138 fichas fue retirada.
 - 14 tareas/alertas de preparación visibles y 14 tareas en el checklist.
 - 7 temas de guía cultural.
 - Guía de compras funcional: 7 categorías, 25 tiendas y 4 rutas.
@@ -40,7 +40,7 @@ Queda una vulnerabilidad alta reportada en dependencias del cliente. No se ha ap
 | A. Preparación | Funcional, pendiente de prueba | Cuenta atrás, checklist local, contenido crítico y alertas | Revisar contenido sensible y probar persistencia/uso en ambos móviles |
 | B. Modo Ahora | Básico funcional | Subpaso vigente, siguiente acción, accesos contextuales y Plan B en 8 conexiones críticas | Estado compartido con hora visible, incidencias y prueba de uso real |
 | C. Cultura | Funcional | 7 temas trazables y fichas de 24 POIs | Revisión editorial humana final; ampliar solo si cubre un hueco real |
-| D/G. Gastronomía | Parcial | 200 fichas profundas, filtros básicos, «sobre la marcha» y planificador | Comer ahora; búsqueda/filtros F19; abierto hoy; mapa; precio aproximado en euros; revalidación final de agosto |
+| D/G. Gastronomía | Parcial | 62 fichas profundas, filtros básicos, «sobre la marcha» y planificador | Ejecutar `RESTAURANT_EXPANSION_SPEC.md`; Comer ahora; búsqueda/filtros F19; abierto hoy; mapa; precio aproximado en euros; revalidación final de agosto |
 | E. Compras | Funcional | Guía profunda, tiendas, checklists y 4 rutas | Integrar mejor las rutas con el día elegido y hacer revisión final de datos volátiles |
 | F. Mapas y trayectos | Parcial | Leaflet, GPS, POIs y línea recta por orden de visita | GeoJSON real en tramos críticos, navegación/degradación clara y prueba offline |
 | H. Clima, reservas y alertas | Parcial | Clima editorial, billetes, alertas y accesos | Clima contextual en Ahora; confirmar Mizunoto; comprar/reservar N'EX al llegar |
@@ -60,7 +60,7 @@ Queda una vulnerabilidad alta reportada en dependencias del cliente. No se ha ap
 
 ### P1 — Completa el alcance aprobado
 
-1. Revalidar las 200 fichas durante la ventana final del 3 al 10 de agosto.
+1. Revalidar las 62 fichas publicadas y cualquier alta aprobada durante la ventana final del 3 al 10 de agosto.
 2. Implementar F19: texto libre, barrio, plato, «abierto hoy», franja, mapa de resultados y precio aproximado en euros.
 3. Revalidar Top 50 y contenido volátil entre el 3 y el 10 de agosto.
 4. Revisar editorialmente cultura, compras y planes alternativos.

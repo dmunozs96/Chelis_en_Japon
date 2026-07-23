@@ -10,7 +10,7 @@ Guía interactiva mobile-first para el viaje a Japón del 13 al 25 de agosto de 
 - Billetes, localizadores, hoteles y alertas.
 - Mapa Leaflet, geolocalización y rutas diarias.
 - 24 POIs con imágenes locales y contenido cultural.
-- 200 restaurantes profundos con sucursal, coordenadas, horario, precio, reserva, platos y fuentes trazables; colección «sobre la marcha» y planificador compartido.
+- 62 restaurantes profundos con sucursal, coordenadas, horario, precio, reserva, platos y fuentes trazables; colección «sobre la marcha» y planificador compartido. La ampliación a 200 está pendiente y se rige por [RESTAURANT_EXPANSION_SPEC.md](./RESTAURANT_EXPANSION_SPEC.md).
 - Centro de preparación, guía cultural y guía profunda de compras.
 - Herramientas offline: frases, conversor, emergencias, Welcome Suica, acceso a hoteles y clima por etapa.
 - PWA instalable con service worker y caché de contenido.

@@ -1129,7 +1129,7 @@ Dependencia: entra tras completar los lotes de contenido (no antes, para no dise
 
 ## 12. Corte funcional V2 (23 jul 2026)
 
-La V2 está **parcialmente funcional**. Completados: Centro de preparación, guía cultural esencial, guía de compras, 200 fichas gastronómicas profundas, reservas interurbanas y reconciliación del itinerario. De los 200 restaurantes, 17 están etiquetados «sobre la marcha».
+La V2 está **parcialmente funcional**. Completados: Centro de preparación, guía cultural esencial, guía de compras, 62 fichas gastronómicas profundas, reservas interurbanas y reconciliación del itinerario. De los 62 restaurantes, 17 están etiquetados «sobre la marcha». La ampliación defectuosa de 138 fichas se retiró y debe repetirse conforme a `RESTAURANT_EXPANSION_SPEC.md`.
 
 El 23 de julio se implementó el **Modo Ahora básico**: calcula el subpaso vigente desde las horas operativas, muestra el siguiente y ofrece accesos contextuales a lugar, billetes, comida y mapa. También se añadió Plan B explícito y validado a ocho conexiones críticas de Narita, Hakone y shinkansen.
 
@@ -1144,12 +1144,8 @@ El alcance completo, la evidencia y el orden de ejecución se mantienen en `ESTA
 
 ---
 
-### Ampliación profunda hasta 200 — 23 de julio de 2026
+### Ampliación profunda hasta 200 — pendiente
 
-La base alcanza 200 fichas publicables: Tokio 72, Kioto 46, Osaka 46, Hiroshima 31 y Hakone 5. Hakone se limita deliberadamente porque el itinerario solo deja una comida allí; las plazas se concentran donde hay más días.
+La base publicada contiene 62 fichas. Las 138 altas generadas el 23 de julio de 2026 se retiraron por no alcanzar el nivel factual y editorial requerido. El nuevo proceso, sus cupos, gates y definición de terminado están en `RESTAURANT_EXPANSION_SPEC.md`.
 
-La selección se ordenó por calidad gastronómica, reputación, especialidad, diversidad y utilidad geográfica. La disponibilidad de web propia no fue criterio de calidad: cada ficha se cruzó con página individual de Tabelog, menú publicado, versión japonesa y web oficial cuando existe o consulta exacta de Google Maps en su defecto.
-
-Todas las fichas contienen nombre japonés, coordenada individual, teléfono, horario, cierres, rango de precio, reserva, al menos un plato trazable y dos o más fuentes. El validador exige estos campos, la distribución por ciudad, ausencia de coordenadas duplicadas y la sucursal correcta de Daruma.
-
-*Última actualización: 2026-07-23 — Modo Ahora básico y Plan B crítico implementados y cubiertos por tests/validación. Estado contrastado: 200 restaurantes profundos, preparación/cultura/compras funcionales y trenes reconciliados. Pendientes principales: Comer ahora/F19, revalidación final de agosto, estado compartido visible, rutas críticas y prueba real en dos móviles.*
+*Última actualización: 2026-07-23 — Modo Ahora básico y Plan B crítico implementados y cubiertos por tests/validación. Estado gastronómico contrastado: 62 restaurantes profundos; ampliación a 200 pendiente.*
