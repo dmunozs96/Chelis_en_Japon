@@ -111,33 +111,6 @@
       ]
     },
     {
-      "id": "reserve-trains",
-      "title": "Reservar los cinco trenes",
-      "description": "Romancecar y cuatro trayectos shinkansen según abra cada ventana del 18 al 24 de julio.",
-      "category": "reservas",
-      "due_date": "2026-07-24",
-      "priority": "critical",
-      "assignee": "Daniel",
-      "depends_on": [
-        "return-hotels"
-      ],
-      "evidence_mode": "confirmation",
-      "sensitive": false,
-      "source_refs": [
-        {
-          "name": "SmartEX",
-          "url": "https://smart-ex.jp/en/",
-          "verified_at": "2026-07-15"
-        }
-      ],
-      "context": "Las ventas abren aproximadamente un mes antes y el viaje coincide con temporada de alta demanda. Reservar asiento reduce el riesgo de romper conexiones entre ciudades.",
-      "completion_criteria": [
-        "Los cinco trayectos tienen horario confirmado.",
-        "Cada billete tiene coche y asiento cuando corresponda.",
-        "Los localizadores se han trasladado a trip.json o están accesibles offline."
-      ]
-    },
-    {
       "id": "visit-japan-web",
       "title": "Preparar Visit Japan Web",
       "description": "Completar entrada y aduanas si se decide utilizar el servicio. No guardar esos datos en esta app.",
@@ -251,9 +224,7 @@
       "due_days_before": 2,
       "priority": "critical",
       "assignee": "ambos",
-      "depends_on": [
-        "reserve-trains"
-      ],
+      "depends_on": [],
       "evidence_mode": "confirmation",
       "sensitive": true,
       "source_refs": [],
@@ -269,7 +240,7 @@
       "title": "Check-in del vuelo",
       "description": "Hacer check-in cuando abra, seleccionar asientos y guardar tarjetas de embarque offline.",
       "category": "reservas",
-      "due_date": "2026-08-11",
+      "due_date": "2026-08-12",
       "priority": "critical",
       "assignee": "Daniel",
       "depends_on": [
@@ -277,7 +248,13 @@
       ],
       "evidence_mode": "confirmation",
       "sensitive": true,
-      "source_refs": [],
+      "source_refs": [
+        {
+          "name": "Iberia — check-in online",
+          "url": "https://www.iberia.com/es/informacion-checkin/",
+          "verified_at": "2026-07-23"
+        }
+      ],
       "context": "Hacer el check-in al abrir permite detectar problemas de documentación o asiento con margen y evita depender de la conexión camino del aeropuerto.",
       "completion_criteria": [
         "El check-in de ambos viajeros está completado.",

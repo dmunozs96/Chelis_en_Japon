@@ -3,9 +3,9 @@
     {
       "id": "mizunoto-tattoo",
       "type": "action",
-      "title": "Confirmar política de tatuajes — Mizunoto",
-      "body": "El ryokan Mizunoto (Hakone) no tiene política oficial publicada. Llamar antes del viaje: +81 460-82-6011.",
-      "due_date": "2026-08-17",
+      "title": "Cerrar detalles con Mizunoto",
+      "body": "Llamar antes del viaje al +81 460-82-6011: confirmar política de tatuajes, punto y frecuencia del shuttle desde Kowakidani (14:00–17:00) y hora de la cena kaiseki.",
+      "due_date": "2026-08-03",
       "action_url": null,
       "related_day": "2026-08-17",
       "dismissible": true
@@ -14,17 +14,37 @@
       "id": "checkin-online",
       "type": "action",
       "title": "Check-in online vuelo IB0281",
-      "body": "El check-in online de Iberia abre 48h antes del vuelo — disponible desde el 11 de agosto a las 12:30.",
-      "due_date": "2026-08-13",
-      "action_url": null,
+      "body": "Para vuelos fuera de Schengen, Iberia abre el check-in 24h antes: desde el 12 de agosto a las 12:30. Hacerlo para ambos viajeros y guardar las tarjetas offline.",
+      "due_date": "2026-08-12",
+      "action_url": "https://www.iberia.com/es/autocheckin-online/",
       "related_day": "2026-08-13",
+      "dismissible": true
+    },
+    {
+      "id": "visit-japan-web",
+      "type": "action",
+      "title": "Preparar Visit Japan Web",
+      "body": "Completar los trámites de entrada y aduanas si vais a usar el servicio oficial. Guardar los códigos de ambos viajeros fuera de esta app y comprobar que abren sin conexión.",
+      "due_date": "2026-07-30",
+      "action_url": "https://www.vjw.digital.go.jp/",
+      "related_day": null,
+      "dismissible": true
+    },
+    {
+      "id": "offline-travel-pack",
+      "type": "action",
+      "title": "Blindar el viaje sin conexión",
+      "body": "En ambos móviles: abrir en modo avión la app, billetes SmartEX y Romancecar, reservas, mapas, Visit Japan Web y tarjetas de embarque. No depender de un correo ni de un único teléfono.",
+      "due_date": "2026-08-11",
+      "action_url": null,
+      "related_day": null,
       "dismissible": true
     },
     {
       "id": "obon-warning",
       "type": "warning",
       "title": "Obon — aglomeración 13-16 agosto",
-      "body": "Festival del Obon: picos de aglomeración en transporte y templos. Del 7 al 16 ago todos los Nozomi circulan solo con asiento reservado (no afecta a vuestros trayectos, del 18 al 23). Algunos restaurantes familiares pueden cerrar. Verificado 16 jul 2026 (JR Central).",
+      "body": "Festival del Obon: picos de aglomeración en transporte y templos. Del 7 al 16 ago los Nozomi circulan solo con asiento reservado; vuestros shinkansen son posteriores. Sí puede haber cierres y más afluencia en Tokio el 14–16.",
       "due_date": "2026-08-16",
       "action_url": null,
       "related_day": null,
@@ -34,9 +54,9 @@
       "id": "heat-warning",
       "type": "warning",
       "title": "Calor extremo — agosto en Japón",
-      "body": "Tokio: 31°C media, 74% humedad. Kioto: hasta 33°C, sensación de 46°C (cuenca que atrapa el calor). Salir a primera hora o al anochecer. Hidratarse constantemente.",
+      "body": "Consultar cada mañana el índice WBGT oficial. Con alerta de calor: recortar exteriores al mediodía, buscar aire acondicionado, beber antes de tener sed y hacer pausas frecuentes.",
       "due_date": null,
-      "action_url": null,
+      "action_url": "https://www.wbgt.env.go.jp/en/sp/alert.php",
       "related_day": null,
       "dismissible": false
     },
@@ -54,11 +74,21 @@
       "id": "typhoon-season",
       "type": "warning",
       "title": "Temporada de tifones",
-      "body": "Agosto es temporada de tifones en Japón. Vigilar la previsión los días previos a cada trayecto en tren — puede haber retrasos o cancelaciones.",
+      "body": "Agosto es temporada de tifones. Revisar JMA 72h y 24h antes de cada cambio de ciudad; si hay aviso, comprobar también el estado del operador antes de salir del hotel.",
       "due_date": null,
-      "action_url": null,
+      "action_url": "https://www.jma.go.jp/bosai/typhoon/",
       "related_day": null,
       "dismissible": false
+    },
+    {
+      "id": "nex-round-trip",
+      "type": "tip",
+      "title": "Narita: comprar N’EX ida y vuelta",
+      "body": "Al llegar a Narita T2, valorar el N’EX TOKYO Round Trip Ticket: ¥5.200 por adulto y 14 días de validez, por lo que cubre la ida del 14 y la vuelta del 25. Reservar también el N’EX de regreso de las 07:20.",
+      "due_date": "2026-08-14",
+      "action_url": "https://www.jreast.co.jp/en/multi/pass/nex.html",
+      "related_day": "2026-08-14",
+      "dismissible": true
     },
     {
       "id": "fushimi-early",
@@ -97,6 +127,16 @@
       "body": "El vuelo IB0282 sale a las 11:10 desde Narita T2. No esperar al checkout de las 11:00 — salir del hotel a las 07:00-07:30 como máximo.",
       "due_date": "2026-08-25",
       "action_url": null,
+      "related_day": "2026-08-25",
+      "dismissible": true
+    },
+    {
+      "id": "return-flight-checkin",
+      "type": "action",
+      "title": "Check-in online vuelo IB0282",
+      "body": "El check-in del regreso abre 24h antes: 24 de agosto a las 11:10, hora de Japón. Guardar las tarjetas de ambos viajeros offline antes de cerrar las maletas.",
+      "due_date": "2026-08-24",
+      "action_url": "https://www.iberia.com/es/autocheckin-online/",
       "related_day": "2026-08-25",
       "dismissible": true
     }
