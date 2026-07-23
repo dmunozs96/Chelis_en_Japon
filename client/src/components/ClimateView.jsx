@@ -1,10 +1,11 @@
 import React from 'react';
 import { useTravelToolsData } from '../hooks/useTravelToolsData.js';
 import { TRAVEL_TOOL_STYLES } from './TravelToolStyles.js';
+import Icon from './ui/Icon.jsx';
 
 const CLIMATE_STYLES = `
 .climate-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 13px; }
-.climate-value { padding: 10px 5px; border-radius: 10px; background: var(--bg-secondary); text-align: center; }
+.climate-value { padding: 10px 5px; border-left:1px solid var(--separator); border-radius: 0; background: transparent; text-align: center; }
 .climate-value strong { display: block; color: var(--label-primary); font-size: 20px; }
 .climate-value span { color: var(--label-secondary); font-size: 10px; text-transform: uppercase; }
 `;
@@ -16,7 +17,7 @@ export default function ClimateView({ onBack }) {
     <>
       <style>{TRAVEL_TOOL_STYLES}{CLIMATE_STYLES}</style>
       <div className="travel-tool" role="main" aria-label="Clima esperado por etapa">
-        <nav className="travel-tool__nav"><button className="travel-tool__back" onClick={onBack}>← Volver</button><div className="travel-tool__title">Clima por etapa</div></nav>
+        <nav className="travel-tool__nav"><button className="travel-tool__back" onClick={onBack}><Icon name="back" size={20}/> Volver</button><div className="travel-tool__title">Clima por etapa</div></nav>
         {loading && <div className="travel-loading">Cargando clima…</div>}
         {error && <div className="travel-loading">No se pudo cargar el clima: {error}</div>}
         {climate && <div className="travel-tool__body">

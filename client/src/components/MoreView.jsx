@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from './ui/Icon.jsx';
 
 /* ---------------------------------------------------------------
    MoreView
@@ -12,7 +13,7 @@ const STYLES = `
   padding-top: 16px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 32px;
 }
 
 /* Card principal de Billetes */
@@ -20,17 +21,17 @@ const STYLES = `
   display: flex;
   align-items: center;
   gap: 16px;
-  background: var(--accent);
+  background: var(--ink-900);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card-lg);
   padding: 22px 20px;
   cursor: pointer;
-  border: none;
+  border: 1px solid var(--separator);
   width: 100%;
   text-align: left;
   -webkit-tap-highlight-color: transparent;
   transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
-  min-height: 80px;
+  min-height: 96px;
 }
 
 .more-tickets-card:active {
@@ -39,8 +40,7 @@ const STYLES = `
 }
 
 .more-tickets-icon {
-  font-size: 36px;
-  line-height: 1;
+  color: var(--paper-100);
   flex-shrink: 0;
 }
 
@@ -54,71 +54,75 @@ const STYLES = `
 .more-tickets-title {
   font-size: 19px;
   font-weight: 700;
-  color: #fff;
+  color: var(--paper-100);
   line-height: 1.2;
 }
 
 .more-tickets-subtitle {
   font-size: 14px;
   font-weight: 400;
-  color: rgba(255,255,255,0.82);
+  color: var(--stone-500);
   line-height: 1.3;
 }
 
 .more-tickets-arrow {
   font-size: 22px;
-  color: rgba(255,255,255,0.7);
+  color: var(--torii-500);
   flex-shrink: 0;
   font-weight: 300;
 }
 
 /* Grid de herramientas */
 .more-grid-header {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--label-secondary);
+  margin-bottom: 4px;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .13em;
+  color: var(--paper-300);
   text-transform: uppercase;
   padding: 0 4px;
 }
 
 .more-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--gap-card);
+  display: flex;
+  flex-direction: column;
 }
 
 .more-tool-card {
-  background: var(--bg-surface);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-card);
-  padding: 20px 16px;
+  width: 100%;
+  min-height: 58px;
+  padding: 12px 0;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
+  flex-direction: row;
+  align-items: center;
+  gap: 13px;
   position: relative;
-  min-height: 100px;
-  opacity: 0.5;
-  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid var(--separator);
+  border-radius: 0;
+  background: transparent;
+  opacity: 1;
 }
 
 .more-tool-card--active {
   opacity: 1;
-  border: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--separator);
   cursor: pointer;
   font-family: var(--font);
   text-align: left;
   -webkit-tap-highlight-color: transparent;
 }
 
-.more-tool-card--active:active { transform: scale(0.98); }
+.more-tool-card--active:active { opacity: .7; }
 
-.more-tool-arrow { position: absolute; right: 14px; bottom: 12px; color: var(--accent); font-size: 20px; }
+.more-tool-arrow { margin-left:auto; color:var(--stone-500); font-size:20px; }
 
 .more-tool-icon {
-  font-size: 28px;
-  line-height: 1;
+  display:grid;
+  width:32px;
+  height:32px;
+  place-items:center;
+  color:var(--paper-300);
 }
 
 .more-tool-label {
@@ -128,18 +132,40 @@ const STYLES = `
   line-height: 1.3;
 }
 
+.more-section { display:flex; flex-direction:column; }
+
 `;
 
-const TOOLS = [
-  { icon: '🛍️', label: 'Guía de compras', destination: 'shopping' },
-  { icon: '✅', label: 'Preparar viaje', destination: 'preparation' },
-  { icon: '⛩️', label: 'Guía cultural', destination: 'culture' },
-  { icon: '🇯🇵', label: 'Frases japonesas', destination: 'phrases' },
-  { icon: '¥', label: 'Conversor ¥/€', destination: 'currency' },
-  { icon: '🚨', label: 'Emergencias', destination: 'emergency' },
-  { icon: '🚇', label: 'Guía Suica', destination: 'ic-card' },
-  { icon: '🧳', label: 'Llegar al hotel', destination: 'last-mile' },
-  { icon: '🌡️', label: 'Clima por etapa', destination: 'climate' },
+const TOOL_GROUPS = [
+  {
+    label: 'En movimiento',
+    tools: [
+      { icon: 'hotel', label: 'Llegar al hotel', destination: 'last-mile' },
+      { icon: 'ic', label: 'Guía Suica', destination: 'ic-card' },
+      { icon: 'climate', label: 'Clima por etapa', destination: 'climate' },
+    ],
+  },
+  {
+    label: 'En Japón',
+    tools: [
+      { icon: 'phrases', label: 'Frases japonesas', destination: 'phrases' },
+      { icon: 'currency', label: 'Conversor ¥/€', destination: 'currency' },
+      { icon: 'shopping', label: 'Guía de compras', destination: 'shopping' },
+    ],
+  },
+  {
+    label: 'Antes y cultura',
+    tools: [
+      { icon: 'check', label: 'Preparar viaje', destination: 'preparation' },
+      { icon: 'culture', label: 'Guía cultural', destination: 'culture' },
+    ],
+  },
+  {
+    label: 'Ayuda',
+    tools: [
+      { icon: 'emergency', label: 'Emergencias', destination: 'emergency' },
+    ],
+  },
 ];
 
 export default function MoreView({ onNavigate }) {
@@ -153,7 +179,7 @@ export default function MoreView({ onNavigate }) {
           onClick={() => onNavigate && onNavigate('tickets')}
           aria-label="Ver billetes y localizadores"
         >
-          <div className="more-tickets-icon" aria-hidden="true">✈️</div>
+          <Icon name="tickets" size={30} className="more-tickets-icon" />
           <div className="more-tickets-text">
             <div className="more-tickets-title">Billetes & Localizadores</div>
             <div className="more-tickets-subtitle">Vuelos · Hoteles · Trenes</div>
@@ -161,22 +187,25 @@ export default function MoreView({ onNavigate }) {
           <div className="more-tickets-arrow" aria-hidden="true">›</div>
         </button>
 
-        {/* Herramientas operativas */}
-        <div className="more-grid-header">Herramientas</div>
-        <div className="more-grid">
-          {TOOLS.map((tool) => (
-            <button
-              key={tool.label}
-              className="more-tool-card more-tool-card--active"
-              aria-label={tool.label}
-              onClick={() => onNavigate?.(tool.destination)}
-            >
-              <div className="more-tool-icon" aria-hidden="true">{tool.icon}</div>
-              <div className="more-tool-label">{tool.label}</div>
-              <div className="more-tool-arrow">›</div>
-            </button>
-          ))}
-        </div>
+        {TOOL_GROUPS.map((group) => (
+          <section className="more-section" key={group.label}>
+            <h2 className="more-grid-header">{group.label}</h2>
+            <div className="more-grid">
+              {group.tools.map((tool) => (
+                <button
+                  key={tool.label}
+                  className="more-tool-card more-tool-card--active"
+                  aria-label={tool.label}
+                  onClick={() => onNavigate?.(tool.destination)}
+                >
+                  <Icon name={tool.icon} size={21} className="more-tool-icon" />
+                  <span className="more-tool-label">{tool.label}</span>
+                  <span className="more-tool-arrow" aria-hidden="true">›</span>
+                </button>
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
     </>
   );

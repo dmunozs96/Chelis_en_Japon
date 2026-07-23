@@ -2,6 +2,7 @@ import React from 'react';
 import { useTripData } from '../hooks/useTripData.js';
 import { useTravelToolsData } from '../hooks/useTravelToolsData.js';
 import { TRAVEL_TOOL_STYLES } from './TravelToolStyles.js';
+import Icon from './ui/Icon.jsx';
 
 export default function LastMileView({ onBack }) {
   const { hotels, loading: tripLoading } = useTripData();
@@ -13,7 +14,7 @@ export default function LastMileView({ onBack }) {
       <style>{TRAVEL_TOOL_STYLES}</style>
       <div className="travel-tool" role="main" aria-label="Cómo llegar a los hoteles">
         <nav className="travel-tool__nav">
-          <button className="travel-tool__back" onClick={onBack}>← Volver</button>
+          <button className="travel-tool__back" onClick={onBack}><Icon name="back" size={20}/> Volver</button>
           <div className="travel-tool__title">Llegar al hotel</div>
         </nav>
         {(tripLoading || toolsLoading) && <div className="travel-loading">Cargando rutas…</div>}
@@ -31,8 +32,8 @@ export default function LastMileView({ onBack }) {
                   <div className="travel-card__title">{hotel.name}</div>
                   <div className="travel-card__text">{access.summary}</div>
                   <ol className="travel-steps">{access.steps.map((step) => <li key={step}>{step}</li>)}</ol>
-                  {access.shuttle && <div className="travel-warning">🚌 {access.shuttle}</div>}
-                  {access.needs_confirmation && <div className="travel-warning">⚠️ Confirma este servicio directamente con el alojamiento antes de usarlo.</div>}
+                  {access.shuttle && <div className="travel-warning">{access.shuttle}</div>}
+                  {access.needs_confirmation && <div className="travel-warning">Confirma este servicio directamente con el alojamiento antes de usarlo.</div>}
                   <a className="travel-call travel-call--secondary" href={mapUrl} target="_blank" rel="noreferrer"><span>Abrir ubicación</span><span>↗</span></a>
                   <a className="travel-source" href={access.source} target="_blank" rel="noreferrer">Fuente oficial ↗</a>
                 </section>

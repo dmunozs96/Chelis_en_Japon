@@ -16,84 +16,95 @@ const STYLES = `
 /* --- Strip de días sticky bajo el header --- */
 .daynav__strip-wrapper {
   position: sticky;
-  top: 60px;
+  top: calc(64px + env(safe-area-inset-top));
   z-index: 50;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 12px var(--page-padding) 12px;
+  padding: 0 var(--page-padding);
   border-bottom: 1px solid var(--separator);
+  background: rgb(13 14 16 / 96%);
 }
 
 .daynav__strip {
   display: flex;
   overflow-x: auto;
-  gap: 8px;
+  gap: 0;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding-bottom: 2px;
 }
 .daynav__strip::-webkit-scrollbar { display: none; }
 
 /* --- Pill de día --- */
 .daynav__pill {
+  position: relative;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  padding: 8px 14px;
-  border-radius: var(--radius-btn);
+  justify-content: center;
+  gap: 4px;
+  min-width: 56px;
+  min-height: 62px;
+  padding: 8px 12px;
+  border-radius: 0;
   border: none;
-  background: var(--bg-surface);
+  background: transparent;
   cursor: pointer;
   scroll-snap-align: center;
-  transition: background var(--duration-micro) var(--ease), color var(--duration-micro) var(--ease);
-  min-width: 52px;
+  transition: color var(--duration-micro) var(--ease);
   font-family: var(--font);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  box-shadow: none;
   -webkit-tap-highlight-color: transparent;
 }
 
 .daynav__pill:hover:not(.daynav__pill--active) {
-  background: var(--bg-surface-2);
+  background: transparent;
 }
 
 .daynav__pill--active {
-  background: var(--accent);
-  box-shadow: 0 2px 12px rgba(232, 0, 45, 0.35);
+  background: transparent;
+  box-shadow: none;
+}
+
+.daynav__pill--active::after {
+  position: absolute;
+  right: 12px;
+  bottom: -1px;
+  left: 12px;
+  height: 2px;
+  background: var(--torii-500);
+  content: "";
 }
 
 .daynav__pill--free:not(.daynav__pill--active) {
-  background: var(--accent-soft);
+  background: transparent;
 }
 
 .pill-weekday {
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 9px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: .1em;
   line-height: 1;
   color: var(--label-secondary);
 }
 
 .pill-day {
-  font-size: 18px;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
   line-height: 1.1;
   color: var(--label-primary);
 }
 
 /* Estados de color del número del día según tipo */
 .daynav__pill--free:not(.daynav__pill--active) .pill-day {
-  color: var(--accent);
+  color: var(--paper-300);
 }
 
-/* Estado activo: todo blanco */
+/* Estado activo: tinta clara y subrayado de marca */
 .daynav__pill--active .pill-weekday,
 .daynav__pill--active .pill-day {
-  color: #FFFFFF;
+  color: var(--paper-100);
 }
 
 /* --- Contenido del día --- */

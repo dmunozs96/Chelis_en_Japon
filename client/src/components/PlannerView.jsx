@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTripData } from '../hooks/useTripData.js';
 import { useRestaurantsData, CITY_ES_TO_EN } from '../hooks/useRestaurantsData.js';
 import { usePlannerData, getSlotConflicts } from '../hooks/usePlannerData.js';
+import Icon from './ui/Icon.jsx';
 
 /* ---------------------------------------------------------------
    PlannerView
@@ -231,6 +232,12 @@ const STYLES = `
   background: var(--bg-surface-2);
   color: var(--label-primary);
 }
+.planner-view,.planner-picker{max-width:var(--shell-max);background:var(--ink-950)}.planner-nav{height:calc(56px + env(safe-area-inset-top));padding:env(safe-area-inset-top) var(--page-padding) 0;border-bottom:1px solid var(--separator);background:rgb(13 14 16 / 94%);backdrop-filter:none;-webkit-backdrop-filter:none}.planner-nav__back{gap:6px;color:var(--paper-100);font-size:13px;font-weight:650}.planner-nav__title{font-family:var(--font-display);font-weight:600}
+.planner-body{gap:0;padding-bottom:40px}.planner-hero{padding:20px 0 28px}.planner-hero__eyebrow{color:var(--torii-500);font-size:10px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}.planner-hero h1{margin-top:7px;font-size:36px;letter-spacing:-.05em}.planner-hero p{margin-top:8px;color:var(--stone-500);font-size:14px}.planner-notice{margin-bottom:14px;border:1px solid var(--separator);border-radius:var(--radius-chip);background:transparent}
+.planner-day-card{padding:24px 0 0;border:0;border-top:1px solid var(--separator);border-radius:0;background:transparent;box-shadow:none}.planner-day-card__header{margin-bottom:8px;font-family:var(--font-display);font-size:18px;font-weight:600;text-transform:capitalize}.planner-day-card__city{display:block;margin-top:3px;color:var(--stone-500);font:700 9px var(--font);letter-spacing:.12em;text-transform:uppercase}
+.planner-slot{display:grid;padding:15px 0;grid-template-columns:72px minmax(0,1fr);column-gap:12px}.planner-slot:first-of-type{padding-top:15px;border-top:1px solid var(--separator)}.planner-slot__label{grid-column:1;color:var(--stone-500);font-size:10px;letter-spacing:.1em}.planner-slot__content{grid-column:2}.planner-slot__restaurant{font-family:var(--font-display);font-size:16px;font-weight:600}.planner-status-chip{padding:0;background:transparent!important}.planner-status-chip--assigned{color:var(--amber-500)}.planner-status-chip--reserved{color:var(--moss-500)}.planner-status-chip--cancelled{color:var(--signal-500)}.planner-empty-slot{color:var(--stone-500);font-size:13px}.planner-slot__warning{color:var(--amber-500);font-size:12px}.planner-slot__btn{border-color:var(--separator);border-radius:var(--radius-chip);background:transparent}.planner-slot__btn--primary{border-color:var(--paper-100);background:var(--paper-100);color:var(--ink-1000)}
+.planner-picker-list{gap:0}.planner-picker-item{width:100%;padding:16px 0;border:0;border-bottom:1px solid var(--separator);border-radius:0;background:transparent;color:inherit;text-align:left}.planner-picker-item__name{font-family:var(--font-display);font-size:17px;font-weight:600}.planner-picker-item__meta{color:var(--stone-500)}.planner-michelin{color:var(--paper-300);font:750 9px var(--font);letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:350px){.planner-slot{grid-template-columns:60px minmax(0,1fr)}}
 `;
 
 const CITY_LABELS_ES = { Tokyo: 'Tokio', Kyoto: 'Kioto', Osaka: 'Osaka', Hiroshima: 'Hiroshima' };
@@ -267,7 +274,7 @@ export default function PlannerView({ onBack }) {
         <style>{STYLES}</style>
         <div className="planner-view">
           <nav className="planner-nav">
-            <button className="planner-nav__back" onClick={onBack}>← Volver</button>
+            <button className="planner-nav__back" onClick={onBack}><Icon name="back" size={20}/> Volver</button>
           </nav>
           <div className="planner-body"><div className="planner-notice">Cargando planificador…</div></div>
         </div>
@@ -283,7 +290,7 @@ export default function PlannerView({ onBack }) {
         <style>{STYLES}</style>
         <div className="planner-picker">
           <nav className="planner-nav">
-            <button className="planner-nav__back" onClick={() => setPicking(null)}>← Volver</button>
+            <button className="planner-nav__back" onClick={() => setPicking(null)}><Icon name="back" size={20}/> Volver</button>
             <div className="planner-nav__title">{CITY_LABELS_ES[cityEn] ?? cityEn}</div>
           </nav>
           <div className="planner-picker-list">
@@ -291,7 +298,7 @@ export default function PlannerView({ onBack }) {
               <div className="planner-notice">No hay restaurantes curados para esta ciudad todavía — improvisa sobre el terreno.</div>
             )}
             {options.map((r) => (
-              <div
+              <button
                 key={r.id}
                 className="planner-picker-item"
                 onClick={async () => {
@@ -299,9 +306,9 @@ export default function PlannerView({ onBack }) {
                   if (saved) setPicking(null);
                 }}
               >
-                <div className="planner-picker-item__name">{r.name} {r.michelin_stars > 0 && '⭐'.repeat(r.michelin_stars)}</div>
+                <div className="planner-picker-item__name">{r.name} {r.michelin_stars > 0 && <span className="planner-michelin">Michelin · {r.michelin_stars}</span>}</div>
                 <div className="planner-picker-item__meta">{r.neighborhood} · {r.price_per_person_yen}</div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -309,16 +316,23 @@ export default function PlannerView({ onBack }) {
     );
   }
 
+  const plannedCount = days.reduce((total, day) => total + ['lunch', 'dinner'].filter((mealSlot) => getSlot(day.date, mealSlot).restaurant_id).length, 0);
+
   return (
     <>
       <style>{STYLES}</style>
       <div className="planner-view" role="main" aria-label="Planificador de comidas">
         <nav className="planner-nav">
-          <button className="planner-nav__back" onClick={onBack}>← Volver</button>
+          <button className="planner-nav__back" onClick={onBack}><Icon name="back" size={20}/> Volver</button>
           <div className="planner-nav__title">Planificador de comidas</div>
         </nav>
 
         <div className="planner-body">
+          <header className="planner-hero">
+            <div className="planner-hero__eyebrow">Agenda gastronómica</div>
+            <h1>{days.length} días, {days.length * 2} comidas</h1>
+            <p>{plannedCount} asignadas · {days.length * 2 - plannedCount} abiertas para improvisar</p>
+          </header>
           {saveError && <div className="planner-notice planner-notice--error" role="alert">{saveError}</div>}
           {!persisted && (
             <div className="planner-notice">
@@ -343,6 +357,7 @@ export default function PlannerView({ onBack }) {
                   return (
                     <div className="planner-slot" key={mealSlot}>
                       <div className="planner-slot__label">{MEAL_LABELS[mealSlot]}</div>
+                      <div className="planner-slot__content">
 
                       {!restaurant && <div className="planner-empty-slot">Sin asignar — improvisar</div>}
 
@@ -355,7 +370,7 @@ export default function PlannerView({ onBack }) {
                           {slot.status === 'reserved' && slot.confirmation_number && (
                             <div className="planner-slot__label" style={{ marginTop: 4, textTransform: 'none' }}>Confirmación: {slot.confirmation_number}</div>
                           )}
-                          {conflicts.map((w, i) => <div className="planner-slot__warning" key={i}>⚠ {w}</div>)}
+                          {conflicts.map((w, i) => <div className="planner-slot__warning" key={i}>Atención · {w}</div>)}
                         </>
                       )}
 
@@ -404,6 +419,7 @@ export default function PlannerView({ onBack }) {
                           )}
                         </div>
                       )}
+                      </div>
                     </div>
                   );
                 })}

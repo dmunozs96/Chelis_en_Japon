@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import Icon from './ui/Icon.jsx';
 
 /* ---------------------------------------------------------------
    MapView
@@ -306,6 +307,10 @@ const STYLES = `
   color: #3a3a3c;
   line-height: 1.45;
 }
+.map-view{max-width:var(--shell-max);background:var(--ink-950)}.map-nav{height:calc(56px + env(safe-area-inset-top));padding:env(safe-area-inset-top) var(--page-padding) 0;border-bottom:1px solid var(--separator);background:rgb(13 14 16 / 94%);backdrop-filter:none;-webkit-backdrop-filter:none}.map-nav__back{color:var(--paper-100);font-size:13px;font-weight:650}.map-nav__title{font-family:var(--font-display);font-size:16px;font-weight:600}
+#chelis-map{height:calc(100dvh - 56px - env(safe-area-inset-top) - 150px)}.map-no-gps-banner{top:12px;padding:7px 11px;border-radius:var(--radius-chip);background:rgb(13 14 16 / 92%);color:var(--paper-300);backdrop-filter:none;-webkit-backdrop-filter:none}
+.map-panel{height:150px;padding:0 var(--page-padding) env(safe-area-inset-bottom);background:var(--ink-950)}.map-panel__handle{padding-top:10px}.map-panel__title{padding:2px 0 8px;color:var(--paper-300);font-size:10px;font-weight:750;letter-spacing:.13em}.map-panel__list{gap:0;padding:0;overflow-x:auto}.poi-chip,.hotel-chip{width:160px;padding:12px 14px;border:0;border-right:1px solid var(--separator);border-radius:0;background:transparent;color:inherit;font-family:var(--font);text-align:left}.poi-chip__name,.hotel-chip__name{font-family:var(--font-display);font-size:14px;font-weight:600}.hotel-chip__type{color:var(--moss-500)}
+@media(prefers-reduced-motion:reduce){.marker-user__ring{animation:none}}
 `;
 
 /* ---- Helpers para crear iconos SVG ---- */
@@ -338,7 +343,7 @@ function createHotelIcon() {
 
 function createPoiIcon(type, number) {
   const isMemorial = type === 'memorial';
-  const color = isMemorial ? '#8E8E93' : '#FF6B35';
+  const color = isMemorial ? '#8C8982' : '#E8002D';
   const label = number != null
     ? `<text x="13" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="white" font-family="sans-serif">${number}</text>`
     : `<circle cx="13" cy="13" r="4" fill="white" opacity="0.9"/>`;
@@ -525,9 +530,7 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
         {/* Nav bar */}
         <nav className="map-nav">
           <button className="map-nav__back" onClick={onBack} aria-label="Volver">
-            <svg width="10" height="17" viewBox="0 0 10 17" fill="none" aria-hidden="true">
-              <path d="M9 1L1.5 8.5L9 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <Icon name="back" size={20}/>
             Volver
           </button>
           <span className="map-nav__title">{routeMode ? 'Ruta del día' : 'Mapa del día'}</span>
@@ -540,7 +543,7 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
           {/* Banner sin GPS */}
           {noGps && (
             <div className="map-no-gps-banner" aria-live="polite">
-              📍 Sin ubicación en tiempo real
+              Sin ubicación en tiempo real
             </div>
           )}
         </div>
@@ -558,17 +561,14 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
             <div className="map-panel__list">
               {/* Hotel primero si existe (no en modo ruta) */}
               {!routeMode && hotelFull?.lat && hotelFull?.lng && (
-                <div
+                <button
                   className="hotel-chip"
-                  role="button"
-                  tabIndex={0}
                   aria-label={`Hotel: ${hotelFull.name}`}
                   onClick={flyToHotel}
-                  onKeyDown={e => e.key === 'Enter' && flyToHotel()}
                 >
                   <div className="hotel-chip__name">{hotelFull.name}</div>
                   <div className="hotel-chip__type">Hotel</div>
-                </div>
+                </button>
               )}
 
               {/* POIs */}
@@ -578,18 +578,15 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
                   if (poi.lat != null) flyToPoi(poi.lat, poi.lng, poi.name, poi.type, poi.note);
                 };
                 return (
-                  <div
+                  <button
                     key={poi.id}
                     className="poi-chip"
-                    role="button"
-                    tabIndex={0}
                     aria-label={`POI: ${poi.name}`}
                     onClick={handleTap}
-                    onKeyDown={e => e.key === 'Enter' && handleTap()}
                   >
                     <div className="poi-chip__name">{routeMode ? `${idx + 1}. ${poi.name}` : poi.name}</div>
                     <div className="poi-chip__type">{poi.type}</div>
-                  </div>
+                  </button>
                 );
               })}
             </div>

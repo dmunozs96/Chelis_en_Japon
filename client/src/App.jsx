@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { lazy, Suspense, useState, useEffect, useRef } from 'react';
 import { useTripData, useAlertsData, getUnreadActionCount } from './hooks/useTripData.js';
 import { usePoisData } from './hooks/usePoisData.js';
 import Header        from './components/Header.jsx';
@@ -7,12 +7,8 @@ import TodayView     from './components/TodayView.jsx';
 import DayNav        from './components/DayNav.jsx';
 import AlertsView    from './components/AlertsView.jsx';
 import MoreView      from './components/MoreView.jsx';
-import TicketsView   from './components/TicketsView.jsx';
-import MapView       from './components/MapView.jsx';
-import POIDetailView from './components/POIDetailView.jsx';
 import SplashScreen  from './components/SplashScreen.jsx';
 import RestaurantsView from './components/RestaurantsView.jsx';
-import PlannerView   from './components/PlannerView.jsx';
 import OfflineBanner from './components/OfflineBanner.jsx';
 import EmergencyView from './components/EmergencyView.jsx';
 import LastMileView   from './components/LastMileView.jsx';
@@ -22,7 +18,12 @@ import CurrencyConverterView from './components/CurrencyConverterView.jsx';
 import ClimateView from './components/ClimateView.jsx';
 import PreparationView from './components/PreparationView.jsx';
 import CulturalGuideView from './components/CulturalGuideView.jsx';
-import ShoppingGuideView from './components/ShoppingGuideView.jsx';
+
+const TicketsView = lazy(() => import('./components/TicketsView.jsx'));
+const MapView = lazy(() => import('./components/MapView.jsx'));
+const POIDetailView = lazy(() => import('./components/POIDetailView.jsx'));
+const PlannerView = lazy(() => import('./components/PlannerView.jsx'));
+const ShoppingGuideView = lazy(() => import('./components/ShoppingGuideView.jsx'));
 
 /* ---------------------------------------------------------------
    App — shell principal
@@ -53,6 +54,10 @@ const LOADING_STYLES = `
   text-align: center;
 }
 `;
+
+function LazyBoundary({ children }) {
+  return <Suspense fallback={<div className="app-loading">Abriendo…</div>}>{children}</Suspense>;
+}
 
 export default function App() {
   const { tripData, days, hotels, loading, error } = useTripData();
@@ -155,11 +160,11 @@ export default function App() {
       <>
         <style>{LOADING_STYLES}</style>
         <OfflineBanner />
-        <POIDetailView
+        <LazyBoundary><POIDetailView
           poi={getPoiById(poiId)}
           onBack={closePoi}
           onOpenMap={openMapFromPoi}
-        />
+        /></LazyBoundary>
       </>
     );
   }
@@ -170,14 +175,14 @@ export default function App() {
       <>
         <style>{LOADING_STYLES}</style>
         <OfflineBanner />
-        <MapView
+        <LazyBoundary><MapView
           dayData={mapDayData}
           allHotels={hotels}
           onBack={closeMap}
           routeMode={mapRouteMode}
           focusLatLng={mapFocusLatLng}
           onOpenPoi={openPoiFromMap}
-        />
+        /></LazyBoundary>
       </>
     );
   }
@@ -188,7 +193,7 @@ export default function App() {
       <>
         <style>{LOADING_STYLES}</style>
         <OfflineBanner />
-        <PlannerView onBack={() => setShowPlanner(false)} />
+        <LazyBoundary><PlannerView onBack={() => setShowPlanner(false)} /></LazyBoundary>
       </>
     );
   }
@@ -199,7 +204,7 @@ export default function App() {
       <>
         <style>{LOADING_STYLES}</style>
         <OfflineBanner />
-        <TicketsView onBack={() => setShowTickets(false)} />
+        <LazyBoundary><TicketsView onBack={() => setShowTickets(false)} /></LazyBoundary>
       </>
     );
   }
@@ -237,7 +242,7 @@ export default function App() {
   }
 
   if (activeTool === 'shopping') {
-    return <><OfflineBanner /><ShoppingGuideView onBack={() => setActiveTool(null)} /></>;
+    return <><OfflineBanner /><LazyBoundary><ShoppingGuideView onBack={() => setActiveTool(null)} /></LazyBoundary></>;
   }
 
   return (

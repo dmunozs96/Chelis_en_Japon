@@ -35,6 +35,51 @@ const paths = {
     </>
   ),
   back: <path d="m15 18-6-6 6-6" />,
+  tickets: (
+    <>
+      <path d="M4 7.5h16v9H4z" />
+      <path d="M8 7.5v9M16 7.5v9M10.5 12h3" />
+    </>
+  ),
+  shopping: <path d="M5 8h14l-1 13H6L5 8Zm4 0a3 3 0 0 1 6 0" />,
+  check: <path d="m5 12 4 4L19 6" />,
+  culture: (
+    <>
+      <path d="M4 9h16M6 9l1-4h10l1 4M7 9v10M17 9v10M4 19h16" />
+      <path d="M10 13h4v6" />
+    </>
+  ),
+  phrases: (
+    <>
+      <path d="M4 5h11v9H8l-4 4V5Z" />
+      <path d="M15 9h5v9l-3-3h-3" />
+    </>
+  ),
+  currency: <path d="M7 4l5 8 5-8M8 12h8M8 16h8M12 12v8" />,
+  emergency: (
+    <>
+      <path d="M12 3 2.8 20h18.4L12 3Z" />
+      <path d="M12 9v5M12 17h.01" />
+    </>
+  ),
+  ic: (
+    <>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M7 9h4M7 13h7M17 9h.01" />
+    </>
+  ),
+  hotel: (
+    <>
+      <path d="M4 20V5h10v15M14 10h6v10M2 20h20" />
+      <path d="M8 9h2M8 13h2M8 17h2M17 14h.01" />
+    </>
+  ),
+  climate: (
+    <>
+      <path d="M8 15a4 4 0 1 1 3-6.7A5 5 0 0 1 20 11a4 4 0 0 1-4 4H8Z" />
+      <path d="M8 18l-1 2M13 18l-1 2M18 18l-1 2" />
+    </>
+  ),
 };
 
 export default function Icon({ name, size = 24, className = '', title }) {

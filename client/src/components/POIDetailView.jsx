@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import Icon from './ui/Icon.jsx';
 
 /* ---------------------------------------------------------------
    POIDetailView
@@ -249,6 +250,157 @@ const STYLES = `
   text-align: center;
   margin-top: 40px;
 }
+
+/* ---- V2.5 editorial article ---- */
+.poi-view {
+  max-width: var(--shell-max);
+  background: var(--ink-950);
+}
+.poi-nav {
+  height: calc(56px + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) var(--page-padding) 0;
+  border-bottom: 1px solid var(--separator);
+  background: rgb(13 14 16 / 94%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.poi-nav__back,
+.poi-nav__map-btn {
+  display: inline-flex;
+  min-height: 40px;
+  padding: 8px 10px;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  border-radius: var(--radius-btn);
+  background: transparent;
+  color: var(--paper-100);
+  font-size: 13px;
+  font-weight: 650;
+}
+.poi-nav__map-btn { border: 1px solid var(--separator); }
+.poi-hero {
+  height: auto;
+  overflow: visible;
+  background: transparent;
+}
+.poi-hero__media {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 520px;
+  overflow: hidden;
+  background: var(--ink-900);
+}
+.poi-hero__img {
+  filter: saturate(.78) contrast(1.06) brightness(.86);
+}
+.poi-hero__heading {
+  position: relative;
+  z-index: 1;
+  margin-top: -52px;
+  padding: 0 var(--page-padding) 22px;
+  background: linear-gradient(180deg, transparent, var(--ink-950) 48px);
+}
+.poi-hero__name-ja {
+  margin: 0 0 7px;
+  color: var(--paper-300);
+  font-family: var(--font-display);
+  font-size: 18px;
+}
+.poi-hero__name {
+  margin: 0;
+  max-width: 420px;
+  font-size: clamp(34px, 10vw, 48px);
+  font-weight: 600;
+  letter-spacing: -.055em;
+  line-height: .98;
+}
+.poi-hero__meta {
+  margin-top: 13px;
+  color: var(--stone-500);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .11em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.poi-body {
+  padding: 0 var(--page-padding) 40px;
+  gap: 0;
+}
+.poi-lead {
+  order: 0;
+  padding: 26px 0 30px;
+  border-top: 1px solid var(--separator);
+}
+.poi-section-label {
+  margin-bottom: 12px;
+  color: var(--paper-300);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .13em;
+}
+.poi-significance {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--paper-100);
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.42;
+}
+.poi-card {
+  order: 2;
+  padding: 28px 0;
+  border: 0;
+  border-top: 1px solid var(--separator);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.poi-description p {
+  color: var(--paper-300);
+  font-size: 16px;
+  line-height: 1.72;
+}
+.poi-card--practical {
+  order: 1;
+  margin: 4px 0 28px;
+  padding: 20px;
+  border: 1px solid var(--separator);
+  border-radius: var(--radius-card);
+  background: var(--ink-900);
+}
+.poi-info-grid { gap: 20px 14px; }
+.poi-info-item__label {
+  color: var(--stone-500);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .09em;
+}
+.poi-info-item__value {
+  color: var(--paper-100);
+  font-size: 14px;
+}
+.poi-list-item__bullet { color: var(--torii-500); }
+.poi-website-btn {
+  order: 3;
+  margin-top: 6px;
+  border: 1px solid var(--paper-100);
+  background: transparent;
+  color: var(--paper-100);
+}
+.poi-source {
+  order: 3;
+  padding: 24px 0 12px;
+  border-top: 1px solid var(--separator);
+  color: var(--stone-500);
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.poi-source a { color: var(--paper-300); }
 `;
 
 const CATEGORY_LABELS = {
@@ -337,9 +489,7 @@ export default function POIDetailView({ poi, onBack, onOpenMap }) {
         <div className="poi-view">
           <nav className="poi-nav">
             <button className="poi-nav__back" onClick={onBack} aria-label="Volver">
-              <svg width="10" height="17" viewBox="0 0 10 17" fill="none" aria-hidden="true">
-                <path d="M9 1L1.5 8.5L9 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <Icon name="back" size={20} />
               Volver
             </button>
           </nav>
@@ -359,52 +509,58 @@ export default function POIDetailView({ poi, onBack, onOpenMap }) {
       <div className="poi-view" role="main" aria-label={`Detalle de ${poi.name}`}>
         <nav className="poi-nav">
           <button className="poi-nav__back" onClick={onBack} aria-label="Volver">
-            <svg width="10" height="17" viewBox="0 0 10 17" fill="none" aria-hidden="true">
-              <path d="M9 1L1.5 8.5L9 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Icon name="back" size={20} />
             Volver
           </button>
           {hasCoords && onOpenMap && (
             <button className="poi-nav__map-btn" onClick={() => onOpenMap(poi)}>
-              📍 Ver mapa
+              <Icon name="route" size={17} /> Mapa
             </button>
           )}
         </nav>
 
         {/* Hero */}
-        <div className="poi-hero">
-          {poi.image_url ? (
-            <ImageWithFallback imageUrl={poi.image_url} poiId={poi.id} altText={poi.name} />
-          ) : (
-            <div className="poi-hero__fallback">
-              <CategoryFallbackIcon />
-            </div>
-          )}
-          <div className="poi-hero__overlay">
+        <header className="poi-hero">
+          <div className="poi-hero__media">
+            {poi.image_url ? (
+              <ImageWithFallback imageUrl={poi.image_url} poiId={poi.id} altText={poi.name} />
+            ) : (
+              <div className="poi-hero__fallback">
+                <CategoryFallbackIcon />
+              </div>
+            )}
+          </div>
+          <div className="poi-hero__heading">
             {poi.name_ja && <div className="poi-hero__name-ja">{poi.name_ja}{poi.name_ja_reading ? ` · ${poi.name_ja_reading}` : ''}</div>}
             <h1 className="poi-hero__name">{poi.name}</h1>
-            <span className="poi-chip-category">{categoryLabel}</span>
+            <div className="poi-hero__meta">
+              {poi.city} / {categoryLabel}
+              {hasCoords && <> / {Math.abs(poi.lat).toFixed(4)}° {poi.lat >= 0 ? 'N' : 'S'} · {Math.abs(poi.lng).toFixed(4)}° {poi.lng >= 0 ? 'E' : 'O'}</>}
+            </div>
           </div>
-        </div>
+        </header>
 
         <div className="poi-body">
           {/* Significance */}
           {poi.significance && (
-            <div className="poi-significance">{poi.significance}</div>
+            <section className="poi-lead">
+              <div className="poi-section-label">Por qué importa</div>
+              <div className="poi-significance">{poi.significance}</div>
+            </section>
           )}
 
           {/* Descripción cultural */}
           {descriptionParagraphs.length > 0 && (
-            <div className="poi-card">
-              <div className="poi-section-label">Contexto</div>
+            <section className="poi-card">
+              <div className="poi-section-label">Historia y contexto</div>
               <div className="poi-description">
                 {descriptionParagraphs.map((p, i) => <p key={i}>{p}</p>)}
               </div>
-            </div>
+            </section>
           )}
 
           {/* Info práctica */}
-          <div className="poi-card">
+          <section className="poi-card poi-card--practical">
             <div className="poi-section-label">Info práctica</div>
             <div className="poi-info-grid">
               <div>
@@ -434,7 +590,7 @@ export default function POIDetailView({ poi, onBack, onOpenMap }) {
               <div className="poi-note">Cerrado: {poi.closed_days.join(', ')}</div>
             )}
             {poi.access?.notes && <div className="poi-note">{poi.access.notes}</div>}
-          </div>
+          </section>
 
           {/* Restricciones */}
           {poi.restrictions?.length > 0 && (
@@ -474,7 +630,11 @@ export default function POIDetailView({ poi, onBack, onOpenMap }) {
             </a>
           )}
 
-          {poi.source && <div className="poi-source">Fuente: {poi.source}</div>}
+          {poi.source && (
+            <div className="poi-source">
+              Fuente: <a href={poi.source} target="_blank" rel="noopener noreferrer">{poi.source}</a>
+            </div>
+          )}
         </div>
       </div>
     </>

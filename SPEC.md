@@ -1148,4 +1148,10 @@ El alcance completo, la evidencia y el orden de ejecución se mantienen en `ESTA
 
 La base publicada contiene 62 fichas. Las 138 altas generadas el 23 de julio de 2026 se retiraron por no alcanzar el nivel factual y editorial requerido. El nuevo proceso, sus cupos, gates y definición de terminado están en `RESTAURANT_EXPANSION_SPEC.md`.
 
-*Última actualización: 2026-07-23 — Modo Ahora básico y Plan B crítico implementados y cubiertos por tests/validación. Estado gastronómico contrastado: 62 restaurantes profundos; ampliación a 200 pendiente.*
+## 13. Cierre visual V2.5 (23 jul 2026)
+
+La migración visual V2.5 está implementada en todas las pantallas: shell, portada, Hoy/Viaje, POI, Restaurantes, Más, guías, operación, mapa y herramientas. El sistema usa la dirección tinta/marfil/torii, `RouteLine`, iconos SVG y composición editorial; elimina aurora, glassmorphism universal y emojis funcionales.
+
+Mapa/Leaflet, Compras, Billetes, Planner y POI se cargan mediante chunks diferidos incluidos en el precache PWA. El JS inicial baja de 494,42 kB a 258,71 kB. Ninguna fotografía de `JapanPics/` o `pois/` supera 250 kB. Evidencia y decisiones en `HANDOVER_28_V2.5.md`.
+
+*Última actualización: 2026-07-23 — V2.5 visual implementada y QA técnico en verde. Este commit conserva las 62 fichas publicadas; la ampliación profunda permanece pendiente.*

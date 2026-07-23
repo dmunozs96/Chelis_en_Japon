@@ -1,15 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import { useTravelToolsData } from '../hooks/useTravelToolsData.js';
 import { TRAVEL_TOOL_STYLES } from './TravelToolStyles.js';
+import Icon from './ui/Icon.jsx';
 
 const PHRASE_STYLES = `
 .phrase-categories { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 3px; scrollbar-width: none; }
 .phrase-categories::-webkit-scrollbar { display: none; }
-.phrase-chip { flex: 0 0 auto; padding: 8px 12px; border: 1px solid var(--glass-border); border-radius: 20px; background: var(--bg-surface); color: var(--label-secondary); font: 600 13px var(--font); }
-.phrase-chip--active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.phrase-chip { flex: 0 0 auto; padding: 8px 3px; border: 0; border-bottom: 1px solid transparent; border-radius: 0; background: transparent; color: var(--stone-500); font: 600 13px var(--font); }
+.phrase-chip--active { background: transparent; border-color: var(--torii-500); color: var(--paper-100); }
 .phrase-card { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .phrase-card__es { color: var(--label-secondary); font-size: 14px; }
-.phrase-card__ja { margin-top: 8px; color: var(--label-primary); font-size: 25px; font-weight: 700; line-height: 1.3; }
+.phrase-card__ja { margin-top: 8px; color: var(--paper-100); font-family:var(--font-display); font-size: 29px; font-weight: 600; line-height: 1.3; }
 .phrase-card__reading { margin-top: 5px; color: var(--accent); font-size: 15px; font-weight: 700; }
 .phrase-card__hint { margin-top: 9px; color: var(--label-tertiary); font-size: 11px; }
 `;
@@ -26,7 +27,7 @@ export default function PhrasesView({ onBack }) {
       <style>{TRAVEL_TOOL_STYLES}{PHRASE_STYLES}</style>
       <div className="travel-tool" role="main" aria-label="Frases japonesas">
         <nav className="travel-tool__nav">
-          <button className="travel-tool__back" onClick={onBack}>← Volver</button>
+          <button className="travel-tool__back" onClick={onBack}><Icon name="back" size={20}/> Volver</button>
           <div className="travel-tool__title">Frases japonesas</div>
         </nav>
         {loading && <div className="travel-loading">Cargando frases…</div>}
@@ -37,7 +38,7 @@ export default function PhrasesView({ onBack }) {
             <div className="phrase-categories" role="tablist" aria-label="Categorías">
               {phrases.categories.map((item) => (
                 <button key={item.id} className={`phrase-chip${category === item.id ? ' phrase-chip--active' : ''}`} onClick={() => { setCategory(item.id); setLargePhrase(null); }} role="tab" aria-selected={category === item.id}>
-                  {item.icon} {item.label}
+                  {item.label}
                 </button>
               ))}
             </div>

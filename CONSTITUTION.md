@@ -112,4 +112,12 @@ La app **nunca almacena documentos ni datos personales sensibles**: ni pasaporte
 
 ---
 
-*Última actualización: 2026-07-15 (v2.0) — Enmienda V2 aprobada por Daniel: entran preparación/equipaje/clima y la profundidad editorial; el backend se amplía al estado compartido simple (regla 6); nueva regla 8 de privacidad (sin almacenar documentos); cero APIs de pago reconfirmado; Leaflet se mantiene como stack cartográfico; objetivo gastronómico fijado en Top 50 + ~150 con contrato de verificación. La cena de despedida premium queda descartada por decisión del propietario. Detalle completo en `PLAN_V2.md` §17.*
+## Invariantes visuales V2.5
+
+- La interfaz usa tinta, marfil y rojo torii con estados moss, ámbar y signal; el rojo de marca no sustituye al color de peligro.
+- La información operativa no puede quedar oculta por una composición decorativa.
+- Los estados no dependen únicamente del color y los controles mantienen foco visible y semántica de teclado.
+- Se evita usar emojis como iconos funcionales, el glassmorphism universal, auroras y la tarjeta como contenedor por defecto.
+- Mapa, billetes, POIs y herramientas críticas deben continuar disponibles offline.
+
+*Última actualización: 2026-07-23 (v2.5) — Enmienda visual V2.5 completada. Se conservan todas las reglas funcionales y editoriales V2.*

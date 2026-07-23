@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTravelToolsData } from '../hooks/useTravelToolsData.js';
 import { TRAVEL_TOOL_STYLES } from './TravelToolStyles.js';
+import Icon from './ui/Icon.jsx';
+import RouteLine from './ui/RouteLine.jsx';
 
 const SECTIONS = [
   ['Comprar al llegar', 'purchase', '①'],
@@ -17,7 +19,7 @@ export default function IcCardGuideView({ onBack }) {
       <style>{TRAVEL_TOOL_STYLES}</style>
       <div className="travel-tool" role="main" aria-label="Guía Suica e IC card">
         <nav className="travel-tool__nav">
-          <button className="travel-tool__back" onClick={onBack}>← Volver</button>
+          <button className="travel-tool__back" onClick={onBack}><Icon name="back" size={20}/> Volver</button>
           <div className="travel-tool__title">Suica / IC card</div>
         </nav>
         {loading && <div className="travel-loading">Cargando guía…</div>}
@@ -30,18 +32,12 @@ export default function IcCardGuideView({ onBack }) {
               <div className="travel-card__text">{guide.why}</div>
             </section>
 
-            {SECTIONS.map(([title, key, number]) => (
-              <section className="travel-card" key={key}>
-                <div className="travel-card__eyebrow">{number} Paso</div>
-                <div className="travel-card__title">{title}</div>
-                <ol className="travel-steps">{guide[key].map((item) => <li key={item}>{item}</li>)}</ol>
-              </section>
-            ))}
+            <RouteLine items={SECTIONS.map(([title, key], index) => ({ key, time:String(index + 1).padStart(2,'0'), title, detail:guide[key].join(' · ') }))}/>
 
             <section className="travel-card travel-card--danger">
               <div className="travel-card__eyebrow">Importante</div>
               <div className="travel-card__title">Antes de cargar dinero</div>
-              {guide.warnings.map((warning) => <div className="travel-warning" key={warning}>⚠️ {warning}</div>)}
+              {guide.warnings.map((warning) => <div className="travel-warning" key={warning}>{warning}</div>)}
             </section>
 
             <section className="travel-card">

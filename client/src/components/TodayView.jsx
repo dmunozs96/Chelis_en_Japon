@@ -407,9 +407,13 @@ const STYLES = `
 }
 
 .step-icon {
-  font-size: 13px;
+  width: 42px;
+  color: var(--stone-500);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
   flex-shrink: 0;
-  width: 18px;
 }
 
 .step-time {
@@ -599,24 +603,24 @@ function HotelCard({ hotel }) {
 
 /* --- Icono por tipo de paso operativo --- */
 const STEP_ICONS = {
-  walk: '🚶',
-  transfer: '🚇',
-  visit: '📍',
-  food: '🍜',
-  free: '✨',
-  rest: '💤',
+  walk: 'A pie',
+  transfer: 'Metro',
+  visit: 'Lugar',
+  food: 'Comer',
+  free: 'Libre',
+  rest: 'Pausa',
 };
 
 function stepIcon(step) {
   if (step.type === 'transfer') {
     if (step.mode === 'walk') return STEP_ICONS.walk;
-    if (step.mode === 'tren' || step.mode === 'train') return '🚆';
-    if (step.mode === 'taxi') return '🚕';
-    if (step.mode === 'bus') return '🚌';
-    if (step.mode === 'avion' || step.mode === 'avión') return '✈️';
+    if (step.mode === 'tren' || step.mode === 'train') return 'Tren';
+    if (step.mode === 'taxi') return 'Taxi';
+    if (step.mode === 'bus') return 'Bus';
+    if (step.mode === 'avion' || step.mode === 'avión') return 'Vuelo';
     return STEP_ICONS.transfer;
   }
-  return STEP_ICONS[step.type] || '•';
+  return STEP_ICONS[step.type] || 'Paso';
 }
 
 /* --- Sub-timeline de pasos operativos de un bloque --- */
@@ -816,7 +820,7 @@ export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRout
         <div className="after-trip" role="main">
           <div className="after-trip__emoji" aria-hidden="true">🥲</div>
           <h2 className="after-trip__title">El viaje ya terminó</h2>
-          <p className="after-trip__sub">Espero que haya sido increíble, Chelis ✨</p>
+          <p className="after-trip__sub">Espero que haya sido increíble, Chelis.</p>
         </div>
       </>
     );

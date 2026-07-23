@@ -1,14 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useTravelToolsData } from '../hooks/useTravelToolsData.js';
 import { TRAVEL_TOOL_STYLES } from './TravelToolStyles.js';
+import Icon from './ui/Icon.jsx';
 
 const RATE_KEY = 'eur_jpy_rate';
 const EXTRA_STYLES = `
 .currency-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .currency-toggle button { padding: 10px; border: 1px solid var(--glass-border); border-radius: 10px; background: var(--bg-surface); color: var(--label-secondary); font: 600 14px var(--font); }
-.currency-toggle button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
-.currency-amount { width: 100%; margin-top: 14px; padding: 14px; border: 1px solid var(--glass-border); border-radius: 12px; background: var(--bg-secondary); color: var(--label-primary); font: 700 28px var(--font); text-align: right; }
-.currency-result { margin-top: 16px; color: var(--label-primary); font-size: 32px; font-weight: 800; text-align: right; word-break: break-word; }
+.currency-toggle button.active { background: var(--paper-100); border-color: var(--paper-100); color: var(--ink-1000); }
+.currency-amount { width: 100%; margin-top: 20px; padding: 14px 0; border: 0; border-bottom: 1px solid var(--separator); border-radius: 0; background: transparent; color: var(--paper-100); font: 650 38px var(--font-display); font-variant-numeric:tabular-nums; text-align: right; }
+.currency-result { margin-top: 20px; color: var(--paper-100); font-family:var(--font-display); font-size: 42px; font-weight: 650; font-variant-numeric:tabular-nums; text-align: right; word-break: break-word; }
 .currency-result-label { color: var(--label-secondary); font-size: 13px; text-align: right; }
 .currency-rate-row { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
 .currency-rate-row input { flex: 1; min-width: 0; }
@@ -51,7 +52,7 @@ export default function CurrencyConverterView({ onBack }) {
     <>
       <style>{TRAVEL_TOOL_STYLES}{EXTRA_STYLES}</style>
       <div className="travel-tool" role="main" aria-label="Conversor yen euro">
-        <nav className="travel-tool__nav"><button className="travel-tool__back" onClick={onBack}>← Volver</button><div className="travel-tool__title">Conversor ¥ / €</div></nav>
+        <nav className="travel-tool__nav"><button className="travel-tool__back" onClick={onBack}><Icon name="back" size={20}/> Volver</button><div className="travel-tool__title">Conversor ¥ / €</div></nav>
         {loading && <div className="travel-loading">Cargando conversor…</div>}
         {error && <div className="travel-loading">No se pudo cargar el conversor: {error}</div>}
         {currency && rate !== null && (

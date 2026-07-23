@@ -162,6 +162,12 @@ const STYLES = `
   text-align: center;
   padding: 40px 0;
 }
+.alerts-hero{padding:8px 0 30px}.alerts-hero__eyebrow{color:var(--torii-500);font-size:10px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}.alerts-hero h1{margin-top:7px;font-size:38px;letter-spacing:-.05em}.alerts-hero p{margin-top:9px;color:var(--stone-500);font-size:14px}
+.alerts-section{margin-bottom:34px}.alerts-section__header{padding:0 0 10px;color:var(--paper-300);font-size:10px;font-weight:750;letter-spacing:.13em}.alerts-list{gap:0;border-top:1px solid var(--separator)}
+.alert-card{padding:18px 36px 18px 20px;border:0!important;border-bottom:1px solid var(--separator)!important;border-radius:0;background:transparent;box-shadow:none}.alert-card::before{position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--alert-color,var(--stone-700));content:""}.alert-card:has(.alert-dot--action){--alert-color:var(--signal-500)}.alert-card:has(.alert-dot--warning){--alert-color:var(--amber-500)}.alert-card:has(.alert-dot--tip){--alert-color:var(--titanium-400)}
+.alert-dot{display:none}.alert-kind{display:block;margin-bottom:5px;color:var(--alert-color);font-size:9px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}.alert-title{font-family:var(--font-display);font-size:18px;font-weight:600}.alert-body{color:var(--paper-300);font-size:14px}.alert-dismiss{top:14px;right:0;background:transparent;color:var(--stone-500)}
+.alert-card--dismissed{padding-block:13px;opacity:.48}.alert-card--dismissed .alert-body,.alert-card--dismissed .alert-footer,.alert-card--dismissed .alert-kind{display:none}.alert-card--dismissed .alert-title{margin:0;font-size:14px;font-weight:500}
+.alert-due-chip{padding:0;background:transparent;color:var(--amber-500)}.alert-action-link{border-color:var(--separator);color:var(--paper-100)}
 `;
 
 const SECTION_LABELS = {
@@ -249,6 +255,11 @@ export default function AlertsView({ onBadgeChange }) {
     <>
       <style>{STYLES}</style>
       <div className="alerts-view">
+        <header className="alerts-hero">
+          <div className="alerts-hero__eyebrow">Centro operativo</div>
+          <h1>Alertas</h1>
+          <p>{visibleAlerts.filter((alert) => !dismissed.includes(alert.id)).length} pendientes · {visibleAlerts.filter((alert) => dismissed.includes(alert.id)).length} leídas</p>
+        </header>
         {SECTION_ORDER.map((type) => {
           const items = grouped[type];
           if (!items || items.length === 0) return null;
@@ -274,6 +285,7 @@ export default function AlertsView({ onBadgeChange }) {
                       aria-label={alert.title}
                     >
                       <div className={`alert-dot alert-dot--${alert.type}`} aria-hidden="true" />
+                      <span className="alert-kind">{SECTION_LABELS[alert.type]}</span>
 
                       {alert.dismissible && (
                         <button

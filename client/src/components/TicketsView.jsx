@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useTripData } from '../hooks/useTripData.js';
+import Icon from './ui/Icon.jsx';
 
 /* ---------------------------------------------------------------
    TicketsView
@@ -531,6 +532,10 @@ const STYLES = `
   text-align: center;
   padding: 40px 0;
 }
+.tickets-view{max-width:var(--shell-max);background:var(--ink-950)}.tickets-nav{min-height:calc(56px + env(safe-area-inset-top));padding:env(safe-area-inset-top) var(--page-padding) 0;border-bottom:1px solid var(--separator);background:rgb(13 14 16 / 94%);backdrop-filter:none;-webkit-backdrop-filter:none}.tickets-back{gap:6px;color:var(--paper-100);font-size:13px;font-weight:650}.tickets-nav-title{font-family:var(--font-display);font-weight:600}
+.tickets-scroll{gap:38px;padding-top:24px}.tickets-intro{padding-bottom:4px}.tickets-intro__eyebrow{color:var(--torii-500);font-size:10px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}.tickets-intro h1{margin-top:7px;font-size:38px;letter-spacing:-.05em}.tickets-intro p{margin-top:8px;color:var(--stone-500);font-size:14px}.tickets-section-header{padding:0 0 10px;color:var(--paper-300);font-size:10px;font-weight:750;letter-spacing:.13em}.tickets-cards{gap:0;border-top:1px solid var(--separator)}
+.flight-card,.hotel-card,.train-card{position:relative;padding:20px 0;border:0!important;border-bottom:1px solid var(--separator)!important;border-radius:0;background:transparent;box-shadow:none}.flight-card{overflow:visible}.flight-card__header{padding:0 0 16px;background:transparent}.flight-card__body{padding:0}.flight-card__number,.flight-route__code,.hotel-card__name,.train-route__line{font-family:var(--font-display);font-weight:600}.flight-route__code{font-size:32px}.flight-ref-value,.hotel-locator-value,.train-reserved-value{font-variant-numeric:tabular-nums}.flight-fare-chip,.hotel-active-chip,.train-status-chip{padding:0;background:transparent}.hotel-active-chip,.train-status-chip--reserved{color:var(--moss-500)}.train-status-chip--pending,.train-window-text{color:var(--amber-500)}.hotel-notes,.train-notes{padding:12px 0;border-top:1px solid var(--separator);border-radius:0;background:transparent}.train-reserve-link{border:1px solid var(--paper-100);background:transparent;color:var(--paper-100)}
+.ticket-document--featured{margin:0 -10px 18px;padding:22px 18px;border:1px solid rgb(167 163 155 / 40%)!important;border-radius:var(--radius-card);background:linear-gradient(145deg,var(--ink-850),var(--ink-900));box-shadow:var(--shadow-card-lg)}.ticket-document--featured::before{display:block;margin-bottom:14px;color:var(--titanium-400);font-size:9px;font-weight:750;letter-spacing:.14em;text-transform:uppercase;content:"Próximo documento"}
 `;
 
 /* ---- Utility: copy to clipboard with brief feedback ---- */
@@ -583,11 +588,11 @@ function isHotelActive(hotel) {
 }
 
 /* ---- FlightCard ---- */
-function FlightCard({ flight, label }) {
+function FlightCard({ flight, label, featured = false }) {
   const [copiedKey, copy] = useCopy();
 
   return (
-    <div className="flight-card">
+    <div className={`flight-card${featured ? ' ticket-document--featured' : ''}`}>
       <div className="flight-card__header">
         <div>
           <div className="flight-card__airline">{flight.airline} · {label}</div>
@@ -626,6 +631,7 @@ function FlightCard({ flight, label }) {
               tabIndex={0}
               onKeyDown={(e) => e.key === 'Enter' && copy('pnr', flight.booking_ref)}
               aria-label={`Localizador ${flight.booking_ref}, toca para copiar`}
+              aria-live="polite"
             >
               {copiedKey === 'pnr' ? '¡Copiado!' : flight.booking_ref}
             </span>
@@ -640,6 +646,7 @@ function FlightCard({ flight, label }) {
               tabIndex={0}
               onKeyDown={(e) => e.key === 'Enter' && copy('ticket', flight.ticket_number)}
               aria-label={`Número de billete ${flight.ticket_number}, toca para copiar`}
+              aria-live="polite"
             >
               {copiedKey === 'ticket' ? '¡Copiado!' : flight.ticket_number}
             </span>
@@ -655,7 +662,7 @@ function FlightCard({ flight, label }) {
 }
 
 /* ---- HotelCard ---- */
-function HotelCard({ hotel }) {
+function HotelCard({ hotel, featured = false }) {
   const [copiedKey, copy] = useCopy();
   const active = isHotelActive(hotel);
 
@@ -665,7 +672,7 @@ function HotelCard({ hotel }) {
   };
 
   return (
-    <div className="hotel-card">
+    <div className={`hotel-card${featured ? ' ticket-document--featured' : ''}`}>
       <div className="hotel-card__header">
         <div>
           <div className="hotel-card__name">{hotel.name}</div>
@@ -685,7 +692,7 @@ function HotelCard({ hotel }) {
         aria-label={`Dirección: ${hotel.address}. Toca para abrir en Maps`}
         title="Toca para abrir en Maps"
       >
-        📍 {hotel.address}
+        {hotel.address}
       </div>
 
       <div className="hotel-separator" />
@@ -717,6 +724,7 @@ function HotelCard({ hotel }) {
           onKeyDown={(e) => e.key === 'Enter' && copy('crs', hotel.crs_locator)}
           aria-label={`CRS Locator ${hotel.crs_locator}, toca para copiar`}
           title="Toca para copiar"
+          aria-live="polite"
         >
           {copiedKey === 'crs' ? '¡Copiado!' : hotel.crs_locator}
         </span>
@@ -733,6 +741,7 @@ function HotelCard({ hotel }) {
             onKeyDown={(e) => e.key === 'Enter' && copy('conf', hotel.confirmation)}
             aria-label={`Confirmación ${hotel.confirmation}, toca para copiar`}
             title="Toca para copiar"
+            aria-live="polite"
           >
             {copiedKey === 'conf' ? '¡Copiado!' : hotel.confirmation}
           </span>
@@ -741,7 +750,7 @@ function HotelCard({ hotel }) {
 
       {hotel.phone && (
         <a className="hotel-phone" href={`tel:${hotel.phone}`} aria-label={`Teléfono: ${hotel.phone}`}>
-          📞 {hotel.phone}
+          Tel. {hotel.phone}
         </a>
       )}
 
@@ -753,11 +762,11 @@ function HotelCard({ hotel }) {
 }
 
 /* ---- TrainCard ---- */
-function TrainCard({ train }) {
+function TrainCard({ train, featured = false }) {
   const pending = train.status === 'pending';
 
   return (
-    <div className="train-card">
+    <div className={`train-card${featured ? ' ticket-document--featured' : ''}`}>
       <div className="train-card__header">
         <div className="train-route">
           <div className="train-route__line">
@@ -771,7 +780,7 @@ function TrainCard({ train }) {
           )}
         </div>
         <span className={`train-status-chip train-status-chip--${train.status}`}>
-          {pending ? '⏳ Pendiente' : '✅ Reservado'}
+          {pending ? 'Pendiente' : 'Reservado'}
         </span>
       </div>
 
@@ -834,7 +843,7 @@ function TrainCard({ train }) {
       )}
 
       {train.notes && (
-        <div className="train-notes">ℹ️ {train.notes}</div>
+        <div className="train-notes">{train.notes}</div>
       )}
     </div>
   );
@@ -843,6 +852,16 @@ function TrainCard({ train }) {
 /* ---- Main TicketsView ---- */
 export default function TicketsView({ onBack }) {
   const { flights, hotels, trains, loading, error } = useTripData();
+  const datedDocuments = [
+    ...(flights ? [
+      { key: 'flight-outbound', date: flights.outbound?.date },
+      { key: 'flight-return', date: flights.return?.date },
+    ] : []),
+    ...hotels.map((hotel) => ({ key: `hotel-${hotel.id}`, date: hotel.dates?.from })),
+    ...trains.map((train) => ({ key: `train-${train.id}`, date: train.date })),
+  ].filter((item) => item.date).sort((a, b) => a.date.localeCompare(b.date));
+  const today = new Date().toLocaleDateString('sv-SE');
+  const featuredKey = (datedDocuments.find((item) => item.date >= today) ?? datedDocuments.at(-1))?.key;
 
   return (
     <>
@@ -855,13 +874,18 @@ export default function TicketsView({ onBack }) {
             onClick={onBack}
             aria-label="Volver a Más"
           >
-            ‹ Más
+            <Icon name="back" size={20}/> Más
           </button>
           <div className="tickets-nav-title">Billetes</div>
           <div className="tickets-nav-spacer" aria-hidden="true" />
         </div>
 
         <div className="tickets-scroll">
+          <header className="tickets-intro">
+            <div className="tickets-intro__eyebrow">Documentos de viaje</div>
+            <h1>Todo a mano</h1>
+            <p>Localizadores, horarios y reservas disponibles también sin conexión.</p>
+          </header>
           {loading && <div className="tickets-loading">Cargando datos…</div>}
           {error   && <div className="tickets-loading" style={{ color: 'var(--accent)' }}>Error: {error}</div>}
 
@@ -872,8 +896,8 @@ export default function TicketsView({ onBack }) {
                 <div>
                   <div className="tickets-section-header">Vuelos</div>
                   <div className="tickets-cards">
-                    <FlightCard flight={flights.outbound} label="IDA" />
-                    <FlightCard flight={flights.return}   label="VUELTA" />
+                    <FlightCard flight={flights.outbound} label="IDA" featured={featuredKey === 'flight-outbound'} />
+                    <FlightCard flight={flights.return} label="VUELTA" featured={featuredKey === 'flight-return'} />
                   </div>
                 </div>
               )}
@@ -884,7 +908,7 @@ export default function TicketsView({ onBack }) {
                   <div className="tickets-section-header">Hoteles</div>
                   <div className="tickets-cards">
                     {hotels.map((h) => (
-                      <HotelCard key={h.id} hotel={h} />
+                      <HotelCard key={h.id} hotel={h} featured={featuredKey === `hotel-${h.id}`} />
                     ))}
                   </div>
                 </div>
@@ -896,7 +920,7 @@ export default function TicketsView({ onBack }) {
                   <div className="tickets-section-header">Trenes</div>
                   <div className="tickets-cards">
                     {trains.map((t) => (
-                      <TrainCard key={t.id} train={t} />
+                      <TrainCard key={t.id} train={t} featured={featuredKey === `train-${t.id}`} />
                     ))}
                   </div>
                 </div>

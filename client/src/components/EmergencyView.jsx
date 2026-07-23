@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTravelToolsData } from '../hooks/useTravelToolsData.js';
 import { TRAVEL_TOOL_STYLES } from './TravelToolStyles.js';
+import Icon from './ui/Icon.jsx';
 
 const PRIVATE_KEY = 'private_emergency_contacts';
 
@@ -26,7 +27,7 @@ export default function EmergencyView({ onBack }) {
       <style>{TRAVEL_TOOL_STYLES}</style>
       <div className="travel-tool" role="main" aria-label="Emergencias">
         <nav className="travel-tool__nav">
-          <button className="travel-tool__back" onClick={onBack}>← Volver</button>
+          <button className="travel-tool__back" onClick={onBack}><Icon name="back" size={20}/> Volver</button>
           <div className="travel-tool__title">Emergencias</div>
         </nav>
         {loading && <div className="travel-loading">Cargando contactos…</div>}

@@ -211,6 +211,66 @@ const STYLES = `
   text-align: center;
   padding: 40px 0;
 }
+
+/* ---- V2.5 editorial discovery ---- */
+.rest-view { gap: 0; padding-top: 24px; }
+.rest-header { padding-bottom: 24px; }
+.rest-header__eyebrow { color:var(--torii-500); font-size:10px; font-weight:750; letter-spacing:.14em; text-transform:uppercase; }
+.rest-header h1 { margin-top:7px; font-size:38px; letter-spacing:-.05em; }
+.rest-header p { max-width:36ch; margin-top:9px; color:var(--stone-500); font-size:14px; line-height:1.5; }
+.rest-planner-btn {
+  margin-bottom: 24px;
+  padding: 13px 0;
+  border: 0;
+  border-block: 1px solid var(--separator);
+  border-radius: 0;
+  background: transparent;
+  color: var(--paper-100);
+}
+.rest-filter-primary {
+  display:grid;
+  grid-template-columns:1fr 1fr auto;
+  gap:8px;
+  padding-bottom:12px;
+}
+.rest-filter-primary > details { display:contents; }
+.rest-select,
+.rest-filter-more {
+  min-width:0;
+  min-height:40px;
+  padding:8px 10px;
+  border:1px solid var(--separator);
+  border-radius:var(--radius-chip);
+  background:var(--ink-900);
+  color:var(--paper-100);
+  font:600 12px var(--font);
+}
+.rest-filter-more { display:flex; align-items:center; cursor:pointer; list-style:none; }
+.rest-filter-more::-webkit-details-marker { display:none; }
+.rest-advanced { grid-column:1/-1; padding:12px 0 16px; border-top:1px solid var(--separator); }
+.rest-advanced .rest-filter-label { margin:10px 0 7px; }
+.rest-count { padding:14px 0 18px; border-top:1px solid var(--separator); }
+.rest-list { gap:0; border-top:1px solid var(--separator); }
+.rest-card {
+  padding:18px 0;
+  border:0;
+  border-bottom:1px solid var(--separator);
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.rest-card__name { font-family:var(--font-display); font-size:19px; font-weight:600; }
+.rest-card__price { color:var(--paper-300); font-size:11px; }
+.rest-card__tags { margin-top:8px; }
+.rest-tag { padding:0; background:transparent; color:var(--stone-500); font-size:10px; letter-spacing:.05em; text-transform:uppercase; }
+.rest-tag + .rest-tag::before { margin-right:6px; content:"/"; color:var(--stone-700); }
+.rest-card__body { margin-top:16px; padding-top:16px; color:var(--paper-300); }
+.rest-card__dish { padding:10px 0; border-bottom:1px solid var(--separator); border-radius:0; background:transparent; }
+.rest-michelin { margin-left:6px; color:var(--paper-300); font-size:10px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }
+@media (max-width:350px) {
+  .rest-filter-primary { grid-template-columns:1fr 1fr; }
+  .rest-filter-more { grid-column:1/-1; justify-content:center; }
+}
 `;
 
 const CITY_OPTIONS = ['Todas', 'Tokyo', 'Kyoto', 'Osaka', 'Hiroshima', 'Hakone'];
@@ -223,14 +283,14 @@ const PRICE_TIER_LABELS = {
   5: 'Más de ¥20.000',
 };
 const CUISINE_FILTERS = [
-  { id: 'sushi', label: '🍣 Sushi', tags: ['sushi', 'kaiten_zushi', 'tachigui_zushi', 'omakase', 'kaisendon'] },
-  { id: 'ramen', label: '🍜 Ramen y fideos', tags: ['ramen', 'soba', 'udon', 'hiroshima_tsukemen'] },
-  { id: 'izakaya', label: '🏮 Izakaya', tags: ['izakaya', 'yakitori', 'kushiyaki'] },
-  { id: 'meat', label: '🥩 Carne', tags: ['yakiniku', 'tonkatsu', 'shabu_shabu', 'pork', 'beef'] },
-  { id: 'local', label: '🇯🇵 Especialidad local', tags: ['osaka_specialty', 'hiroshima_specialty', 'local_specialty', 'kyoto_cuisine', 'tokyo_specialty', 'okonomiyaki', 'takoyaki'] },
-  { id: 'quick', label: '🥡 Sobre la marcha', goodFor: ['sobre_la_marcha', 'quick_bite', 'quick_meal', 'street_food', 'takeaway', 'takeout'] },
-  { id: 'special', label: '✨ Cena especial', goodFor: ['special_occasion'] },
-  { id: 'dessert', label: '🍵 Café y dulce', tags: ['wagashi', 'matcha', 'dessert', 'cafe', 'kissaten', 'taiyaki'] },
+  { id: 'sushi', label: 'Sushi', tags: ['sushi', 'kaiten_zushi', 'tachigui_zushi', 'omakase', 'kaisendon'] },
+  { id: 'ramen', label: 'Ramen y fideos', tags: ['ramen', 'soba', 'udon', 'hiroshima_tsukemen'] },
+  { id: 'izakaya', label: 'Izakaya', tags: ['izakaya', 'yakitori', 'kushiyaki'] },
+  { id: 'meat', label: 'Carne', tags: ['yakiniku', 'tonkatsu', 'shabu_shabu', 'pork', 'beef'] },
+  { id: 'local', label: 'Especialidad local', tags: ['osaka_specialty', 'hiroshima_specialty', 'local_specialty', 'kyoto_cuisine', 'tokyo_specialty', 'okonomiyaki', 'takoyaki'] },
+  { id: 'quick', label: 'Sobre la marcha', goodFor: ['sobre_la_marcha', 'quick_bite', 'quick_meal', 'street_food', 'takeaway', 'takeout'] },
+  { id: 'special', label: 'Cena especial', goodFor: ['special_occasion'] },
+  { id: 'dessert', label: 'Café y dulce', tags: ['wagashi', 'matcha', 'dessert', 'cafe', 'kissaten', 'taiyaki'] },
 ];
 
 export default function RestaurantsView({ onOpenPlanner }) {
@@ -316,59 +376,41 @@ export default function RestaurantsView({ onOpenPlanner }) {
     <>
       <style>{STYLES}</style>
       <div className="rest-view">
+        <header className="rest-header">
+          <div className="rest-header__eyebrow">Selección / {restaurants.length} lugares</div>
+          <h1>Comer en Japón</h1>
+          <p>Una guía curada para elegir bien, desde un bocado rápido hasta una cena especial.</p>
+        </header>
+
         <button className="rest-planner-btn" onClick={onOpenPlanner}>
-          <span>📅 Planificador de comidas</span>
+          <span>Planificador de comidas</span>
           <span>→</span>
         </button>
 
         <div className="rest-filters">
-          <div className="rest-filter-label">Dónde</div>
-          <div className="rest-filter-row">
-            {CITY_OPTIONS.map((c) => (
-              <button
-                key={c}
-                className={`rest-chip${city === c ? ' rest-chip--active' : ''}`}
-                onClick={() => setCity(c)}
-              >
-                {c === 'Todas' ? 'Todas' : CITY_LABELS_ES[c]}
-              </button>
-            ))}
-          </div>
-          <div className="rest-filter-label">Qué te apetece</div>
-          <div className="rest-filter-row">
-            {CUISINE_FILTERS.map((item) => (
-              <button
-                key={item.id}
-                className={`rest-chip${cuisine === item.id ? ' rest-chip--active' : ''}`}
-                onClick={() => setCuisine((value) => value === item.id ? null : item.id)}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-          <div className="rest-filter-label">Precio por persona</div>
-          <div className="rest-filter-row">
-            {[1, 2, 3, 4, 5].map((tier) => (
-              <button
-                key={tier}
-                className={`rest-chip${priceTiers.includes(tier) ? ' rest-chip--active' : ''}`}
-                onClick={() => togglePriceTier(tier)}
-              >
-                {PRICE_TIER_LABELS[tier]}
-              </button>
-            ))}
-            <button
-              className={`rest-chip${noReservation ? ' rest-chip--active' : ''}`}
-              onClick={() => setNoReservation((v) => !v)}
-            >
-              Sin reserva
-            </button>
-            <button
-              className={`rest-chip${lateNight ? ' rest-chip--active' : ''}`}
-              onClick={() => setLateNight((value) => !value)}
-            >
-              Abierto tarde
-            </button>
+          <div className="rest-filter-primary">
+            <select className="rest-select" value={city} onChange={(event) => setCity(event.target.value)} aria-label="Ciudad">
+              {CITY_OPTIONS.map((option) => <option value={option} key={option}>{option === 'Todas' ? 'Todas las ciudades' : CITY_LABELS_ES[option]}</option>)}
+            </select>
+            <select className="rest-select" value={cuisine ?? ''} onChange={(event) => setCuisine(event.target.value || null)} aria-label="Tipo de cocina">
+              <option value="">Cualquier cocina</option>
+              {CUISINE_FILTERS.map((item) => <option value={item.id} key={item.id}>{item.label}</option>)}
+            </select>
+            <details>
+              <summary className="rest-filter-more">Ajustes{priceTiers.length + Number(noReservation) + Number(lateNight) > 0 ? ` · ${priceTiers.length + Number(noReservation) + Number(lateNight)}` : ''}</summary>
+              <div className="rest-advanced">
+                <div className="rest-filter-label">Precio por persona</div>
+                <div className="rest-filter-row">
+                  {[1, 2, 3, 4, 5].map((tier) => (
+                    <button key={tier} className={`rest-chip${priceTiers.includes(tier) ? ' rest-chip--active' : ''}`} onClick={() => togglePriceTier(tier)}>{PRICE_TIER_LABELS[tier]}</button>
+                  ))}
+                </div>
+                <div className="rest-filter-row">
+                  <button className={`rest-chip${noReservation ? ' rest-chip--active' : ''}`} onClick={() => setNoReservation((v) => !v)}>Sin reserva</button>
+                  <button className={`rest-chip${lateNight ? ' rest-chip--active' : ''}`} onClick={() => setLateNight((value) => !value)}>Abierto tarde</button>
+                </div>
+              </div>
+            </details>
           </div>
         </div>
 
@@ -386,6 +428,12 @@ export default function RestaurantsView({ onOpenPlanner }) {
                 key={r.id}
                 className="rest-card"
                 onClick={() => setExpandedId(isOpen ? null : r.id)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    setExpandedId(isOpen ? null : r.id);
+                  }
+                }}
                 role="button"
                 tabIndex={0}
                 aria-expanded={isOpen}
@@ -393,7 +441,7 @@ export default function RestaurantsView({ onOpenPlanner }) {
                 <div className="rest-card__head">
                   <div>
                     <div className="rest-card__name">
-                      {r.name} {r.michelin_stars > 0 && '⭐'.repeat(r.michelin_stars)}
+                      {r.name} {r.michelin_stars > 0 && <span className="rest-michelin">Michelin · {r.michelin_stars}</span>}
                     </div>
                     <div className="rest-card__meta">
                       {CITY_LABELS_ES[r.city] ?? r.city} · {r.neighborhood}
@@ -439,7 +487,7 @@ export default function RestaurantsView({ onOpenPlanner }) {
                         <div className="rest-info-item__value">{r.closed_days?.length ? r.closed_days.join(', ') : 'Ningún día'}</div>
                       </div>
                     </div>
-                    {r.phone && <div>📞 {r.phone}</div>}
+                    {r.phone && <div>Tel. {r.phone}</div>}
                     {r.reservation_url && (
                       <a className="rest-card__link" href={r.reservation_url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
                         Reservar online →
