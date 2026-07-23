@@ -1,569 +1,230 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDepartureCountdown } from '../hooks/useDepartureCountdown.js';
 
-/* ---------------------------------------------------------------
-   SplashScreen — Intro cinematográfica
-   Muestra una pantalla de entrada oscura con cuenta atrás al viaje,
-   con un pseudo-vídeo de fondo (slideshow de fotos de Japón) y un
-   countdown dinámico (días/horas/minutos hasta el despegue).
-   Se muestra una vez por sesión (sessionStorage).
-   Auto-dismiss a los 5 segundos o tap para saltar.
-   --------------------------------------------------------------- */
-
-// Pseudo-vídeo de entrada: slideshow de las fotos en client/public/JapanPics
-// (JPG comprimidos — los PNG originales pesaban ~2 MB cada uno)
-const SLIDES = [
-  '/JapanPics/Tokyo.jpg',
-  '/JapanPics/Shibuya.jpg',
-  '/JapanPics/Kyoto.jpg',
-  '/JapanPics/Osaka.jpg',
-  '/JapanPics/Japaneselads.jpg',
-];
-const SLIDE_INTERVAL_MS = 900;
-
-function pad2(n) {
-  return String(n).padStart(2, '0');
-}
-
 const STYLES = `
-/* ---- Contenedor principal ---- */
 .splash {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #060610;
+  display: grid;
+  min-width: 320px;
   overflow: hidden;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
+  background: var(--ink-1000);
+  color: var(--paper-100);
 }
-
-/* ---- Pseudo-vídeo: slideshow de fotos ---- */
-.splash__slideshow {
+.splash__photo,
+.splash__veil {
   position: absolute;
   inset: 0;
-  z-index: 0;
-  overflow: hidden;
 }
-
-.splash__slide {
-  position: absolute;
-  inset: 0;
+.splash__photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  filter: grayscale(0.1) brightness(0.5) saturate(1.15) contrast(1.05);
-  transform: scale(1.02);
+  object-position: 58% center;
+  filter: saturate(.72) contrast(1.08) brightness(.68);
+  animation: splash-photo 460ms var(--ease) both;
 }
-
-.splash__slide--active {
-  opacity: 1;
+.splash__veil {
+  background:
+    linear-gradient(180deg, rgb(8 9 10 / 28%) 0%, rgb(8 9 10 / 18%) 36%, rgb(8 9 10 / 92%) 82%, var(--ink-1000) 100%),
+    linear-gradient(90deg, rgb(8 9 10 / 58%) 0%, transparent 70%);
 }
-
-.splash__slide-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(180deg,
-    rgba(6, 6, 16, 0.45) 0%,
-    rgba(6, 6, 16, 0.72) 55%,
-    rgba(6, 6, 16, 0.94) 100%);
-  pointer-events: none;
-}
-
-/* ---- Capas de aurora ---- */
-.splash__aurora {
-  position: absolute;
-  width: 160%;
-  height: 160%;
-  top: -30%;
-  left: -30%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.splash__aurora--1 {
-  background: radial-gradient(ellipse 55% 42% at 28% 30%,
-    rgba(232, 0, 45, 0.22) 0%, transparent 55%);
-  animation: sa1 14s ease-in-out infinite alternate;
-}
-
-.splash__aurora--2 {
-  background: radial-gradient(ellipse 48% 58% at 76% 68%,
-    rgba(70, 30, 195, 0.16) 0%, transparent 55%);
-  animation: sa2 18s ease-in-out infinite alternate;
-}
-
-.splash__aurora--3 {
-  background: radial-gradient(ellipse 40% 35% at 50% 80%,
-    rgba(232, 0, 45, 0.08) 0%, transparent 55%);
-  animation: sa3 22s ease-in-out infinite alternate;
-}
-
-@keyframes sa1 {
-  0%   { transform: translate(0,   0)   scale(1);    }
-  50%  { transform: translate(8%,  10%) scale(1.15); }
-  100% { transform: translate(-5%, 6%)  scale(0.92); }
-}
-@keyframes sa2 {
-  0%   { transform: translate(0,    0)   scale(1.1);  }
-  50%  { transform: translate(-10%,-6%)  scale(0.88); }
-  100% { transform: translate(7%, -11%)  scale(1.2);  }
-}
-@keyframes sa3 {
-  0%   { transform: translate(0, 0)   scale(1);   }
-  50%  { transform: translate(5%, -8%) scale(1.1); }
-  100% { transform: translate(-4%, 4%) scale(0.95);}
-}
-
-/* ---- Scanlines sutiles ---- */
-.splash::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 3px,
-    rgba(0, 0, 0, 0.04) 3px,
-    rgba(0, 0, 0, 0.04) 6px
-  );
-  pointer-events: none;
-  z-index: 3;
-}
-
-/* ---- Contenido central ---- */
-.splash__content {
+.splash__frame {
   position: relative;
-  z-index: 4;
+  z-index: 1;
   display: flex;
+  width: min(100%, var(--shell-max));
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: calc(24px + env(safe-area-inset-top)) var(--page-padding) calc(24px + env(safe-area-inset-bottom));
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 0 32px;
-  width: 100%;
-  max-width: 480px;
+  justify-content: flex-start;
 }
-
-/* ---- Pre-título ---- */
-.splash__pre {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  color: rgba(255, 255, 255, 0.30);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 0.3s;
-}
-
-/* ---- Número grande ---- */
-.splash__number {
-  font-size: clamp(100px, 30vw, 168px);
-  font-weight: 800;
-  color: #fff;
-  line-height: 0.82;
-  letter-spacing: -10px;
-  font-variant-numeric: tabular-nums;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 0.55s;
-}
-
-/* ---- Etiqueta días ---- */
-.splash__days-label {
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 300;
-  letter-spacing: 7px;
-  color: rgba(255, 255, 255, 0.38);
-  text-transform: uppercase;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 0.75s;
-}
-
-/* ---- Countdown en vivo hasta el despegue ---- */
-.splash__live-countdown {
-  margin-top: 16px;
+.splash__meta {
   display: flex;
-  align-items: baseline;
-  gap: 3px;
-  font-variant-numeric: tabular-nums;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 0.85s;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--paper-300);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .15em;
+  text-transform: uppercase;
 }
-
-.splash__live-countdown-unit {
-  font-size: 20px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.splash__live-countdown-suffix {
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.45);
-  margin-right: 6px;
-}
-
-.splash__live-countdown-sep {
-  color: rgba(255, 255, 255, 0.25);
-  margin: 0 2px;
-}
-
-/* ---- Destino ---- */
-.splash__destination {
-  margin-top: 30px;
-  font-size: clamp(48px, 15vw, 80px);
-  font-weight: 800;
-  color: #E8002D;
-  letter-spacing: -3px;
-  line-height: 1;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 0.95s;
-  text-shadow:
-    0 0 40px rgba(232, 0, 45, 0.55),
-    0 0 90px rgba(232, 0, 45, 0.20);
-}
-
-/* ---- Línea roja ---- */
-.splash__line {
-  width: 48px;
+.splash__meta::before {
+  width: 28px;
   height: 2px;
-  background: #E8002D;
-  margin-top: 18px;
-  transform-origin: center;
-  opacity: 0;
-  transform: scaleX(0);
-  animation: sline 0.7s var(--ease) forwards;
-  animation-delay: 1.15s;
-  box-shadow: 0 0 16px rgba(232, 0, 45, 0.7);
+  margin-right: auto;
+  background: var(--torii-500);
+  content: "";
 }
-
-/* ---- Fecha ---- */
-.splash__date {
-  margin-top: 16px;
+.splash__meta span:first-child {
+  margin-left: 10px;
+}
+.splash__content {
+  margin-top: auto;
+  animation: splash-content 460ms 100ms var(--ease) both;
+}
+.splash__eyebrow {
+  margin-bottom: 14px;
+  color: var(--paper-300);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 4px;
-  color: rgba(255, 255, 255, 0.32);
-  text-transform: uppercase;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 1.30s;
-}
-
-/* ---- Branding ---- */
-.splash__brand {
-  margin-top: 36px;
-  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 2.5px;
-  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: .13em;
   text-transform: uppercase;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 1.50s;
 }
-
-/* ---- Mensaje especial (durante/después del viaje) ---- */
-.splash__special {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.splash__special-emoji {
-  font-size: 72px;
-  line-height: 1;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 0.3s;
-}
-
-.splash__special-title {
-  font-size: 36px;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -1px;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 0.5s;
-}
-
-.splash__special-sub {
-  font-size: 16px;
-  color: rgba(255,255,255,0.45);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  opacity: 0;
-  animation: sfade-up 0.9s var(--ease) forwards;
-  animation-delay: 0.7s;
-}
-
-/* ---- Botón Saltar ---- */
-.splash__skip {
-  position: absolute;
-  top: calc(20px + env(safe-area-inset-top));
-  right: calc(20px + env(safe-area-inset-right));
-  z-index: 10;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 20px;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 13px;
+.splash__number {
+  color: var(--paper-100);
+  font-family: var(--font-display);
+  font-size: clamp(88px, 29vw, 144px);
   font-weight: 500;
-  letter-spacing: 0.5px;
-  padding: 6px 14px;
+  letter-spacing: -.075em;
+  line-height: .75;
+  font-variant-numeric: tabular-nums;
+}
+.splash__number-label {
+  max-width: 270px;
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 520;
+  letter-spacing: -.035em;
+  line-height: 1.05;
+}
+.splash__detail {
+  display: flex;
+  margin-top: 18px;
+  padding-top: 12px;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid rgb(241 237 229 / 35%);
+  color: var(--paper-300);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.splash__detail strong {
+  color: var(--paper-100);
+  font-weight: 650;
+}
+.splash__enter {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgb(241 237 229 / 38%);
+  border-radius: var(--radius-btn);
+  background: rgb(8 9 10 / 46%);
+  color: var(--paper-100);
   cursor: pointer;
-  font-family: var(--font);
-  -webkit-tap-highlight-color: transparent;
-  opacity: 0;
-  animation: sfade-up 0.8s var(--ease) forwards;
-  animation-delay: 1.7s;
-  transition: background 0.15s, color 0.15s;
+  font-size: 14px;
+  font-weight: 650;
+  margin-top: 28px;
+  transition: background var(--duration-press) var(--ease), border-color var(--duration-press) var(--ease);
 }
-
-.splash__skip:active {
-  background: rgba(255,255,255,0.14);
-  color: #fff;
+.splash__enter::after {
+  color: var(--torii-500);
+  content: "→";
+  font-size: 20px;
 }
-
-/* ---- Barra de progreso ---- */
-.splash__progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  width: 0%;
-  background: linear-gradient(90deg, rgba(232,0,45,0.6), #E8002D);
-  box-shadow: 0 0 14px rgba(232, 0, 45, 0.65);
-  animation: sprogress 4.5s linear forwards;
-  animation-delay: 0.5s;
-  pointer-events: none;
-  z-index: 6;
+.splash__enter:active {
+  border-color: var(--paper-100);
+  background: var(--ink-800);
 }
-
-/* ---- Salida ---- */
 .splash--exiting {
-  animation: sexit 0.55s var(--ease) forwards;
+  opacity: 0;
+  transition: opacity 240ms var(--ease);
+  pointer-events: none;
 }
-
-/* ---- Keyframes ---- */
-@keyframes sfade-up {
-  0%   { opacity: 0; transform: translateY(22px); }
-  100% { opacity: 1; transform: translateY(0);    }
+@keyframes splash-photo {
+  from { opacity: 0; transform: scale(1.015); }
+  to { opacity: 1; transform: scale(1); }
 }
-
-@keyframes sline {
-  0%   { opacity: 0; transform: scaleX(0); }
-  100% { opacity: 1; transform: scaleX(1); }
+@keyframes splash-content {
+  from { transform: translateY(12px); }
+  to { transform: translateY(0); }
 }
-
-@keyframes sprogress {
-  0%   { width: 0%; }
-  100% { width: 100%; }
-}
-
-@keyframes sexit {
-  0%   { opacity: 1; transform: scale(1);    }
-  100% { opacity: 0; transform: scale(1.05); }
+@media (prefers-reduced-motion: reduce) {
+  .splash__photo, .splash__content { animation: none; }
 }
 `;
 
-/* --- Helpers --- */
-function daysUntil(targetDateStr) {
-  const now = new Date();
-  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const [y, m, d] = targetDateStr.split('-').map(Number);
-  const target = new Date(y, m - 1, d);
-  return Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+function dateLabel(dateString) {
+  if (!dateString) return null;
+  return new Date(`${dateString}T00:00:00`).toLocaleDateString('es-ES', {
+    day: 'numeric',
+    month: 'short',
+  });
 }
 
-function tripDayNumber(startDateStr, tripDays) {
-  // Returns 1-based day of trip if currently on trip, else null
+function tripDayNumber(startDate, endDate) {
+  if (!startDate || !endDate) return null;
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const [y, m, d] = startDateStr.split('-').map(Number);
-  const start = new Date(y, m - 1, d);
-  const diff = Math.ceil((today - start) / (1000 * 60 * 60 * 24));
-  if (diff >= 0 && diff < tripDays) return diff + 1;
-  return null;
+  const start = new Date(`${startDate}T00:00:00`);
+  const end = new Date(`${endDate}T23:59:59`);
+  if (today < start || today > end) return null;
+  return Math.floor((today - start) / 86400000) + 1;
 }
 
 export default function SplashScreen({ trip, onDismiss }) {
   const [exiting, setExiting] = useState(false);
-  const [slideIndex, setSlideIndex] = useState(0);
-  const tripStart = trip?.start_date;
-  const tripEnd = trip?.end_date;
-  const departureDatetime = trip?.departure_datetime ? new Date(trip.departure_datetime) : null;
   const countdown = useDepartureCountdown(trip?.departure_datetime);
-  const tripDays = tripStart && tripEnd
-    ? Math.round((new Date(`${tripEnd}T00:00:00`) - new Date(`${tripStart}T00:00:00`)) / 86400000) + 1
-    : 0;
-  const days = tripStart ? daysUntil(tripStart) : null;
-  const tripDay = tripStart ? tripDayNumber(tripStart, tripDays) : null;
-  // El último día del viaje es TRIP_START + (TRIP_DAYS - 1); al día siguiente
-  // days vale exactamente -TRIP_DAYS, por eso <= y no <.
-  const afterTrip = days !== null && days <= -tripDays;
+  const tripDay = tripDayNumber(trip?.start_date, trip?.end_date);
 
   const dismiss = () => {
     if (exiting) return;
     setExiting(true);
-    setTimeout(onDismiss, 520);
+    window.setTimeout(onDismiss, 240);
   };
 
-  // Auto-dismiss a los 5 segundos
-  useEffect(() => {
-    const t = setTimeout(dismiss, 5200);
-    return () => clearTimeout(t);
-  }, []);
-
-  // Pseudo-vídeo: avanza el slideshow de fotos en bucle
-  useEffect(() => {
-    const t = setInterval(() => {
-      setSlideIndex(i => (i + 1) % SLIDES.length);
-    }, SLIDE_INTERVAL_MS);
-    return () => clearInterval(t);
-  }, []);
-
-  const renderContent = () => {
-    if (!tripStart || !departureDatetime || !countdown) {
-      return (
-        <div className="splash__content">
-          <div className="splash__special">
-            <div className="splash__special-emoji">🗾</div>
-            <div className="splash__special-title">Preparando el viaje…</div>
-            <div className="splash__brand" style={{ marginTop: 24 }}>Chelis en Japón</div>
-          </div>
-        </div>
-      );
-    }
-
-    // Durante el viaje
-    if (tripDay !== null) {
-      return (
-        <div className="splash__content">
-          <div className="splash__special">
-            <div className="splash__special-emoji">🗾</div>
-            <div className="splash__special-title">¡Día {tripDay} en Japón!</div>
-            <div className="splash__special-sub">Disfrutad mucho</div>
-            <div className="splash__brand" style={{ marginTop: 24 }}>Chelis en Japón</div>
-          </div>
-        </div>
-      );
-    }
-
-    // Después del viaje
-    if (afterTrip) {
-      return (
-        <div className="splash__content">
-          <div className="splash__special">
-            <div className="splash__special-emoji">🥲</div>
-            <div className="splash__special-title">El viaje terminó</div>
-            <div className="splash__special-sub">Qué bonito fue</div>
-            <div className="splash__brand" style={{ marginTop: 24 }}>Chelis en Japón</div>
-          </div>
-        </div>
-      );
-    }
-
-    // Cuenta atrás (lo normal: antes del viaje)
-    const label = countdown.days === 1 ? 'día para' : 'días para';
-
-    return (
-      <div className="splash__content">
-        <div className="splash__pre">Japón 2026</div>
-
-        <div
-          className="splash__number"
-          aria-label={`${countdown.days} días, ${countdown.hours} horas y ${countdown.minutes} minutos para el despegue`}
-        >
-          {countdown.days}
-        </div>
-
-        <div className="splash__days-label">{label} el despegue</div>
-
-        <div className="splash__live-countdown" aria-hidden="true">
-          <span className="splash__live-countdown-unit">{pad2(countdown.hours)}</span>
-          <span className="splash__live-countdown-suffix">h</span>
-          <span className="splash__live-countdown-sep">·</span>
-          <span className="splash__live-countdown-unit">{pad2(countdown.minutes)}</span>
-          <span className="splash__live-countdown-suffix">min</span>
-        </div>
-
-        <div className="splash__destination">TOKIO</div>
-
-        <div className="splash__line" aria-hidden="true" />
-
-        <div className="splash__date">
-          {new Date(`${tripStart}T00:00:00`).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' })}
-          {' · '}
-          {new Date(`${tripEnd}T00:00:00`).toLocaleDateString('es-ES', { day: 'numeric', month: 'short' })}
-          {` · ${tripDays} días`}
-        </div>
-
-        <div className="splash__brand">Chelis en Japón</div>
-      </div>
-    );
-  };
+  const beforeTrip = countdown && countdown.totalMs > 0;
+  const number = beforeTrip ? countdown.days : (tripDay ?? 13);
+  const title = beforeTrip
+    ? `${countdown.days === 1 ? 'día' : 'días'} para Japón`
+    : tripDay
+      ? `día ${tripDay} de viaje`
+      : 'días por Japón';
 
   return (
     <>
       <style>{STYLES}</style>
-      <div
+      <section
         className={`splash${exiting ? ' splash--exiting' : ''}`}
-        onClick={dismiss}
         role="dialog"
         aria-modal="true"
-        aria-label="Pantalla de introducción. Toca para entrar."
+        aria-labelledby="splash-title"
       >
-        {/* Pseudo-vídeo: slideshow de fotos de Japón */}
-        <div className="splash__slideshow" aria-hidden="true">
-          {SLIDES.map((src, i) => (
-            <img
-              key={src}
-              src={src}
-              alt=""
-              className={`splash__slide${i === slideIndex ? ' splash__slide--active' : ''}`}
-              loading={i === 0 ? 'eager' : 'lazy'}
-            />
-          ))}
+        <img className="splash__photo" src="/pois/kinkakuji.jpg" alt="" fetchPriority="high" />
+        <div className="splash__veil" aria-hidden="true" />
+
+        <div className="splash__frame">
+          <div className="splash__meta">
+            <span>Japón / Agosto 2026</span>
+            <span>私たちの旅</span>
+          </div>
+
+          <div className="splash__content">
+            <div className="splash__eyebrow">Chelis en Japón</div>
+            <div className="splash__number" aria-hidden="true">{number}</div>
+            <h1 className="splash__number-label" id="splash-title">{title}</h1>
+            <div className="splash__detail">
+              {beforeTrip && (
+                <><strong>{String(countdown.hours).padStart(2, '0')} h</strong><span>·</span><strong>{String(countdown.minutes).padStart(2, '0')} min</strong><span>hasta el despegue</span></>
+              )}
+              {!beforeTrip && trip?.start_date && (
+                <><strong>{dateLabel(trip?.start_date)}</strong><span>—</span><strong>{dateLabel(trip?.end_date)}</strong></>
+              )}
+              {!beforeTrip && !trip?.start_date && <span>Tokio · Kioto · Osaka · Hiroshima</span>}
+            </div>
+          </div>
+
+          <button className="splash__enter" type="button" onClick={dismiss}>
+            Entrar en la guía
+          </button>
         </div>
-        <div className="splash__slide-overlay" aria-hidden="true" />
-
-        {/* Capas aurora */}
-        <div className="splash__aurora splash__aurora--1" aria-hidden="true" />
-        <div className="splash__aurora splash__aurora--2" aria-hidden="true" />
-        <div className="splash__aurora splash__aurora--3" aria-hidden="true" />
-
-        {/* Botón saltar */}
-        <button
-          className="splash__skip"
-          onClick={(e) => { e.stopPropagation(); dismiss(); }}
-          aria-label="Saltar introducción"
-        >
-          Saltar ›
-        </button>
-
-        {/* Contenido */}
-        {renderContent()}
-
-        {/* Barra de progreso */}
-        <div className="splash__progress" aria-hidden="true" />
-      </div>
+      </section>
     </>
   );
 }

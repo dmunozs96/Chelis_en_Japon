@@ -188,6 +188,33 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--ink-950);
 }
 
+.route-section {
+  padding: 24px 0 8px;
+  border-top: 1px solid var(--separator);
+}
+
+.route-section__heading {
+  display: flex;
+  margin-bottom: 24px;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.route-section__heading > span {
+  color: var(--stone-500);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.route-section__heading h2 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+
 /* V2.5 shell */
 .app-header-outer {
   position: fixed;

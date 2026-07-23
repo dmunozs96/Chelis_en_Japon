@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { useDepartureCountdown } from '../hooks/useDepartureCountdown.js';
 import { usePreparationData } from '../hooks/usePreparationData.js';
 import { getNowState, minutesUntil } from '../lib/nowMode.js';
+import RouteLine from './ui/RouteLine.jsx';
 
 /* ---------------------------------------------------------------
    TodayView
@@ -632,6 +633,10 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
   const dayNum = days.length > 0 ? getDayNumber(days, day) : null;
   const hasRoutePois = (day.blocks ?? []).some(b => b.poi_id);
   const [expandedSteps, setExpandedSteps] = useState(() => new Set());
+  const currentTime = new Date().toTimeString().slice(0, 5);
+  const currentBlockIndex = nowMode
+    ? day.blocks.reduce((latest, block, index) => block.time && block.time <= currentTime ? index : latest, -1)
+    : -1;
 
   const toggleSteps = (i) => {
     setExpandedSteps(prev => {
@@ -664,6 +669,27 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
             </button>
           )}
         </div>
+
+        {nowMode && day.blocks?.length > 0 && (
+          <section className="route-section" aria-labelledby={`route-title-${day.date}`}>
+            <div className="route-section__heading">
+              <span>Itinerario</span>
+              <h2 id={`route-title-${day.date}`}>Ruta de hoy</h2>
+            </div>
+            <RouteLine
+              currentIndex={currentBlockIndex}
+              items={day.blocks.map((block, index) => ({
+                key: `${day.date}-${index}`,
+                id: block.poi_id,
+                time: block.time,
+                title: block.label,
+                detail: block.activity && block.activity !== block.label ? block.activity : null,
+                transfer: /traslado|tren|vuelo|llegada/i.test(`${block.label} ${block.activity ?? ''}`),
+              }))}
+              onSelect={onOpenPoi ? (item) => onOpenPoi(item.id) : undefined}
+            />
+          </section>
+        )}
 
         {/* Hotel */}
         {day.hotel && <HotelCard hotel={day.hotel} />}
