@@ -18,6 +18,8 @@ import CurrencyConverterView from './components/CurrencyConverterView.jsx';
 import ClimateView from './components/ClimateView.jsx';
 import PreparationView from './components/PreparationView.jsx';
 import CulturalGuideView from './components/CulturalGuideView.jsx';
+import RecoverableState from './components/ui/RecoverableState.jsx';
+import { appPath, parseLocation } from './lib/navigation.js';
 
 const TicketsView = lazy(() => import('./components/TicketsView.jsx'));
 const MapView = lazy(() => import('./components/MapView.jsx'));
@@ -74,6 +76,55 @@ export default function App() {
   const [alertBadge, setAlertBadge] = useState(0);
   const [selectedTripDate, setSelectedTripDate] = useState(null);
   const returnScrollRef = useRef(null);
+  const initialRouteRef = useRef(parseLocation());
+
+  function navigate(route, state = {}) {
+    window.history.pushState({ ...state, route, appEntry: true, canGoBack: true }, '', appPath(route));
+    applyRoute(route, state);
+  }
+
+  function applyRoute(route, state = {}) {
+    setShowTickets(route.view === 'tickets');
+    setShowPlanner(route.view === 'planner');
+    setActiveTool(route.view === 'tool' ? route.tool : null);
+    setPoiId(route.view === 'poi' ? route.id : null);
+    setMapDayData(route.view === 'map' ? (state.mapDayData ?? days.find((day) => day.date === route.date) ?? null) : null);
+    setMapRouteMode(route.view === 'map' && Boolean(route.routeMode));
+    if (route.view === 'trip') {
+      setActiveTab('trip');
+      setSelectedTripDate(route.date);
+    } else if (['today', 'alerts', 'restaurants', 'more'].includes(route.view)) {
+      setActiveTab(route.view);
+    }
+  }
+
+  useEffect(() => {
+    const onPopState = (event) => applyRoute(parseLocation(), event.state ?? {});
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, [days]);
+
+  useEffect(() => {
+    window.history.replaceState(
+      { ...(window.history.state ?? {}), route: initialRouteRef.current, appEntry: true, canGoBack: false },
+      '',
+      window.location.href,
+    );
+  }, []);
+
+  useEffect(() => {
+    applyRoute(initialRouteRef.current, window.history.state ?? {});
+    // Re-evaluate once trip data exists so /mapa/:date resolves after loading.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [days]);
+
+  function goBack(fallback = '/') {
+    if (window.history.state?.canGoBack) window.history.back();
+    else {
+      window.history.replaceState({ appEntry: true, canGoBack: false }, '', fallback);
+      applyRoute(parseLocation());
+    }
+  }
 
   function rememberPosition() {
     returnScrollRef.current = window.scrollY;
@@ -88,53 +139,49 @@ export default function App() {
 
   function openMap(day) {
     rememberPosition();
-    setMapRouteMode(false);
     setMapFocusLatLng(null);
-    setMapDayData(day);
+    navigate({ view: 'map', date: day.date, routeMode: false }, { mapDayData: day });
   }
 
   function openRoute(day) {
     rememberPosition();
-    setMapRouteMode(true);
     setMapFocusLatLng(null);
-    setMapDayData(day);
+    navigate({ view: 'map', date: day.date, routeMode: true }, { mapDayData: day });
   }
 
   function closeMap() {
-    setMapDayData(null);
-    setMapRouteMode(false);
+    goBack('/');
     setMapFocusLatLng(null);
-    restorePosition();
+    window.setTimeout(restorePosition, 0);
   }
 
   function openPoi(id) {
     rememberPosition();
-    setPoiId(id);
+    navigate({ view: 'poi', id });
   }
 
   function closePoi() {
-    setPoiId(null);
-    if (mapDayData === null) restorePosition();
+    goBack('/');
+    if (mapDayData === null) window.setTimeout(restorePosition, 0);
   }
 
   function openPoiFromMap(id) {
-    setPoiId(id);
+    navigate({ view: 'poi', id });
   }
 
   function openMapFromPoi(poi) {
-    setMapRouteMode(false);
     setMapFocusLatLng(poi.lat != null && poi.lng != null ? [poi.lat, poi.lng] : null);
-    setMapDayData({
+    const mapDay = {
       city: poi.city,
       hotel: null,
       pois: [{ id: poi.id, name: poi.name, lat: poi.lat, lng: poi.lng, type: poi.category, note: poi.significance }],
-    });
-    setPoiId(null);
+    };
+    navigate({ view: 'map', date: 'lugar', routeMode: false }, { mapDayData: mapDay });
   }
 
   // Splash: muestra una vez por sesión
   const [showSplash, setShowSplash] = useState(() => {
-    try { return !sessionStorage.getItem('splash_shown'); } catch { return true; }
+    try { return window.location.pathname === '/' && !sessionStorage.getItem('splash_shown'); } catch { return true; }
   });
 
   const dismissSplash = () => {
@@ -181,7 +228,7 @@ export default function App() {
           onBack={closeMap}
           routeMode={mapRouteMode}
           focusLatLng={mapFocusLatLng}
-          onOpenPoi={openPoiFromMap}
+          onOpenPoi={mapDayData?.kind === 'restaurants' ? null : openPoiFromMap}
         /></LazyBoundary>
       </>
     );
@@ -193,7 +240,7 @@ export default function App() {
       <>
         <style>{LOADING_STYLES}</style>
         <OfflineBanner />
-        <LazyBoundary><PlannerView onBack={() => setShowPlanner(false)} /></LazyBoundary>
+        <LazyBoundary><PlannerView onBack={() => goBack('/restaurantes')} /></LazyBoundary>
       </>
     );
   }
@@ -204,45 +251,45 @@ export default function App() {
       <>
         <style>{LOADING_STYLES}</style>
         <OfflineBanner />
-        <LazyBoundary><TicketsView onBack={() => setShowTickets(false)} /></LazyBoundary>
+        <LazyBoundary><TicketsView onBack={() => goBack('/mas')} /></LazyBoundary>
       </>
     );
   }
 
   if (activeTool === 'emergency') {
-    return <><OfflineBanner /><EmergencyView onBack={() => setActiveTool(null)} /></>;
+    return <><OfflineBanner /><EmergencyView onBack={() => goBack('/mas')} /></>;
   }
 
   if (activeTool === 'last-mile') {
-    return <><OfflineBanner /><LastMileView onBack={() => setActiveTool(null)} /></>;
+    return <><OfflineBanner /><LastMileView onBack={() => goBack('/mas')} /></>;
   }
 
   if (activeTool === 'ic-card') {
-    return <><OfflineBanner /><IcCardGuideView onBack={() => setActiveTool(null)} /></>;
+    return <><OfflineBanner /><IcCardGuideView onBack={() => goBack('/mas')} /></>;
   }
 
   if (activeTool === 'phrases') {
-    return <><OfflineBanner /><PhrasesView onBack={() => setActiveTool(null)} /></>;
+    return <><OfflineBanner /><PhrasesView onBack={() => goBack('/mas')} /></>;
   }
 
   if (activeTool === 'currency') {
-    return <><OfflineBanner /><CurrencyConverterView onBack={() => setActiveTool(null)} /></>;
+    return <><OfflineBanner /><CurrencyConverterView onBack={() => goBack('/mas')} /></>;
   }
 
   if (activeTool === 'climate') {
-    return <><OfflineBanner /><ClimateView onBack={() => setActiveTool(null)} /></>;
+    return <><OfflineBanner /><ClimateView onBack={() => goBack('/mas')} /></>;
   }
 
   if (activeTool === 'preparation') {
-    return <><OfflineBanner /><PreparationView onBack={() => setActiveTool(null)} /></>;
+    return <><OfflineBanner /><PreparationView onBack={() => goBack('/mas')} /></>;
   }
 
   if (activeTool === 'culture') {
-    return <><OfflineBanner /><CulturalGuideView onBack={() => setActiveTool(null)} /></>;
+    return <><OfflineBanner /><CulturalGuideView onBack={() => goBack('/mas')} /></>;
   }
 
   if (activeTool === 'shopping') {
-    return <><OfflineBanner /><LazyBoundary><ShoppingGuideView onBack={() => setActiveTool(null)} /></LazyBoundary></>;
+    return <><OfflineBanner /><LazyBoundary><ShoppingGuideView onBack={() => goBack('/mas')} /></LazyBoundary></>;
   }
 
   return (
@@ -254,28 +301,28 @@ export default function App() {
 
         <main className="main-content">
           {loading && <div className="app-loading">Cargando datos del viaje…</div>}
-          {error   && <div className="app-error">Error cargando datos: {error}</div>}
+          {error   && <RecoverableState title="No se pudo abrir la guía" detail={navigator.onLine ? error : 'No hay conexión y este dispositivo todavía no tiene una copia offline.'} />}
 
           {!loading && !error && activeTab === 'today'       && (
-            <TodayView trip={tripData?.trip} days={days} onOpenMap={openMap} onOpenPoi={openPoi} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} onOpenPreparation={() => setActiveTool('preparation')} onOpenTickets={() => setShowTickets(true)} onFindFood={() => setActiveTab('restaurants')} />
+            <TodayView trip={tripData?.trip} days={days} onOpenMap={openMap} onOpenPoi={openPoi} onOpenRoute={openRoute} onOpenIcGuide={() => navigate({ view: 'tool', tool: 'ic-card' })} onOpenPreparation={() => navigate({ view: 'tool', tool: 'preparation' })} onOpenTickets={() => navigate({ view: 'tickets' })} onFindFood={() => navigate({ view: 'restaurants' })} />
           )}
           {!loading && !error && activeTab === 'trip'        && (
-            <DayNav days={days} selectedDate={selectedTripDate} onSelectedDateChange={setSelectedTripDate} onOpenMap={openMap} onOpenPoi={openPoi} onOpenRoute={openRoute} />
+            <DayNav days={days} selectedDate={selectedTripDate} onSelectedDateChange={(date) => navigate({ view: 'trip', date })} onOpenMap={openMap} onOpenPoi={openPoi} onOpenRoute={openRoute} />
           )}
           {!loading && !error && activeTab === 'alerts'      && (
             <AlertsView onBadgeChange={setAlertBadge} />
           )}
           {!loading && !error && activeTab === 'restaurants' && (
-            <RestaurantsView onOpenPlanner={() => setShowPlanner(true)} />
+            <RestaurantsView onOpenPlanner={() => navigate({ view: 'planner' })} onOpenMap={(restaurants) => navigate({ view: 'map', date: 'restaurantes' }, { mapDayData: { kind: 'restaurants', city: restaurants[0]?.city, hotel: null, pois: restaurants.map((r) => ({ ...r, type: 'restaurante', note: r.cuisine_description })) } })} />
           )}
           {!loading && !error && activeTab === 'more'        && (
-            <MoreView onNavigate={(dest) => dest === 'tickets' ? setShowTickets(true) : setActiveTool(dest)} />
+            <MoreView onNavigate={(dest) => dest === 'tickets' ? navigate({ view: 'tickets' }) : navigate({ view: 'tool', tool: dest })} />
           )}
         </main>
 
         <BottomNav
           activeTab={activeTab}
-          onTabChange={setActiveTab}
+          onTabChange={(tab) => navigate({ view: tab })}
           alertBadge={alertBadge}
         />
       </div>

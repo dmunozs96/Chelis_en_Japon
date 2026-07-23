@@ -24,13 +24,16 @@ export function useRestaurantsData() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError]     = useState(null);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
+    setLoading(true);
+    setError(null);
 
     // Bump explícito del dataset: evita que el service worker siga sirviendo
     // el lote histórico de 40 fichas tras ampliar la base.
-    fetchJsonCached('/data/restaurants_db.json?v=62-20260723-audited')
+    fetchJsonCached('/data/restaurants_db.json?v=76-20260723-audited')
       .then((json) => {
         if (!cancelled) {
           setRestaurants(json.restaurants ?? []);
@@ -45,7 +48,7 @@ export function useRestaurantsData() {
       });
 
     return () => { cancelled = true; };
-  }, []);
+  }, [attempt]);
 
   function getRestaurantById(id) {
     if (!id) return null;
@@ -57,7 +60,7 @@ export function useRestaurantsData() {
     return restaurants.filter(r => r.city === cityEn);
   }
 
-  return { restaurants, getRestaurantById, getRestaurantsByCity, loading, error };
+  return { restaurants, getRestaurantById, getRestaurantsByCity, loading, error, retry: () => setAttempt((value) => value + 1) };
 }
 
 /** Distancia aproximada en km entre dos puntos (fórmula haversine). */

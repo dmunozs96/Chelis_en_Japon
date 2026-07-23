@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import Icon from './ui/Icon.jsx';
+import { googleMultiStopDirectionsUrl } from '../lib/navigation.js';
 
 /* ---------------------------------------------------------------
    MapView
@@ -133,6 +134,8 @@ const STYLES = `
   padding: 0 16px 6px;
   flex-shrink: 0;
 }
+.map-route-notice { position:absolute; z-index:500; top:12px; right:12px; left:12px; padding:9px 11px; border:1px solid var(--separator); border-radius:var(--radius-chip); background:rgb(13 14 16 / 94%); color:var(--paper-300); font-size:11px; line-height:1.35; }
+.map-route-notice a { color:var(--paper-100); font-weight:700; }
 
 .map-panel__list {
   display: flex;
@@ -403,6 +406,7 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
     : [];
 
   const pois = routeMode ? routePois : allPois;
+  const realDirectionsUrl = routeMode ? googleMultiStopDirectionsUrl(pois) : null;
 
   useEffect(() => {
     if (!mapRef.current) return;
@@ -546,6 +550,12 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
               Sin ubicación en tiempo real
             </div>
           )}
+          {routeMode && (
+            <div className="map-route-notice">
+              La línea discontinua solo indica el orden; no sigue calles ni vías.
+              {realDirectionsUrl && <> <a href={realDirectionsUrl} target="_blank" rel="noopener noreferrer">Abrir trayecto real ↗</a></>}
+            </div>
+          )}
         </div>
 
         {/* Mini panel inferior */}
@@ -553,7 +563,7 @@ export default function MapView({ dayData, allHotels, onBack, centerOn = 'user',
           <div className="map-panel__handle" aria-hidden="true">
             <div className="map-panel__handle-bar" />
           </div>
-          <div className="map-panel__title">{routeMode ? 'Orden de la ruta' : 'Lugares del día'}</div>
+          <div className="map-panel__title">{routeMode ? 'Orden aproximado de visita' : 'Lugares del día'}</div>
 
           {(pois.length === 0 && !hotelFull) ? (
             <div className="map-panel__empty">Sin lugares para este día</div>

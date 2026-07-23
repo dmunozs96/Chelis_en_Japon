@@ -168,6 +168,30 @@ h1, h2, h3, h4, h5, h6 {
   border: 0;
 }
 
+.recoverable-state {
+  margin: 32px var(--page-padding);
+  padding: 24px 0;
+  border-block: 1px solid var(--separator);
+}
+.recoverable-state h2 { font-size: 22px; }
+.recoverable-state p { margin-top: 8px; color: var(--paper-300); font-size: 14px; line-height: 1.5; }
+.recoverable-state div { display: flex; margin-top: 18px; gap: 10px; }
+.recoverable-state button,
+.recoverable-state a {
+  min-height: 44px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--separator);
+  border-radius: var(--radius-btn);
+  background: var(--paper-100);
+  color: var(--ink-1000);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.recoverable-state a { background: transparent; color: var(--paper-100); }
+
 .app-shell {
   position: relative;
   display: flex;

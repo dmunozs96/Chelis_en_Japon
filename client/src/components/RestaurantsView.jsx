@@ -1,5 +1,7 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useRestaurantsData, distanceKm } from '../hooks/useRestaurantsData.js';
+import RecoverableState from './ui/RecoverableState.jsx';
+import { googleDirectionsUrl } from '../lib/navigation.js';
 
 /* ---------------------------------------------------------------
    RestaurantsView
@@ -89,6 +91,11 @@ const STYLES = `
 }
 .rest-count strong { color: var(--label-primary); }
 .rest-reset { margin-left: 8px; padding: 0; border: 0; background: none; color: var(--accent); font: 600 12px var(--font); cursor: pointer; }
+.rest-search { width:100%; min-height:44px; padding:0 12px; border:1px solid var(--separator); border-radius:var(--radius-btn); background:var(--ink-900); color:var(--paper-100); }
+.rest-now-bar { display:flex; gap:8px; padding:12px 0; overflow-x:auto; }
+.rest-map-btn { min-height:40px; margin-bottom:10px; padding:0 12px; border:1px solid var(--paper-100); border-radius:var(--radius-btn); background:transparent; color:var(--paper-100); font-size:12px; font-weight:700; }
+.rest-location-note { color:var(--stone-500); font-size:11px; line-height:1.4; }
+.rest-card__actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; }
 
 .rest-list {
   display: flex;
@@ -293,9 +300,34 @@ const CUISINE_FILTERS = [
   { id: 'dessert', label: 'Café y dulce', tags: ['wagashi', 'matcha', 'dessert', 'cafe', 'kissaten', 'taiyaki'] },
 ];
 
-export default function RestaurantsView({ onOpenPlanner }) {
-  const { restaurants, loading, error } = useRestaurantsData();
+function japanContext(now = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', weekday: 'long', hour: '2-digit', hourCycle: 'h23' }).formatToParts(now);
+  const weekday = parts.find((part) => part.type === 'weekday')?.value;
+  const hour = Number(parts.find((part) => part.type === 'hour')?.value ?? 12);
+  return { weekday, meal: hour < 15 ? 'lunch' : 'dinner' };
+}
+
+function searchableText(restaurant) {
+  return [
+    restaurant.name, restaurant.name_ja, restaurant.city, restaurant.neighborhood,
+    restaurant.cuisine_description, ...(restaurant.cuisine_tags ?? []),
+    ...(restaurant.what_to_order ?? []).flatMap((item) => [item.dish, item.why]),
+  ].filter(Boolean).join(' ').toLocaleLowerCase('es');
+}
+
+function approximateEuros(priceText) {
+  const values = String(priceText ?? '').match(/\d[\d.,]*/g)?.map((value) => Number(value.replace(/[.,]/g, ''))).filter(Number.isFinite) ?? [];
+  if (!values.length) return null;
+  const euros = values.map((value) => Math.max(1, Math.round(value / 185.01)));
+  return euros.length > 1 ? `≈ €${euros[0]}–${euros.at(-1)}` : `≈ €${euros[0]}`;
+}
+
+export default function RestaurantsView({ onOpenPlanner, onOpenMap }) {
+  const { restaurants, loading, error, retry } = useRestaurantsData();
   const [city, setCity] = useState('Todas');
+  const [query, setQuery] = useState('');
+  const [meal, setMeal] = useState(null);
+  const [openToday, setOpenToday] = useState(false);
   const [priceTiers, setPriceTiers] = useState([]);
   const [noReservation, setNoReservation] = useState(false);
   const [cuisine, setCuisine] = useState(null);
@@ -303,14 +335,14 @@ export default function RestaurantsView({ onOpenPlanner }) {
   const [expandedId, setExpandedId] = useState(null);
   const [coords, setCoords] = useState(null);
 
-  useEffect(() => {
+  function requestLocation() {
     if (!navigator.geolocation) return;
     navigator.geolocation.getCurrentPosition(
       (pos) => setCoords([pos.coords.latitude, pos.coords.longitude]),
       () => {},
       { timeout: 5000 }
     );
-  }, []);
+  }
 
   function togglePriceTier(tier) {
     setPriceTiers((prev) => (prev.includes(tier) ? prev.filter((t) => t !== tier) : [...prev, tier]));
@@ -318,7 +350,14 @@ export default function RestaurantsView({ onOpenPlanner }) {
 
   const filtered = useMemo(() => {
     let list = restaurants;
+    const normalizedQuery = query.trim().toLocaleLowerCase('es');
+    if (normalizedQuery) list = list.filter((restaurant) => searchableText(restaurant).includes(normalizedQuery));
     if (city !== 'Todas') list = list.filter((r) => r.city === city);
+    if (meal) list = list.filter((r) => (r.meal_types ?? []).includes(meal));
+    if (openToday) {
+      const { weekday } = japanContext();
+      list = list.filter((r) => !(r.closed_days ?? []).includes(weekday));
+    }
     if (priceTiers.length > 0) list = list.filter((r) => priceTiers.includes(r.price_tier));
     if (noReservation) list = list.filter((r) => r.reservation_required === false);
     if (cuisine) {
@@ -343,11 +382,14 @@ export default function RestaurantsView({ onOpenPlanner }) {
       withDistance.sort((a, b) => a.name.localeCompare(b.name));
     }
     return withDistance;
-  }, [restaurants, city, priceTiers, noReservation, cuisine, lateNight, coords]);
+  }, [restaurants, query, city, meal, openToday, priceTiers, noReservation, cuisine, lateNight, coords]);
 
-  const filtersActive = city !== 'Todas' || priceTiers.length > 0 || noReservation || cuisine || lateNight;
+  const filtersActive = Boolean(query) || city !== 'Todas' || Boolean(meal) || openToday || priceTiers.length > 0 || noReservation || cuisine || lateNight;
   function resetFilters() {
     setCity('Todas');
+    setQuery('');
+    setMeal(null);
+    setOpenToday(false);
     setPriceTiers([]);
     setNoReservation(false);
     setCuisine(null);
@@ -364,12 +406,7 @@ export default function RestaurantsView({ onOpenPlanner }) {
   }
 
   if (error) {
-    return (
-      <>
-        <style>{STYLES}</style>
-        <div className="rest-loading" style={{ color: 'var(--accent)' }}>Error cargando restaurantes: {error}</div>
-      </>
-    );
+    return <><style>{STYLES}</style><RecoverableState title="No se pudieron cargar los restaurantes" detail={navigator.onLine ? error : 'Sin conexión y sin una copia guardada en este móvil.'} onRetry={retry} /></>;
   }
 
   return (
@@ -388,6 +425,17 @@ export default function RestaurantsView({ onOpenPlanner }) {
         </button>
 
         <div className="rest-filters">
+          <input className="rest-search" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Nombre, barrio o plato…" aria-label="Buscar restaurante, barrio o plato" />
+          <div className="rest-now-bar" aria-label="Filtros para comer ahora">
+            <button className={`rest-chip${meal === japanContext().meal ? ' rest-chip--active' : ''}`} onClick={() => setMeal((value) => value === japanContext().meal ? null : japanContext().meal)}>
+              {japanContext().meal === 'lunch' ? 'Almuerzo ahora' : 'Cena ahora'}
+            </button>
+            <button className={`rest-chip${openToday ? ' rest-chip--active' : ''}`} onClick={() => setOpenToday((value) => !value)}>Abierto hoy*</button>
+            {coords
+              ? <button className="rest-chip rest-chip--active" onClick={() => setCoords(null)}>Por cercanía</button>
+              : <button className="rest-chip" onClick={requestLocation}>Ordenar por cercanía</button>}
+          </div>
+          <div className="rest-location-note">* Según el día de cierre verificado; confirma el horario exacto antes de desplazarte. Euros orientativos a ¥185,01/€.</div>
           <div className="rest-filter-primary">
             <select className="rest-select" value={city} onChange={(event) => setCity(event.target.value)} aria-label="Ciudad">
               {CITY_OPTIONS.map((option) => <option value={option} key={option}>{option === 'Todas' ? 'Todas las ciudades' : CITY_LABELS_ES[option]}</option>)}
@@ -419,6 +467,9 @@ export default function RestaurantsView({ onOpenPlanner }) {
           {coords ? ' · por distancia' : ''}
           {filtersActive && <button className="rest-reset" onClick={resetFilters}>Limpiar filtros</button>}
         </div>
+        {filtered.length > 0 && onOpenMap && (
+          <button className="rest-map-btn" onClick={() => onOpenMap(filtered)}>Ver {filtered.length} resultados en el mapa</button>
+        )}
 
         <div className="rest-list">
           {filtered.map((r) => {
@@ -464,7 +515,7 @@ export default function RestaurantsView({ onOpenPlanner }) {
                     <div className="rest-info-grid">
                       <div>
                         <div className="rest-info-item__label">Precio</div>
-                        <div className="rest-info-item__value">{r.price_per_person_yen ?? '—'}</div>
+                        <div className="rest-info-item__value">{r.price_per_person_yen ?? '—'}{approximateEuros(r.price_per_person_yen) ? ` · ${approximateEuros(r.price_per_person_yen)}` : ''}</div>
                       </div>
                       <div>
                         <div className="rest-info-item__label">Horario</div>
@@ -488,11 +539,16 @@ export default function RestaurantsView({ onOpenPlanner }) {
                       </div>
                     </div>
                     {r.phone && <div>Tel. {r.phone}</div>}
-                    {r.reservation_url && (
-                      <a className="rest-card__link" href={r.reservation_url} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
-                        Reservar online →
+                    <div className="rest-card__actions" onClick={(event) => event.stopPropagation()}>
+                      <a className="rest-card__link" href={googleDirectionsUrl(r)} target="_blank" rel="noopener noreferrer">
+                        Cómo llegar →
                       </a>
-                    )}
+                      {r.reservation_url && (
+                        <a className="rest-card__link" href={r.reservation_url} target="_blank" rel="noopener noreferrer">
+                          Reservar online →
+                        </a>
+                      )}
+                    </div>
                   </div>
                 )}
               </div>
