@@ -1,7 +1,7 @@
 # Especificación — Guía Interactiva Japón Ago26
 
 > Documento vivo. Cualquier modificación al producto, por pequeña que sea, debe reflejarse aquí.
-> Versión: 2.0 | Fecha: 2026-07-15 | Estado: Activo — V2 aprobada (ver sección 11 y `PLAN_V2.md`)
+> Versión: 2.1 | Fecha: 2026-07-23 | Estado: Activo — V2 aprobada (ver sección 11 y `PLAN_V2.md`)
 
 ---
 
@@ -10,6 +10,20 @@
 **Fechas:** 13 al 25 de agosto de 2026  
 **Viajeros:** 2 personas (Daniel + compañero/a)  
 **Ruta:** Madrid → Tokio → Hakone → Kioto → Hiroshima → Osaka → Tokio → Madrid
+
+### Supuesto operativo de conectividad (decisión del propietario, 23 jul 2026)
+
+Durante todo el viaje se utilizará una **SIM con datos móviles ilimitados**. La experiencia se diseña desde este momento como **online-first enriquecida**:
+
+- la calidad visual, la fotografía, la tipografía y la riqueza de contenido tienen prioridad sobre minimizar el peso de descarga;
+- el tamaño del bundle y de los assets pasa a ser una consideración secundaria, no un criterio de descarte;
+- se permiten imágenes de mayor resolución, más variedad fotográfica, fuentes locales completas y recursos visuales adicionales cuando produzcan una mejora perceptible;
+- no existe un presupuesto rígido global de MB ni un límite obligatorio de 250 KB por hero;
+- rendimiento sigue significando interacción fluida, ausencia de bloqueos, estabilidad de layout y carga progresiva, no perseguir el menor número de bytes;
+- la conexión no exime de conservar una **capa offline crítica** para billetes, reservas, localizadores, itinerario, hoteles, direcciones, frases de emergencia y teléfonos esenciales;
+- mapas, fotografías no críticas, contenido editorial ampliado y sincronización pueden depender de red o cargarse bajo demanda.
+
+Esta decisión sustituye cualquier presupuesto anterior de peso recogido en documentos V2.5 cuando exista conflicto. La PWA se conserva por instalación, actualización y resiliencia, pero ya no obliga a precachear todo el catálogo visual.
 
 ---
 
@@ -254,10 +268,10 @@ Las 44 fichas existentes se re-tramaron con esta escala el 22 jul 2026 (antes se
 - Accesible desde la vista de "hoy"
 
 ### F7 — Offline + PWA instalable
-- Todo el contenido (itinerario, billetes, recomendaciones, historia) funciona sin internet una vez cargada la página
-- Solo el mapa en vivo requiere conexión activa
+- El núcleo crítico (itinerario, billetes, reservas, hoteles, direcciones, emergencias y frases esenciales) funciona sin internet una vez cargada la guía
+- El producto asume conexión móvil ilimitada para mapas, fotografía secundaria, contenido editorial ampliado y sincronización
 - La guía es instalable como PWA: `manifest.json` con icono, nombre y `display: standalone` para que funcione desde la pantalla de inicio sin barra de navegador
-- Service worker para cacheo de assets y contenido estático
+- Service worker para cacheo del shell, datos críticos y assets prioritarios; el catálogo visual puede usar caché en runtime y carga bajo demanda
 
 ---
 
@@ -810,6 +824,7 @@ trip.json[day].blocks → filtra los que tienen poi_id
 - ✅ JSON servidos mediante caché `StaleWhileRevalidate`, además del respaldo localStorage
 - ✅ Aviso visible de estado offline; el planificador requiere red para sincronizar entre móviles
 - El mapa base en vivo continúa dependiendo de conexión, por diseño
+- Desde la decisión de SIM ilimitada del 23 jul 2026, el precache completo deja de ser un objetivo: se garantiza offline el núcleo operativo y se permite que fotografía no crítica y contenido enriquecido se sirvan o actualicen por red
 
 ---
 
@@ -859,7 +874,7 @@ Al no poder generarse un vídeo de entrada real, `SplashScreen.jsx` simula uno c
 - Sigue con el mismo comportamiento de siempre: una vez por sesión (`sessionStorage`), auto-dismiss a los 5.2s, botón "Saltar" y barra de progreso.
 - Los estados "durante el viaje" y "después del viaje" no llevan el slideshow con countdown (no aplica), pero sí ven el fondo de fotos.
 
-**Nota de alcance:** las imágenes viven en `client/public/JapanPics/` (git, ~10MB en 5 PNG) y se sirven como estáticos — no están optimizadas (comprimidas/redimensionadas) todavía; queda como mejora futura si el peso afecta a la carga en móvil con mala conexión.
+**Nota de alcance histórica:** las imágenes vivían en `client/public/JapanPics/` y su optimización se consideraba prioritaria por posibles conexiones lentas. Esta restricción queda superada por la decisión de usar una SIM ilimitada: las optimizaciones futuras se harán por fluidez, memoria y calidad de render, no para imponer un presupuesto mínimo de descarga.
 
 ### Detalle Ola 4b — Restaurantes ✅ COMPLETADA (2026-07-15)
 
@@ -1152,6 +1167,10 @@ La base publicada contiene 62 fichas. Las 138 altas generadas el 23 de julio de 
 
 La migración visual V2.5 está implementada en todas las pantallas: shell, portada, Hoy/Viaje, POI, Restaurantes, Más, guías, operación, mapa y herramientas. El sistema usa la dirección tinta/marfil/torii, `RouteLine`, iconos SVG y composición editorial; elimina aurora, glassmorphism universal y emojis funcionales.
 
-Mapa/Leaflet, Compras, Billetes, Planner y POI se cargan mediante chunks diferidos incluidos en el precache PWA. El JS inicial baja de 494,42 kB a 258,71 kB. Ninguna fotografía de `JapanPics/` o `pois/` supera 250 kB. Evidencia y decisiones en `HANDOVER_28_V2.5.md`.
+Mapa/Leaflet, Compras, Billetes, Planner y POI se cargan mediante chunks diferidos incluidos en el precache PWA. El JS inicial baja de 494,42 kB a 258,71 kB. Ese dato se conserva como baseline histórico, no como techo normativo. Desde el 23 jul 2026, las fotografías pueden superar 250 kB y el paquete puede crecer cuando la mejora visual esté justificada. Evidencia y decisiones en `HANDOVER_28_V2.5.md`.
 
-*Última actualización: 2026-07-23 — V2.5 visual implementada y QA técnico en verde. Este commit conserva las 62 fichas publicadas; la ampliación profunda permanece pendiente.*
+### V2.5.1 — Grand Tour
+
+La siguiente iteración visual queda autorizada y definida en `SPEC_V2.5.1_VISUAL.md`. Su objetivo no es solo pulir V2.5, sino elevar belleza, materialidad, fotografía, movimiento y placer de uso sin perder precisión operativa. La nueva especificación prevalece sobre los límites visuales y de peso de V2.5 cuando exista conflicto; mantiene accesibilidad, veracidad y offline crítico.
+
+*Última actualización: 2026-07-23 — se adopta SIM ilimitada y prioridad online-first enriquecida; la ligereza pasa a segundo plano sin renunciar al offline crítico. V2.5 visual implementada y QA técnico en verde. Este commit conserva las 62 fichas publicadas; la ampliación profunda permanece pendiente.*

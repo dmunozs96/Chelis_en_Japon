@@ -3,7 +3,7 @@
 > Estado: propuesta para aprobación · 22 de julio de 2026  
 > Alcance: auditoría y especificación; este documento no implementa cambios  
 > Producto: Chelis en Japón  
-> Prioridad: elevar percepción de calidad sin comprometer uso móvil, rapidez ni resiliencia offline
+> Prioridad: elevar percepción de calidad; con SIM ilimitada, la riqueza visual prevalece sobre el peso de descarga, conservando fluidez y resiliencia offline crítica
 
 ## Cómo se usa este documento
 
@@ -975,13 +975,15 @@ No debe existir scroll horizontal excepto cintas y filtros que lo indiquen visua
 
 ### 7.3 Rendimiento/offline
 
-- Fuentes locales en WOFF2 variable y subset cuando sea legal/técnicamente viable; presupuesto recomendado total ≤ 180 KB.
-- Grano/texturas ≤ 20 KB.
-- Nuevas fotos curadas en WebP/AVIF con fallback según compatibilidad del PWA; no superar aproximadamente 250 KB por hero móvil salvo justificación.
+- **Supuesto vigente:** ambos viajeros disponen de una SIM con datos ilimitados durante todo el viaje.
+- Fuentes locales en WOFF2 variable; se permiten familias completas y los subsets necesarios cuando mejoren de forma perceptible la identidad y la cobertura.
+- Grano, texturas y recursos atmosféricos no tienen un presupuesto rígido; deben justificarse por resultado visual y no degradar la fluidez.
+- Nuevas fotos curadas en WebP/AVIF o JPEG de alta calidad según convenga. Se elimina el techo de aproximadamente 250 KB por hero.
 - Reservar dimensiones para evitar layout shift.
-- Mantener precache selectivo; no precachear un catálogo fotográfico completo si hace crecer excesivamente la instalación.
-- No añadir bibliotecas de animación para esta intervención.
-- Lighthouse móvil orientativo tras build: Performance ≥ 85, Accessibility ≥ 95, sin regresión grave respecto al baseline medido al iniciar implementación.
+- Mantener precache selectivo para el núcleo operativo. El catálogo fotográfico puede cargarse bajo demanda y usar caché en runtime.
+- Se pueden añadir bibliotecas de animación o presentación si aportan una mejora clara, están encapsuladas y respetan `prefers-reduced-motion`.
+- Lighthouse móvil sigue siendo diagnóstico, no gate por bytes. Los gates obligatorios son Accessibility ≥ 95, interacción fluida, ausencia de layout shift grave y navegación crítica utilizable.
+- Offline garantiza billetes, reservas, itinerario, hoteles, direcciones y emergencias; no exige paridad completa del catálogo visual.
 
 ---
 
@@ -1185,7 +1187,7 @@ En una revisión ciega con 5 personas, mostrar durante 8 segundos capturas de Sp
 ### Riesgos
 
 - **Serif mal elegida:** puede convertir lo editorial en “lujo genérico”. Debe probarse sobre español, números y nombres japoneses.
-- **Demasiada fotografía:** puede elevar peso y reducir utilidad offline. Solo usar donde aporte jerarquía.
+- **Demasiada fotografía:** el peso ya no es el riesgo principal; sí lo son la repetición, el ruido visual y competir con la información. Usar fotografía cuando aporte identidad, atmósfera o contexto real.
 - **Cozy demasiado claro:** cambiar a una interfaz crema completa rompería la identidad y podría molestar de noche. El marfil es acento/superficie puntual.
 - **Refactor visual invasivo:** mover todo el CSS a la vez puede introducir regresiones. Migración por componentes con capturas.
 - **Confundir diseño con tematización:** símbolos japoneses literales no sustituyen una buena retícula.
