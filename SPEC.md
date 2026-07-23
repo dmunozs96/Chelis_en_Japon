@@ -1039,7 +1039,19 @@ Seis fichas nuevas (50 → 56), con variedad de plato:
 
 Además se **retro-etiquetaron** 5 fichas existentes que ya eran grab-and-go (`sobre_la_marcha`): Takoyaki Wanaka, Kukuru, Acchichi, Mercado exterior de Tsukiji y Mercado de Nishiki. La colección «sobre la marcha» reúne así 11 fichas.
 
-**Estado total de la base:** 56 fichas. Distribución de precio: 31 en ¥, 12 en ¥¥, 7 en ¥¥¥, 2 en ¥¥¥¥, 4 en ¥¥¥¥¥. Verificación por el método habitual (agente por ficha + reverificación propia de URLs oficiales de 551 Horai, Onigiri Bongo y Asakusa Menchi).
+Verificación por el método habitual (agente por ficha + reverificación propia de URLs oficiales de 551 Horai, Onigiri Bongo y Asakusa Menchi).
+
+#### Lote O2 «Sobre la marcha» (2026-07-23)
+
+Seis fichas más, con variedad de plato y mejor reparto por ciudad:
+- `tokyo_58_nemuro_hanamaru` — **kaiten-zushi** de calidad (pescado de Hokkaido) en KITTE Marunouchi (tier 2). Web oficial: sin cierres en agosto 2026. Coordenadas a nivel de edificio (KITTE).
+- `tokyo_59_harajuku_gyozaro` — **gyoza** barata famosa en Harajuku.
+- `tokyo_60_naniwaya_sohonten` — **taiyaki**, la casa original (Azabu-Juban, 1909). Cierra martes y 3er miércoles.
+- `hiroshima_61_musubi_musashi_hondori` — **onigiri/bento** para llevar (institución de Hiroshima, 1958). `partial`: el puesto reabrió en dic-2025 y su horario aún no está publicado.
+- `kyoto_62_gion_tsujiri` — **helado soft de matcha** para llevar en Gion (~¥470).
+- `osaka_63_hanshin_ikayaki` — **ikayaki** del depachika de Hanshin Umeda (~¥187).
+
+**Estado total de la base:** 62 fichas; la colección «sobre la marcha» reúne 17. Distribución de precio: 36 en ¥, 13 en ¥¥, 7 en ¥¥¥, 2 en ¥¥¥¥, 4 en ¥¥¥¥¥.
 
 ## 9. Advertencias activas
 
