@@ -131,6 +131,7 @@ const STYLES = `
 `;
 
 const TOOLS = [
+  { icon: '🛍️', label: 'Guía de compras', destination: 'shopping' },
   { icon: '✅', label: 'Preparar viaje', destination: 'preparation' },
   { icon: '⛩️', label: 'Guía cultural', destination: 'culture' },
   { icon: '🇯🇵', label: 'Frases japonesas', destination: 'phrases' },

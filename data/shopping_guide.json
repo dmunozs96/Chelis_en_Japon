@@ -1,0 +1,248 @@
+{
+  "last_verified_at": "2026-07-23",
+  "trip_date": "2026-08-24",
+  "tax_free": {
+    "headline": "En agosto de 2026 sigue la exención directa en tienda",
+    "steps": [
+      "Lleva el pasaporte físico con el sello/registro de entrada. Una foto no sirve; Visit Japan Web puede agilizar el trámite si la tienda admite su QR.",
+      "Compra al menos ¥5.000 sin impuesto, en la misma tienda y el mismo día. Confirma antes de pagar: algunos grandes almacenes tramitan después en un mostrador y descuentan comisión.",
+      "Hasta el 31 de octubre de 2026 la tienda puede descontar el 10% en caja. El sistema de pagar y pedir devolución entra el 1 de noviembre de 2026.",
+      "Los consumibles tax-free se precintan: no abras la bolsa ni los consumas en Japón. Conserva artículos, recibos y pasaporte hasta salir.",
+      "Desde abril de 2025, enviar la compra a España por paquetería internacional no conserva la exención."
+    ],
+    "spain_warning": "Tax-free japonés no significa libre de impuestos en España. Al volver desde fuera de la UE, la franquicia general del equipaje personal por vía aérea es 430 € por viajero. Si un artículo indivisible supera la franquicia, se grava su valor completo; declara cuando corresponda. Guarda factura y prueba de pago.",
+    "sources": [
+      { "name": "JNTO · Tax-free", "url": "https://www.japan.travel/en/plan/japans-tax-exemption/" },
+      { "name": "Japan Tourism Agency · cambio 2026", "url": "https://www.japan.travel/en/ca/news/changes-are-coming-to-tax-free-shopping-in-japan/" },
+      { "name": "Agencia Tributaria · viajeros", "url": "https://sede.agenciatributaria.gob.es/Sede/viajeros-trabajadores-desplazados-fronterizos/viajeros/franquicias-tabaco-alcohol-otras-mercancias.html" }
+    ]
+  },
+  "gift_shortlist": [
+    {
+      "tier": "Detalle impecable",
+      "budget": "¥3.000–8.000 · aprox. 16–43 €",
+      "pick": "Cuaderno japonés premium + bolígrafo fino + envoltorio de Itoya",
+      "where": "Ginza Itoya",
+      "why": "Parece escogido, no souvenir. Busca Midori MD, LIFE Noble o un bolígrafo Zebra/Pilot de edición japonesa. Pide gift wrapping.",
+      "verdict": "La compra segura"
+    },
+    {
+      "tier": "Personal y japonés",
+      "budget": "¥7.000–15.000 · aprox. 38–81 €",
+      "pick": "Cuaderno hecho a medida o roller de latón",
+      "where": "Kakimori o TRAVELER'S FACTORY",
+      "why": "La personalización convierte papelería en regalo emocional. Mejor que pagar sobreprecio por una marca occidental.",
+      "verdict": "Mayor encanto por euro"
+    },
+    {
+      "tier": "Lujo discreto",
+      "budget": "¥20.000–45.000 · aprox. 108–243 €",
+      "pick": "Pañuelo Hermès vintage, tarjetero Loewe/LV o accesorio Céline pre-owned",
+      "where": "KOMEHYO Shinjuku Women o WATCHNIAN",
+      "why": "Es la puerta de entrada realista a lujo con marca y buena presentación. Prioriza estado A/S, caja o guardapolvo y una pieza sin monograma enorme.",
+      "verdict": "Sweet spot lujo"
+    },
+    {
+      "tier": "Efecto wow",
+      "budget": "¥45.000–90.000 · aprox. 243–486 €",
+      "pick": "Cartera compacta o mini bolso vintage de firma",
+      "where": "KOMEHYO, ALLU o Brand Off",
+      "why": "Compara tres unidades del mismo modelo y estado. El descuento frente a Europa no está garantizado; compra solo si te enamora y el coste total encaja.",
+      "verdict": "Solo con checklist"
+    }
+  ],
+  "categories": [
+    {
+      "id": "stationery",
+      "icon": "✒️",
+      "label": "Papelería",
+      "sweet_spot": "¥3.000–12.000",
+      "buy": ["Plumas Pilot, Sailor o Platinum de modelo japonés", "Cuadernos Midori MD, LIFE Noble, Tsubame y Mnemosyne", "Tintas Iroshizuku, Sailor y Kakimori", "Latón TRAVELER'S COMPANY y sellos/was​hi de edición local"],
+      "avoid": "Sets genéricos que también vende Amazon Europa. En plumas, prueba el plumín y pregunta por garantía internacional.",
+      "pro_move": "Combina un objeto útil, un consumible bonito y envoltorio. Tres piezas pequeñas se sienten más lujosas que una sola cara."
+    },
+    {
+      "id": "luxury",
+      "icon": "👜",
+      "label": "Lujo & vintage",
+      "sweet_spot": "¥20.000–90.000",
+      "buy": ["Tarjeteros, pañuelos y small leather goods", "Loewe vintage y Céline pre-owned menos inflados que iconos LV", "Bolsos japoneses de culto: Porter/Yoshida, Hender Scheme", "Estado A/S con accesorios si es regalo"],
+      "avoid": "Comprar solo por el porcentaje de descuento. Revisa esquinas, asas, olor, interior, fecha/código cuando aplique y política de devolución.",
+      "pro_move": "Haz fotos de etiqueta, estado y precio; compara el mismo modelo en dos cadenas reputadas antes de pagar."
+    },
+    {
+      "id": "watches",
+      "icon": "⌚",
+      "label": "Relojes",
+      "sweet_spot": "¥25.000–250.000+",
+      "buy": ["Casio JDM, Seiko y Citizen de mercado japonés", "Grand Seiko pre-owned con historial y eslabones", "Vintage King Seiko/Seiko Lord Matic con revisión", "G-Shock de edición o color japonés"],
+      "avoid": "Vintage sin precisión medida, humedad visible o servicio documentado. Confirma garantía, idioma del calendario y todos los eslabones.",
+      "pro_move": "En Nakano fotografía referencia y precio final de 3 tiendas; decide después de un café, nunca en la primera vitrina."
+    },
+    {
+      "id": "tech",
+      "icon": "📷",
+      "label": "Tecnología",
+      "sweet_spot": "Solo si ahorra ≥15%",
+      "buy": ["Cámara/lente usada con grado y garantía", "Auriculares japoneses que puedas probar", "Accesorios compactos: adaptadores, trípodes, fundas", "Gaming físico solo si idioma y región encajan"],
+      "avoid": "Móviles sin bandas/eSIM compatibles, cámaras con menú solo japonés, 100 V sin fuente universal y productos sin garantía europea.",
+      "pro_move": "Compara el precio tax-free japonés con el precio español real, no con PVP. Añade comisión de tarjeta y posible aduana."
+    },
+    {
+      "id": "fashion",
+      "icon": "👖",
+      "label": "Moda & denim",
+      "sweet_spot": "¥18.000–45.000",
+      "buy": ["Selvedge de Momotaro, Pure Blue Japan, Oni o Studio D'Artisan", "OrSlow, Beams Plus y Kapital si encajan contigo", "Uniqlo U/JW Anderson y Muji solo en piezas distintas a Europa", "Segunda mano Comme des Garçons, Issey Miyake y Yohji"],
+      "avoid": "Denim rígido sin sentarte y caminar. Las tallas japonesas suelen ser pequeñas; mide cintura, tiro y muslo en centímetros.",
+      "pro_move": "Lleva las medidas de tus vaqueros favoritos. Pregunta si hacen chain-stitch hemming y cuánto tarda antes de pagar."
+    },
+    {
+      "id": "home",
+      "icon": "🔪",
+      "label": "Cocina & diseño",
+      "sweet_spot": "¥4.000–30.000",
+      "buy": ["Cuchillo con acero y mantenimiento entendibles", "Cerámica Kiyomizu-yaki o Hasami de uso diario", "Palillos, bandejas y tenugui de artesano", "Té y dulces del depachika para regalos"],
+      "avoid": "Cuchillo caro sin saber afilarlo, cerámica pesada sin embalaje y consumibles tax-free abiertos durante el viaje.",
+      "pro_move": "Pide funda saya y embalaje para bodega. Un cuchillo nunca va en cabina."
+    },
+    {
+      "id": "beauty",
+      "icon": "🧴",
+      "label": "Belleza",
+      "sweet_spot": "¥2.000–15.000",
+      "buy": ["Protección solar y limpiadores japoneses", "Brochas Kumano de fabricante identificado", "Shiseido/Decorté/SUQQU si la referencia no existe en España", "Perfumería japonesa de autor"],
+      "avoid": "Comprar activos que no conoce, tonos sin probar o un haul enorme por TikTok. Comprueba límites de líquidos en cabina.",
+      "pro_move": "Para regalo, una brocha excelente o un compacto bonito gana a diez productos de drugstore."
+    }
+  ],
+  "stores": [
+    { "id":"itoya","name":"Ginza Itoya","area":"Ginza","city":"Tokio","category":"stationery","price":"¥¥","priority":"must","why":"Doce plantas de papelería y regalo; la parada más segura para ella.","hunt":"Midori/LIFE, plumas japonesas, papel, leather goods y envoltorio.","tip":"Empieza arriba y baja; evita perder 90 min en bolígrafos básicos.","tax_free":"Pregunta en caja; lleva pasaporte.","url":"https://store.ito-ya.co.jp/ext/store/ginza/ginza/index.html","maps":"https://www.google.com/maps/search/?api=1&query=Ginza+Itoya" },
+    { "id":"kakimori","name":"Kakimori","area":"Kuramae","city":"Tokio","category":"stationery","price":"¥¥","priority":"top","why":"Cuadernos e instrumentos de escritura con una estética muy cuidada.","hunt":"Notebook personalizado, roller de latón, nib y tintas pigmentadas.","tip":"Comprueba plazos de personalización; no lo dejes para la última hora.","tax_free":"No asumir; confirmar en tienda.","url":"https://kakimori.com/en/pages/stores","maps":"https://www.google.com/maps/search/?api=1&query=Kakimori+Kuramae" },
+    { "id":"travelers","name":"TRAVELER'S FACTORY Nakameguro","area":"Nakameguro","city":"Tokio","category":"stationery","price":"¥¥","priority":"top","why":"El regalo con más relato viajero: cuero, recambios y ediciones del lugar.","hunt":"Passport size, charms, brass clips y refill limitado.","tip":"Solo si su estética es artesanal/vintage; no si prefiere lujo pulido.","tax_free":"No asumir; confirmar en tienda.","url":"https://www.travelers-factory.com/access/","maps":"https://www.google.com/maps/search/?api=1&query=Travelers+Factory+Nakameguro" },
+    { "id":"loft","name":"Ginza Loft","area":"Ginza","city":"Tokio","category":"stationery","price":"¥","priority":"useful","why":"Gran selección contemporánea para completar el regalo sin desplazarte.","hunt":"Sellos, stickers, organización, belleza y gadgets de diseño.","tip":"Mejor para descubrir; Itoya gana en presentación premium.","tax_free":"Disponible bajo condiciones de tienda.","url":"https://www.loft.co.jp/en/shop_list/detail.php?shop_id=407","maps":"https://www.google.com/maps/search/?api=1&query=Ginza+Loft" },
+    { "id":"seiko","name":"Seiko Dream Square","area":"Ginza","city":"Tokio","category":"watches","price":"¥¥¥","priority":"top","why":"Escaparate oficial para entender gamas Seiko y probar JDM.","hunt":"Presage, Prospex y Astron; anota referencia exacta antes de comparar.","tip":"Úsala como benchmark; el mejor precio puede estar en distribuidor.","tax_free":"Confirmar modelo y condiciones en tienda.","url":"https://www.seikowatches.com/global-en/special/dreamsquare/","maps":"https://www.google.com/maps/search/?api=1&query=Seiko+Dream+Square+Ginza" },
+    { "id":"gs","name":"Grand Seiko Flagship Boutique Ginza","area":"Ginza","city":"Tokio","category":"watches","price":"¥¥¥¥","priority":"dream","why":"La experiencia relojera japonesa de lujo, aunque solo sea para probar.","hunt":"Diales estacionales y referencias boutique; pregunta disponibilidad, no descuentos.","tip":"Para ahorro, compara luego con pre-owned serio y coste al entrar en España.","tax_free":"Confirmar en boutique.","url":"https://www.grand-seiko.com/global-en/storesinfo","maps":"https://www.google.com/maps/search/?api=1&query=Grand+Seiko+Flagship+Boutique+Ginza" },
+    { "id":"kamekichi","name":"Kame-Kichi","area":"Nakano Broadway","city":"Tokio","category":"watches","price":"¥¥¥","priority":"must","why":"Enorme surtido de reloj nuevo y usado en un solo escaparate.","hunt":"Seiko, Grand Seiko, Omega, Tudor y Cartier; nuevo frente a usado.","tip":"Pregunta por garantía para extranjero, condición, servicio y eslabones.","tax_free":"Indicado para visitantes; confirmar precio final.","url":"https://www.kame-kichi.com/foroverseas/en/shop.html","maps":"https://www.google.com/maps/search/?api=1&query=Kame-Kichi+Nakano" },
+    { "id":"jackroad","name":"Jackroad & Betty","area":"Nakano Broadway","city":"Tokio","category":"watches","price":"¥¥¥","priority":"must","why":"Comparador imprescindible en Nakano; Betty amplía reloj y joyería femenina.","hunt":"Misma referencia vista en Kame-Kichi y piezas vintage femeninas.","tip":"No interpretes 'nuevo' como garantía internacional automática.","tax_free":"Confirmar en mostrador.","url":"https://www.jackroad.co.jp/shop/pages/shop.aspx","maps":"https://www.google.com/maps/search/?api=1&query=Jackroad+Nakano+Broadway" },
+    { "id":"watchnian","name":"WATCHNIAN Shibuya","area":"Shibuya","city":"Tokio","category":"luxury","price":"¥¥¥","priority":"top","why":"Bolsos, joyería y relojes revisados en una cadena reputada.","hunt":"Small leather goods Loewe/LV/Céline y pañuelos o joyería discreta.","tip":"Pide ver estado bajo luz, accesorios incluidos y política de devolución.","tax_free":"Confirmar elegibilidad del artículo.","url":"https://watchnian.com/shop/store/o026003/?lang=en","maps":"https://www.google.com/maps/search/?api=1&query=WATCHNIAN+Shibuya" },
+    { "id":"komehyo_women","name":"KOMEHYO Shinjuku Women","area":"Shinjuku","city":"Tokio","category":"luxury","price":"¥¥¥","priority":"must","why":"La mejor misión concreta para el regalo: lujo femenino pre-owned concentrado.","hunt":"Tarjeteros, pañuelos, carteras y bolsos compactos en estado A/S.","tip":"Fija presupuesto máximo antes de entrar y compara coste final en euros.","tax_free":"Cadena con tax-free; umbral y trámite en tienda.","url":"https://www.komehyo.co.jp/store/shinjuku-women","maps":"https://www.google.com/maps/search/?api=1&query=KOMEHYO+Shinjuku+Women" },
+    { "id":"komehyo_men","name":"KOMEHYO Shinjuku Men","area":"Shinjuku","city":"Tokio","category":"fashion","price":"¥¥¥","priority":"top","why":"Lujo, moda japonesa, relojes y bolsos en varias plantas.","hunt":"Comme, Issey, Yohji, Margiela y accesorios LV/Gucci.","tip":"Puede pedir traslado de stock; revisa online la víspera.","tax_free":"Tax-free oficial desde ¥5.000 sin impuesto.","url":"https://www.komehyo.co.jp/store/shinjuku-annex/1000","maps":"https://www.google.com/maps/search/?api=1&query=KOMEHYO+Shinjuku+Men" },
+    { "id":"ragtag","name":"RAGTAG Harajuku","area":"Harajuku","city":"Tokio","category":"fashion","price":"¥¥","priority":"top","why":"Segunda mano curada de diseñador japonés y occidental.","hunt":"Comme des Garçons, Issey Miyake, Sacai, Auralee y accesorios.","tip":"Revisa talla real y condición; una etiqueta japonesa no convierte todo en ganga.","tax_free":"Confirmar en tienda.","url":"https://www.ragtag.jp/english/shop/harajuku.html","maps":"https://www.google.com/maps/search/?api=1&query=RAGTAG+Harajuku" },
+    { "id":"hinoya","name":"Hinoya Main Store","area":"Ueno / Ameyoko","city":"Tokio","category":"fashion","price":"¥¥","priority":"must","why":"Institución multimarca de denim y workwear japonés.","hunt":"Pure Blue Japan, Oni, Momotaro, Buzz Rickson's y Studio D'Artisan.","tip":"Lleva medidas; pregunta por arreglo chain-stitch y recogida.","tax_free":"Confirmar en tienda.","url":"https://hinoya-ameyoko.com/hinoya/38208-2/","maps":"https://www.google.com/maps/search/?api=1&query=Hinoya+Main+Store+Ueno" },
+    { "id":"momotaro","name":"Momotaro Jeans Aoyama","area":"Aoyama","city":"Tokio","category":"fashion","price":"¥¥¥","priority":"top","why":"Denim de Kojima con identidad propia y asesoramiento de marca.","hunt":"Straight/tapered de orillo rosa; prioriza fit sobre onzas.","tip":"El denim pesado en agosto engaña: pruébalo sentado y con calor en mente.","tax_free":"Confirmar en tienda.","url":"https://momotarojeans.com/pages/stores","maps":"https://www.google.com/maps/search/?api=1&query=Momotaro+Jeans+Aoyama" },
+    { "id":"beams","name":"BEAMS Japan Shinjuku","area":"Shinjuku","city":"Tokio","category":"fashion","price":"¥¥","priority":"top","why":"Una edición compacta del diseño, moda y artesanía japonesa actual.","hunt":"BEAMS Plus, colaboraciones, objetos regionales y regalos pequeños.","tip":"Excelente última parada para algo japonés sin aspecto de souvenir.","tax_free":"Confirmar en tienda.","url":"https://www.beams.co.jp/global/shop/bj/","maps":"https://www.google.com/maps/search/?api=1&query=BEAMS+Japan+Shinjuku" },
+    { "id":"mapcamera","name":"Map Camera","area":"Shinjuku","city":"Tokio","category":"tech","price":"¥¥¥","priority":"must","why":"Especialista con gran rotación de cámaras y ópticas usadas.","hunt":"Óptica usada de grado alto; revisa hongos, polvo, AF y garantía.","tip":"Lleva cuerpo/tarjeta para probar. Confirma idioma de menú y garantía fuera de Japón.","tax_free":"Confirmar artículo y condición.","url":"https://www.mapcamera.com/html/worldguide/english_page.html","maps":"https://www.google.com/maps/search/?api=1&query=Map+Camera+Shinjuku" },
+    { "id":"yodobashi","name":"Yodobashi Camera Akiba","area":"Akihabara","city":"Tokio","category":"tech","price":"¥¥","priority":"useful","why":"Todo el ecosistema tech en un edificio; ideal para comparar y tocar.","hunt":"Audio, accesorios, cámaras y pequeños electrodomésticos 100–240 V.","tip":"Pregunta si tax-free excluye puntos/descuentos y revisa voltaje en la etiqueta.","tax_free":"Mostrador tax-free; condiciones por producto.","url":"https://www.yodobashi-akiba.com/english/","maps":"https://www.google.com/maps/search/?api=1&query=Yodobashi+Akiba" },
+    { "id":"bic","name":"BicCamera Yurakucho","area":"Yurakucho","city":"Tokio","category":"tech","price":"¥¥","priority":"useful","why":"Tecnología grande al lado de Ginza, sin gastar media jornada en Akihabara.","hunt":"Comparación de cámara/audio y consumibles compactos.","tip":"Compara precio neto y garantía; los cupones turísticos cambian.","tax_free":"Disponible; confirma compatibilidad y exclusiones.","url":"https://www.biccamera.com/bc/i/shop/shoplist/shop014.jsp","maps":"https://www.google.com/maps/search/?api=1&query=BicCamera+Yurakucho" },
+    { "id":"kappabashi","name":"Tsubaya / Kappabashi","area":"Kappabashi","city":"Tokio","category":"home","price":"¥¥","priority":"top","why":"Cuchillos y utensilios profesionales con mucha comparación a pie.","hunt":"Santoku/gyuto inoxidable, piedra de afilar y saya.","tip":"Explica uso, mano y mantenimiento; no persigas el acero más duro por ego.","tax_free":"Varía por comercio; pregunta antes de agrupar compras.","url":"https://www.kappabashi.or.jp/en/","maps":"https://www.google.com/maps/search/?api=1&query=Kappabashi+Dougu+Street" },
+    { "id":"kyukyodo","name":"Kyukyodo Ginza","area":"Ginza","city":"Tokio","category":"stationery","price":"¥¥","priority":"top","why":"Papelería japonesa tradicional, incienso, papel y sobres con elegancia.","hunt":"Sets de carta, washi, sellos y pequeños regalos tradicionales.","tip":"Combínalo con Itoya: aquí tradición; allí diseño contemporáneo.","tax_free":"No asumir; confirmar en tienda.","url":"https://www.kyukyodo.co.jp/","maps":"https://www.google.com/maps/search/?api=1&query=Kyukyodo+Ginza" },
+    { "id":"hands","name":"Hands Shibuya","area":"Shibuya","city":"Tokio","category":"stationery","price":"¥","priority":"useful","why":"Caza del tesoro para papelería, viaje, hogar y belleza.","hunt":"Ideas de organización, herramientas finas y productos domésticos japoneses.","tip":"Entra con lista o perderás dos horas. No todo es exclusivo ni barato.","tax_free":"Disponible bajo condiciones de tienda.","url":"https://info.hands.net/en/list/shibuya/","maps":"https://www.google.com/maps/search/?api=1&query=Hands+Shibuya" },
+    { "id":"shiseido","name":"SHISEIDO THE STORE","area":"Ginza","city":"Tokio","category":"beauty","price":"¥¥¥","priority":"top","why":"Experiencia premium y asesoramiento; buen regalo si conoces gustos/tono.","hunt":"Ediciones japonesas, brochas o un compacto elegante.","tip":"Evita elegir base o activos fuertes sin ella; pide muestra cuando exista.","tax_free":"Confirmar en boutique.","url":"https://thestore.shiseido.co.jp/en/","maps":"https://www.google.com/maps/search/?api=1&query=SHISEIDO+THE+STORE+Ginza" },
+    { "id":"hakuhodo","name":"Hakuhodo Kyoto","area":"Gion","city":"Kioto","category":"beauty","price":"¥¥¥","priority":"top","why":"Una brocha Kumano bien escogida es lujo japonés pequeño y sofisticado.","hunt":"Brocha individual para colorete o polvo, no set enorme.","tip":"Pregunta material y cuidados; si evita pelo animal, confirma fibra sintética.","tax_free":"Confirmar en tienda.","url":"https://hakuho-do.co.jp/en/pages/shop","maps":"https://www.google.com/maps/search/?api=1&query=Hakuhodo+Kyoto" },
+    { "id":"nishiki","name":"Aritsugu Nishiki","area":"Nishiki Market","city":"Kioto","category":"home","price":"¥¥¥","priority":"top","why":"Cuchillería histórica y experiencia de compra memorable.","hunt":"Cuchillo doméstico sencillo y mantenible; pregunta grabado y funda.","tip":"La fama no sustituye ergonomía. Sujétalo y entiende oxidación/afilado.","tax_free":"Confirmar en tienda.","url":"https://aritsugu.jp/","maps":"https://www.google.com/maps/search/?api=1&query=Aritsugu+Nishiki+Market" },
+    { "id":"loft_umeda","name":"Hands Umeda / Grand Front","area":"Umeda","city":"Osaka","category":"stationery","price":"¥","priority":"useful","why":"Plan B excelente para completar papelería antes de volver a Tokio.","hunt":"Papelería de temporada y pequeñas marcas japonesas.","tip":"Reserva las piezas especiales para Itoya/Kakimori; aquí completa.","tax_free":"Confirmar mostrador y umbral.","url":"https://info.hands.net/en/list/umeda/","maps":"https://www.google.com/maps/search/?api=1&query=Hands+Umeda" }
+  ],
+  "routes": [
+    {
+      "id": "ginza",
+      "title": "Ginza: regalo perfecto",
+      "duration": "3–5 h",
+      "best_for": "Papelería top + belleza + reloj oficial",
+      "verdict": "La recomendada",
+      "stops": ["Kyukyodo Ginza · tradición y papel", "Ginza Itoya · compra principal y envoltorio", "Seiko Dream Square · prueba y referencias", "SHISEIDO THE STORE · lujo beauty opcional", "Ginza Loft o BicCamera Yurakucho · remate práctico"],
+      "strategy": "Haz primero el regalo, déjalo cerrado y envuelto; después compra para ti. Todo queda caminable y funciona incluso con calor o lluvia."
+    },
+    {
+      "id": "shinjuku",
+      "title": "Shinjuku: shopper total",
+      "duration": "5–7 h",
+      "best_for": "Lujo pre-owned + cámara + moda japonesa",
+      "verdict": "Mayor densidad",
+      "stops": ["Map Camera · cámara/óptica", "KOMEHYO Shinjuku Women · misión novia", "KOMEHYO Shinjuku Men · moda y lujo", "BEAMS Japan · diseño japonés", "Grandes almacenes Isetan · benchmark nuevo"],
+      "strategy": "Fotografía candidatos en KOMEHYO y no decidas hasta terminar la planta. Come pronto y reserva 45 min finales para volver por la pieza ganadora."
+    },
+    {
+      "id": "nakano",
+      "title": "Nakano: caza relojera",
+      "duration": "4–6 h",
+      "best_for": "Relojes nuevos, usados y vintage",
+      "verdict": "Solo si el reloj importa",
+      "stops": ["Nakano Sun Mall · llegada", "Kame-Kichi · primera referencia", "Jackroad & Betty · comparación", "WATCHNIAN Nakano · tercera opinión", "Mandarake · coleccionismo opcional"],
+      "strategy": "Crea una tabla con referencia, año, set, estado, servicio, garantía y precio neto. No compres sin comparar al menos tres unidades o confirmar que es rara."
+    },
+    {
+      "id": "east",
+      "title": "Este creativo",
+      "duration": "5–7 h",
+      "best_for": "Denim + papelería personal + cocina",
+      "verdict": "La más japonesa",
+      "stops": ["Hinoya Ueno · denim", "Kappabashi · cuchillo/utensilios", "Kakimori Kuramae · regalo personalizado", "Asakusa · artesanía o cierre tranquilo"],
+      "strategy": "Confirma temprano si Kakimori puede terminar la personalización. Es la ruta con más personalidad, pero menos eficiente para lujo occidental."
+    }
+  ],
+  "customs_spain": {
+    "title": "Volver a España sin sustos",
+    "status": "Reglas verificadas para entrada por avión en agosto de 2026",
+    "allowance_eur": 430,
+    "summary": "Cada viajero adulto dispone de una franquicia de 430 € para mercancías ocasionales, de uso personal, familiar o destinadas a regalo y sin carácter comercial. Estar por debajo significa canal verde; superar el límite o llevar bienes restringidos significa canal rojo.",
+    "decision_flow": [
+      { "question": "¿Es equipaje personal previo al viaje?", "answer": "No cuenta como compra nueva, pero para un reloj, cámara o bolso valioso que ya llevabas puede ser prudente conservar factura europea, fotografía anterior o prueba de propiedad." },
+      { "question": "¿Las compras nuevas asignadas a cada viajero suman 430 € o menos?", "answer": "Sí: canal verde, siempre que sean de carácter no comercial y no estén restringidas." },
+      { "question": "¿Una sola pieza cuesta más de 430 €?", "answer": "No se puede dividir su valor entre viajeros ni aplicar la franquicia solo a una parte. Debe declararse; la tributación puede alcanzar el valor completo de esa pieza." },
+      { "question": "¿El total supera 430 € pero son varios artículos separables?", "answer": "Aduanas puede aplicar la franquicia a los artículos que individualmente caben en ella y liquidar los demás. Lleva facturas desglosadas." },
+      { "question": "¿Hay duda?", "answer": "Ve al canal rojo y pide una declaración verbal de viajeros. Declarar no implica automáticamente una sanción; ocultar y pasar por verde sí afirma que no llevas nada declarable." }
+    ],
+    "legal_optimization": [
+      "Planifica un presupuesto real de 430 € por persona, asignando desde la compra quién adquiere y transporta cada artículo separable.",
+      "Prioriza dentro de franquicia lo que tenga mayor ahorro japonés: una pluma, un reloj asequible, papelería o moda. Para lujo caro, calcula IVA y posible arancel antes de decidir.",
+      "Pide facturas separadas y conserva el precio tax-free efectivamente pagado. La factura facilita acreditar el valor de transacción.",
+      "Compara el coste puesto en España: precio japonés neto + comisión bancaria + derechos si corresponden + IVA de importación.",
+      "Si una tienda puede acreditar origen preferencial japonés conforme al acuerdo UE–Japón, pregunta por la prueba de origen; no asumas arancel cero solo por comprarlo en Japón.",
+      "Un objeto usado comprado durante el viaje sigue siendo una compra importada. Quitar etiquetas, caja o usarlo un día no lo convierte en efecto personal previo."
+    ],
+    "never_do": [
+      "No ocultes compras, no falsees el precio y no presentes una factura manipulada.",
+      "No repártáis físicamente las partes o accesorios de una única pieza para fingir dos importaciones.",
+      "No envíes por correo para intentar esquivar el límite: es otra importación, puede llevar IVA, arancel y gastos de gestión; además pierde el tax-free japonés desde abril de 2025.",
+      "No confundas canal verde con ausencia de control: cruzarlo constituye una declaración de que no llevas bienes que deban declararse."
+    ],
+    "examples": [
+      { "case": "Papelería ¥35.000 + denim ¥38.000", "approx": "≈ 395 € a ¥185/€", "result": "Cabe en la franquicia de un adulto si son compras no comerciales. Conserva facturas y canal verde." },
+      { "case": "Reloj de 600 €", "approx": "Una pieza indivisible", "result": "No puede cubrirse con 430 € de uno + 170 € del otro. Se declara y no se descuenta automáticamente la franquicia de su valor." },
+      { "case": "Dos tarjeteros de 350 € cada uno", "approx": "Dos piezas separables, dos adultos", "result": "Puede ir uno asignado a cada viajero, cada uno dentro de su franquicia, si son adquisiciones reales para uso/regalo y no una operación comercial." },
+      { "case": "Bolso de 700 € + papelería de 50 €", "approx": "Una pieza supera el límite", "result": "Declara el bolso. La papelería puede encajar en la franquicia; lleva factura desglosada y deja que Aduanas haga la liquidación." },
+      { "case": "Cámara que ya era tuya al salir de España", "approx": "Efecto personal reimportado", "result": "No es una compra japonesa. Para evitar discusión, lleva número de serie, factura UE o evidencia anterior al viaje." }
+    ],
+    "cost_formula": {
+      "headline": "Estimación conservadora al declarar",
+      "formula": "Valor en aduana + derechos arancelarios = base del IVA; después se aplica el IVA correspondiente, normalmente 21%.",
+      "warning": "El arancel depende del código TARIC, material y origen, no solo de la marca. La Aduana determina la liquidación final; la calculadora de la guía no sustituye esa clasificación."
+    },
+    "airport": [
+      "En el primer aeropuerto de entrada al territorio aduanero de la UE, sigue las indicaciones de Aduanas. Si el equipaje continúa en conexión, pregunta allí cuál es el punto correcto de declaración.",
+      "Canal verde: solo si todo está dentro de franquicia y sin restricciones. Puede haber control selectivo.",
+      "Canal rojo: si superas valor/cantidad, llevas una pieza indivisible de más de 430 €, mercancía restringida o efectivo igual o superior a 10.000 €.",
+      "Ten accesibles pasaporte, tarjetas de embarque, facturas, pagos, artículos y una lista en euros. No entierres la documentación en la maleta facturada."
+    ],
+    "sources": [
+      { "name": "AEAT · franquicias de viajeros", "url": "https://sede.agenciatributaria.gob.es/Sede/viajeros-trabajadores-desplazados-fronterizos/viajeros/franquicias-tabaco-alcohol-otras-mercancias.html" },
+      { "name": "AEAT · canal rojo y canal verde", "url": "https://sede.agenciatributaria.gob.es/Sede/viajeros-trabajadores-desplazados-fronterizos/viajeros/informacion-general.html" },
+      { "name": "AEAT · valor y base imponible", "url": "https://sede.agenciatributaria.gob.es/Sede/aduanas/deuda-aduanera-garantias-elementos/valor-mercancia/valor-transaccion-base-imponible.html" },
+      { "name": "UE · Directiva 2007/74/CE, artículo 7", "url": "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32007L0074" },
+      { "name": "Japan Customs · salida con tax-free", "url": "https://www.customs.go.jp/english/c-answer_e/extsukan/5004_e.htm" }
+    ]
+  },
+  "checklists": {
+    "luxury": ["Marca, modelo y medida exactos", "Estado de esquinas, asas, herrajes e interior", "Olor a humedad/tabaco", "Caja, guardapolvo, correa y accesorios incluidos", "Factura detallada y política de devolución", "Precio final en euros + posible aduana"],
+    "watch": ["Referencia y número de serie documentados", "Nuevo/usado y año aproximado", "Full set y todos los eslabones", "Historial de servicio y precisión", "Garantía válida desde España", "Resistencia al agua no asumida en vintage"],
+    "tech": ["Menú en español/inglés", "100–240 V y clavija", "Bandas, eSIM y región", "Garantía internacional por escrito", "Prueba de sensor, lente, batería y puertos", "Precio España comparable y devolución"]
+  },
+  "sources": [
+    { "name": "JNTO · Shopping in Japan", "url": "https://www.japan.travel/en/guide/shopping-in-japan/" },
+    { "name": "JNTO · Japanese denim", "url": "https://www.japan.travel/en/au/experience/shopping/japanese-denim/" },
+    { "name": "KOMEHYO · Shinjuku y tax-free", "url": "https://www.komehyo.co.jp/store/shinjuku-annex/1000" },
+    { "name": "Kame-Kichi · Nakano", "url": "https://www.kame-kichi.com/foroverseas/en/shop.html" },
+    { "name": "WATCHNIAN · tiendas y control", "url": "https://watchnian.com/shop/pages/about.aspx" }
+  ]
+}

@@ -22,6 +22,7 @@ import CurrencyConverterView from './components/CurrencyConverterView.jsx';
 import ClimateView from './components/ClimateView.jsx';
 import PreparationView from './components/PreparationView.jsx';
 import CulturalGuideView from './components/CulturalGuideView.jsx';
+import ShoppingGuideView from './components/ShoppingGuideView.jsx';
 
 /* ---------------------------------------------------------------
    App — shell principal
@@ -207,6 +208,10 @@ export default function App() {
 
   if (activeTool === 'culture') {
     return <><OfflineBanner /><CulturalGuideView onBack={() => setActiveTool(null)} /></>;
+  }
+
+  if (activeTool === 'shopping') {
+    return <><OfflineBanner /><ShoppingGuideView onBack={() => setActiveTool(null)} /></>;
   }
 
   return (

@@ -30,6 +30,7 @@ export function validateProject() {
   const travelTools = readJson('data/travel_tools.json');
   const preparation = readJson('data/preparation_checklist.json');
   const culturalGuide = readJson('data/cultural_guide.json');
+  const shoppingGuide = readJson('data/shopping_guide.json');
   const days = tripData.days ?? [];
   const trip = tripData.trip ?? {};
 
@@ -206,7 +207,25 @@ export function validateProject() {
     for (const sourceId of topic.source_ids ?? []) check(culturalSources.has(sourceId), `Guia cultural ${topic.id}: fuente desconocida "${sourceId}"`);
   }
 
-  return { errors, counts: { days: days.length, pois: pois.length, restaurants: restaurants.length, alerts: alerts.length, hotelAccess: coveredHotelIds.size, phrases: phraseData.items?.length ?? 0, preparation: preparationTasks.length, culturalTopics: culturalTopics.length } };
+  check(isDate(shoppingGuide.last_verified_at), 'Guía de compras: fecha de verificación inválida');
+  const shoppingCategoryIds = unique((shoppingGuide.categories ?? []).map((category) => category.id), 'Categorías de compras');
+  const shoppingStores = shoppingGuide.stores ?? [];
+  unique(shoppingStores.map((store) => store.id), 'Tiendas de compras');
+  check(shoppingStores.length >= 20, 'Guía de compras: cobertura de tiendas insuficiente');
+  check((shoppingGuide.routes ?? []).length >= 3, 'Guía de compras: faltan rutas alternativas');
+  check((shoppingGuide.gift_shortlist ?? []).length >= 3, 'Guía de compras: falta shortlist de regalos');
+  for (const store of shoppingStores) {
+    check(shoppingCategoryIds.has(store.category), `Tienda ${store.id}: categoría desconocida "${store.category}"`);
+    check(Boolean(store.name && store.area && store.why && store.hunt && store.tip), `Tienda ${store.id}: ficha incompleta`);
+    check(isHttpUrl(store.url) && isHttpUrl(store.maps), `Tienda ${store.id}: enlace inválido`);
+  }
+  check(shoppingGuide.customs_spain?.allowance_eur === 430, 'Guía de compras: franquicia aérea española desactualizada');
+  check((shoppingGuide.customs_spain?.examples ?? []).length >= 4, 'Guía de compras: faltan ejemplos de aduanas');
+  for (const source of [...(shoppingGuide.sources ?? []), ...(shoppingGuide.tax_free?.sources ?? []), ...(shoppingGuide.customs_spain?.sources ?? [])]) {
+    check(Boolean(source.name) && isHttpUrl(source.url), 'Guía de compras: fuente inválida');
+  }
+
+  return { errors, counts: { days: days.length, pois: pois.length, restaurants: restaurants.length, alerts: alerts.length, hotelAccess: coveredHotelIds.size, phrases: phraseData.items?.length ?? 0, preparation: preparationTasks.length, culturalTopics: culturalTopics.length, shoppingStores: shoppingStores.length } };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
