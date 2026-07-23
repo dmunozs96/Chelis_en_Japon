@@ -8,11 +8,15 @@
     "start": "node server/index.js",
     "dev": "concurrently -n client,server -c cyan,yellow \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
     "validate:data": "node scripts/validate-data.mjs",
+    "validate:visual": "node scripts/validate-visual-library.mjs",
+    "qa:visual": "node scripts/visual-qa.mjs",
+    "qa:offline": "node scripts/offline-qa.mjs",
     "test": "node --test scripts/*.test.mjs",
     "check": "npm run validate:data && npm test && npm run build"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "playwright-core": "^1.61.1"
   },
   "engines": {
     "node": ">=18.0.0"

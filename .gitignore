@@ -4,6 +4,7 @@ Thumbs.db
 
 # Node (para cuando arranque el proyecto web)
 node_modules/
+V2.5_QA/chrome-lighthouse-profile/
 data/restaurant_candidates.json
 dist/
 .env

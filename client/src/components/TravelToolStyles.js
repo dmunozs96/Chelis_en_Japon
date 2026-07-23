@@ -1,7 +1,8 @@
 export const TRAVEL_TOOL_STYLES = `
+.travel-tool__back,.travel-source{min-height:44px}.travel-source{display:flex;align-items:center}
 .travel-tool{position:fixed;inset:0;z-index:260;max-width:var(--shell-max);margin:0 auto;background:var(--ink-950);overflow-y:auto}
 .travel-tool__nav{position:sticky;top:0;z-index:5;height:calc(56px + env(safe-area-inset-top));display:flex;align-items:center;padding:env(safe-area-inset-top) var(--page-padding) 0;border-bottom:1px solid var(--separator);background:rgb(13 14 16 / 94%)}
-.travel-tool__back{display:inline-flex;min-width:72px;min-height:40px;padding:8px 0;align-items:center;gap:6px;border:0;background:none;color:var(--paper-100);font:650 13px var(--font);cursor:pointer}
+.travel-tool__back{display:inline-flex;min-width:72px;min-height:44px;padding:8px 0;align-items:center;gap:6px;border:0;background:none;color:var(--paper-100);font:650 13px var(--font);cursor:pointer}
 .travel-tool__title{flex:1;margin-right:72px;color:var(--paper-100);font-family:var(--font-display);font-size:16px;font-weight:600;text-align:center}
 .travel-tool__body{display:flex;padding:20px var(--page-padding) 40px;flex-direction:column;gap:0}
 .travel-tool__intro{padding:0 0 24px;color:var(--stone-500);font-size:14px;line-height:1.55}

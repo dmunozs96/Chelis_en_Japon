@@ -482,7 +482,7 @@ const STYLES = `
 .day-hero__title { max-width:300px; font-size:clamp(24px,7vw,32px); letter-spacing:-.04em; line-height:1.02; }
 .day-hero__date { margin-top:7px; color:var(--paper-300); font-size:13px; text-transform:capitalize; }
 .day-hero__actions { display:flex; margin-top:14px; gap:8px; }
-.day-hero__action { display:inline-flex; min-height:38px; padding:8px 12px; align-items:center; gap:7px; border:1px solid rgb(241 237 229 / 24%); border-radius:var(--radius-btn); background:rgb(8 9 10 / 68%); color:var(--paper-100); font-size:13px; font-weight:650; }
+.day-hero__action { display:inline-flex; min-height:44px; padding:8px 12px; align-items:center; gap:7px; border:1px solid rgb(241 237 229 / 24%); border-radius:var(--radius-btn); background:rgb(8 9 10 / 68%); color:var(--paper-100); font-size:13px; font-weight:650; }
 .today-view > .now-card { margin-bottom:28px; }
 .today-route { padding:24px 0 4px; border-top:1px solid var(--separator); }
 .today-route__label { margin-bottom:24px; color:var(--paper-300); font-size:10px; font-weight:750; letter-spacing:.14em; text-transform:uppercase; }

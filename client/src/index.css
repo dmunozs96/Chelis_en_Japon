@@ -17,6 +17,8 @@
   --amber-500: #d7a054;
   --signal-500: #e05a5a;
   --titanium-400: #a7a39b;
+  --champagne-400: #c5ae83;
+  --sky-400: #8eacc3;
 
   /* Compatibility aliases while views migrate component by component. */
   --bg-primary: var(--ink-1000);
@@ -35,6 +37,7 @@
 
   --font-display: "Inter Tight", "Arial Narrow", system-ui, sans-serif;
   --font: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-editorial: Newsreader, Georgia, "Times New Roman", serif;
   --radius-chip: 6px;
   --radius-btn: 10px;
   --radius-card: 14px;
@@ -72,7 +75,9 @@ body {
   min-height: 100dvh;
   overflow-x: hidden;
   overscroll-behavior: none;
-  background: var(--ink-1000);
+  background:
+    radial-gradient(circle at 50% -10%, rgb(197 174 131 / 8%), transparent 34rem),
+    var(--ink-1000);
   color: var(--paper-100);
   font-family: var(--font);
   font-synthesis: none;
@@ -81,6 +86,11 @@ body {
 
 button, input, textarea, select {
   font: inherit;
+}
+
+button,
+[role="button"] {
+  min-height: 44px;
 }
 
 button, a {
@@ -200,8 +210,29 @@ h1, h2, h3, h4, h5, h6 {
   min-height: 100dvh;
   margin: 0 auto;
   flex-direction: column;
-  background: var(--ink-950);
+  background:
+    linear-gradient(115deg, transparent 0 48%, rgb(255 255 255 / 1.2%) 49%, transparent 50%),
+    var(--ink-950);
   border-inline: 1px solid rgb(241 237 229 / 5%);
+}
+
+.editorial-copy {
+  font-family: var(--font-editorial);
+  font-weight: 450;
+}
+
+@keyframes ambient-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .main-content > * { animation: ambient-in var(--duration-page) var(--ease) both; }
+}
+
+@media (prefers-contrast: more) {
+  body, .app-shell { background: var(--ink-1000); }
+  :root { --separator: rgb(241 237 229 / 28%); }
 }
 
 .main-content {

@@ -163,6 +163,8 @@ const STYLES = `
   line-height: 1.5;
   border: 1px solid var(--glass-border);
 }
+.poi-gallery{display:grid;grid-template-columns:1.35fr .85fr;grid-template-rows:112px 112px;gap:7px}.poi-gallery figure{position:relative;overflow:hidden;border-radius:10px;background:var(--ink-900)}.poi-gallery figure:first-child{grid-row:1/3}.poi-gallery img{width:100%;height:100%;object-fit:cover;display:block}.poi-gallery figcaption{position:absolute;right:7px;bottom:6px;padding:3px 5px;border-radius:4px;background:rgb(7 8 9 / 72%);color:var(--paper-300);font-size:8px;letter-spacing:.08em;text-transform:uppercase}
+.poi-nav__back,.poi-nav__map-btn{min-height:44px}.poi-source a{display:inline-flex;min-height:44px;align-items:center}
 
 .poi-description p {
   font-size: 15px;
@@ -267,7 +269,7 @@ const STYLES = `
 .poi-nav__back,
 .poi-nav__map-btn {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 44px;
   padding: 8px 10px;
   align-items: center;
   gap: 6px;
@@ -481,6 +483,8 @@ function ImageWithFallback({ imageUrl, poiId, altText }) {
   );
 }
 
+const GALLERY_POIS = new Set(['sensoji','fushimi-inari','kiyomizudera','arashiyama','kinkakuji','genbaku-dome','dotonbori','osaka-castle']);
+
 export default function POIDetailView({ poi, onBack, onOpenMap }) {
   if (!poi) {
     return (
@@ -546,6 +550,15 @@ export default function POIDetailView({ poi, onBack, onOpenMap }) {
             <section className="poi-lead">
               <div className="poi-section-label">Por qué importa</div>
               <div className="poi-significance">{poi.significance}</div>
+            </section>
+          )}
+
+          {GALLERY_POIS.has(poi.id) && (
+            <section aria-labelledby={`gallery-${poi.id}`}>
+              <div className="poi-section-label" id={`gallery-${poi.id}`}>Tres miradas</div>
+              <div className="poi-gallery">
+                {[1, 2, 3].map((number) => <figure key={number}><img src={`/poi-galleries/${poi.id}/${number}.jpg`} alt={`${poi.name}, vista ${number}`} loading={number === 1 ? 'eager' : 'lazy'} /><figcaption>{String(number).padStart(2,'0')}</figcaption></figure>)}
+              </div>
             </section>
           )}
 

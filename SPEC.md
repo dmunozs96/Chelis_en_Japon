@@ -1173,4 +1173,11 @@ Mapa/Leaflet, Compras, Billetes, Planner y POI se cargan mediante chunks diferid
 
 La siguiente iteración visual queda autorizada y definida en `SPEC_V2.5.1_VISUAL.md`. Su objetivo no es solo pulir V2.5, sino elevar belleza, materialidad, fotografía, movimiento y placer de uso sin perder precisión operativa. La nueva especificación prevalece sobre los límites visuales y de peso de V2.5 cuando exista conflicto; mantiene accesibilidad, veracidad y offline crítico.
 
+La implementación técnica de Grand Tour quedó completada el 23 de julio de 2026:
+128 assets raster, ocho galerías POI, nuevas composiciones para Restaurantes,
+Más, Billetes, Clima y Cultura, accesibilidad Lighthouse 100 y QA responsive y
+offline en verde. La aceptación en dos móviles reales y la revisión ciega de
+cinco personas permanecen como gates externos. Evidencia en
+`HANDOVER_29_V2.5.1.md`.
+
 *Última actualización: 2026-07-23 — se adopta SIM ilimitada y prioridad online-first enriquecida; la ligereza pasa a segundo plano sin renunciar al offline crítico. V2.5 visual implementada y QA técnico en verde. Este commit conserva las 62 fichas publicadas; la ampliación profunda permanece pendiente.*

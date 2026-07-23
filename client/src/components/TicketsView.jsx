@@ -534,8 +534,10 @@ const STYLES = `
 }
 .tickets-view{max-width:var(--shell-max);background:var(--ink-950)}.tickets-nav{min-height:calc(56px + env(safe-area-inset-top));padding:env(safe-area-inset-top) var(--page-padding) 0;border-bottom:1px solid var(--separator);background:rgb(13 14 16 / 94%);backdrop-filter:none;-webkit-backdrop-filter:none}.tickets-back{gap:6px;color:var(--paper-100);font-size:13px;font-weight:650}.tickets-nav-title{font-family:var(--font-display);font-weight:600}
 .tickets-scroll{gap:38px;padding-top:24px}.tickets-intro{padding-bottom:4px}.tickets-intro__eyebrow{color:var(--torii-500);font-size:10px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}.tickets-intro h1{margin-top:7px;font-size:38px;letter-spacing:-.05em}.tickets-intro p{margin-top:8px;color:var(--stone-500);font-size:14px}.tickets-section-header{padding:0 0 10px;color:var(--paper-300);font-size:10px;font-weight:750;letter-spacing:.13em}.tickets-cards{gap:0;border-top:1px solid var(--separator)}
+.tickets-scene{position:relative;min-height:244px;margin:0 calc(var(--page-padding) * -1);padding:24px var(--page-padding);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}.tickets-scene img{position:absolute;z-index:-2;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.55) brightness(.58)}.tickets-scene::after{position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,transparent,var(--ink-950));content:""}.tickets-scene .tickets-intro{padding:0}.tickets-scene .tickets-intro__eyebrow{color:var(--champagne-400)}.tickets-scene .tickets-intro p{color:var(--paper-300);font:450 16px/1.35 var(--font-editorial)}
 .flight-card,.hotel-card,.train-card{position:relative;padding:20px 0;border:0!important;border-bottom:1px solid var(--separator)!important;border-radius:0;background:transparent;box-shadow:none}.flight-card{overflow:visible}.flight-card__header{padding:0 0 16px;background:transparent}.flight-card__body{padding:0}.flight-card__number,.flight-route__code,.hotel-card__name,.train-route__line{font-family:var(--font-display);font-weight:600}.flight-route__code{font-size:32px}.flight-ref-value,.hotel-locator-value,.train-reserved-value{font-variant-numeric:tabular-nums}.flight-fare-chip,.hotel-active-chip,.train-status-chip{padding:0;background:transparent}.hotel-active-chip,.train-status-chip--reserved{color:var(--moss-500)}.train-status-chip--pending,.train-window-text{color:var(--amber-500)}.hotel-notes,.train-notes{padding:12px 0;border-top:1px solid var(--separator);border-radius:0;background:transparent}.train-reserve-link{border:1px solid var(--paper-100);background:transparent;color:var(--paper-100)}
 .ticket-document--featured{margin:0 -10px 18px;padding:22px 18px;border:1px solid rgb(167 163 155 / 40%)!important;border-radius:var(--radius-card);background:linear-gradient(145deg,var(--ink-850),var(--ink-900));box-shadow:var(--shadow-card-lg)}.ticket-document--featured::before{display:block;margin-bottom:14px;color:var(--titanium-400);font-size:9px;font-weight:750;letter-spacing:.14em;text-transform:uppercase;content:"Próximo documento"}
+.flight-ref-value,.hotel-address,.hotel-locator-value{display:inline-flex;min-height:44px;align-items:center}.hotel-address{width:100%}.hotel-phone{display:flex;min-height:44px;align-items:center}
 `;
 
 /* ---- Utility: copy to clipboard with brief feedback ---- */
@@ -881,11 +883,11 @@ export default function TicketsView({ onBack }) {
         </div>
 
         <div className="tickets-scroll">
-          <header className="tickets-intro">
-            <div className="tickets-intro__eyebrow">Documentos de viaje</div>
+          <div className="tickets-scene"><img src="/visual-library/transport/shinkansen.jpg" alt="" /><header className="tickets-intro">
+            <div className="tickets-intro__eyebrow">Cartera de viaje</div>
             <h1>Todo a mano</h1>
             <p>Localizadores, horarios y reservas disponibles también sin conexión.</p>
-          </header>
+          </header></div>
           {loading && <div className="tickets-loading">Cargando datos…</div>}
           {error   && <div className="tickets-loading" style={{ color: 'var(--accent)' }}>Error: {error}</div>}
 

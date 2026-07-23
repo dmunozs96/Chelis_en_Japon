@@ -1,0 +1,11 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+body{margin:0;padding:24px;background:#0d0e10;color:#f3eee5;font:14px Arial}h2{margin:20px 0 8px;color:#c5ae83}
+.grid{display:grid;grid-template-columns:repeat(3,240px);gap:8px}.grid img{width:240px;height:180px;object-fit:cover;background:#222}
+</style>
+<div id="root"></div>
+<script>
+const ids=['sensoji','fushimi-inari','kiyomizudera','arashiyama','kinkakuji','genbaku-dome','dotonbori','osaka-castle'];
+root.innerHTML=ids.map(id=>`<h2>${id}</h2><div class="grid">${[1,2,3].map(n=>`<img src="../client/public/poi-galleries/${id}/${n}.jpg" alt="${id} ${n}">`).join('')}</div>`).join('');
+</script>

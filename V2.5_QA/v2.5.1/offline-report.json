@@ -1,0 +1,22 @@
+[
+  {
+    "route": "/billetes",
+    "ok": true,
+    "detail": "200 · 3566 caracteres"
+  },
+  {
+    "route": "/viaje/2026-08-17",
+    "ok": true,
+    "detail": "200 · 821 caracteres"
+  },
+  {
+    "route": "/herramienta/phrases",
+    "ok": true,
+    "detail": "200 · 625 caracteres"
+  },
+  {
+    "route": "/herramienta/emergency",
+    "ok": true,
+    "detail": "200 · 917 caracteres"
+  }
+]

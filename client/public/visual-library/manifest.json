@@ -1,0 +1,1050 @@
+{
+  "generated_at": "2026-07-23T18:10:07.837Z",
+  "reuse_notice": "Revisar autor y licencia de cada entrada antes de redistribuir. Las imágenes se sirven sin texto editorial incorporado.",
+  "count": 53,
+  "images": [
+    {
+      "id": "sushi",
+      "category": "food",
+      "file": "/visual-library/food/sushi.jpg",
+      "subject": "Sushi",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_platter.jpg/1280px-Sushi_platter.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Sushi",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Sushi_platter.jpg",
+      "author": "chidorian from Japan",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "credit": "Flickr",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Sushi"
+    },
+    {
+      "id": "ramen",
+      "category": "food",
+      "file": "/visual-library/food/ramen.jpg",
+      "subject": "Ramen",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg/1280px-Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Ramen",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg",
+      "author": "Quercus acuta",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Ramen"
+    },
+    {
+      "id": "udon",
+      "category": "food",
+      "file": "/visual-library/food/udon.jpg",
+      "subject": "Udon",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/%E9%B6%8F%E5%A4%A9%E3%81%AE%E3%81%86%E3%81%A9%E3%82%93.jpg/1280px-%E9%B6%8F%E5%A4%A9%E3%81%AE%E3%81%86%E3%81%A9%E3%82%93.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Udon",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:%E9%B6%8F%E5%A4%A9%E3%81%AE%E3%81%86%E3%81%A9%E3%82%93.jpg",
+      "author": "加茂川の民",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Udon"
+    },
+    {
+      "id": "soba",
+      "category": "food",
+      "file": "/visual-library/food/soba.jpg",
+      "subject": "Soba",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Dried_soba_noodles_by_FotoosVanRobin.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Soba",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Dried_soba_noodles_by_FotoosVanRobin.jpg",
+      "author": "FotoosVanRobin",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "credit": "Flickr",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Soba"
+    },
+    {
+      "id": "yakitori",
+      "category": "food",
+      "file": "/visual-library/food/yakitori.jpg",
+      "subject": "Yakitori",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Cooking_yakitori.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Yakitori",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Cooking_yakitori.jpg",
+      "author": "竹麦魚(Searobin)",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Yakitori"
+    },
+    {
+      "id": "takoyaki",
+      "category": "food",
+      "file": "/visual-library/food/takoyaki.jpg",
+      "subject": "Takoyaki",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%A8%E3%83%9D%E3%83%B3%E9%85%A2%E3%81%AE%E3%81%9F%E3%81%93%E7%84%BC%E3%81%8D.jpg/1280px-%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%A8%E3%83%9D%E3%83%B3%E9%85%A2%E3%81%AE%E3%81%9F%E3%81%93%E7%84%BC%E3%81%8D.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Takoyaki",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:%E3%82%BD%E3%83%BC%E3%82%B9%E3%81%A8%E3%83%9D%E3%83%B3%E9%85%A2%E3%81%AE%E3%81%9F%E3%81%93%E7%84%BC%E3%81%8D.jpg",
+      "author": "加茂川の民",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Takoyaki"
+    },
+    {
+      "id": "kaiseki",
+      "category": "food",
+      "file": "/visual-library/food/kaiseki.jpg",
+      "subject": "Kaiseki",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Jisaku_Kaiseki_Ryori_01.jpg/1280px-Jisaku_Kaiseki_Ryori_01.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Kaiseki",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Jisaku_Kaiseki_Ryori_01.jpg",
+      "author": "Autor indicado en Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "credit": "",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Kaiseki"
+    },
+    {
+      "id": "sukiyaki",
+      "category": "food",
+      "file": "/visual-library/food/sukiyaki.jpg",
+      "subject": "Sukiyaki",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Sukiyaki_01.jpg/1280px-Sukiyaki_01.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Sukiyaki",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Sukiyaki_01.jpg",
+      "author": "ajari",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "https://www.flickr.com/photos/ajari/2354169886/",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Sukiyaki"
+    },
+    {
+      "id": "shabu-shabu",
+      "category": "food",
+      "file": "/visual-library/food/shabu-shabu.jpg",
+      "subject": "Shabu-shabu",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Shabu-shabu-01.jpg/1280px-Shabu-shabu-01.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Shabu-shabu",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Shabu-shabu-01.jpg",
+      "author": "jimg944",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "DSC21913, Shabu-Shabu Dinner, Kyoto, Japan auf flickr",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Shabu-shabu"
+    },
+    {
+      "id": "onigiri",
+      "category": "food",
+      "file": "/visual-library/food/onigiri.jpg",
+      "subject": "Onigiri",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/4/43/%E5%B0%8F%E6%96%99%E7%90%86%E3%83%90%E3%83%AB%E3%81%95%E3%81%8F%E3%82%89_%E7%89%B9%E8%A3%BD%E3%81%8A%E3%81%AB%E3%81%8E%E3%82%8A.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Onigiri",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:%E5%B0%8F%E6%96%99%E7%90%86%E3%83%90%E3%83%AB%E3%81%95%E3%81%8F%E3%82%89_%E7%89%B9%E8%A3%BD%E3%81%8A%E3%81%AB%E3%81%8E%E3%82%8A.jpg",
+      "author": "脇山航",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Onigiri"
+    },
+    {
+      "id": "gyoza",
+      "category": "food",
+      "file": "/visual-library/food/gyoza.jpg",
+      "subject": "Jiaozi",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/%E5%8F%B0%E7%81%A3%E5%8D%97%E6%8A%95%E8%8D%89%E5%B1%AF%E6%B0%B4%E9%A4%83Nantou%2C_Taiwan_Caotun_dumplings.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Jiaozi",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E7%81%A3%E5%8D%97%E6%8A%95%E8%8D%89%E5%B1%AF%E6%B0%B4%E9%A4%83Nantou,_Taiwan_Caotun_dumplings.jpg",
+      "author": "Yeepunchmen",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Jiaozi"
+    },
+    {
+      "id": "curry-rice",
+      "category": "food",
+      "file": "/visual-library/food/curry-rice.jpg",
+      "subject": "Japanese curry",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Beef_curry_rice_003.jpg/1280px-Beef_curry_rice_003.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Japanese_curry",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Beef_curry_rice_003.jpg",
+      "author": "Ocdp",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Japanese curry"
+    },
+    {
+      "id": "matcha",
+      "category": "food",
+      "file": "/visual-library/food/matcha.jpg",
+      "subject": "Matcha",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Matcha_Scoop.jpg/1280px-Matcha_Scoop.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Matcha",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Matcha_Scoop.jpg",
+      "author": "Evanhoever",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Matcha"
+    },
+    {
+      "id": "kissaten",
+      "category": "food",
+      "file": "/visual-library/food/kissaten.jpg",
+      "subject": "Kissaten",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Cafe_by_Koichi_Suzuki_in_Kanda-Jinbocho%2C_Tokyo.jpg/1280px-Cafe_by_Koichi_Suzuki_in_Kanda-Jinbocho%2C_Tokyo.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Kissaten",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Cafe_by_Koichi_Suzuki_in_Kanda-Jinbocho,_Tokyo.jpg",
+      "author": "Koichi Suzuki",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "本屋さんの町の喫茶店",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Kissaten"
+    },
+    {
+      "id": "donburi",
+      "category": "food",
+      "file": "/visual-library/food/donburi.jpg",
+      "subject": "Donburi",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Gyudon_by_jetalone_in_Higashi-Ginza%2C_Tokyo.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Donburi",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Gyudon_by_jetalone_in_Higashi-Ginza,_Tokyo.jpg",
+      "author": "jetalone from Higashi-Ginza, Tokyo",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "Flickr",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Donburi"
+    },
+    {
+      "id": "mochi",
+      "category": "food",
+      "file": "/visual-library/food/mochi.jpg",
+      "subject": "Mochi",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Mochi_002.jpg/1280px-Mochi_002.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Mochi",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Mochi_002.jpg",
+      "author": "Kropsoq",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "credit": "photo taken by Kropsoq",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Mochi"
+    },
+    {
+      "id": "kushikatsu",
+      "category": "food",
+      "file": "/visual-library/food/kushikatsu.jpg",
+      "subject": "Kushikatsu",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/KushikatsuDaruma01.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Kushikatsu",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:KushikatsuDaruma01.jpg",
+      "author": "Aiko99ann",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "credit": "http://wikitravel.org/shared/File:KushikatsuDaruma01.jpg",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Kushikatsu"
+    },
+    {
+      "id": "shinkansen",
+      "category": "transport",
+      "file": "/visual-library/transport/shinkansen.jpg",
+      "subject": "Shinkansen",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Shinkansen_map_202405_en.png/1280px-Shinkansen_map_202405_en.png",
+      "article_url": "https://en.wikipedia.org/wiki/Shinkansen",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Shinkansen_map_202405_en.png",
+      "author": "Texent",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "transport"
+      ],
+      "alt": "Shinkansen"
+    },
+    {
+      "id": "n700-series",
+      "category": "transport",
+      "file": "/visual-library/transport/n700-series.jpg",
+      "subject": "N700 Series Shinkansen",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/JRC_N700_series_Z28.jpg/1280px-JRC_N700_series_Z28.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/N700_Series_Shinkansen",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:JRC_N700_series_Z28.jpg",
+      "author": "Mitsuki-2368",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "transport"
+      ],
+      "alt": "N700 Series Shinkansen"
+    },
+    {
+      "id": "tempura",
+      "category": "food",
+      "file": "/visual-library/food/tempura.jpg",
+      "subject": "Tempura",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Tempura_01.jpg/1280px-Tempura_01.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Tempura",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Tempura_01.jpg",
+      "author": "Yaco*",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "https://www.flickr.com/photos/yacoco/8055851506/",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Tempura"
+    },
+    {
+      "id": "taiyaki",
+      "category": "food",
+      "file": "/visual-library/food/taiyaki.jpg",
+      "subject": "Taiyaki",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Taiyaki_003.jpg/1280px-Taiyaki_003.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Taiyaki",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Taiyaki_003.jpg",
+      "author": "Ocdp",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Taiyaki"
+    },
+    {
+      "id": "yakiniku",
+      "category": "food",
+      "file": "/visual-library/food/yakiniku.jpg",
+      "subject": "Yakiniku",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Yakiniku_002.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Yakiniku",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Yakiniku_002.jpg",
+      "author": "Jonathan Lin",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "credit": "https://www.flickr.com/photos/jonolist/8464286370/",
+      "allowed_contexts": [
+        "food"
+      ],
+      "alt": "Yakiniku"
+    },
+    {
+      "id": "kyoto-station",
+      "category": "transport",
+      "file": "/visual-library/transport/kyoto-station.jpg",
+      "subject": "Kyoto Station",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Kyoto-STA_Central.jpg/1280px-Kyoto-STA_Central.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Ky%C5%8Dto_Station",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Kyoto-STA_Central.jpg",
+      "author": "MaedaAkihiko",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "transport"
+      ],
+      "alt": "Kyoto Station"
+    },
+    {
+      "id": "haneda-airport",
+      "category": "transport",
+      "file": "/visual-library/transport/haneda-airport.jpg",
+      "subject": "Haneda Airport",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/All_haneda.jpg/1280px-All_haneda.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Haneda_Airport",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:All_haneda.jpg",
+      "author": "ブルーノ・プラス",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "transport"
+      ],
+      "alt": "Haneda Airport"
+    },
+    {
+      "id": "narita-airport",
+      "category": "transport",
+      "file": "/visual-library/transport/narita-airport.jpg",
+      "subject": "Narita International Airport",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Narita_Nemzetk%C3%B6zi_Rep%C3%BCl%C5%91t%C3%A9r.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Narita_International_Airport",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Narita_Nemzetk%C3%B6zi_Rep%C3%BCl%C5%91t%C3%A9r.jpg",
+      "author": "Petra.G09",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "transport"
+      ],
+      "alt": "Narita International Airport"
+    },
+    {
+      "id": "romancecar",
+      "category": "transport",
+      "file": "/visual-library/transport/romancecar.jpg",
+      "subject": "Odakyu Romancecar",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Model_3000_SE_of_Odakyu_Electric_Railway.JPG/1280px-Model_3000_SE_of_Odakyu_Electric_Railway.JPG",
+      "article_url": "https://en.wikipedia.org/wiki/Romancecar",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Model_3000_SE_of_Odakyu_Electric_Railway.JPG",
+      "author": "Lover of Romance",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "transport"
+      ],
+      "alt": "Odakyu Romancecar"
+    },
+    {
+      "id": "hakone-ropeway",
+      "category": "transport",
+      "file": "/visual-library/transport/hakone-ropeway.jpg",
+      "subject": "Hakone Ropeway",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Hakone_ropeway_%28cropped%29.jpg/1280px-Hakone_ropeway_%28cropped%29.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Hakone_Ropeway",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Hakone_ropeway_(cropped).jpg",
+      "author": "Ikusuki",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "Hakone ropeway",
+      "allowed_contexts": [
+        "transport"
+      ],
+      "alt": "Hakone Ropeway"
+    },
+    {
+      "id": "osaka-metro",
+      "category": "transport",
+      "file": "/visual-library/transport/osaka-metro.jpg",
+      "subject": "Osaka Metro",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Osaka-Metro_Series400-409-01.jpg/1280px-Osaka-Metro_Series400-409-01.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Osaka_Metro",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Osaka-Metro_Series400-409-01.jpg",
+      "author": "MaedaAkihiko",
+      "license": "CC0",
+      "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "transport"
+      ],
+      "alt": "Osaka Metro"
+    },
+    {
+      "id": "suica",
+      "category": "transport",
+      "file": "/visual-library/transport/suica.jpg",
+      "subject": "Suica",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/4/46/Suica_card_tap.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Suica",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Suica_card_tap.jpg",
+      "author": "タチヤマカムイ",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "transport"
+      ],
+      "alt": "Suica"
+    },
+    {
+      "id": "kabuki",
+      "category": "culture",
+      "file": "/visual-library/culture/kabuki.jpg",
+      "subject": "Kabuki",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Kikugor%C5%8D_Onoe_VI_as_Ume%C5%8D-maru.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Kabuki",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Kikugor%C5%8D_Onoe_VI_as_Ume%C5%8D-maru.jpg",
+      "author": "Unknown authorUnknown author",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Kikugor%C5%8D_Onoe_VI_as_Ume%C5%8D-maru.jpg",
+      "credit": "http://www2.ntj.jac.go.jp/dglib/exp2/w/187.html",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Kabuki"
+    },
+    {
+      "id": "noren",
+      "category": "culture",
+      "file": "/visual-library/culture/noren.jpg",
+      "subject": "Noren",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Fabric_shop_in_Nara.jpg/1280px-Fabric_shop_in_Nara.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Noren",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Fabric_shop_in_Nara.jpg",
+      "author": "user:Amagase",
+      "license": "CC BY-SA 2.5",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.5",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Noren"
+    },
+    {
+      "id": "omikuji",
+      "category": "culture",
+      "file": "/visual-library/culture/omikuji.jpg",
+      "subject": "O-mikuji",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Omikuji.jpg/1280px-Omikuji.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/O-mikuji",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Omikuji.jpg",
+      "author": "C121749n",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Omikuji.jpg",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "O-mikuji"
+    },
+    {
+      "id": "goshuin",
+      "category": "culture",
+      "file": "/visual-library/culture/goshuin.jpg",
+      "subject": "Goshuin",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Sikoku_88_kakeziku.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Shuin",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Sikoku_88_kakeziku.jpg",
+      "author": "Dokudami",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Goshuin"
+    },
+    {
+      "id": "yukata",
+      "category": "culture",
+      "file": "/visual-library/culture/yukata.jpg",
+      "subject": "Yukata",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Himeji_Yukata_Matsuri_2009p1_006.jpg/1280px-Himeji_Yukata_Matsuri_2009p1_006.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Yukata",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Himeji_Yukata_Matsuri_2009p1_006.jpg",
+      "author": "Corpse Reviver",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Yukata"
+    },
+    {
+      "id": "kimono",
+      "category": "culture",
+      "file": "/visual-library/culture/kimono.jpg",
+      "subject": "Kimono",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Young_Woman_at_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_01_%2847929418887%29.jpg/1280px-Young_Woman_at_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_01_%2847929418887%29.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Kimono",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Young_Woman_at_Kennin-ji_Zen_Temple_-_Kyoto_-_Japan_-_01_(47929418887).jpg",
+      "author": "Adam Jones from Kelowna, BC, Canada",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "credit": "Young Woman at Kennin-ji Zen Temple - Kyoto - Japan - 01",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Kimono"
+    },
+    {
+      "id": "japanese-garden",
+      "category": "culture",
+      "file": "/visual-library/culture/japanese-garden.jpg",
+      "subject": "Japanese garden",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Saihouji-kokedera01.jpg/1280px-Saihouji-kokedera01.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Japanese_garden",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Saihouji-kokedera01.jpg",
+      "author": "Ivanoff~commonswiki",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "credit": "Self-photographed",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Japanese garden"
+    },
+    {
+      "id": "torii",
+      "category": "culture",
+      "file": "/visual-library/culture/torii.jpg",
+      "subject": "Torii",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/ItsukushimaTorii7379.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Torii",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:ItsukushimaTorii7379.jpg",
+      "author": "No machine-readable author provided. Fg2 assumed (based on copyright claims).",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:ItsukushimaTorii7379.jpg",
+      "credit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Torii"
+    },
+    {
+      "id": "chochin",
+      "category": "culture",
+      "file": "/visual-library/culture/chochin.jpg",
+      "subject": "Chōchin",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Japanese_Lantern_Makers.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Traditional_lighting_equipment_of_Japan",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Japanese_Lantern_Makers.jpg",
+      "author": "T. Enami",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Japanese_Lantern_Makers.jpg",
+      "credit": "https://sammlungonline.mkg-hamburg.de/en/object/D100.-Japanese-Lantern-Makers/P1984.390/dc00039934?s=%2A&h=0&f[]=iconography%3ATee-%20und%20Kaffeeservice",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Chōchin"
+    },
+    {
+      "id": "ukiyo-e",
+      "category": "culture",
+      "file": "/visual-library/culture/ukiyo-e.jpg",
+      "subject": "Ukiyo-e",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Shibai_Ukie_by_Masanobu_Okumura.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Ukiyo-e",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Shibai_Ukie_by_Masanobu_Okumura.jpg",
+      "author": "Okumura Masanobu",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Shibai_Ukie_by_Masanobu_Okumura.jpg",
+      "credit": "http://homepage2.nifty.com/tisiruinoe/%89%9C%91%BA%90%AD%90M%8Es%91%BA%8D%C0%83J%83%89%81%5B.gif",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Ukiyo-e"
+    },
+    {
+      "id": "shodo",
+      "category": "culture",
+      "file": "/visual-library/culture/shodo.jpg",
+      "subject": "Japanese calligraphy",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Shod%C5%8D_example.png/1280px-Shod%C5%8D_example.png",
+      "article_url": "https://en.wikipedia.org/wiki/Japanese_calligraphy",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Shod%C5%8D_example.png",
+      "author": "Alteaven",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Japanese calligraphy"
+    },
+    {
+      "id": "onsen",
+      "category": "culture",
+      "file": "/visual-library/culture/onsen.jpg",
+      "subject": "Onsen",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Onsen_in_Nachikatsuura%2C_Japan.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Onsen",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Onsen_in_Nachikatsuura,_Japan.jpg",
+      "author": "Chris 73",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "credit": "Uploaded on commons by Guenny",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Onsen"
+    },
+    {
+      "id": "sentō",
+      "category": "culture",
+      "file": "/visual-library/culture/sentō.jpg",
+      "subject": "Sentō",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kodakara-yu.jpg/1280px-Kodakara-yu.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Sent%C5%8D",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Kodakara-yu.jpg",
+      "author": "Wiiii",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Sentō"
+    },
+    {
+      "id": "bamboo-forest",
+      "category": "culture",
+      "file": "/visual-library/culture/bamboo-forest.jpg",
+      "subject": "Bamboo forest",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Bambusoideae-china.JPG/1280px-Bambusoideae-china.JPG",
+      "article_url": "https://en.wikipedia.org/wiki/Bamboo_forest",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Bambusoideae-china.JPG",
+      "author": "Autor indicado en Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "credit": "",
+      "allowed_contexts": [
+        "culture"
+      ],
+      "alt": "Bamboo forest"
+    },
+    {
+      "id": "citizen-watch",
+      "category": "objects",
+      "file": "/visual-library/objects/citizen-watch.jpg",
+      "subject": "Citizen Watch",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Citizen-tanashi.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Citizen_Watch",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Citizen-tanashi.jpg",
+      "author": "Original uploader was To-emon at ja.wikipedia",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "credit": "Originally from ja.wikipedia; description page is/was here.",
+      "allowed_contexts": [
+        "objects"
+      ],
+      "alt": "Citizen Watch"
+    },
+    {
+      "id": "japanese-knife",
+      "category": "objects",
+      "file": "/visual-library/objects/japanese-knife.jpg",
+      "subject": "Japanese kitchen knife",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Japonese_knife_Tokyo_%28willem%21%29.jpg/1280px-Japonese_knife_Tokyo_%28willem%21%29.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Japanese_kitchen_knife",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Japonese_knife_Tokyo_(willem!).jpg",
+      "author": "Photo courtesy of:\n\nwillem!",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "Photo can be found at:\n\nhttps://www.flickr.com/photos/wimdejong/2400389455/in/set-72157604453513440/",
+      "allowed_contexts": [
+        "objects"
+      ],
+      "alt": "Japanese kitchen knife"
+    },
+    {
+      "id": "furoshiki",
+      "category": "objects",
+      "file": "/visual-library/objects/furoshiki.jpg",
+      "subject": "Furoshiki",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Traditional_Japanese_wrapping_cloth%2Churoshiki%2Ckatori-city%2Cjapan.JPG/1280px-Traditional_Japanese_wrapping_cloth%2Churoshiki%2Ckatori-city%2Cjapan.JPG",
+      "article_url": "https://en.wikipedia.org/wiki/Furoshiki",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Traditional_Japanese_wrapping_cloth,huroshiki,katori-city,japan.JPG",
+      "author": "katorisi",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "objects"
+      ],
+      "alt": "Furoshiki"
+    },
+    {
+      "id": "tenugui",
+      "category": "objects",
+      "file": "/visual-library/objects/tenugui.jpg",
+      "subject": "Tenugui",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/%E6%A5%B5%E5%A6%BB_%281263148304%29.jpg/1280px-%E6%A5%B5%E5%A6%BB_%281263148304%29.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Tenugui",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:%E6%A5%B5%E5%A6%BB_(1263148304).jpg",
+      "author": "ma_shimaro",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "credit": "RIMG0109",
+      "allowed_contexts": [
+        "objects"
+      ],
+      "alt": "Tenugui"
+    },
+    {
+      "id": "maneki-neko",
+      "category": "objects",
+      "file": "/visual-library/objects/maneki-neko.jpg",
+      "subject": "Maneki-neko",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Manekineko1003.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Maneki-neko",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Manekineko1003.jpg",
+      "author": "Autor indicado en Wikimedia Commons",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Manekineko1003.jpg",
+      "credit": "",
+      "allowed_contexts": [
+        "objects"
+      ],
+      "alt": "Maneki-neko"
+    },
+    {
+      "id": "daruma",
+      "category": "objects",
+      "file": "/visual-library/objects/daruma.jpg",
+      "subject": "Daruma doll",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Daruma_doll%2C_cut_out%2C_03.jpg/1280px-Daruma_doll%2C_cut_out%2C_03.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Daruma_doll",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Daruma_doll,_cut_out,_03.jpg",
+      "author": "Crisco 1492",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Daruma_doll,_cut_out,_03.jpg",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "objects"
+      ],
+      "alt": "Daruma doll"
+    },
+    {
+      "id": "japanese-ceramics",
+      "category": "objects",
+      "file": "/visual-library/objects/japanese-ceramics.jpg",
+      "subject": "Japanese pottery and porcelain",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Hon%27ami_Koetsu_Fujisan_1.jpg/1280px-Hon%27ami_Koetsu_Fujisan_1.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Japanese_pottery_and_porcelain",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Hon%27ami_Koetsu_Fujisan_1.jpg",
+      "author": "retouch: Qurren (talk).",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File:Hon%27ami_Koetsu_Fujisan_1.jpg",
+      "credit": "This image is available from the website of the National Diet Library",
+      "allowed_contexts": [
+        "objects"
+      ],
+      "alt": "Japanese pottery and porcelain"
+    },
+    {
+      "id": "japanese-lacquerware",
+      "category": "objects",
+      "file": "/visual-library/objects/japanese-lacquerware.jpg",
+      "subject": "Japanese lacquerware",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Writing_Box_Yatsuhashi_bridge_design.jpg/1280px-Writing_Box_Yatsuhashi_bridge_design.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Japanese_lacquerware",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Writing_Box_Yatsuhashi_bridge_design.jpg",
+      "author": "Tokyo National Museum",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0",
+      "credit": "ColBase: Integrated Collections Database of the National Museums, Japan:  online database:  entry  tnm/H-86",
+      "allowed_contexts": [
+        "objects"
+      ],
+      "alt": "Japanese lacquerware"
+    },
+    {
+      "id": "japanese-maple",
+      "category": "nature",
+      "file": "/visual-library/nature/japanese-maple.jpg",
+      "subject": "Acer palmatum",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Acer_palmatum0.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Acer_palmatum",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Acer_palmatum0.jpg",
+      "author": "Kurt Stüber [1]",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "credit": "caliban.mpiz-koeln.mpg.de/mavica/index.html part of www.biolib.de",
+      "allowed_contexts": [
+        "nature"
+      ],
+      "alt": "Acer palmatum"
+    },
+    {
+      "id": "bamboo",
+      "category": "nature",
+      "file": "/visual-library/nature/bamboo.jpg",
+      "subject": "Bamboo",
+      "download_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Bamboo_forest.jpg",
+      "article_url": "https://en.wikipedia.org/wiki/Bamboo",
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Bamboo_forest.jpg",
+      "author": "Kamakura",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "credit": "Own work",
+      "allowed_contexts": [
+        "nature"
+      ],
+      "alt": "Bamboo"
+    }
+  ],
+  "failures": [
+    {
+      "id": "tonkatsu",
+      "article": "Tonkatsu",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "okonomiyaki",
+      "article": "Okonomiyaki",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "unagi",
+      "article": "Unagi",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "bento",
+      "article": "Bento",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "wagashi",
+      "article": "Wagashi",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "izakaya",
+      "article": "Izakaya",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "depachika",
+      "article": "Depachika",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "toyosu-market",
+      "article": "Toyosu Market",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "kuromon-market",
+      "article": "Kuromon Ichiba Market",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "tea-ceremony",
+      "article": "Japanese tea ceremony",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "sake",
+      "article": "Sake",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "omurice",
+      "article": "Omurice",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "hiroshima-okonomiyaki",
+      "article": "Hiroshima-style okonomiyaki",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "tokyo-station",
+      "article": "Tokyo Station",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "shinjuku-station",
+      "article": "Shinjuku Station",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "hiroden",
+      "article": "Hiroden",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "tokaido-shinkansen",
+      "article": "Tokaido Shinkansen",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "ema",
+      "article": "Ema (Shinto)",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "machiya",
+      "article": "Machiya",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "shotengai",
+      "article": "Shōtengai",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "kintsugi",
+      "article": "Kintsugi",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "tatami",
+      "article": "Tatami",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "ryokan",
+      "article": "Ryokan",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "seiko",
+      "article": "Seiko",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "fountain-pen",
+      "article": "Fountain pen",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "mount-fuji",
+      "article": "Mount Fuji",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "lake-ashi",
+      "article": "Lake Ashi",
+      "error": "sin imagen principal verificable"
+    },
+    {
+      "id": "summer-japan",
+      "article": "Climate of Japan",
+      "error": "sin imagen principal verificable"
+    }
+  ]
+}

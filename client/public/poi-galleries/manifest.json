@@ -1,0 +1,189 @@
+{
+  "generated_at": "2026-07-23T18:14:07.922Z",
+  "galleries": {
+    "sensoji": [
+      {
+        "file": "/poi-galleries/sensoji/1.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:20100725_Tokyo_Five-storied_Pagoda_Sensoji_5379.jpg",
+        "author": "Jakub Hałun",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "file": "/poi-galleries/sensoji/2.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Sensoji_temple_tokyo.jpg",
+        "author": "Hyppolyte de Saint-Rambert",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "file": "/poi-galleries/sensoji/3.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Sensoji_Temple_in_Tokyo.jpg",
+        "author": "AugustGresh",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "fushimi-inari": [
+      {
+        "file": "/poi-galleries/fushimi-inari/1.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:KyotoFushimiInariLarge.jpg",
+        "author": "Paul Vlaar",
+        "license": "CC BY-SA 3.0",
+        "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "file": "/poi-galleries/fushimi-inari/2.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Inscriptions_on_torii,_Fushimi_Inari_shrine,_Kyoto.jpg",
+        "author": "MichaelMaggs",
+        "license": "CC BY-SA 2.5",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.5"
+      },
+      {
+        "file": "/poi-galleries/fushimi-inari/3.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg",
+        "author": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "kiyomizudera": [
+      {
+        "file": "/poi-galleries/kiyomizudera/1.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg",
+        "author": "Martin Falbisoner",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "file": "/poi-galleries/kiyomizudera/2.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-02.jpg",
+        "author": "Martin Falbisoner",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "file": "/poi-galleries/kiyomizudera/3.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-03.jpg",
+        "author": "Martin Falbisoner",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "arashiyama": [
+      {
+        "file": "/poi-galleries/arashiyama/1.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Bamboo_Grove,_Arashiyama,_Kyoto,_Japan.jpg",
+        "author": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "file": "/poi-galleries/arashiyama/2.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Bamboo_Forest,_Arashiyama,_Kyoto,_Japan.jpg",
+        "author": "Basile Morin",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "file": "/poi-galleries/arashiyama/3.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:2021_Sagano_Bamboo_forest_in_Arashiyama,_Kyoto,_Japan.jpg",
+        "author": "Naokijp",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "kinkakuji": [
+      {
+        "file": "/poi-galleries/kinkakuji/1.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Japan_Kyoto_Kinkakuji_DSC00117.jpg",
+        "author": "David Monniaux",
+        "license": "CC BY-SA 3.0",
+        "license_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+        "file": "/poi-galleries/kinkakuji/2.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Kinkakuji_panorama.jpg",
+        "author": "User:Fbjon",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0"
+      },
+      {
+        "file": "/poi-galleries/kinkakuji/3.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Kinkaku,_the_Golden_Pavilion_of_Kinkakuji,_Kyoto,_Japan.jpg",
+        "author": "Fg2 at English Wikipedia",
+        "license": "Public domain",
+        "license_url": "https://commons.wikimedia.org/wiki/File:Kinkaku,_the_Golden_Pavilion_of_Kinkakuji,_Kyoto,_Japan.jpg"
+      }
+    ],
+    "genbaku-dome": [
+      {
+        "file": "/poi-galleries/genbaku-dome/1.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:A-Bomb_Dome.jpg",
+        "author": "Dan Smith",
+        "license": "CC BY-SA 2.5",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.5"
+      },
+      {
+        "file": "/poi-galleries/genbaku-dome/2.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Atomic_Bomb_Dome,_Hiroshima,_South_view_20190417_1.jpg",
+        "author": "DXR",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "file": "/poi-galleries/genbaku-dome/3.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Atomic_Bomb_Dome,_Hiroshima,_West_view_20190417_2.jpg",
+        "author": "DXR",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "dotonbori": [
+      {
+        "file": "/poi-galleries/dotonbori/1.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Osaka_Dotonbori_Ebisu_Bridge.jpg",
+        "author": "Type specimen",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      {
+        "file": "/poi-galleries/dotonbori/2.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Dotonbori,_Osaka.jpg",
+        "author": "Type specimen",
+        "license": "CC BY-SA 3.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/3.0"
+      },
+      {
+        "file": "/poi-galleries/dotonbori/3.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Dotonbori,_Osaka,_at_night,_November_2016.jpg",
+        "author": "Martin Falbisoner",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "osaka-castle": [
+      {
+        "file": "/poi-galleries/osaka-castle/1.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Exterior_of_Osaka_Castle_(I).jpg",
+        "author": "Ethan Doyle White",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "file": "/poi-galleries/osaka-castle/2.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Exterior_of_Osaka_Castle_(II).jpg",
+        "author": "Ethan Doyle White",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "file": "/poi-galleries/osaka-castle/3.jpg",
+        "commons_url": "https://commons.wikimedia.org/wiki/File:Exterior_of_Osaka_Castle_(III).jpg",
+        "author": "Ethan Doyle White",
+        "license": "CC BY-SA 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ]
+  }
+}

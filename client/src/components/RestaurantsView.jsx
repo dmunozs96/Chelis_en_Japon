@@ -76,6 +76,7 @@ const STYLES = `
   cursor: pointer;
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
+  min-height: 44px;
 }
 
 .rest-chip--active {
@@ -93,7 +94,7 @@ const STYLES = `
 .rest-reset { margin-left: 8px; padding: 0; border: 0; background: none; color: var(--accent); font: 600 12px var(--font); cursor: pointer; }
 .rest-search { width:100%; min-height:44px; padding:0 12px; border:1px solid var(--separator); border-radius:var(--radius-btn); background:var(--ink-900); color:var(--paper-100); }
 .rest-now-bar { display:flex; gap:8px; padding:12px 0; overflow-x:auto; }
-.rest-map-btn { min-height:40px; margin-bottom:10px; padding:0 12px; border:1px solid var(--paper-100); border-radius:var(--radius-btn); background:transparent; color:var(--paper-100); font-size:12px; font-weight:700; }
+.rest-map-btn { min-height:44px; margin-bottom:10px; padding:0 12px; border:1px solid var(--paper-100); border-radius:var(--radius-btn); background:transparent; color:var(--paper-100); font-size:12px; font-weight:700; }
 .rest-location-note { color:var(--stone-500); font-size:11px; line-height:1.4; }
 .rest-card__actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; }
 
@@ -274,11 +275,32 @@ const STYLES = `
 .rest-card__body { margin-top:16px; padding-top:16px; color:var(--paper-300); }
 .rest-card__dish { padding:10px 0; border-bottom:1px solid var(--separator); border-radius:0; background:transparent; }
 .rest-michelin { margin-left:6px; color:var(--paper-300); font-size:10px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }
+.rest-scene{position:relative;min-height:310px;margin:-24px calc(var(--page-padding) * -1) 26px;padding:24px var(--page-padding);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate}.rest-scene__image{position:absolute;z-index:-2;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 64%;filter:saturate(.78) contrast(1.06) brightness(.63)}.rest-scene::after{position:absolute;z-index:-1;inset:0;background:linear-gradient(180deg,rgb(7 8 9 / 8%),rgb(7 8 9 / 20%) 30%,var(--ink-950) 98%);content:""}.rest-scene .rest-header{padding:0}.rest-scene .rest-header__eyebrow{color:var(--paper-300)}.rest-scene .rest-header h1{max-width:330px;font-size:44px}.rest-scene .rest-header p{color:var(--paper-300);font:450 18px/1.35 var(--font-editorial)}
+.rest-intents{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:24px}.rest-intent{min-height:58px;padding:8px 6px;border:1px solid var(--separator);border-radius:10px;background:var(--ink-900);color:var(--paper-100);font-size:11px;font-weight:700}.rest-intent--primary{border-color:rgb(231 0 45 / 48%);background:rgb(231 0 45 / 10%)}
+.rest-card__media{position:relative;height:158px;margin:-18px 0 16px;overflow:hidden;border-radius:14px 14px 3px 3px;background:var(--ink-850)}.rest-card__media img{width:100%;height:100%;object-fit:cover;filter:saturate(.76) contrast(1.04) brightness(.78);transition:transform 500ms var(--ease)}.rest-card:hover .rest-card__media img{transform:scale(1.025)}.rest-card__media::after{position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgb(7 8 9 / 55%));content:""}.rest-card:nth-child(3n+2) .rest-card__media{height:116px;margin-left:38px}.rest-card:nth-child(3n) .rest-card__media{height:190px}
 @media (max-width:350px) {
   .rest-filter-primary { grid-template-columns:1fr 1fr; }
   .rest-filter-more { grid-column:1/-1; justify-content:center; }
 }
 `;
+
+const RESTAURANT_IMAGES = [
+  '/visual-library/food/sushi.jpg','/visual-library/food/ramen.jpg',
+  '/visual-library/food/udon.jpg','/visual-library/food/soba.jpg',
+  '/visual-library/food/yakitori.jpg','/visual-library/food/tempura.jpg',
+  '/visual-library/food/tonkatsu.jpg','/visual-library/food/okonomiyaki.jpg',
+  '/visual-library/food/takoyaki.jpg','/visual-library/food/kaiseki.jpg',
+  '/visual-library/food/sukiyaki.jpg','/visual-library/food/shabu-shabu.jpg',
+  '/visual-library/food/unagi.jpg','/visual-library/food/onigiri.jpg',
+  '/visual-library/food/bento.jpg','/visual-library/food/gyoza.jpg',
+  '/visual-library/food/curry-rice.jpg','/visual-library/food/matcha.jpg',
+  '/visual-library/food/wagashi.jpg','/visual-library/food/taiyaki.jpg',
+];
+
+function restaurantImage(restaurant, index) {
+  const cityOffset = { Tokyo:0, Kyoto:2, Osaka:3, Hiroshima:5, Hakone:6 }[restaurant.city] ?? 0;
+  return RESTAURANT_IMAGES[(index + cityOffset) % RESTAURANT_IMAGES.length];
+}
 
 const CITY_OPTIONS = ['Todas', 'Tokyo', 'Kyoto', 'Osaka', 'Hiroshima', 'Hakone'];
 const CITY_LABELS_ES = { Tokyo: 'Tokio', Kyoto: 'Kioto', Osaka: 'Osaka', Hiroshima: 'Hiroshima', Hakone: 'Hakone' };
@@ -413,11 +435,20 @@ export default function RestaurantsView({ onOpenPlanner, onOpenMap }) {
     <>
       <style>{STYLES}</style>
       <div className="rest-view">
-        <header className="rest-header">
-          <div className="rest-header__eyebrow">Selección / {restaurants.length} lugares</div>
-          <h1>Comer en Japón</h1>
-          <p>Una guía curada para elegir bien, desde un bocado rápido hasta una cena especial.</p>
-        </header>
+        <div className="rest-scene">
+          <img className="rest-scene__image" src="/pois/tsukiji-outer-market.jpg" alt="" />
+          <header className="rest-header">
+            <div className="rest-header__eyebrow">Selección / {restaurants.length} lugares</div>
+            <h1>Comer en Japón</h1>
+            <p>Mesas, barras y bocados elegidos para cada momento del viaje.</p>
+          </header>
+        </div>
+
+        <div className="rest-intents" aria-label="Accesos rápidos">
+          <button className="rest-intent rest-intent--primary" onClick={() => { setMeal(japanContext().meal); setOpenToday(true); }}>Ahora</button>
+          <button className="rest-intent" onClick={() => setMeal('dinner')}>Esta noche</button>
+          <button className="rest-intent" onClick={onOpenPlanner}>Planificar</button>
+        </div>
 
         <button className="rest-planner-btn" onClick={onOpenPlanner}>
           <span>Planificador de comidas</span>
@@ -472,7 +503,7 @@ export default function RestaurantsView({ onOpenPlanner, onOpenMap }) {
         )}
 
         <div className="rest-list">
-          {filtered.map((r) => {
+          {filtered.map((r, index) => {
             const isOpen = expandedId === r.id;
             return (
               <div
@@ -489,6 +520,7 @@ export default function RestaurantsView({ onOpenPlanner, onOpenMap }) {
                 tabIndex={0}
                 aria-expanded={isOpen}
               >
+                {index < 18 && <div className="rest-card__media"><img src={restaurantImage(r, index)} alt="" loading={index < 3 ? 'eager' : 'lazy'} onError={(event)=>{event.currentTarget.src='/pois/nishiki-market.jpg'}} /></div>}
                 <div className="rest-card__head">
                   <div>
                     <div className="rest-card__name">

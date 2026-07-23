@@ -26,8 +26,18 @@ export default defineConfig({
       workbox: {
         cleanupOutdatedCaches: true,
         globPatterns: ['**/*.{js,css,html,svg,jpg,json}'],
+        globIgnores: ['visual-library/**/*', 'poi-galleries/**/*'],
         maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,
         runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/visual-library/') || url.pathname.startsWith('/poi-galleries/'),
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'grand-tour-visuals',
+              expiration: { maxEntries: 90, maxAgeSeconds: 30 * 24 * 60 * 60 },
+              cacheableResponse: { statuses: [200] },
+            },
+          },
           {
             urlPattern: ({ url }) => url.pathname.startsWith('/data/'),
             handler: 'StaleWhileRevalidate',
