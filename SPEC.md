@@ -1011,6 +1011,20 @@ Método idéntico al lote 1D: agente verificador por ficha + reverificación pro
 
 **Estado:** 44 fichas totales; faltan 6 para completar el Top 50 profundo. Huecos aún abiertos: anago, tempura de gama alta o unagi en Tokio, kappo/sushi accesible en Osaka, un dulce/matcha en Tokio, y quizá una segunda opción de ramen regional.
 
+### Top 50 gastronómico — Lote 1F (50/50) ✅ COMPLETO (2026-07-23)
+
+Seis fichas finales elegidas por **variedad de precio** (de tier 1 a 4) y estilos, ya con la escala de 5 tramos:
+- `tokyo_46_nodaiwa` — **unagi** (1★ Michelin 2026), Higashi-Azabu. Gama media-alta (tier 3). Cubre la categoría unagi en Tokio.
+- `tokyo_47_tsunahachi` — **tempura** como comida completa, Shinjuku (tier 3). Ojo: el sohonten original está en reconstrucción hasta 2028; la ficha apunta a su anexo oficial «Sohonten Bekkan», operativo desde jun-2026 (verificado en la web oficial).
+- `osaka_48_harukoma` — **sushi asequible** en Tenjinbashisuji (tier 2). Primer sushi de Osaka en la guía.
+- `kyoto_49_menami` — **obanzai** (cocina casera de Kioto) en Kiyamachi (tier 3). Cierra miércoles (el 19-ago es miércoles).
+- `hiroshima_50_anagomeshi_ueno` — **anago-meshi** de la casa Ueno (1901) en su sucursal de Hiroshima Mitsukoshi (tier 2), en la ciudad de Hiroshima (Miyajima está descartado del itinerario).
+- `tokyo_51_monja_kondo` — **monjayaki** en Tsukishima, la casa más antigua de la calle Monja (tier 2). Especialidad tokiota.
+
+Método idéntico a los lotes anteriores: agente verificador por ficha + reverificación propia vía WebFetch de las URLs oficiales de Anagomeshi Ueno, Tsunahachi y Menami (dirección/horario/estado coincidentes). Nota de numeración: el id `tokyo_51_...` supera el 50 porque la numeración es un contador secuencial de altas, no un ranking; hay 50 fichas en total.
+
+**Estado:** ✅ **Top 50 profundo COMPLETO — 50 fichas verificadas.** Distribución de precio: 25 en ¥, 12 en ¥¥, 7 en ¥¥¥, 2 en ¥¥¥¥, 4 en ¥¥¥¥¥. Siguiente fase gastronómica: las ~150 fichas operativas (aún a cero) y la revalidación previa al viaje (semana del 3-10 ago).
+
 ## 9. Advertencias activas
 
 - ⚠️ **Ventanas de reserva de trenes (17-23 jul, corregido 16 jul):** regla oficial = 10:00 JST del **mismo día un mes antes** (03:00 hora española). Romancecar (17 ago) abrió el **17 jul** en [e-Romancecar](https://www.web-odakyu.com/e-romancecar/?language=en) — la URL `odakyu-romance.jp` era errónea. Los 4 shinkansen abren 18, 21, 22 y 23 jul en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com). N'EX: Round Trip Ticket ¥5.000 comprado en Narita al llegar. Detalle operativo completo en `DOSIER_TRENES.md`. La app reflejará los localizadores reales en `trip.json` (`status: "reserved"`) cuando se reserven — Ola 8.
