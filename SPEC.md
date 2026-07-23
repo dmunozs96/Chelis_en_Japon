@@ -1023,7 +1023,23 @@ Seis fichas finales elegidas por **variedad de precio** (de tier 1 a 4) y estilo
 
 Método idéntico a los lotes anteriores: agente verificador por ficha + reverificación propia vía WebFetch de las URLs oficiales de Anagomeshi Ueno, Tsunahachi y Menami (dirección/horario/estado coincidentes). Nota de numeración: el id `tokyo_51_...` supera el 50 porque la numeración es un contador secuencial de altas, no un ranking; hay 50 fichas en total.
 
-**Estado:** ✅ **Top 50 profundo COMPLETO — 50 fichas verificadas.** Distribución de precio: 25 en ¥, 12 en ¥¥, 7 en ¥¥¥, 2 en ¥¥¥¥, 4 en ¥¥¥¥¥. Siguiente fase gastronómica: las ~150 fichas operativas (aún a cero) y la revalidación previa al viaje (semana del 3-10 ago).
+**Estado:** ✅ **Top 50 profundo COMPLETO — 50 fichas verificadas.** Distribución de precio: 25 en ¥, 12 en ¥¥, 7 en ¥¥¥, 2 en ¥¥¥¥, 4 en ¥¥¥¥¥. Siguiente fase gastronómica: las ~150 fichas operativas y la revalidación previa al viaje (semana del 3-10 ago).
+
+### Fichas operativas — Colección «Sobre la marcha» (lote O1) ✅ (2026-07-23)
+
+Arranca la fase de fichas operativas con una **colección temática de comida on-the-go**: sitios de «aquí te pillo aquí te mato» — baratos (tier 1), rápidos, de calidad soberbia, para resolver una comida sobre la marcha. Se marcan con el valor `good_for: "sobre_la_marcha"`, que el cliente convierte automáticamente en un chip de filtro «sobre la marcha» (no requiere código nuevo).
+
+Seis fichas nuevas (50 → 56), con variedad de plato:
+- `osaka_52_551_horai_honten` — **butaman** (bollo al vapor de cerdo) para llevar, el emblema de Osaka (Namba). Cierra 1er y 3er martes (nota en horario; `closed_days` vacío porque no es cierre semanal).
+- `tokyo_53_uogashi_nihonichi` — **sushi de pie** (tachigui-zushi) en Shibuya, ~¥100/pieza.
+- `tokyo_54_onigiri_bongo` — **onigiri** legendario de Otsuka.
+- `tokyo_55_yomoda_soba_nihonbashi` — **soba de pie** con fideo fresco propio y curry indio, Nihonbashi (`partial`: precios exactos sin cerrar).
+- `kyoto_56_demachi_futaba` — **mamemochi** (wagashi para llevar), Demachiyanagi.
+- `tokyo_57_asakusa_menchi` — **menchikatsu** callejero junto a Senso-ji.
+
+Además se **retro-etiquetaron** 5 fichas existentes que ya eran grab-and-go (`sobre_la_marcha`): Takoyaki Wanaka, Kukuru, Acchichi, Mercado exterior de Tsukiji y Mercado de Nishiki. La colección «sobre la marcha» reúne así 11 fichas.
+
+**Estado total de la base:** 56 fichas. Distribución de precio: 31 en ¥, 12 en ¥¥, 7 en ¥¥¥, 2 en ¥¥¥¥, 4 en ¥¥¥¥¥. Verificación por el método habitual (agente por ficha + reverificación propia de URLs oficiales de 551 Horai, Onigiri Bongo y Asakusa Menchi).
 
 ## 9. Advertencias activas
 
