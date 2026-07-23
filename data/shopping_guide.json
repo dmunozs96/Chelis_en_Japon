@@ -77,63 +77,63 @@
     ],
     "models": [
       {
-        "brand": "Citizen", "reference": "AS1062-59A", "family": "Citizen Collection",
+        "brand": "Citizen", "reference": "AS1062-59A", "family": "Citizen Collection", "image": "/watches/citizen-as1062.jpg",
         "nickname": "El regalo sin riesgo", "style": "Clásico diario", "movement": "Eco‑Drive + radiocontrol Japón",
         "price_jpy_taxed": 47300, "price_jpy_tax_free": 43000, "case": "Delgado; brazalete de acero", "water": "Uso diario",
         "best_for": "Padre práctico que quiere hora exacta y cero cuerda.", "tradeoff": "La recepción de radio de esta referencia es doméstica japonesa; en España seguirá funcionando como cuarzo Eco‑Drive, pero no debe comprarse esperando sincronización europea.",
         "verdict": "Buena compra solo si aceptas la limitación de radio", "url": "https://citizen.jp/shop/collection/g/gAS1062-59A/"
       },
       {
-        "brand": "Citizen", "reference": "NB1050-59A / 59L / 59E", "family": "Citizen Collection",
+        "brand": "Citizen", "reference": "NB1050-59A / 59L / 59E", "family": "Citizen Collection", "image": "/watches/citizen-nb1050.jpg",
         "nickname": "Mi automático sweet spot", "style": "Tres agujas limpio", "movement": "Mecánico automático, cal. 9011",
         "price_jpy_taxed": 82500, "price_jpy_tax_free": 75000, "case": "38 mm · acero · zafiro", "water": "10 bar",
         "best_for": "Muñeca pequeña/media y padre que apreciará la mecánica sin reloj llamativo.", "tradeoff": "No tiene la notoriedad inmediata de Seiko. Confirma garantía internacional y prueba el brazalete; el reloj merece mucho más que su cierre.",
         "verdict": "La recomendación mecánica más equilibrada", "url": "https://citizen.jp/shop/goods/search.aspx?keyword=Nb1050&search=search&search=x"
       },
       {
-        "brand": "Citizen", "reference": "CB3040-56H", "family": "Attesa",
+        "brand": "Citizen", "reference": "CB3040-56H", "family": "Attesa", "image": "/watches/citizen-cb3040.jpg",
         "nickname": "Tecnología adulta", "style": "Deportivo elegante", "movement": "Eco‑Drive + radio Japón/China/Europa/EE. UU.",
         "price_jpy_taxed": 99000, "price_jpy_tax_free": 90000, "case": "39 mm · titanio · 93 g aprox. en variante", "water": "10 bar",
         "best_for": "Viaja, quiere ligereza y no desea ocuparse jamás de la hora.", "tradeoff": "Estética más técnica y menos emocional que un automático. Verifica en la unidad exacta peso, brazalete y recepción multibanda.",
         "verdict": "Mi compra funcional premium", "url": "https://citizen.jp/shop/attesa/g/gCB3045-61L/"
       },
       {
-        "brand": "Citizen", "reference": "NJ0157-81L", "family": "TSUYOSA",
+        "brand": "Citizen", "reference": "NJ0157-81L", "family": "TSUYOSA", "image": "/watches/citizen-nj0157.png",
         "nickname": "El más vistoso", "style": "Sport-chic integrado", "movement": "Automático cal. 8210 · ~42 h",
         "price_jpy_taxed": 73700, "price_jpy_tax_free": 67000, "case": "40 mm · 11,7 mm · zafiro", "water": "5 bar",
         "best_for": "Padre moderno al que le gustan esferas con personalidad.", "tradeoff": "Corona pequeña a las 4 menos cómoda; 5 bar y movimiento más básico que NB1050. La edición citada es limitada, así que el stock no es seguro.",
         "verdict": "Compra estética, no la más racional", "url": "https://citizen.jp/news/2026/20260220_2.html"
       },
       {
-        "brand": "Seiko", "reference": "SARY161 / SARY123", "family": "Presage Cocktail Time",
+        "brand": "Seiko", "reference": "SARY161 / SARY123", "family": "Presage Cocktail Time", "image": "/watches/seiko-sary161.jpg",
         "nickname": "El Seiko que parece más caro", "style": "Vestir con esfera protagonista", "movement": "Automático 4R · ~41 h",
         "price_jpy_taxed": 57200, "price_jpy_tax_free": 52000, "case": "Alrededor de 40 mm; cristal Hardlex", "water": "5 bar",
         "best_for": "Cena, camisa y alguien que valorará una esfera japonesa espectacular.", "tradeoff": "Hardlex, poca resistencia al agua y movimiento básico. Pruébalo: la esfera convence; la caja puede parecer grande en muñeca pequeña.",
         "verdict": "Máximo efecto wow por unos 280 € netos", "url": "https://www.seikowatches.com/jp-ja/products/presage/lineup"
       },
       {
-        "brand": "Seiko", "reference": "SARX129 / SARX131 / SARX132", "family": "Presage Classic 36",
+        "brand": "Seiko", "reference": "SARX129 / SARX131 / SARX132", "family": "Presage Classic 36", "image": "/watches/seiko-sarx129.png",
         "nickname": "El regalo serio", "style": "Clásico japonés contemporáneo", "movement": "Automático 6R51 · ~72 h",
         "price_jpy_taxed": 132000, "price_jpy_tax_free": 120000, "case": "36 mm · texturas inspiradas en seda", "water": "10 bar",
         "best_for": "Muñeca contenida, estilo elegante y deseo de una pieza inequívocamente japonesa.", "tradeoff": "Precio alto para la tolerancia del 6R y 36 mm puede parecer pequeño si está acostumbrado a relojes grandes.",
         "verdict": "El Seiko más refinado de la shortlist", "url": "https://www.seikowatches.com/jp-ja/products/presage/special/classic_series/classic/"
       },
       {
-        "brand": "Seiko", "reference": "SBDC211", "family": "Prospex Alpinist",
+        "brand": "Seiko", "reference": "SBDC211", "family": "Prospex Alpinist", "image": "/watches/seiko-sbdc211.png",
         "nickname": "El reloj para todo", "style": "Field watch clásico", "movement": "Automático 6R55 · ~72 h",
         "price_jpy_taxed": 126500, "price_jpy_tax_free": 115000, "case": "39,5 × 46,4 × 12,7 mm · zafiro", "water": "20 bar · corona roscada",
         "best_for": "Padre activo que quiere un solo reloj con carácter.", "tradeoff": "Más grueso y deportivo; brújula interior es más estética que necesidad. La precisión oficial es +25/−15 s/día.",
         "verdict": "El más versátil si encaja en su muñeca", "url": "https://www.seikowatches.com/jp-ja/products/prospex/sbdc211"
       },
       {
-        "brand": "Orient", "reference": "RN-BB0001E / 0002S / 0003Y", "family": "Bambino 38",
+        "brand": "Orient", "reference": "RN-BB0001E / 0002S / 0003Y", "family": "Bambino 38", "image": "/watches/orient-bambino.jpg",
         "nickname": "Elegancia económica", "style": "Dress watch vintage", "movement": "Mecánico automático",
         "price_jpy_taxed": 44000, "price_jpy_tax_free": 40000, "case": "38 mm · cristal abombado", "water": "3 bar aprox.; verificar referencia",
         "best_for": "Primer automático, camisa y muñeca pequeña/media.", "tradeoff": "No es reloj de agua ni de golpes. Varias referencias se agotan; el cristal y correa no están al nivel de un reloj más caro.",
         "verdict": "El mejor regalo mecánico por ~216 € netos", "url": "https://store.orient-watch.com/"
       },
       {
-        "brand": "Orient", "reference": "RN-AA0812L / RN-AA0811E", "family": "Mako",
+        "brand": "Orient", "reference": "RN-AA0812L / RN-AA0811E", "family": "Mako", "image": "/watches/orient-mako.jpg",
         "nickname": "El deportivo asequible", "style": "Diver-style", "movement": "Mecánico automático",
         "price_jpy_taxed": 48400, "price_jpy_tax_free": 44000, "case": "Acero · brazalete · bisel giratorio", "water": "20 bar; confirmar certificación en referencia",
         "best_for": "Uso informal, verano, piscina y padre al que le gustan relojes sólidos.", "tradeoff": "Más peso y grosor; el brazalete suele ser el punto débil. Diferencia entre '20 bar' y diver ISO: confirma la ficha exacta.",
@@ -418,6 +418,119 @@
     { "id":"nishiki","name":"Aritsugu Nishiki","area":"Nishiki Market","city":"Kioto","category":"home","price":"¥¥¥","priority":"top","why":"Cuchillería histórica y experiencia de compra memorable.","hunt":"Cuchillo doméstico sencillo y mantenible; pregunta grabado y funda.","tip":"La fama no sustituye ergonomía. Sujétalo y entiende oxidación/afilado.","tax_free":"Confirmar en tienda.","url":"https://aritsugu.jp/","maps":"https://www.google.com/maps/search/?api=1&query=Aritsugu+Nishiki+Market" },
     { "id":"loft_umeda","name":"Hands Umeda / Grand Front","area":"Umeda","city":"Osaka","category":"stationery","price":"¥","priority":"useful","why":"Plan B excelente para completar papelería antes de volver a Tokio.","hunt":"Papelería de temporada y pequeñas marcas japonesas.","tip":"Reserva las piezas especiales para Itoya/Kakimori; aquí completa.","tax_free":"Confirmar mostrador y umbral.","url":"https://info.hands.net/en/list/umeda/","maps":"https://www.google.com/maps/search/?api=1&query=Hands+Umeda" }
   ],
+  "geek_guide": {
+    "title": "Para Jesús · souvenirs para un geek adulto",
+    "verified_at": "2026-07-23",
+    "opening": "La gracia no es volver con electrónica random: es encontrar una pieza japonesa difícil de probar en España, usada con descuento o tan específica que cuente una historia. El sweet spot está entre ¥8.000 y ¥40.000; por encima, Jesús debería haber pedido modelo exacto.",
+    "buying_algorithm": [
+      "Define su tribu antes de entrar: teclados, audio, Nintendo, cámara, retro o cacharreo japonés. «Le gusta la tecnología» no es una especificación.",
+      "Busca una mejora que note cada día: tacto de teclado, mejor sonido, una lente que le falta o un objeto de colección con significado.",
+      "Compara precio neto japonés contra precio español real. Exige al menos 15% de ahorro en electrónica convencional; para rareza japonesa, decide cuánto pagas por la historia.",
+      "Si necesita app, cuenta regional, radiofrecuencia, consumibles o reparación, resuelve eso antes de pagar. Una ganga incompatible vale cero.",
+      "En usado: prueba diez minutos, fotografía número de serie y estado, confirma accesorios, batería, devolución y garantía por escrito.",
+      "No improvises regalos por encima de ¥40.000. Mándale dos fotos y haz que elija; la sorpresa puede ser dónde lo encontraste."
+    ],
+    "picks": [
+      {
+        "icon": "⌨️",
+        "name": "HHKB Professional Classic Type-S",
+        "price": "¥31.900 nuevo",
+        "where": "PFU Direct / tiendas de informática",
+        "why": "Un objeto japonés de culto, compacto y reparable, con interruptor capacitivo y tacto muy particular. Es el regalo más «Jesús» si programa, escribe o ya habla de layouts.",
+        "test": "Que pruebe el layout y la fuerza; confirma modelo inglés si no quiere JIS. El Classic Type-S es USB-C con cable y permite remapeo, pero no es Bluetooth.",
+        "risk": "El layout japonés cambia Enter, barra espaciadora y símbolos. No compres JIS como sorpresa. La garantía japonesa no es lo mismo que soporte europeo.",
+        "verdict": "Compra maestra si sabes su layout",
+        "url": "https://www.pfu.ricoh.com/news/2025/news251021.html"
+      },
+      {
+        "icon": "🎧",
+        "name": "IEM japonés usado: final / Acoustune / Sony",
+        "price": "Sweet spot ¥10.000–35.000",
+        "where": "e☆earphone Akihabara · plantas 4–5 de usado",
+        "why": "Puedes escuchar antes de comprar y comparar docenas de firmas sonoras. final A4000/B3, Acoustune y Sony cableados envejecen mejor que unos TWS con batería.",
+        "test": "Lleva su música y móvil/dongle. Revisa ambos canales, conector MMCX/2-pin, cable, rejillas, balance y accesorios; presupuesta tips nuevos por higiene.",
+        "risk": "Evita custom IEM ajeno. En inalámbricos usados exige salud de batería y app disponible en España; 4,4 mm balanceado no entra en un móvil normal.",
+        "verdict": "Mejor compra geek de segunda mano",
+        "url": "https://www.e-earphone.jp/pages/shop_akb"
+      },
+      {
+        "icon": "🎮",
+        "name": "Nintendo: mando, edición física o pieza retro",
+        "price": "¥3.000–20.000",
+        "where": "Nintendo Store, Yodobashi y Mandarake",
+        "why": "Un Pro Controller, amiibo o edición japonesa con arte distinto da más alegría y menos problemas que otra consola. Para retro, compra una pieza ligada a su saga favorita, no una caja misteriosa.",
+        "test": "En juegos comprueba idioma en la caja/eShop; en mandos usados prueba sticks, botones, USB y batería. En cartuchos retro mira placa, etiqueta y tornillos.",
+        "risk": "No compres la Switch 2 Japanese-Language System: solo japonés, cuentas Japón y uso doméstico. La multilingüe admite cuentas de otras regiones, pero se vende exclusivamente en My Nintendo Store y no tiene reparación de garantía fuera de Japón.",
+        "verdict": "Accesorio sí; consola japonesa no",
+        "url": "https://www.nintendo.com/jp/hardware/switch2/lineup/japan-only/index.html"
+      },
+      {
+        "icon": "📷",
+        "name": "Óptica usada que complete su cámara",
+        "price": "Sweet spot ¥25.000–80.000",
+        "where": "Map Camera Shinjuku",
+        "why": "Japón tiene profundidad de stock y estados bien descritos. Un prime compacto japonés —23/35/50 mm según sistema— es un regalo útil durante años.",
+        "test": "Necesitas montura y cuerpo exactos. Fotografía a f/2 y f/8, pared clara y sujeto lejano; prueba AF, estabilizador, diafragma, hongos, haze, golpes y descentramiento.",
+        "risk": "No confundas polvo cosmético con hongos. Desde España una garantía de tienda puede ser difícil de ejecutar; cuerpos japoneses pueden traer menús limitados, una óptica no.",
+        "verdict": "Solo con montura confirmada",
+        "url": "https://www.mapcamera.com/kiyaku/terms_guarantee.html?PC=ON"
+      },
+      {
+        "icon": "📝",
+        "name": "King Jim Pomera DM250",
+        "price": "¥60.280 PVP con IVA",
+        "where": "Yodobashi / BicCamera",
+        "why": "Es la fantasía japonesa perfecta: una máquina de escribir digital sin distracciones, 620 g, pantalla de 7 pulgadas, USB-C, SD y unas 24 horas de uso.",
+        "test": "Que escriba un párrafo y exporte un TXT. Solo tiene sentido para alguien que desea deliberadamente un aparato monofunción.",
+        "risk": "La unidad japonesa tiene teclado JIS. El DM250US existe, pero King Jim indica que no se vende en Japón. A este precio, un tablet con teclado hace mucho más.",
+        "verdict": "Objeto de culto, no compra racional",
+        "url": "https://www.kingjim.co.jp/pomera/dm250/spec/"
+      },
+      {
+        "icon": "👾",
+        "name": "Retro auténtico y rareza con contexto",
+        "price": "¥2.000–15.000",
+        "where": "Mandarake Complex / Surugaya / Hard Off",
+        "why": "Manual japonés, soundtrack, artbook, Game Boy, Tamagotchi o hardware transparente: pequeño, coleccionable y con una historia mucho mejor que un gadget de aeropuerto.",
+        "test": "Busca ventas reales, no solo precios de escaparate. Verifica región, idioma, corrosión de pilas, pantalla, sonido, sellos y si es junk (ジャンク).",
+        "risk": "Mandarake es bueno para contexto y estado; Akihabara turístico no garantiza ganga. Consolas de sobremesa pueden ser 100 V y juegos antiguos pueden tener bloqueo regional.",
+        "verdict": "El mejor detalle por menos de ¥10.000",
+        "url": "https://www.mandarake.co.jp/dir/cmp2/index-en.html"
+      }
+    ],
+    "budgets": [
+      { "band": "≤ ¥5k", "pick": "Gashapon premium, cable/organizador japonés o merchandising oficial", "logic": "Pequeño y específico a su fandom. Nada de adaptadores anónimos ni memorias sospechosas." },
+      { "band": "¥5–15k", "pick": "Juego físico compatible, IEM final de entrada o retro documentado", "logic": "Aquí está el regalo sorpresa ideal: personalidad sin obligarle a usar un sistema entero." },
+      { "band": "¥15–40k", "pick": "IEM usado serio o HHKB si conoces layout", "logic": "Sweet spot real: mejora tangible y todavía defendible frente al precio europeo." },
+      { "band": "¥40–80k", "pick": "Lente usada o Pomera", "logic": "Solo con especificación exacta o aprobación de Jesús. Ya entra en territorio de herramienta personal." },
+      { "band": "> ¥80k", "pick": "No improvisar", "logic": "Compara España, garantía, aduana y depreciación. La compra debe estar encargada por referencia." }
+    ],
+    "route": [
+      "11:00 · Yodobashi Akiba: toca HHKB, Pomera, mandos y audio nuevo. Fotografía referencias y precio neto; todavía no compres.",
+      "12:15 · e☆earphone: escucha tres IEM en el mismo tramo de precio y revisa las plantas de usado. Los días 5, 15 y 25 anuncian 5% en usado; confirma condiciones.",
+      "14:00 · Pausa y comparación online con España. Elimina todo lo que no ahorre 15% o no sea realmente japonés.",
+      "15:00 · Mandarake Complex/Complex 2: una misión cerrada —su saga, consola o personaje— y un techo de ¥10.000.",
+      "16:15 · Hard Off/Surugaya: solo usado probado; ジャンク significa proyecto, no ganga.",
+      "17:30 · Vuelve al ganador. Paga una sola pieza buena, pide factura, fotografía serie y guarda prueba de funcionamiento."
+    ],
+    "compatibility_check": [
+      "Alimentación: 100–240 V, 50/60 Hz y cargador USB estándar. Un adaptador de clavija no convierte voltaje.",
+      "Idioma y región: menú inglés/español, cartucho, Blu-ray/DVD, cuenta, eShop y DLC. Haz una foto de la pantalla que lo confirma.",
+      "Radio: evita móviles/router JDM salvo bandas y eSIM verificadas para su operador español; el marcado y la garantía también importan.",
+      "Teclado: ANSI/ISO/JIS no son decoración. Confirma layout físico y cómo escribirá ñ, símbolos y atajos.",
+      "Baterías: prueba ciclos/autonomía; lleva baterías de litio sueltas y power banks en cabina, con terminales protegidos y dentro de límites de la aerolínea.",
+      "Aduana: usado también cuenta. Suma este regalo al límite personal de 430 € y no dividas una pieza indivisible entre viajeros."
+    ],
+    "sources": [
+      { "name": "Nintendo · Switch 2 japonesa y multilingüe", "url": "https://www.nintendo.com/jp/hardware/switch2/lineup/japan-only/index.html" },
+      { "name": "Nintendo · accesorios Switch 2", "url": "https://www.nintendo.com/jp/hardware/switch2/accessories/index.html" },
+      { "name": "PFU · HHKB Classic Type-S", "url": "https://www.pfu.ricoh.com/news/2025/news251021.html" },
+      { "name": "e☆earphone · Akihabara y plantas de usado", "url": "https://www.e-earphone.jp/pages/shop_akb" },
+      { "name": "Map Camera · garantía de usado", "url": "https://www.mapcamera.com/kiyaku/terms_guarantee.html?PC=ON" },
+      { "name": "King Jim · Pomera DM250", "url": "https://www.kingjim.co.jp/pomera/dm250/spec/" },
+      { "name": "Mandarake · Complex 2", "url": "https://www.mandarake.co.jp/dir/cmp2/index-en.html" }
+    ]
+  },
   "routes": [
     {
       "id": "ginza",

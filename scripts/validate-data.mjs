@@ -216,8 +216,15 @@ export function validateProject() {
   check((shoppingGuide.gift_shortlist ?? []).length >= 3, 'Guía de compras: falta shortlist de regalos');
   check((shoppingGuide.watch_guide?.models ?? []).length >= 9, 'Guía de compras: guía relojera insuficiente');
   check((shoppingGuide.watch_guide?.brands ?? []).length === 3, 'Guía de compras: faltan Citizen, Seiko u Orient');
+  for (const model of shoppingGuide.watch_guide?.models ?? []) {
+    check(Boolean(model.image), `Reloj ${model.reference}: falta imagen`);
+    if (model.image) check(existsSync(resolve(`client/public${model.image}`)), `Reloj ${model.reference}: imagen inexistente`);
+  }
   check((shoppingGuide.stationery_guide?.picks ?? []).length >= 8, 'Guía de compras: guía de papelería insuficiente');
   check((shoppingGuide.preowned_guide?.hunts ?? []).length >= 7, 'Guía de compras: guía de segunda mano insuficiente');
+  check((shoppingGuide.geek_guide?.picks ?? []).length >= 6, 'Guía de compras: guía geek insuficiente');
+  check((shoppingGuide.geek_guide?.budgets ?? []).length >= 5, 'Guía de compras: faltan presupuestos geek');
+  for (const pick of shoppingGuide.geek_guide?.picks ?? []) check(isHttpUrl(pick.url), `Guía geek ${pick.name}: enlace inválido`);
   for (const store of shoppingStores) {
     check(shoppingCategoryIds.has(store.category), `Tienda ${store.id}: categoría desconocida "${store.category}"`);
     check(Boolean(store.name && store.area && store.why && store.hunt && store.tip), `Tienda ${store.id}: ficha incompleta`);
