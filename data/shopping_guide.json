@@ -180,6 +180,152 @@
       { "name": "Seiko Dream Square", "url": "https://www.seikowatches.com/jp-ja/stores/special/seikodreamsquare/en/index" }
     ]
   },
+  "stationery_guide": {
+    "title": "Papelería premium para ti",
+    "verified_at": "2026-07-23",
+    "exchange_rate": 185,
+    "philosophy": "El sweet spot no es llenar una bolsa de bolígrafos baratos. Es volver con un sistema que usarás: una herramienta principal, el papel que mejor le sienta, una tinta con recuerdo del viaje y, si quieres, una pieza de cuero que envejezca contigo.",
+    "profiles": [
+      { "icon": "✍️", "title": "Escribes a diario", "budget": "¥8.000–20.000", "plan": "Pluma de acero excelente o roller Kakimori + dos papeles + tinta. El dinero va a la experiencia, no al oro." },
+      { "icon": "🖋️", "title": "Quieres tu primera pluma seria", "budget": "¥30.000–50.000", "plan": "Pilot Custom 74, Capless Décimo o Platinum #3776. Prueba tres plumines con el mismo papel y compra el que desaparezca en la mano." },
+      { "icon": "🏆", "title": "Pieza para toda la vida", "budget": "¥55.000–80.000", "plan": "Pilot Custom 823, Sailor Pro Gear o una pieza usada excelente. Aquí importan ergonomía, plumín y servicio, no una resina limitada." },
+      { "icon": "🧳", "title": "Objeto de viaje", "budget": "¥6.000–18.000", "plan": "TRAVELER'S notebook, brass pen, clip y recambios. Compra pocos accesorios y construye el cuaderno durante el viaje." }
+    ],
+    "rules": [
+      "No compres una pluma de oro sin escribir al menos una página. Haz ochos, letras pequeñas, firmas y números; prueba arranques tras pausa y trazos ascendentes.",
+      "Un plumín japonés F suele ser más fino que un F occidental. Para letra española normal y papel común, Pilot/Sailor MF o M suele ser más indulgente que EF.",
+      "La suavidad no es calidad absoluta: Pilot tiende a deslizar; Sailor ofrece feedback tipo lápiz; Platinum es firme y preciso. Elige sensación, no ranking.",
+      "Lleva una muestra del papel que utilizas en España. Una pluma perfecta sobre Tomoe River puede sangrar o rascar en tu libreta cotidiana.",
+      "Edición limitada no equivale a valor. Paga extra solo por un acabado que seguirías eligiendo si no fuera limitado.",
+      "La tinta pesa, puede romperse y cuenta como consumible tax-free. Compra colores especiales, no botellas básicas que encuentras en Europa."
+    ],
+    "picks": [
+      {
+        "type": "Pluma", "name": "Pilot Custom 74", "reference": "FKKN-14SR / FKKN-12SR", "price_jpy_taxed": 44000, "price_jpy_net": 40000,
+        "sweet_spot": "Primera pluma de oro", "why": "Gran variedad de plumines y ergonomía clásica. Permite descubrir qué escritura te gusta sin saltar al precio del 823.",
+        "watch_out": "Pilot actualizó el PVP el 1 de julio de 2026; no compares con antiguas guías de ¥27.500–33.000. Elige plumín antes que color.",
+        "target": "Compra si el plumín te enamora y el precio neto está cerca de ¥40.000; usada impecable, claramente por debajo.", "url": "https://www.pilot.co.jp/information/pricelist_202607.pdf"
+      },
+      {
+        "type": "Pluma", "name": "Pilot Custom 823", "reference": "FKK-3MRP", "price_jpy_taxed": 66000, "price_jpy_net": 60000,
+        "sweet_spot": "Pieza definitiva práctica", "why": "Gran depósito por vacío, plumín de oro y equilibrio para escribir largo. Es más herramienta que joya.",
+        "watch_out": "El sistema de vacío exige abrir ligeramente el culote para sesiones largas y es menos cómodo para cambiar de tinta. PVP nuevo desde julio de 2026.",
+        "target": "La compraría nueva si quieres una sola gran pluma; usada solo con prueba de llenado, estanqueidad y plumín.", "url": "https://www.pilot.co.jp/information/pricelist_202607.pdf"
+      },
+      {
+        "type": "Pluma", "name": "Pilot Capless Décimo", "reference": "FCT-15SR", "price_jpy_taxed": 33000, "price_jpy_net": 30000,
+        "sweet_spot": "La que realmente usarás", "why": "Click, plumín de oro y cuerpo más delgado: perfecta para reuniones, notas y uso frecuente.",
+        "watch_out": "El clip queda entre los dedos; para algunos es genial y para otros insoportable. No la compres sin probar agarre real.",
+        "target": "Probablemente la mejor relación uso/precio de toda la lista si el clip encaja contigo.", "url": "https://www.pilot.co.jp/information/pricelist_202607.pdf"
+      },
+      {
+        "type": "Pluma", "name": "Platinum #3776 Century", "reference": "PNB / Travia según acabado", "price_jpy_taxed": 49500, "price_jpy_net": 45000,
+        "sweet_spot": "Precisión y cierre excelente", "why": "El sistema de sellado es ideal si alternas plumas y dejas una semanas sin usar; sensación firme muy buena para letra pequeña.",
+        "watch_out": "Confirma el modelo exacto: en 2026 nace la línea Travia y cambian referencias/precios. Puede sentirse rígida si buscas suavidad Pilot.",
+        "target": "Compra por el plumín y el sellado, no por un acabado transparente que no te emocione.", "url": "https://www.platinum-pen.co.jp/cms/wp-content/uploads/2026/01/91385b927013e4a50edcd07b4c2dd2f7.pdf"
+      },
+      {
+        "type": "Pluma", "name": "Sailor Professional Gear", "reference": "11-2036", "price_jpy_taxed": 77000, "price_jpy_net": 70000,
+        "sweet_spot": "Feedback japonés y plumín 21K", "why": "La sensación Sailor es singular y su abanico MF/M permite escritura expresiva sin ser extravagante.",
+        "watch_out": "El precio 2026 subió con fuerza. A ¥77.000 ya no es compra automática: compara una usada reciente en Kingdom Note y valora tamaño de cuerpo.",
+        "target": "Nueva solo si ese plumín concreto gana la prueba; usada es el sweet spot financiero.", "url": "https://sailor.co.jp/product/11-2036/"
+      },
+      {
+        "type": "Herramienta", "name": "Kakimori brass nib + holder", "reference": "Metal nib", "price_jpy_taxed": 9000, "price_jpy_net": 8200,
+        "sweet_spot": "Jugar con todas tus tintas", "why": "Una plumilla duradera que cambia el grosor con el ángulo y se limpia en segundos. Es genuinamente distinta a otra pluma.",
+        "watch_out": "No sustituye a una pluma diaria y el latón desarrolla pátina. Prueba si disfrutas sumergir y limpiar.",
+        "target": "El capricho creativo con mejor relación experiencia/precio.", "url": "https://kakimori.com/en/pages/dip-pen"
+      },
+      {
+        "type": "Sistema", "name": "Cuaderno personalizado Kakimori", "reference": "B6 / B5", "price_jpy_taxed": 5000, "price_jpy_net": 5000,
+        "sweet_spot": "Objeto único sin lujo artificial", "why": "Eliges cubierta, papel, anillas y cierre. La experiencia de construirlo es parte del recuerdo.",
+        "watch_out": "Comprueba plazo y escribe en las muestras; una portada bonita no compensa un papel que no acepta tu tinta.",
+        "target": "B6 alrededor de ¥4.000 o B5 alrededor de ¥5.000 según opciones oficiales.", "url": "https://kakimori.com/en/pages/faq"
+      },
+      {
+        "type": "Papel y cuero", "name": "MD Notebook + cover", "reference": "MD Paper / goat leather", "price_jpy_taxed": 15000, "price_jpy_net": 13600,
+        "sweet_spot": "Minimalismo que envejece", "why": "Papel japonés fiable con pluma y cubierta que gana carácter. Puedes reponer cuadernos sin abandonar el objeto.",
+        "watch_out": "El cuero de cabra claro se mancha desde el primer día. Si eso te molesta, compra papel o vinilo y gasta en la pluma.",
+        "target": "El cuaderno es ganga; la cubierta de cuero es compra emocional consciente.", "url": "https://md.midori-japan.co.jp/en/products/mdnote-cover/"
+      }
+    ],
+    "used_pen": {
+      "title": "Plumas usadas: donde Japón se vuelve interesante",
+      "why": "Una pluma usada de tienda especializada puede darte un plumín ya comprobado, modelos descatalogados y un precio mejor después de las subidas 2026. No es automáticamente mejor: una reparación de pistón o plumín puede borrar el ahorro.",
+      "inspect": [
+        "Pide llenar con agua o tinta y comprueba flujo, fugas y que el convertidor/pistón recorra todo el depósito.",
+        "Mira el plumín de frente: gavilanes a la misma altura, punta simétrica y sin separación anómala.",
+        "Prueba arranque en frío, líneas verticales/horizontales, reverso y presión normal. No flexiones un plumín que no sea flexible.",
+        "Pregunta si fue ajustada, pulida o reparada; quién lo hizo; grado de condición; piezas sustituidas y garantía de tienda.",
+        "En ebonita/celuloide, busca decoloración, olor extraño, grietas en capuchón y contracción. En maki-e, desgaste y firma.",
+        "Compara precio usado con el PVP neto japonés actual, no con el precio europeo inflado."
+      ],
+      "stores": [
+        { "name": "Kingdom Note, Shinjuku", "mission": "Primera parada para Pilot/Sailor/Platinum usados y tintas exclusivas. Más de 1.000 instrumentos nuevos y usados según su presentación tax-free.", "risk": "El grado estético no sustituye prueba de plumín. Reserva 60–90 minutos.", "url": "https://www.kingdomnote.com/html/shop/index.html" },
+        { "name": "EuroBox, Ginza", "mission": "Vintage, maki-e y piezas con historia en el Okuno Building. Ve a aprender y tocar algo irrepetible.", "risk": "No es lugar para perseguir la ganga más barata. Horarios y presencia en eventos pueden variar: confirma antes.", "url": "https://euro-box.com/?mode=f1" },
+        { "name": "Ancora, Ginza", "mission": "Personalización y ecosistema Sailor; útil para entender colores/plumines antes de comparar segunda mano.", "risk": "La personalización empuja al capricho. Define plumín y presupuesto antes de diseñar.", "url": "https://www.ancora-shop.jp/" }
+      ]
+    },
+    "missions": [
+      { "budget": "¥10.000", "name": "Kit creativo", "basket": "Kakimori brass nib + soporte sencillo + una tinta o papel de prueba.", "verdict": "Más diversión que otra pluma barata." },
+      { "budget": "¥20.000", "name": "Sistema diario", "basket": "Cuaderno Kakimori personalizado + roller/fountain aluminium + tinta + refill.", "verdict": "El mejor recuerdo utilizable." },
+      { "budget": "¥35.000", "name": "Pluma de trabajo", "basket": "Pilot Capless Décimo tax-free o una japonesa usada de oro bien probada.", "verdict": "Máxima probabilidad de uso real." },
+      { "budget": "¥60.000", "name": "Una pluma y se acabó", "basket": "Pilot Custom 823 nueva tax-free, o Sailor/Platinum usada superior si gana la prueba.", "verdict": "Sweet spot premium serio." },
+      { "budget": "¥100.000", "name": "Fantasía controlada", "basket": "Gran pluma usada + cuaderno personalizado + cuero + tintas exclusivas.", "verdict": "No gastes todo en una edición limitada de resina." }
+    ],
+    "route": [
+      "Ginza Itoya: crea vocabulario. Prueba Pilot, Sailor y Platinum con el mismo texto y fotografía referencia/plumín/PVP.",
+      "Kyukyodo o Ancora: mira tradición, papeles y personalización; no compres todavía la pieza cara.",
+      "Kakimori Kuramae: construye el sistema de papel y prueba brass nib. Esta compra puede cerrarse aquí.",
+      "Kingdom Note Shinjuku: compara nuevas contra usadas exactamente equivalentes. Decide con una hoja de prueba guardada.",
+      "EuroBox solo si ya sabes que buscas vintage; no mezcles una compra histórica con el presupuesto de herramienta diaria."
+    ],
+    "sources": [
+      { "name": "Pilot · precios desde julio de 2026", "url": "https://www.pilot.co.jp/information/pricelist_202607.pdf" },
+      { "name": "Sailor · Professional Gear", "url": "https://sailor.co.jp/product/11-2036/" },
+      { "name": "Platinum · #3776 Century 2026", "url": "https://www.platinum-pen.co.jp/cms/wp-content/uploads/2026/01/91385b927013e4a50edcd07b4c2dd2f7.pdf" },
+      { "name": "Kakimori · custom notebook FAQ", "url": "https://kakimori.com/en/pages/faq" },
+      { "name": "Kingdom Note · tienda", "url": "https://www.kingdomnote.com/html/shop/index.html" },
+      { "name": "EuroBox · acceso", "url": "https://euro-box.com/?mode=f1" }
+    ]
+  },
+  "preowned_guide": {
+    "title": "Segunda mano: cazar, no acumular",
+    "opening": "Japón no convierte todo lo usado en ganga. Su ventaja es la densidad de inventario, la descripción minuciosa y la posibilidad de comparar. El sweet spot está en objetos duraderos que puedes inspeccionar: relojes, plumas, cámaras, moda japonesa y pequeños accesorios de lujo.",
+    "golden_rule": "Compra usado cuando obtienes mejor pieza, referencia descatalogada o estado excepcional. Si solo ahorras un 10–15% frente a nuevo tax-free, normalmente compra nuevo con garantía.",
+    "hunts": [
+      { "icon": "🖋️", "category": "Plumas", "where": "Kingdom Note / EuroBox", "target": "Pilot 823/743, Sailor Pro Gear, Platinum #3776 y vintage japonés restaurado.", "sweet": "20–35% bajo PVP neto actual en pieza moderna excelente; vintage se valora por estado y rareza.", "inspect": "Plumín, alimentador, llenado, grietas, sello, reparaciones y prueba escrita.", "walk": "La mejor categoría usada para ti si realmente escribes." },
+      { "icon": "⌚", "category": "Relojes", "where": "Nakano: Kame-Kichi, Jackroad, WATCHNIAN", "target": "Grand/King Seiko, Citizen Chronomaster, Seiko descatalogado o un suizo con full set.", "sweet": "Historial, todos los eslabones y garantía de tienda valen más que 5% adicional de descuento.", "inspect": "Referencia, precisión, servicio, humedad, pulido, brazalete y resistencia al agua no asumida.", "walk": "Compra solo después de comparar tres unidades." },
+      { "icon": "📷", "category": "Cámaras y ópticas", "where": "Map Camera / Kitamura / Lemonsha", "target": "Óptica japonesa de grado alto y cámaras con controles que puedas probar.", "sweet": "Lentes modernas con ahorro ≥20% y garantía de tienda; cuerpos digitales envejecen peor.", "inspect": "Hongos, neblina, polvo, rayas, AF, estabilizador, montura, contador y batería.", "walk": "Objetivos antes que cuerpos si no buscas una referencia específica." },
+      { "icon": "👘", "category": "Moda japonesa", "where": "RAGTAG / 2nd Street / Kindal", "target": "Comme, Issey, Yohji, Auralee, Kapital, denim y outerwear.", "sweet": "Piezas japonesas difíciles de encontrar en Europa; no básicos occidentales usados por inercia.", "inspect": "Medidas reales, olor, axilas/cuello, cremalleras, arreglos y composición.", "walk": "La mejor caza espontánea, con límite de maleta." },
+      { "icon": "👜", "category": "Lujo pequeño", "where": "KOMEHYO / WATCHNIAN / ALLU", "target": "Tarjeteros, pañuelos, cinturones y bolsos compactos estado A/S.", "sweet": "Pieza impecable y útil por debajo de tu precio límite; no persigas LV solo por reconocimiento.", "inspect": "Esquinas, herrajes, olor, interior, accesorios, factura y devolución.", "walk": "Ideal para ella; fija color y presupuesto antes." },
+      { "icon": "🎧", "category": "Audio y electrónica", "where": "e-earphone / Hard Off seleccionado", "target": "Auriculares, amplificación compacta o equipo japonés probado.", "sweet": "Solo si higiene, batería, voltaje, idioma y garantía pasan el filtro.", "inspect": "Ambos canales, conectores, batería, almohadillas, accesorios y 100–240 V.", "walk": "Alto riesgo de comprar cacharros: exige uso concreto." },
+      { "icon": "🎮", "category": "Gaming y colección", "where": "Book Off / Hard Off / Surugaya / Mandarake", "target": "Edición japonesa, hardware probado y objetos con valor personal.", "sweet": "Lo que te emociona y cabe en maleta; no compres inventario barato como si fuera inversión.", "inspect": "Región, idioma, batería, pantalla, caja, amarilleo, olor y precio europeo.", "walk": "Presupuesto de ocio cerrado: ¥10.000–20.000." }
+    ],
+    "condition_language": [
+      { "term": "未使用 / 未開封", "meaning": "Sin usar / sin abrir; verifica aun así antigüedad y garantía." },
+      { "term": "美品", "meaning": "Pieza bonita / excelente estado, término comercial no estandarizado." },
+      { "term": "使用感あり", "meaning": "Señales de uso visibles." },
+      { "term": "傷・汚れあり", "meaning": "Arañazos o suciedad; mira fotos y unidad real." },
+      { "term": "動作確認済み", "meaning": "Funcionamiento comprobado, no equivale a revisión completa." },
+      { "term": "現状品 / ジャンク", "meaning": "Tal cual / junk: sin garantía funcional; no es para ahorrar, es para reparar." },
+      { "term": "付属品", "meaning": "Accesorios incluidos: exige lista exacta." }
+    ],
+    "budget_guardrails": [
+      "Crea tres columnas antes de salir: objetivo, precio máximo puesto en España y motivo de compra.",
+      "No uses el precio tachado de la tienda como referencia. Busca PVP japonés actual, nuevo tax-free y precio usado europeo vendido, no anunciado.",
+      "Para cualquier compra >¥50.000: foto, paseo de 20 minutos y segunda tienda antes de pagar.",
+      "Cuenta volumen y peso como coste. Un objeto mediocre que ocupa media maleta no es barato.",
+      "No compres 'junk' si no puedes diagnosticarlo y repararlo tú mismo.",
+      "Conserva etiqueta de condición y factura: documentan exactamente qué compraste y en qué estado."
+    ],
+    "sources": [
+      { "name": "KOMEHYO · tienda y tax-free", "url": "https://www.komehyo.co.jp/store/shinjuku-annex/1000" },
+      { "name": "WATCHNIAN · control de producto", "url": "https://watchnian.com/shop/pages/about.aspx" },
+      { "name": "Hard Off · tiendas tax-free 2026", "url": "https://www.hardoff.co.jp/news/info/n4269/" },
+      { "name": "Kingdom Note · instrumentos usados", "url": "https://www.kingdomnote.com/" }
+    ]
+  },
   "categories": [
     {
       "id": "stationery",
