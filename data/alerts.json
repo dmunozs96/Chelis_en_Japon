@@ -1,56 +1,6 @@
 {
   "alerts": [
     {
-      "id": "train-01-hakone",
-      "type": "action",
-      "title": "Reservar tren Tokio → Hakone",
-      "body": "La ventana abre el vie 17 jul a las 10:00 JST (03:00 en España) — mismo día un mes antes. Odakyu Romancecar (no es JR). Reservar en e-Romancecar; los 16+16 asientos panorámicos del GSE vuelan en minutos. Verificado 16 jul 2026.",
-      "due_date": "2026-07-17",
-      "action_url": "https://www.web-odakyu.com/e-romancecar/?language=en",
-      "related_day": "2026-08-17",
-      "dismissible": true
-    },
-    {
-      "id": "train-02-kyoto",
-      "type": "action",
-      "title": "Reservar tren Hakone → Kioto",
-      "body": "La ventana abre el sáb 18 jul a las 10:00 JST (03:00 en España). Shinkansen Hikari, Odawara → Kyoto (~1h50; no todos los Hikari paran en Odawara — evitar Kodama). Asiento E para ver el Fuji. Reservar en SmartEX. Verificado 16 jul 2026.",
-      "due_date": "2026-07-18",
-      "action_url": "https://smart-ex.jp/en/",
-      "related_day": "2026-08-18",
-      "dismissible": true
-    },
-    {
-      "id": "train-03-hiroshima",
-      "type": "action",
-      "title": "Reservar tren Kioto → Hiroshima",
-      "body": "La ventana abre el mar 21 jul a las 10:00 JST (03:00 en España). Shinkansen Hikari/Nozomi, Kyoto → Hiroshima. Reservar en SmartEX. Verificado 16 jul 2026.",
-      "due_date": "2026-07-21",
-      "action_url": "https://smart-ex.jp/en/",
-      "related_day": "2026-08-21",
-      "dismissible": true
-    },
-    {
-      "id": "train-04-osaka",
-      "type": "action",
-      "title": "Reservar tren Hiroshima → Osaka",
-      "body": "La ventana abre el mié 22 jul a las 10:00 JST (03:00 en España). Shinkansen Nozomi/Sakura, Hiroshima → Shin-Osaka. Reservar en SmartEX. Verificado 16 jul 2026.",
-      "due_date": "2026-07-22",
-      "action_url": "https://smart-ex.jp/en/",
-      "related_day": "2026-08-22",
-      "dismissible": true
-    },
-    {
-      "id": "train-05-tokyo",
-      "type": "action",
-      "title": "Reservar tren Osaka → Tokio",
-      "body": "La ventana abre el jue 23 jul a las 10:00 JST (03:00 en España). Shinkansen Hikari/Nozomi, Shin-Osaka → Tokyo (~3h; asiento E para el Fuji). Reservar en SmartEX. Verificado 16 jul 2026.",
-      "due_date": "2026-07-23",
-      "action_url": "https://smart-ex.jp/en/",
-      "related_day": "2026-08-23",
-      "dismissible": true
-    },
-    {
       "id": "mizunoto-tattoo",
       "type": "action",
       "title": "Confirmar política de tatuajes — Mizunoto",

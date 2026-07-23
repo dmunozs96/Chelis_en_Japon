@@ -519,16 +519,7 @@
         "checkin": "15:00",
         "checkout": "11:00"
       },
-      "pois": [
-        {
-          "id": "hakone-openair",
-          "name": "Hakone Open-Air Museum",
-          "type": "museo",
-          "lat": 35.2349,
-          "lng": 139.0457,
-          "note": "10-15 min a pie del ryokan. Abre 9:00-17:00."
-        }
-      ],
+      "pois": [],
       "blocks": [
         {
           "time": "mañana",
@@ -536,18 +527,10 @@
           "activity": "Check-out de The Gate Hotel Tokyo y traslado a la estación",
           "steps": [
             {
-              "time": "09:30",
+              "time": "10:30",
               "type": "visit",
               "title": "Check-out The Gate Hotel Tokyo",
-              "detail": "Antes de las 11:00. Si sobra tiempo, facturar el equipaje grande por Takkyubin y llevar solo una mochila al ryokan.",
-              "duration_min": 20
-            },
-            {
-              "time": "10:00",
-              "type": "transfer",
-              "mode": "tren",
-              "title": "Yurakucho → Shinjuku",
-              "detail": "JR Yamanote Line, ~20 min hasta Shinjuku Station.",
+              "detail": "Antes de las 11:00. Si se ha contratado Takkyubin, enviar el equipaje grande y llevar solo una mochila al ryokan.",
               "duration_min": 20
             }
           ]
@@ -555,22 +538,37 @@
         {
           "time": "mediodía",
           "label": "Viaje",
-          "activity": "Tren Romancecar o Shinkansen hasta Odawara/Hakone-Yumoto",
+          "activity": "Romancecar panorámico Shinjuku → Hakone-Yumoto",
           "steps": [
             {
-              "time": "10:30",
+              "time": "11:00",
               "type": "transfer",
               "mode": "tren",
-              "title": "Romancecar Shinjuku → Hakone-Yumoto",
-              "detail": "Odakyu Romancecar directo, ~80 min. Hora exacta pendiente de reserva (la ventana abre el 17 jul, 10:00 JST).",
-              "duration_min": 80
+              "title": "Yurakucho → Shinjuku",
+              "detail": "JR Yamanote Line, ~20 min. Llegar con margen para localizar la salida del Romancecar y comprar comida antes de embarcar.",
+              "duration_min": 20
             },
             {
-              "time": "11:50",
+              "time": "11:45",
+              "type": "food",
+              "title": "Almuerzo en Shinjuku",
+              "detail": "Comer antes de subir o comprar un ekiben para el tren. Estar en el andén hacia las 13:00.",
+              "duration_min": 60
+            },
+            {
+              "time": "13:20",
               "type": "transfer",
               "mode": "tren",
-              "title": "Hakone-Yumoto → Chokoku-no-mori",
-              "detail": "Hakone Tozan Line hasta la parada Chokoku-no-mori, la más cercana al museo, ~40 min con el cambio en Hakone-Yumoto.",
+              "title": "Romancecar Hakone 27 → Hakone-Yumoto",
+              "detail": "Salida 13:20, llegada 14:56. GSE, coche 1, asientos panorámicos delanteros 4A/4B. El recargo Romancecar no incluye el billete base: usar IC card o Hakone Freepass aparte.",
+              "duration_min": 96
+            },
+            {
+              "time": "15:05",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Hakone-Yumoto → Kowakidani",
+              "detail": "Hakone Tozan Line hacia Gora, ~35-45 min. Desde Kowakidani, usar el shuttle de Mizunoto si está operativo o completar el último tramo a pie/taxi.",
               "duration_min": 40
             }
           ]
@@ -578,30 +576,13 @@
         {
           "time": "tarde",
           "label": "Check-in Hakone",
-          "activity": "Check-in en Mizunoto a las 15:00 — ryokan con onsen",
-          "poi_id": "hakone-openair",
+          "activity": "Llegada a Mizunoto — ryokan con onsen",
           "steps": [
             {
-              "time": "13:00",
-              "type": "visit",
-              "title": "Hakone Open-Air Museum",
-              "detail": "A 2 min a pie de la estación Chokoku-no-mori. Esculturas al aire libre entre montañas.",
-              "duration_min": 100,
-              "poi_id": "hakone-openair"
-            },
-            {
-              "time": "14:40",
-              "type": "transfer",
-              "mode": "walk",
-              "title": "Al ryokan Mizunoto",
-              "detail": "10-15 min a pie, o shuttle gratuito del ryokan (servicio 14:00-17:00 desde Kowakidani Station — confirmar horario con el hotel).",
-              "duration_min": 15
-            },
-            {
-              "time": "15:00",
+              "time": "16:00",
               "type": "visit",
               "title": "Check-in en Mizunoto",
-              "detail": "Ryokan tradicional con onsen privado y kaiseki incluido.",
+              "detail": "Llegada estimada tras el Romancecar. Ryokan tradicional con onsen y kaiseki incluido. Confirmar al llegar la hora de la cena y el shuttle de la mañana siguiente.",
               "duration_min": 30
             }
           ]
@@ -641,6 +622,14 @@
       },
       "pois": [
         {
+          "id": "hakone-openair",
+          "name": "Hakone Open-Air Museum",
+          "type": "museo",
+          "lat": 35.2349,
+          "lng": 139.0457,
+          "note": "Abre 9:00-17:00. Consignas gratuitas en la entrada; consultar al personal para equipaje grande."
+        },
+        {
           "id": "nishiki-market",
           "name": "Nishiki Market",
           "type": "mercado",
@@ -668,21 +657,32 @@
       "blocks": [
         {
           "time": "mañana",
-          "label": "Hakone",
-          "activity": "Última mañana en Hakone — Lago Ashi y vistas al Fuji si el cielo acompaña",
+          "label": "Museo de Hakone",
+          "activity": "Hakone Open-Air Museum antes del Shinkansen",
+          "poi_id": "hakone-openair",
           "steps": [
+            {
+              "time": "07:30",
+              "type": "visit",
+              "title": "Desayuno y check-out temprano",
+              "detail": "Desayunar, hacer check-out sobre las 08:30 y salir con el equipaje. El Lago Ashi queda descartado esta mañana: el Hikari sale de Odawara a las 12:07.",
+              "duration_min": 60
+            },
+            {
+              "time": "08:35",
+              "type": "transfer",
+              "mode": "walk",
+              "title": "Mizunoto → Hakone Open-Air Museum",
+              "detail": "Traslado corto hacia Chokoku-no-mori. El museo tiene consignas gratuitas en la entrada y atiende el equipaje que no cabe en ellas.",
+              "duration_min": 20
+            },
             {
               "time": "09:00",
               "type": "visit",
-              "title": "Desayuno y onsen matutino",
-              "detail": "Última mañana en el ryokan — aprovechar el onsen antes del check-out (11:00).",
-              "duration_min": 90
-            },
-            {
-              "time": "10:30",
-              "type": "free",
-              "title": "Lago Ashi (si hay tiempo)",
-              "detail": "Si el horario del tren lo permite: teleférico Hakone Ropeway + crucero por el Lago Ashi, vistas al Fuji si el cielo acompaña. Si no, ir directo a la estación."
+              "title": "Hakone Open-Air Museum",
+              "detail": "Visita concentrada de 75 min desde la apertura: esculturas exteriores y Pabellón Picasso. Salir a las 10:15 para conservar margen hasta Odawara.",
+              "duration_min": 75,
+              "poi_id": "hakone-openair"
             }
           ]
         },
@@ -692,20 +692,20 @@
           "activity": "Shinkansen desde Odawara hasta Kioto",
           "steps": [
             {
-              "time": "11:00",
+              "time": "10:20",
               "type": "transfer",
               "mode": "tren",
-              "title": "Ryokan → Odawara Station",
-              "detail": "Bus Hakone Tozan (~25 min) o combinación tren Hakone Tozan + Odakyu, según se venga del Lago Ashi o directo del ryokan.",
-              "duration_min": 25
+              "title": "Chokoku-no-mori → Odawara Station",
+              "detail": "Recoger el equipaje y bajar por Hakone Tozan hasta Hakone-Yumoto, con continuación a Odawara. Objetivo: estar en Odawara hacia las 11:15.",
+              "duration_min": 55
             },
             {
-              "time": "12:00",
+              "time": "12:07",
               "type": "transfer",
               "mode": "tren",
-              "title": "Shinkansen Odawara → Kioto",
-              "detail": "Shinkansen Hikari, ~1h50 directo. Hora exacta pendiente de reserva.",
-              "duration_min": 110
+              "title": "Hikari 641 Odawara → Kioto",
+              "detail": "Salida 12:07, llegada 14:12. Coche 6, asientos 15A/15B. Comprar ekiben en Odawara y comer a bordo.",
+              "duration_min": 125
             }
           ]
         },
@@ -715,7 +715,7 @@
           "activity": "Check-in en Hotel Gracery Kyoto Sanjo a las 14:00",
           "steps": [
             {
-              "time": "14:00",
+              "time": "14:20",
               "type": "transfer",
               "mode": "tren",
               "title": "Kioto Station → Hotel Gracery",
@@ -723,7 +723,7 @@
               "duration_min": 20
             },
             {
-              "time": "14:30",
+              "time": "14:45",
               "type": "visit",
               "title": "Check-in en Hotel Gracery Kyoto Sanjo",
               "detail": "En Sanjo, a un paso de Gion y Pontocho.",
@@ -1096,9 +1096,9 @@
             {
               "time": "09:30",
               "type": "visit",
-              "title": "Check-out y últimas compras",
-              "detail": "Check-out de Hotel Gracery antes de las 11:00. Últimas compras en Nishiki o alrededores si queda algo pendiente.",
-              "duration_min": 90
+              "title": "Check-out de Hotel Gracery",
+              "detail": "Cerrar equipaje y hacer check-out con tiempo; el Nozomi sale de Kioto a las 11:16.",
+              "duration_min": 30
             }
           ]
         },
@@ -1108,19 +1108,19 @@
           "activity": "Shinkansen Kioto → Hiroshima",
           "steps": [
             {
-              "time": "11:00",
+              "time": "10:20",
               "type": "transfer",
               "mode": "tren",
               "title": "Hotel → Kioto Station",
-              "detail": "Subway Karasuma Line + 5 min a pie, o taxi directo (~15 min).",
-              "duration_min": 15
+              "detail": "Subway Karasuma Line + 5 min a pie, o taxi directo. Llegar con unos 25 min de margen al andén.",
+              "duration_min": 25
             },
             {
-              "time": "11:30",
+              "time": "11:16",
               "type": "transfer",
               "mode": "tren",
-              "title": "Shinkansen Kioto → Hiroshima",
-              "detail": "Shinkansen Hikari, ~1h40 directo. Hora exacta pendiente de reserva.",
+              "title": "Nozomi 135 Kioto → Hiroshima",
+              "detail": "Salida 11:16, llegada 12:56. N700, coche 5, asientos 7A/7B.",
               "duration_min": 100
             }
           ]
@@ -1131,11 +1131,18 @@
           "activity": "Check-in en Hotel Granvia Hiroshima a las 14:00",
           "steps": [
             {
-              "time": "13:30",
+              "time": "13:05",
               "type": "visit",
-              "title": "Check-in en Hotel Granvia Hiroshima",
-              "detail": "El hotel está integrado en la propia estación de Hiroshima — no hace falta traslado adicional.",
-              "duration_min": 20
+              "title": "Dejar equipaje en Hotel Granvia Hiroshima",
+              "detail": "El hotel está integrado en la estación. Si la habitación aún no está disponible, dejar el equipaje y completar el check-in después.",
+              "duration_min": 15
+            },
+            {
+              "time": "13:20",
+              "type": "food",
+              "title": "Comida cerca de Hiroshima Station",
+              "detail": "Comer al llegar antes de ir al Parque de la Paz.",
+              "duration_min": 60
             }
           ]
         },
@@ -1247,9 +1254,9 @@
             },
             {
               "time": "10:15",
-              "type": "free",
-              "title": "Tiempo extra en el Parque de la Paz (opcional)",
-              "detail": "Si algo quedó pendiente del día anterior, buen momento para completarlo antes del check-out (12:00).",
+              "type": "visit",
+              "title": "Regreso al hotel y check-out",
+              "detail": "Volver al Hotel Granvia, recoger el equipaje y quedar listos para subir al andén. El hotel está integrado en Hiroshima Station.",
               "duration_min": 60
             }
           ]
@@ -1268,11 +1275,11 @@
               "duration_min": 10
             },
             {
-              "time": "12:00",
+              "time": "12:03",
               "type": "transfer",
               "mode": "tren",
-              "title": "Shinkansen Hiroshima → Shin-Osaka",
-              "detail": "Nozomi/Sakura, ~1h20-1h30 directo. Hora exacta pendiente de reserva.",
+              "title": "Nozomi 94 Hiroshima → Shin-Osaka",
+              "detail": "Salida 12:03, llegada 13:28. N700, coche 4, asientos 5D/5E. Acceso con los dos QR individuales de smartEX.",
               "duration_min": 85
             }
           ]
@@ -1283,7 +1290,7 @@
           "activity": "Check-in en Dormy Inn Premium Namba a las 15:00",
           "steps": [
             {
-              "time": "13:45",
+              "time": "13:40",
               "type": "transfer",
               "mode": "tren",
               "title": "Shin-Osaka → Namba",
@@ -1292,6 +1299,13 @@
             },
             {
               "time": "14:15",
+              "type": "food",
+              "title": "Comida en Namba",
+              "detail": "Comer al llegar a Osaka antes del check-in.",
+              "duration_min": 60
+            },
+            {
+              "time": "15:20",
               "type": "visit",
               "title": "Check-in en Dormy Inn Premium Namba",
               "detail": "",
@@ -1356,7 +1370,7 @@
         {
           "time": "mañana",
           "label": "Osaka",
-          "activity": "Última mañana en Osaka — Castillo de Osaka o Shinsekai",
+          "activity": "Última mañana en Osaka — exteriores del castillo y check-out",
           "poi_id": "osaka-castle",
           "steps": [
             {
@@ -1366,58 +1380,87 @@
               "detail": "Subway Tanimachi Line desde Namba hasta Tanimachi 4-chome (~10 min) + 10 min a pie. Solo exteriores y foso — sin entrar al museo.",
               "duration_min": 90,
               "poi_id": "osaka-castle"
+            },
+            {
+              "time": "10:40",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Castillo → hotel",
+              "detail": "Regreso en metro para hacer check-out antes de las 11:00.",
+              "duration_min": 20
+            },
+            {
+              "time": "11:00",
+              "type": "visit",
+              "title": "Check-out y consigna",
+              "detail": "Dejar el equipaje en el hotel hasta la salida hacia Shin-Osaka.",
+              "duration_min": 15
             }
           ]
         },
         {
           "time": "mediodía",
-          "label": "Shinkansen",
-          "activity": "Shinkansen Osaka → Tokio",
+          "label": "Últimas horas en Osaka",
+          "activity": "Comida en Namba antes del tren de la tarde",
           "steps": [
             {
-              "time": "10:45",
-              "type": "transfer",
-              "mode": "tren",
-              "title": "Castillo → Shin-Osaka Station",
-              "detail": "Subway Tanimachi Line + transbordo a Midosuji Line, ~25 min.",
-              "duration_min": 25
+              "time": "11:30",
+              "type": "free",
+              "title": "Paseo y compras en Namba",
+              "detail": "Últimas compras o paseo corto sin alejarse del hotel.",
+              "duration_min": 60
             },
             {
-              "time": "11:15",
+              "time": "12:30",
+              "type": "food",
+              "title": "Comida en Osaka",
+              "detail": "Comer con calma antes del trayecto; el tren no sale hasta las 16:06.",
+              "duration_min": 75
+            },
+            {
+              "time": "14:15",
+              "type": "visit",
+              "title": "Recoger equipaje",
+              "detail": "Volver al Dormy Inn y recoger las maletas.",
+              "duration_min": 15
+            },
+            {
+              "time": "14:35",
               "type": "transfer",
               "mode": "tren",
-              "title": "Shinkansen Osaka → Tokio",
-              "detail": "Shinkansen Hikari, ~3h directo hasta Tokyo Station. Hora exacta pendiente de reserva.",
-              "duration_min": 180
+              "title": "Namba → Shin-Osaka Station",
+              "detail": "Subway Midosuji Line, directo, ~25 min. Llegar con alrededor de una hora de margen.",
+              "duration_min": 25
             }
           ]
         },
         {
           "time": "tarde",
-          "label": "Check-in Tokio",
-          "activity": "Check-in en The Gate Hotel Tokyo by HULIC a las 14:00",
+          "label": "Shinkansen",
+          "activity": "Nozomi 34 Osaka → Tokio",
           "steps": [
             {
-              "time": "14:30",
+              "time": "16:06",
+              "type": "transfer",
+              "mode": "tren",
+              "title": "Nozomi 34 Shin-Osaka → Tokio",
+              "detail": "Salida 16:06, llegada 18:33. N700S, coche 5, asientos 5D/5E. El asiento 5E queda en el lado del Fuji; si está despejado, buscarlo hacia las 17:45.",
+              "duration_min": 147
+            },
+            {
+              "time": "18:40",
               "type": "transfer",
               "mode": "tren",
               "title": "Tokyo Station → Hotel",
-              "detail": "1 parada JR Yamanote hasta Yurakucho o 12 min a pie.",
-              "duration_min": 12
+              "detail": "1 parada JR Yamanote hasta Yurakucho o unos 12 min a pie.",
+              "duration_min": 15
             },
             {
-              "time": "14:45",
+              "time": "19:00",
               "type": "visit",
               "title": "Check-in en The Gate Hotel Tokyo",
               "detail": "",
               "duration_min": 20
-            },
-            {
-              "time": "15:30",
-              "type": "free",
-              "title": "Descanso o paseo por Ginza",
-              "detail": "A elegir según el cansancio del viaje — Ginza está a 5-10 min a pie del hotel.",
-              "duration_min": 120
             }
           ]
         },
@@ -1720,17 +1763,17 @@
       "from": "Tokyo (Shinjuku)",
       "to": "Hakone-Yumoto",
       "operator": "Odakyu",
-      "service": "Romancecar",
-      "duration_approx": "80 min",
-      "reservation_window_opens": "2026-07-18T10:00:00+09:00",
-      "reservation_url": "https://odakyu-romance.jp",
-      "departure_time": null,
-      "arrival_time": null,
-      "locator": null,
-      "car": null,
-      "seat": null,
-      "status": "pending",
-      "notes": "No es JR — reservar en odakyu-romance.jp, no en la web de JR."
+      "service": "Romancecar Hakone 27 (GSE)",
+      "duration_approx": "1h 36min",
+      "reservation_window_opens": "2026-07-17T10:00:00+09:00",
+      "reservation_url": "https://www.web-odakyu.com/e-romancecar/?language=en",
+      "departure_time": "13:20",
+      "arrival_time": "14:56",
+      "locator": "00023",
+      "car": "1",
+      "seat": "4A / 4B",
+      "status": "reserved",
+      "notes": "Asientos panorámicos del morro (Front observation deck), coche 1. El recargo de expreso (¥2.300/2 pax) NO incluye el billete base Shinjuku→Hakone-Yumoto: llevar IC card o Hakone Freepass aparte. Se sube con esta pantalla en el móvil, sin canjear en taquilla."
     },
     {
       "id": "train_02",
@@ -1738,17 +1781,17 @@
       "from": "Odawara",
       "to": "Kyoto",
       "operator": "JR",
-      "service": "Shinkansen Hikari",
-      "duration_approx": "1h 50min",
-      "reservation_window_opens": "2026-07-19T10:00:00+09:00",
+      "service": "Shinkansen Hikari 641",
+      "duration_approx": "2h 5min",
+      "reservation_window_opens": "2026-07-18T10:00:00+09:00",
       "reservation_url": "https://smart-ex.jp/en/",
-      "departure_time": null,
-      "arrival_time": null,
-      "locator": null,
-      "car": null,
-      "seat": null,
-      "status": "pending",
-      "notes": "Cambio de tren en Odawara desde el Romancecar."
+      "departure_time": "12:07",
+      "arrival_time": "14:12",
+      "locator": "2000",
+      "car": "6",
+      "seat": "15A / 15B",
+      "status": "reserved",
+      "notes": "Hikari 641, N700, clase turista. Cambio de tren en Odawara desde el Romancecar. Comida = ekiben de Odawara a bordo (2h de trayecto)."
     },
     {
       "id": "train_03",
@@ -1756,17 +1799,17 @@
       "from": "Kyoto",
       "to": "Hiroshima",
       "operator": "JR",
-      "service": "Shinkansen Hikari",
+      "service": "Shinkansen Nozomi 135",
       "duration_approx": "1h 40min",
-      "reservation_window_opens": "2026-07-22T10:00:00+09:00",
+      "reservation_window_opens": "2026-07-21T10:00:00+09:00",
       "reservation_url": "https://smart-ex.jp/en/",
-      "departure_time": null,
-      "arrival_time": null,
-      "locator": null,
-      "car": null,
-      "seat": null,
-      "status": "pending",
-      "notes": null
+      "departure_time": "11:16",
+      "arrival_time": "12:56",
+      "locator": "2001",
+      "car": "5",
+      "seat": "7A / 7B",
+      "status": "reserved",
+      "notes": "Reservado como Nozomi 135 (no Hikari). N700, clase turista. Llega 12:56 → comer al llegar a Hiroshima."
     },
     {
       "id": "train_04",
@@ -1774,17 +1817,17 @@
       "from": "Hiroshima",
       "to": "Shin-Osaka",
       "operator": "JR",
-      "service": "Shinkansen",
+      "service": "Shinkansen Nozomi 94",
       "duration_approx": "1h 25min",
-      "reservation_window_opens": "2026-07-23T10:00:00+09:00",
+      "reservation_window_opens": "2026-07-22T10:00:00+09:00",
       "reservation_url": "https://smart-ex.jp/en/",
-      "departure_time": null,
-      "arrival_time": null,
-      "locator": null,
-      "car": null,
-      "seat": null,
-      "status": "pending",
-      "notes": null
+      "departure_time": "12:03",
+      "arrival_time": "13:28",
+      "locator": "2002",
+      "car": "4",
+      "seat": "5D / 5E",
+      "status": "reserved",
+      "notes": "Nozomi 94, N700. Billete por QR (smartEX). Llega 13:28 → comida en Osaka al llegar (Namba)."
     },
     {
       "id": "train_05",
@@ -1792,17 +1835,17 @@
       "from": "Shin-Osaka",
       "to": "Tokyo",
       "operator": "JR",
-      "service": "Shinkansen Hikari",
-      "duration_approx": "3h",
-      "reservation_window_opens": "2026-07-24T10:00:00+09:00",
+      "service": "Shinkansen Nozomi 34",
+      "duration_approx": "2h 27min",
+      "reservation_window_opens": "2026-07-23T10:00:00+09:00",
       "reservation_url": "https://smart-ex.jp/en/",
-      "departure_time": null,
-      "arrival_time": null,
-      "locator": null,
-      "car": null,
-      "seat": null,
-      "status": "pending",
-      "notes": null
+      "departure_time": "16:06",
+      "arrival_time": "18:33",
+      "locator": "2003",
+      "car": "5",
+      "seat": "5D / 5E",
+      "status": "reserved",
+      "notes": "Nozomi 34, N700S. Billete por QR (smartEX). Salida por la TARDE (16:06): comida en Osaka a mediodía y cena en Tokio al llegar. Monte Fuji a la derecha (lado E, asiento 5E) hacia las 17:45, aún con luz."
     }
   ]
 }

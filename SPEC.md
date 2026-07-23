@@ -56,14 +56,14 @@
 - ⚠️ Día visualmente diferenciado: tarde libre
 
 **17 ago — Tokio → Hakone**
-- Mañana (hasta 11:00): tiempo libre, check-out 11:00
-- Tren: Shinjuku → Hakone-Yumoto, Odakyu Romancecar (~80 min) — **hora TBD (reserva julio 18)**
-- Tarde (16:00-17:00): Hakone Open-Air Museum (10-15 min a pie del ryokan)
+- Mañana: check-out 10:30, traslado y almuerzo en Shinjuku
+- Tren: **Romancecar Hakone 27 (GSE), 13:20 Shinjuku → 14:56 Hakone-Yumoto** — coche 1, panorámicos delanteros 4A/4B
+- Tarde: traslado a Kowakidani y check-in en Mizunoto sobre las 16:00
 - Noche: onsen del ryokan + cena kaiseki incluida (Aburi-yaki o Ashigara Yuzen, elegir en el hotel)
 
 **18 ago — Hakone → Kioto**
-- Mañana: desayuno, onsen, check-out 11:00
-- Tren: Odawara → Kioto, Shinkansen Hikari (~1h50) — **hora TBD (reserva julio 18)**
+- Mañana: desayuno, check-out temprano y Hakone Open-Air Museum de 09:00 a 10:15; el museo tiene consigna. Lago Ashi descartado por el horario del tren.
+- Tren: **Hikari 641, 12:07 Odawara → 14:12 Kioto** — coche 6, asientos 15A/15B; ekiben a bordo
 - Tarde (15:30-18:00): Nishiki Market y Pontocho
 - Noche: cena en Gahōjin Kappa (antes «Gion Kappa») o Mendokoro Janomeya (ramen; ya no está en Pontocho — se mudó a Kayukoji), paseo nocturno por Gion
 
@@ -80,21 +80,24 @@
 - Noche: Kyogoku Kaneyo (unagi — llegar 19:30, su cocina cierra 20:00) o Kyo Asobi Gion (yakitori; antes «Gion Sumibiyaki Kyōyū», renombrado)
 
 **21 ago — Kioto → Hiroshima**
-- Mañana: check-out 11:00, últimas compras
-- Tren: Kioto → Hiroshima, Shinkansen Hikari (~1h40) — **hora TBD (reserva julio 18)**
+- Mañana: check-out 09:30 y traslado a Kyoto Station
+- Tren: **Nozomi 135, 11:16 Kioto → 12:56 Hiroshima** — coche 5, asientos 7A/7B
+- Mediodía: dejar equipaje en Hotel Granvia y comer cerca de la estación
 - Tarde (15:00-19:00): Parque Memorial de la Paz + Cúpula Genbaku + Museo (3-5h; tono de lugar de memoria)
 - Noche: cena en Okonomimura
 
 **22 ago — Hiroshima → Osaka**
-- Mañana (hasta 12:00): Shukkei-en Garden o completar Parque de la Paz. **Miyajima descartado** (tiempo insuficiente)
-- Tren: Hiroshima → Shin-Osaka, Shinkansen (~1h20-1h30) — **hora TBD (reserva julio 18)**
+- Mañana: Shukkei-en 09:00-10:00, regreso al hotel y check-out. **Miyajima descartado** (tiempo insuficiente)
+- Tren: **Nozomi 94, 12:03 Hiroshima → 13:28 Shin-Osaka** — coche 4, asientos 5D/5E
+- Tarde: metro a Namba, comida y check-in desde las 15:20
 - Tarde-noche (16:30-22:00): Dotonbori — puente Ebisubashi, letreros neón, crucero Tonbori River, Hozenji Yokocho
 - Noche: Kushikatsu Daruma o Ajinoya Honten
 
 **23 ago — Osaka → Tokio**
-- Mañana (hasta 11:00): exteriores Castillo de Osaka (sin entrar al museo)
-- Tren: Shin-Osaka → Tokio, Shinkansen Hikari (~3h) — **hora TBD (reserva julio 18)**
-- Tarde (16:00-19:00): descanso o paseo por Ginza
+- Mañana: exteriores del Castillo de Osaka (sin museo), regreso y check-out 11:00
+- Mediodía: últimas horas y comida en Namba; recoger equipaje a las 14:15
+- Tren: **Nozomi 34, 16:06 Shin-Osaka → 18:33 Tokio** — N700S, coche 5, asientos 5D/5E; posible vista del Fuji desde 5E hacia las 17:45
+- Tarde: traslado y check-in en The Gate Hotel sobre las 19:00
 - Noche: cena tranquila en Yurakucho
 
 **24 ago — DÍA LIBRE (Tokio)**
@@ -139,21 +142,24 @@
 | Osaka | Dormy Inn Premium Namba | 2-14-23 Shimanouchi, Chuo-ku, Osaka | — | 29386645 | 9084061136226 | 15:00 | 11:00 |
 | Tokio (2ª) | The Gate Hotel Tokyo by HULIC | 2-2-3 Yurakucho, Tokyo | — | 29386717 | 9074056247270 | 14:00 | 11:00 |
 
-### Trenes — Billetes sueltos (decisión confirmada: A1 ✅)
+### Trenes — Billetes sueltos (reservas confirmadas ✅)
 
 Decisión: **billetes sueltos** (JR Pass descartado por disponibilidad de asientos).
 
-Las ventanas de reserva se abren **30 días antes del viaje, a las 10:00 JST**. La guía debe mostrar estas fechas de apertura de forma prominente para que Daniel pueda agendarse cada reserva y hacerla en cuanto abra. Una vez reservados, los campos se actualizan en `trip.json` sin tocar el código.
+Las cinco reservas interurbanas están confirmadas. Los QR y comprobantes completos viven solo en `reservas/` local, excluidos de Git por contener credenciales de viaje. La app publica únicamente los datos operativos necesarios desde `trip.json`.
 
-| Trayecto | Tren | Duración | Ventana abre | Hora salida | Localizador | Estado |
+| Fecha | Trayecto | Tren | Salida → llegada | Coche / asientos | Localizador | Estado |
 |---|---|---|---|---|---|---|
-| Shinjuku → Hakone-Yumoto | Odakyu Romancecar | ~80 min | **18 jul 10:00 JST** | TBD | TBD | ⏳ Pendiente |
-| Odawara → Kioto | Shinkansen Hikari | ~1h50 | **19 jul 10:00 JST** | TBD | TBD | ⏳ Pendiente |
-| Kioto → Hiroshima | Shinkansen Hikari | ~1h40 | **22 jul 10:00 JST** | TBD | TBD | ⏳ Pendiente |
-| Hiroshima → Shin-Osaka | Shinkansen | ~1h20-1h30 | **23 jul 10:00 JST** | TBD | TBD | ⏳ Pendiente |
-| Shin-Osaka → Tokio | Shinkansen Hikari | ~3h | **24 jul 10:00 JST** | TBD | TBD | ⏳ Pendiente |
+| 17 ago | Shinjuku → Hakone-Yumoto | Hakone 27 (GSE) | 13:20 → 14:56 | 1 · 4A/4B panorámicos | 00023 | ✅ Reservado |
+| 18 ago | Odawara → Kioto | Hikari 641 | 12:07 → 14:12 | 6 · 15A/15B | 2000 | ✅ Reservado |
+| 21 ago | Kioto → Hiroshima | Nozomi 135 | 11:16 → 12:56 | 5 · 7A/7B | 2001 | ✅ Reservado |
+| 22 ago | Hiroshima → Shin-Osaka | Nozomi 94 | 12:03 → 13:28 | 4 · 5D/5E | 2002 | ✅ Reservado |
+| 23 ago | Shin-Osaka → Tokio | Nozomi 34 | 16:06 → 18:33 | 5 · 5D/5E | 2003 | ✅ Reservado |
 
-**Nota sobre Odakyu Romancecar:** El primer trayecto (Tokio→Hakone) usa Odakyu, no JR. La ventana también es 30 días antes pero se reserva en odakyu-romance.jp o en la app de Odakyu, no en la web de JR.
+**Notas operativas:**
+- Romancecar: el recargo de expreso no incluye el billete base; usar IC card o Hakone Freepass. Embarque con la pantalla de e-Romancecar.
+- SmartEX: cada viajero usa su QR individual en un torno Shinkansen marcado con QR y recoge el papel «Seat Information» que expulsa el torno.
+- N'EX de llegada y regreso se mantiene sobre la marcha mediante el Round Trip Ticket comprado en Narita.
 
 #### Flujo de actualización
 Cuando se reserve un tren, editar en `trip.json` los campos:
@@ -190,7 +196,7 @@ El redeploy (git push) actualiza la guía automáticamente. Mismo flujo para act
 ### F3 — Billetes y localizadores
 - Vuelo ida y vuelta: código PNR, número de billete, ruta, horarios
 - Cada hotel: nombre, dirección, teléfono, CRS locator, check-in/check-out
-- Cada tren: origen, destino, hora (TBD hasta julio 18-24), localizador (TBD)
+- Cada tren: origen, destino, servicio, horas confirmadas, coche, asientos y localizador
 - Accesible en 1-2 toques desde cualquier pantalla
 - Resiliente a cortes de red: los datos se conservan en memoria/localStorage y el service worker permite recargar el shell completo sin conexión
 
@@ -1055,7 +1061,7 @@ Seis fichas más, con variedad de plato y mejor reparto por ciudad:
 
 ## 9. Advertencias activas
 
-- ⚠️ **Ventanas de reserva de trenes (17-23 jul, corregido 16 jul):** regla oficial = 10:00 JST del **mismo día un mes antes** (03:00 hora española). Romancecar (17 ago) abrió el **17 jul** en [e-Romancecar](https://www.web-odakyu.com/e-romancecar/?language=en) — la URL `odakyu-romance.jp` era errónea. Los 4 shinkansen abren 18, 21, 22 y 23 jul en [SmartEX](https://smart-ex.jp/en/) (billetes sueltos; **no** jrpass.com). N'EX: Round Trip Ticket ¥5.000 comprado en Narita al llegar. Detalle operativo completo en `DOSIER_TRENES.md`. La app reflejará los localizadores reales en `trip.json` (`status: "reserved"`) cuando se reserven — Ola 8.
+- ✅ **Reservas de trenes completadas (23 jul):** Romancecar Hakone 27 y cuatro Shinkansen confirmados con horarios, coches, asientos y localizadores en `trip.json`. El horario tardío del Romancecar obligó a mover Hakone Open-Air Museum a la mañana del 18; el Nozomi de Osaka a Tokio sale a las 16:06, por lo que la comida permanece en Osaka y el check-in de Tokio pasa a las 19:00. Las alertas de compra ya se retiraron. N'EX sigue sobre la marcha mediante Round Trip Ticket en Narita. Detalle en `DOSIER_TRENES.md`.
 - ⚠️ **Política de tatuajes Mizunoto:** No confirmada oficialmente. Recomendación: llamar al hotel (+81 460-82-6011) antes del viaje.
 - ~~teamLab Borderless~~ descartado — reemplazado por Yanaka (16 ago mañana).
 - ~~Cena premium Michelin (ESqUISSE / Bird Land)~~ descartada en la Puerta A (15 jul) por precio — la cena de despedida del 24 queda abierta. Si en algún momento se retomara, ambos exigen reserva con semanas de antelación y Bird Land cierra los lunes (el 24 ago es lunes).

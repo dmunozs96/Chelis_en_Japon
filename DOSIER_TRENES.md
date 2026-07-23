@@ -1,7 +1,19 @@
-# Dosier de reserva de trenes — Ola 8 (fase previa)
+# Dosier de reserva de trenes — Ola 8 (reservas completadas)
 
-> Preparado: 16 jul 2026 · Todas las reglas verificadas contra fuentes oficiales en esta fecha.
+> Preparado: 16 jul 2026 · Reservas incorporadas: 23 jul 2026.
 > Regla general: **las reservas abren a las 10:00 JST del mismo día del mes anterior al embarque** — es decir, a las **03:00 de la madrugada en España** (CEST = JST−7).
+
+## Estado final
+
+| Fecha | Servicio | Horario | Coche / asientos | Estado |
+|---|---|---|---|---|
+| 17 ago | Romancecar Hakone 27 (GSE) | 13:20–14:56 | 1 · 4A/4B, panorámicos delanteros | ✅ |
+| 18 ago | Hikari 641 | 12:07–14:12 | 6 · 15A/15B | ✅ |
+| 21 ago | Nozomi 135 | 11:16–12:56 | 5 · 7A/7B | ✅ |
+| 22 ago | Nozomi 94 | 12:03–13:28 | 4 · 5D/5E | ✅ |
+| 23 ago | Nozomi 34 (N700S) | 16:06–18:33 | 5 · 5D/5E | ✅ |
+
+Los datos operativos están en `data/trip.json`. Los comprobantes y QR permanecen en `reservas/`, excluidos del repositorio. Las cinco alertas de reserva se han retirado al completar las compras. El itinerario del 17–18, 21–23 de agosto se ha reescrito alrededor de estos horarios.
 
 ## ⚠️ Corrección importante respecto a lo documentado
 
