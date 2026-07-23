@@ -4,6 +4,7 @@ Thumbs.db
 
 # Node (para cuando arranque el proyecto web)
 node_modules/
+data/restaurant_candidates.json
 dist/
 .env
 .env.local

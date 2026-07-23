@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useDepartureCountdown } from '../hooks/useDepartureCountdown.js';
 import { usePreparationData } from '../hooks/usePreparationData.js';
+import { getNowState, minutesUntil } from '../lib/nowMode.js';
 
 /* ---------------------------------------------------------------
    TodayView
@@ -17,6 +18,24 @@ const STYLES = `
   flex-direction: column;
   gap: var(--gap-card);
 }
+
+.now-card {
+  padding: 18px;
+  border: 1px solid rgba(48, 209, 88, .4);
+  border-radius: var(--radius-card);
+  background: linear-gradient(145deg, rgba(48, 209, 88, .14), var(--bg-surface));
+  box-shadow: var(--shadow-card);
+}
+.now-card__top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.now-card__eyebrow { color:#30d158; font-size:12px; font-weight:800; letter-spacing:.6px; text-transform:uppercase; }
+.now-card__time { color:var(--label-secondary); font-size:13px; font-variant-numeric:tabular-nums; }
+.now-card__title { margin-top:9px; color:var(--label-primary); font-size:22px; font-weight:750; line-height:1.2; }
+.now-card__detail { margin-top:5px; color:var(--label-secondary); font-size:14px; line-height:1.45; }
+.now-card__next { margin-top:12px; padding-top:12px; border-top:1px solid var(--separator); color:var(--label-secondary); font-size:13px; line-height:1.4; }
+.now-card__next strong { color:var(--label-primary); }
+.now-card__actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+.now-card__action { border:0; border-radius:var(--radius-btn); padding:10px 14px; background:var(--accent); color:#fff; font:600 14px var(--font); }
+.now-card__action--secondary { background:var(--bg-secondary); color:var(--label-primary); }
 
 .arrival-tool-card {
   width: 100%;
@@ -364,6 +383,12 @@ const STYLES = `
   -webkit-tap-highlight-color: transparent;
 }
 
+.plan-b { margin-top:10px; border:1px solid rgba(255,159,10,.38); border-radius:12px; background:rgba(255,159,10,.08); overflow:hidden; }
+.plan-b summary { padding:11px 13px; color:#ff9f0a; font-size:13px; font-weight:750; cursor:pointer; list-style:none; }
+.plan-b summary::-webkit-details-marker { display:none; }
+.plan-b__body { padding:0 13px 13px; color:var(--label-secondary); font-size:13px; line-height:1.45; }
+.plan-b__trigger { margin-bottom:5px; color:var(--label-primary); }
+
 .steps-list {
   margin-top: 12px;
   display: flex;
@@ -457,6 +482,49 @@ function formatDateEs(dateStr) {
 function getDayNumber(days, day) {
   const idx = days.findIndex(d => d.date === day.date);
   return idx >= 0 ? idx + 1 : null;
+}
+
+function NowCard({ day, onOpenMap, onOpenPoi, onOpenTickets, onFindFood }) {
+  const now = new Date();
+  const state = getNowState(day, now);
+  const focus = state.current ?? state.next;
+  const until = minutesUntil(state.next, now);
+
+  if (!focus) {
+    return (
+      <section className="now-card" aria-label="Modo Ahora">
+        <div className="now-card__eyebrow">Ahora</div>
+        <div className="now-card__title">{state.phase === 'finished' ? 'Plan del día completado' : 'Sin horario detallado'}</div>
+        <div className="now-card__detail">Consulta el plan completo o adapta el resto del día con calma.</div>
+      </section>
+    );
+  }
+
+  const beforeStart = state.phase === 'before_start';
+  const foodStep = focus.type === 'food';
+  const transferStep = focus.type === 'transfer';
+  return (
+    <section className="now-card" aria-label="Modo Ahora">
+      <div className="now-card__top">
+        <div className="now-card__eyebrow">{beforeStart ? 'Lo primero' : 'Ahora'}</div>
+        <div className="now-card__time">{focus.time}</div>
+      </div>
+      <div className="now-card__title">{focus.title}</div>
+      {focus.detail && <div className="now-card__detail">{focus.detail}</div>}
+      {state.next && !beforeStart && (
+        <div className="now-card__next">
+          Después: <strong>{state.next.time} · {state.next.title}</strong>
+          {until > 0 ? ` · en ${until} min` : ''}
+        </div>
+      )}
+      <div className="now-card__actions">
+        {focus.poi_id && onOpenPoi && <button className="now-card__action" onClick={() => onOpenPoi(focus.poi_id)}>Abrir lugar</button>}
+        {transferStep && onOpenTickets && <button className="now-card__action" onClick={onOpenTickets}>Ver billetes</button>}
+        {foodStep && onFindFood && <button className="now-card__action" onClick={onFindFood}>Buscar comida</button>}
+        {onOpenMap && <button className="now-card__action now-card__action--secondary" onClick={() => onOpenMap(day)}>Mapa del día</button>}
+      </div>
+    </section>
+  );
 }
 
 /* --- Componente hotel --- */
@@ -559,7 +627,7 @@ function StepsList({ steps, onOpenPoi }) {
 }
 
 /* --- DayCard: exportado para uso en DayNav --- */
-export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide }) {
+export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide, nowMode = false, onOpenTickets, onFindFood }) {
   const isFree = day.type === 'free';
   const dayNum = days.length > 0 ? getDayNumber(days, day) : null;
   const hasRoutePois = (day.blocks ?? []).some(b => b.poi_id);
@@ -577,6 +645,7 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
     <>
       <style>{STYLES}</style>
       <div className="today-view">
+        {nowMode && <NowCard day={day} onOpenMap={onOpenMap} onOpenPoi={onOpenPoi} onOpenTickets={onOpenTickets} onFindFood={onFindFood} />}
         {/* Hero card */}
         <div className="hero-card">
           <div className={`hero-card__day-chip${isFree ? ' hero-card__day-chip--free' : ''}`}>
@@ -658,6 +727,15 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
                           {stepsOpen && <StepsList steps={block.steps} onOpenPoi={onOpenPoi} />}
                         </>
                       )}
+                      {block.plan_b && (
+                        <details className="plan-b">
+                          <summary>Plan B si algo se tuerce</summary>
+                          <div className="plan-b__body">
+                            <div className="plan-b__trigger"><strong>Cuándo:</strong> {block.plan_b.trigger}</div>
+                            <div><strong>Qué hacer:</strong> {block.plan_b.action}</div>
+                          </div>
+                        </details>
+                      )}
                     </div>
                   </div>
                 );
@@ -671,7 +749,7 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
 }
 
 /* --- Vista principal de "Hoy" --- */
-export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide, onOpenPreparation }) {
+export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRoute, onOpenIcGuide, onOpenPreparation, onOpenTickets, onFindFood }) {
   const today = todayISO();
   const countdown = useDepartureCountdown(trip?.departure_datetime);
   const { tasks: preparationTasks } = usePreparationData();
@@ -739,5 +817,5 @@ export default function TodayView({ trip, days, onOpenMap, onOpenPoi, onOpenRout
     );
   }
 
-  return <DayCard day={currentDay} days={days} onOpenMap={onOpenMap} onOpenPoi={onOpenPoi} onOpenRoute={onOpenRoute} onOpenIcGuide={onOpenIcGuide} />;
+  return <DayCard day={currentDay} days={days} onOpenMap={onOpenMap} onOpenPoi={onOpenPoi} onOpenRoute={onOpenRoute} onOpenIcGuide={onOpenIcGuide} nowMode onOpenTickets={onOpenTickets} onFindFood={onFindFood} />;
 }

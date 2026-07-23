@@ -107,6 +107,10 @@
           "time": "mañana",
           "label": "Llegada",
           "activity": "Aterrizaje Narita T2 a las 09:30 — control de pasaportes y aduana",
+          "plan_b": {
+            "trigger": "Inmigración, equipaje o N'EX acumulan más de 60 minutos de retraso.",
+            "action": "Priorizar llegar al hotel. Tomar el siguiente N'EX con asiento reservado y eliminar Hibiya Park y Ginza Six; la cena puede resolverse junto al hotel."
+          },
           "steps": [
             {
               "time": "09:30",
@@ -539,6 +543,10 @@
           "time": "mediodía",
           "label": "Viaje",
           "activity": "Romancecar panorámico Shinjuku → Hakone-Yumoto",
+          "plan_b": {
+            "trigger": "Se pierde el Hakone 27 o la línea Odakyu sufre una incidencia.",
+            "action": "Ir al mostrador de Odakyu en Shinjuku para la siguiente conexión válida y avisar a Mizunoto. Al llegar, ir directo al ryokan y cancelar cualquier parada intermedia."
+          },
           "steps": [
             {
               "time": "11:00",
@@ -659,6 +667,10 @@
           "time": "mañana",
           "label": "Museo de Hakone",
           "activity": "Hakone Open-Air Museum antes del Shinkansen",
+          "plan_b": {
+            "trigger": "No se puede salir del museo a las 10:15 o el transporte local va con retraso.",
+            "action": "Saltar o acortar el museo y bajar directamente a Odawara. El objetivo prioritario es estar en la estación a las 11:15 para el Hikari 641."
+          },
           "poi_id": "hakone-openair",
           "steps": [
             {
@@ -690,6 +702,10 @@
           "time": "mediodía",
           "label": "Shinkansen",
           "activity": "Shinkansen desde Odawara hasta Kioto",
+          "plan_b": {
+            "trigger": "Se pierde el Hikari 641 o aparece una incidencia ferroviaria.",
+            "action": "Enseñar el billete al personal de JR antes de subir a otro tren y seguir su reubicación. Avisar al hotel si la llegada supera la hora prevista."
+          },
           "steps": [
             {
               "time": "10:20",
@@ -1106,6 +1122,10 @@
           "time": "mediodía",
           "label": "Shinkansen",
           "activity": "Shinkansen Kioto → Hiroshima",
+          "plan_b": {
+            "trigger": "Se pierde el Nozomi 135 o aparece una incidencia ferroviaria.",
+            "action": "Enseñar el billete al personal de JR antes de subir a otro tren y seguir su reubicación. Reducir el Parque de la Paz antes que improvisar una conexión."
+          },
           "steps": [
             {
               "time": "10:20",
@@ -1265,6 +1285,10 @@
           "time": "mediodía",
           "label": "Shinkansen",
           "activity": "Shinkansen Hiroshima → Osaka",
+          "plan_b": {
+            "trigger": "Se pierde el Nozomi 94 o aparece una incidencia ferroviaria.",
+            "action": "Enseñar el billete al personal de JR antes de subir a otro tren y seguir su reubicación. Ir directo al hotel al llegar y recortar Dotonbori si hace falta."
+          },
           "steps": [
             {
               "time": "11:45",
@@ -1438,6 +1462,10 @@
           "time": "tarde",
           "label": "Shinkansen",
           "activity": "Nozomi 34 Osaka → Tokio",
+          "plan_b": {
+            "trigger": "Se pierde el Nozomi 34 o aparece una incidencia ferroviaria.",
+            "action": "Enseñar el billete al personal de JR antes de subir a otro tren y seguir su reubicación. Avisar al hotel de Tokio y cancelar el plan nocturno."
+          },
           "steps": [
             {
               "time": "16:06",
@@ -1530,6 +1558,10 @@
           "time": "madrugada",
           "label": "Check-out",
           "activity": "Check-out del hotel a las 07:00 — traslado al aeropuerto Narita",
+          "plan_b": {
+            "trigger": "El N'EX reservado se cancela o no permite llegar con margen al aeropuerto.",
+            "action": "Pedir al personal de JR la alternativa ferroviaria más rápida y mostrar el vuelo de las 11:10. Usar taxi solo como último recurso y sin esperar a que se reduzca el margen."
+          },
           "steps": [
             {
               "time": "07:00",

@@ -25,7 +25,22 @@ Los grupos admitidos en `verified_fields` son `identity`, `operating_status`, `l
 
 Cada fuente requiere `name`, URL HTTP(S), `source_type` (`official` o `reference`) y `accessed_at`. La web oficial prima para identidad, dirección, horarios, cierres y reservas. Las fuentes de referencia pueden complementar contexto, reconocimiento y platos, pero no deben contradecir una fuente oficial más reciente.
 
-Una ficha profunda del Top 50 necesitará al menos dos fuentes y evidencia trazable para «qué pedir». Las fichas operativas pueden tener una sola fuente si es oficial y suficiente. `source_count` es un control de integridad, no una valoración de calidad.
+Las 200 fichas objetivo son fichas profundas y siguen un único estándar. Cada una necesita al menos dos fuentes, incluyendo una fuente oficial concreta siempre que exista, y evidencia trazable para «qué pedir». Una portada genérica de cadena no verifica una sucursal. `source_count` es un control de integridad, no una valoración de calidad.
+
+## Definición de ficha publicable
+
+Una ficha cuenta para el objetivo de 200 únicamente si:
+
+1. identifica establecimiento y sucursal sin ambigüedad;
+2. confirma que sigue operando;
+3. registra dirección y coordenada de puerta contrastadas;
+4. confirma horario, cierres y política de reserva;
+5. registra un rango de precio sustentado;
+6. explica qué pedir con al menos una evidencia trazable;
+7. incluye un mínimo de dos fuentes consultadas, con fecha;
+8. queda en estado `verified` o `partial` solo cuando la incertidumbre residual está descrita y no afecta a identidad, estado o ubicación.
+
+`needs_review` es estado de auditoría y no cuenta como cobertura publicada.
 
 ## Ejemplos
 

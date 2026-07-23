@@ -4,16 +4,19 @@ Guía interactiva mobile-first para el viaje a Japón del 13 al 25 de agosto de 
 
 ## Estado
 
+**Corte 23 jul 2026:** la aplicación base está operativa y la V2 está parcialmente funcional. El inventario contrastado, los huecos y el orden de cierre están en [ESTADO_V2.md](./ESTADO_V2.md).
+
 - Itinerario completo de 13 días.
 - Billetes, localizadores, hoteles y alertas.
 - Mapa Leaflet, geolocalización y rutas diarias.
 - 24 POIs con imágenes locales y contenido cultural.
-- 32 restaurantes curados y planificador compartido.
+- 200 restaurantes profundos con sucursal, coordenadas, horario, precio, reserva, platos y fuentes trazables; colección «sobre la marcha» y planificador compartido.
+- Centro de preparación, guía cultural y guía profunda de compras.
 - Herramientas offline: frases, conversor, emergencias, Welcome Suica, acceso a hoteles y clima por etapa.
 - PWA instalable con service worker y caché de contenido.
 - Validación automática de datos.
 
-El estado funcional detallado y la deuda conocida viven en [SPEC.md](./SPEC.md). Las reglas que no se pueden romper están en [CONSTITUTION.md](./CONSTITUTION.md).
+El contrato funcional vive en [SPEC.md](./SPEC.md), el corte de ejecución en [ESTADO_V2.md](./ESTADO_V2.md) y las reglas que no se pueden romper en [CONSTITUTION.md](./CONSTITUTION.md).
 
 ## Arquitectura
 
@@ -101,7 +104,5 @@ El servidor sirve el build de `client/dist`, los datos bajo `/data` y la API baj
 
 ## Historial reciente
 
-- [HANDOVER_11.md](./HANDOVER_11.md): PWA, offline y validación.
-- [HANDOVER_12.md](./HANDOVER_12.md): emergencias y acceso a hoteles.
-- [HANDOVER_13.md](./HANDOVER_13.md): Welcome Suica y frases.
-- [HANDOVER_14.md](./HANDOVER_14.md): conversor y clima; cierre de Ola 5.
+- [HANDOVER_23.md](./HANDOVER_23.md)–[HANDOVER_26.md](./HANDOVER_26.md): cierre del Top 50, fichas operativas y reservas ferroviarias reconciliadas.
+- [ESTADO_V2.md](./ESTADO_V2.md): corte funcional actual y backlog de cierre de V2.

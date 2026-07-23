@@ -272,7 +272,9 @@ export default function RestaurantsView({ onOpenPlanner }) {
 
     const withDistance = list.map((r) => ({
       ...r,
-      _distanceKm: coords ? distanceKm(coords[0], coords[1], r.lat, r.lng) : null,
+      _distanceKm: coords && (r.verified_fields ?? []).includes('location')
+        ? distanceKm(coords[0], coords[1], r.lat, r.lng)
+        : null,
     }));
 
     if (coords) {
@@ -423,7 +425,13 @@ export default function RestaurantsView({ onOpenPlanner }) {
                       <div>
                         <div className="rest-info-item__label">Reserva</div>
                         <div className="rest-info-item__value">
-                          {r.reservation_required === false ? 'No necesaria' : r.reservation_required === 'recommended' ? 'Recomendada' : 'Obligatoria'}
+                          {r.reservation_required === false
+                            ? 'No necesaria'
+                            : r.reservation_required === 'recommended'
+                              ? 'Recomendada'
+                              : r.reservation_required === true
+                                ? 'Obligatoria'
+                                : 'Pendiente de confirmar'}
                         </div>
                       </div>
                       <div>

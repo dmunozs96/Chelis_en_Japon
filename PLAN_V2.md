@@ -409,15 +409,13 @@ Cada recurso tendrá `source_url`, `author`, `license`, `attribution`, `retrieve
 
 ### 7.8 Riesgo de escala
 
-Cuatrocientas fichas profundas antes de la salida pueden consumir el tiempo que necesitan los datos críticos. La estrategia será publicar por lotes auditables:
+El objetivo inicial de 400 fichas se descartó en la Puerta A: consumiría el tiempo que necesitan los datos críticos. La estrategia vigente es publicar por lotes auditables:
 
-- lote 0: auditoría de 32;
-- lote 1: top 50;
-- lote 2: 150 de alta relevancia geográfica;
-- lote 3: cobertura hasta 250;
-- lote 4: cobertura hasta 400.
+- lote 0: auditoría de las 32 fichas iniciales;
+- lote 1: Top 50 profundo;
+- lotes profundos: unas 150 fichas adicionales de alta relevancia geográfica, hasta 200 totales, todas con el mismo estándar de las primeras 50.
 
-Ningún lote pasa a producción por alcanzar su cifra; pasa por superar el control de calidad.
+Ningún lote pasa a producción por alcanzar su cifra; pasa por superar el control de calidad. No se admiten fichas provisionales, fuentes genéricas de cadena ni coordenadas aproximadas de barrio para completar el cupo.
 
 ## 8. Dominio E — Guía de compras
 
@@ -687,7 +685,7 @@ Entregables:
 
 ### Fase 4 — Escala gastronómica y cartográfica
 
-- lotes progresivos hasta 400 restaurantes;
+- lotes progresivos hasta el alcance aprobado: Top 50 profundo + ~150 fichas operativas;
 - rutas y mapas enriquecidos;
 - revalidación completa previa al viaje.
 
@@ -711,9 +709,9 @@ Entregables:
 | 5 | Modo Ahora básico | Conecta lo ya existente |
 | 6 | Guía de compras + día 24 | Requiere decisiones personales |
 | 7 | Mejora cartográfica por tramos críticos | Priorizar rutas difíciles, no todas por igual |
-| 8 | Ampliación 150 → 250 → 400 | Escalar sin saltarse controles |
+| 8 | Ampliación progresiva hasta ~200 fichas totales | Escalar sin saltarse controles |
 
-La cifra de 400 y una migración cartográfica completa son los elementos con mayor riesgo de calendario. Si compiten con la verificación de billetes, medicación, top 50 o rutas críticas, estos últimos tienen prioridad.
+El antiguo objetivo de 400 quedó descartado en la Puerta A. Si la escala gastronómica o una mejora cartográfica compiten con la verificación de billetes, medicación, Top 50, Modo Ahora o rutas críticas, estos últimos tienen prioridad.
 
 ## 16. Criterios de aceptación globales
 
@@ -756,7 +754,7 @@ Respuestas de Daniel, registradas literalmente en su intención:
 4. **Día de compras:** sin fijar. Se diseñan las rutas como opciones y se elige **el día que mejor encaje según la situación** (el 24 de agosto sigue siendo el candidato natural por ser día libre completo en Tokio, pero no es una decisión cerrada).
 5. **Comida:** sin restricciones ni alergias.
 6. **Cena premium:** descartada por precio — «irse a un Michelin es mucha pasta». La cena de despedida del 24 queda **abierta**: volver al favorito del viaje o improvisar. Las fichas Michelin de la base se conservan como referencia editorial, no como plan.
-7. **Calidad vs. cantidad:** aprobada la rebaja de 400 → Top 50 profundo + ~150 operativas con revisión más profunda.
+7. **Calidad vs. cantidad:** aprobada la rebaja de 400 → 200 fichas profundas con un único estándar editorial.
 8. **Ruta del 24 de agosto:** sin preferencia cerrada; ver punto 4 — se decidirá sobre el terreno con las variantes diseñadas.
 
 ## 18. Próximo paso, sujeto a autorización

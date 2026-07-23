@@ -63,6 +63,10 @@ export function validateProject() {
     const dayPoiIds = new Set((day.pois ?? []).map((poi) => poi.id));
     for (const poiId of dayPoiIds) check(poiIds.has(poiId), `${day.date}: POI inline desconocido "${poiId}"`);
     for (const block of day.blocks ?? []) {
+      if (block.plan_b) {
+        check(typeof block.plan_b.trigger === 'string' && block.plan_b.trigger.trim().length > 0, `${day.date}: Plan B sin condición`);
+        check(typeof block.plan_b.action === 'string' && block.plan_b.action.trim().length > 0, `${day.date}: Plan B sin acción`);
+      }
       if (block.poi_id) {
         check(poiIds.has(block.poi_id), `${day.date}: bloque referencia POI desconocido "${block.poi_id}"`);
         check(dayPoiIds.has(block.poi_id), `${day.date}: bloque referencia "${block.poi_id}" pero no está en days[].pois`);
@@ -74,10 +78,19 @@ export function validateProject() {
   }
 
   unique(restaurants.map((restaurant) => restaurant.id), 'Restaurantes');
+  const restaurantCoverage = { Tokyo: 72, Kyoto: 46, Osaka: 46, Hiroshima: 31, Hakone: 5 };
+  check(restaurants.length === 200, `Restaurantes: se esperaban 200 fichas profundas y hay ${restaurants.length}`);
+  for (const [city, expected] of Object.entries(restaurantCoverage)) {
+    const actual = restaurants.filter((restaurant) => restaurant.city === city).length;
+    check(actual === expected, `Restaurantes ${city}: se esperaban ${expected} y hay ${actual}`);
+  }
   const restaurantEntityTypes = new Set(['restaurant', 'food_area', 'market', 'food_hall']);
   const verificationStatuses = new Set(['verified', 'partial', 'needs_review', 'closed']);
   const closureRisks = new Set(['low', 'medium', 'high']);
   const verifiableFields = new Set(['identity', 'operating_status', 'location', 'hours', 'closed_days', 'reservation_policy', 'price', 'menu', 'accessibility']);
+  const deepRestaurantFields = ['identity', 'operating_status', 'location', 'hours', 'closed_days', 'reservation_policy', 'price', 'menu'];
+  const restaurantCoordinates = new Set();
+  const restaurantJapaneseNames = new Set();
   for (const restaurant of restaurants) {
     check(Number.isFinite(restaurant.lat) && Number.isFinite(restaurant.lng), `Restaurante ${restaurant.id}: coordenadas inválidas`);
     check(isHttpUrl(restaurant.reservation_url), `Restaurante ${restaurant.id}: URL de reserva inválida`);
@@ -85,11 +98,20 @@ export function validateProject() {
     check(verificationStatuses.has(restaurant.verification_status), `Restaurante ${restaurant.id}: verification_status invalido`);
     check(isDate(restaurant.last_verified_at), `Restaurante ${restaurant.id}: last_verified_at invalido`);
     check(isDate(restaurant.revalidate_on), `Restaurante ${restaurant.id}: revalidate_on invalido`);
-    check(restaurant.name_ja === null || (typeof restaurant.name_ja === 'string' && restaurant.name_ja.length > 0), `Restaurante ${restaurant.id}: name_ja debe ser texto o null`);
+    check(typeof restaurant.name_ja === 'string' && restaurant.name_ja.length > 0, `Restaurante ${restaurant.id}: falta nombre japonés confirmado`);
+    check(!restaurantJapaneseNames.has(restaurant.name_ja), `Restaurante ${restaurant.id}: nombre japonés duplicado "${restaurant.name_ja}"`);
+    restaurantJapaneseNames.add(restaurant.name_ja);
     check(Array.isArray(restaurant.verified_fields) && restaurant.verified_fields.length > 0, `Restaurante ${restaurant.id}: verified_fields vacio`);
     for (const field of restaurant.verified_fields ?? []) check(verifiableFields.has(field), `Restaurante ${restaurant.id}: verified_field desconocido "${field}"`);
+    for (const field of deepRestaurantFields) check(restaurant.verified_fields?.includes(field), `Restaurante ${restaurant.id}: ficha profunda sin verificar "${field}"`);
+    check(['verified', 'partial'].includes(restaurant.verification_status), `Restaurante ${restaurant.id}: no cuenta como ficha publicada`);
     check(closureRisks.has(restaurant.closure_risk), `Restaurante ${restaurant.id}: closure_risk invalido`);
     check(restaurant.source_count === restaurant.sources?.length, `Restaurante ${restaurant.id}: source_count no coincide con sources`);
+    check(restaurant.source_count >= 2, `Restaurante ${restaurant.id}: requiere al menos dos fuentes`);
+    check(Array.isArray(restaurant.what_to_order) && restaurant.what_to_order.length > 0, `Restaurante ${restaurant.id}: falta qué pedir trazable`);
+    const coordinateKey = `${restaurant.lat.toFixed(6)},${restaurant.lng.toFixed(6)}`;
+    check(!restaurantCoordinates.has(coordinateKey), `Restaurante ${restaurant.id}: coordenadas duplicadas ${coordinateKey}`);
+    restaurantCoordinates.add(coordinateKey);
     for (const order of restaurant.what_to_order ?? []) {
       check(Boolean(order.dish && order.why), `Restaurante ${restaurant.id}: recomendacion de plato incompleta`);
       check(isHttpUrl(order.source_url), `Restaurante ${restaurant.id}: plato sin fuente valida`);
@@ -105,6 +127,8 @@ export function validateProject() {
   check(tsuta?.neighborhood?.includes('Yoyogi-Uehara'), 'Tsuta: ha regresado la ubicacion antigua de Sugamo');
   check(tsuta?.michelin_stars === 0, 'Tsuta: estrella Michelin historica marcada como vigente');
   check(tsuta?.reservation_how === 'walk_in_only' && tsuta?.closed_days?.includes('Tuesday'), 'Tsuta: operativa desactualizada');
+  const daruma = restaurants.find((restaurant) => restaurant.id === 'osaka_30_kushikatsu_daruma');
+  check(daruma?.name_ja === '串かつだるま 道頓堀店', 'Daruma: la ficha debe apuntar a Dotonbori, no a Shinsekai');
 
   unique(alerts.map((alert) => alert.id), 'Alertas');
   const dayDates = new Set(days.map((day) => day.date));

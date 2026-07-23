@@ -252,7 +252,7 @@ export default function App() {
           {error   && <div className="app-error">Error cargando datos: {error}</div>}
 
           {!loading && !error && activeTab === 'today'       && (
-            <TodayView trip={tripData?.trip} days={days} onOpenMap={openMap} onOpenPoi={openPoi} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} onOpenPreparation={() => setActiveTool('preparation')} />
+            <TodayView trip={tripData?.trip} days={days} onOpenMap={openMap} onOpenPoi={openPoi} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} onOpenPreparation={() => setActiveTool('preparation')} onOpenTickets={() => setShowTickets(true)} onFindFood={() => setActiveTab('restaurants')} />
           )}
           {!loading && !error && activeTab === 'trip'        && (
             <DayNav days={days} selectedDate={selectedTripDate} onSelectedDateChange={setSelectedTripDate} onOpenMap={openMap} onOpenPoi={openPoi} onOpenRoute={openRoute} />

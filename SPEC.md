@@ -1029,11 +1029,11 @@ Seis fichas finales elegidas por **variedad de precio** (de tier 1 a 4) y estilo
 
 Método idéntico a los lotes anteriores: agente verificador por ficha + reverificación propia vía WebFetch de las URLs oficiales de Anagomeshi Ueno, Tsunahachi y Menami (dirección/horario/estado coincidentes). Nota de numeración: el id `tokyo_51_...` supera el 50 porque la numeración es un contador secuencial de altas, no un ranking; hay 50 fichas en total.
 
-**Estado:** ✅ **Top 50 profundo COMPLETO — 50 fichas verificadas.** Distribución de precio: 25 en ¥, 12 en ¥¥, 7 en ¥¥¥, 2 en ¥¥¥¥, 4 en ¥¥¥¥¥. Siguiente fase gastronómica: las ~150 fichas operativas y la revalidación previa al viaje (semana del 3-10 ago).
+**Estado:** ✅ **Primeras 50 fichas profundas COMPLETAS.** Distribución de precio: 25 en ¥, 12 en ¥¥, 7 en ¥¥¥, 2 en ¥¥¥¥, 4 en ¥¥¥¥¥. El objetivo vigente es ampliar hasta **200 fichas con este mismo nivel editorial y de verificación**. No existe una categoría de calidad inferior denominada «ficha operativa».
 
-### Fichas operativas — Colección «Sobre la marcha» (lote O1) ✅ (2026-07-23)
+### Fichas profundas — Colección «Sobre la marcha» (lote O1) ✅ (2026-07-23)
 
-Arranca la fase de fichas operativas con una **colección temática de comida on-the-go**: sitios de «aquí te pillo aquí te mato» — baratos (tier 1), rápidos, de calidad soberbia, para resolver una comida sobre la marcha. Se marcan con el valor `good_for: "sobre_la_marcha"`, que el cliente convierte automáticamente en un chip de filtro «sobre la marcha» (no requiere código nuevo).
+Continúa la ampliación de fichas profundas con una **colección temática de comida on-the-go**: sitios de «aquí te pillo aquí te mato» — baratos (tier 1), rápidos, de calidad soberbia, para resolver una comida sobre la marcha. Se marcan con el valor `good_for: "sobre_la_marcha"`, que el cliente convierte automáticamente en un chip de filtro «sobre la marcha» (no requiere código nuevo).
 
 Seis fichas nuevas (50 → 56), con variedad de plato:
 - `osaka_52_551_horai_honten` — **butaman** (bollo al vapor de cerdo) para llevar, el emblema de Osaka (Namba). Cierra 1er y 3er martes (nota en horario; `closed_days` vacío porque no es cierre semanal).
@@ -1057,7 +1057,7 @@ Seis fichas más, con variedad de plato y mejor reparto por ciudad:
 - `kyoto_62_gion_tsujiri` — **helado soft de matcha** para llevar en Gion (~¥470).
 - `osaka_63_hanshin_ikayaki` — **ikayaki** del depachika de Hanshin Umeda (~¥187).
 
-**Estado total de la base:** 62 fichas; la colección «sobre la marcha» reúne 17. Distribución de precio: 36 en ¥, 13 en ¥¥, 7 en ¥¥¥, 2 en ¥¥¥¥, 4 en ¥¥¥¥¥.
+**Estado al cerrar los lotes O1/O2:** 62 fichas; la colección «sobre la marcha» reúne 17. La ampliación profunda hasta 200 se documenta en el siguiente corte.
 
 ## 9. Advertencias activas
 
@@ -1092,7 +1092,7 @@ El plan director completo vive en `PLAN_V2.md`; las decisiones del propietario e
 
 | Decisión | Resolución |
 |---|---|
-| Calidad vs. cantidad (restaurantes) | Top 50 profundo + ~150 fichas operativas (objetivo 400 descartado) |
+| Calidad vs. cantidad (restaurantes) | 200 fichas profundas con un único estándar editorial (objetivo 400 descartado) |
 | APIs de pago | Cero — también para clima, mapas y fotos |
 | Compras | Todas las categorías; prioritarias: denim, relojes, cámaras, cuchillos. Día flexible según situación (candidato: 24 ago) |
 | Comida | Sin restricciones ni alergias. Cena premium Michelin descartada por precio; despedida abierta |
@@ -1117,7 +1117,7 @@ Toda ficha nueva o auditada lleva: identidad inequívoca (nombre oficial + japon
 
 ### F19 — Mejoras del directorio al completar la base (comprometido: Daniel, 15 jul 2026)
 
-Cuando la base alcance su objetivo (Top 50 + ~150 fichas operativas), `RestaurantsView` evoluciona de sugeridor a buscador completo:
+Cuando la base alcance su objetivo de 200 fichas profundas, `RestaurantsView` evoluciona de sugeridor a buscador completo:
 
 1. **Mejores filtros de búsqueda:** búsqueda por texto libre (nombre, plato, tipo de cocina) + filtros nuevos por barrio, tipo de plato concreto (ramen, sushi, okonomiyaki…), «abierto hoy» (cruzando `closed_days` con el día de la semana real) y franja de comida (`meal_types`). Los filtros actuales (ciudad, precio, sin reserva, ocasión) se mantienen.
 2. **Vista mapa de resultados:** los restaurantes filtrados se pueden ver sobre el mapa (Leaflet, mismo stack — sin dependencias nuevas), con pin por restaurante, color por tier de precio y tap → tarjeta expandida. Requiere haber pagado antes la deuda de geocodificación del lote 0 (`AUDIT_RESTAURANTES.md` §6.1): sin coordenadas contrastadas no se pinta el pin.
@@ -1127,4 +1127,29 @@ Dependencia: entra tras completar los lotes de contenido (no antes, para no dise
 
 ---
 
-*Última actualización: 2026-07-15 — V2 aprobada (sección 11): enmienda constitucional v2.0, cena de despedida abierta (sin Michelin), decisiones de compras/privacidad/APIs registradas, auditoría lote 0 de restaurantes completada (31 fichas verificadas). Añadido F19: al completar la base de restaurantes — búsqueda/filtros avanzados, vista mapa de resultados y precio medio aproximado en euros con el tipo del conversor F9. Anteriores: documentos personales, presupuesto y notas eliminados del alcance; las actualizaciones de la PWA se activan y recargan automáticamente.*
+## 12. Corte funcional V2 (23 jul 2026)
+
+La V2 está **parcialmente funcional**. Completados: Centro de preparación, guía cultural esencial, guía de compras, 200 fichas gastronómicas profundas, reservas interurbanas y reconciliación del itinerario. De los 200 restaurantes, 17 están etiquetados «sobre la marcha».
+
+El 23 de julio se implementó el **Modo Ahora básico**: calcula el subpaso vigente desde las horas operativas, muestra el siguiente y ofrece accesos contextuales a lugar, billetes, comida y mapa. También se añadió Plan B explícito y validado a ocho conexiones críticas de Narita, Hakone y shinkansen.
+
+No se considera cerrada hasta completar, como mínimo:
+
+1. Comer ahora y estado de sincronización visible.
+2. Rutas GeoJSON contrastadas en trayectos críticos.
+3. Prueba de instalación, actualización y modo avión en ambos móviles.
+4. Confirmaciones operativas pendientes de Mizunoto y procedimiento N'EX.
+
+El alcance completo, la evidencia y el orden de ejecución se mantienen en `ESTADO_V2.md`. El objetivo gastronómico vigente es 200 fichas profundas con el mismo estándar que las primeras 50; cualquier referencia a fichas operativas de menor calidad o a 400 fichas queda fuera de V2.
+
+---
+
+### Ampliación profunda hasta 200 — 23 de julio de 2026
+
+La base alcanza 200 fichas publicables: Tokio 72, Kioto 46, Osaka 46, Hiroshima 31 y Hakone 5. Hakone se limita deliberadamente porque el itinerario solo deja una comida allí; las plazas se concentran donde hay más días.
+
+La selección se ordenó por calidad gastronómica, reputación, especialidad, diversidad y utilidad geográfica. La disponibilidad de web propia no fue criterio de calidad: cada ficha se cruzó con página individual de Tabelog, menú publicado, versión japonesa y web oficial cuando existe o consulta exacta de Google Maps en su defecto.
+
+Todas las fichas contienen nombre japonés, coordenada individual, teléfono, horario, cierres, rango de precio, reserva, al menos un plato trazable y dos o más fuentes. El validador exige estos campos, la distribución por ciudad, ausencia de coordenadas duplicadas y la sucursal correcta de Daruma.
+
+*Última actualización: 2026-07-23 — Modo Ahora básico y Plan B crítico implementados y cubiertos por tests/validación. Estado contrastado: 200 restaurantes profundos, preparación/cultura/compras funcionales y trenes reconciliados. Pendientes principales: Comer ahora/F19, revalidación final de agosto, estado compartido visible, rutas críticas y prueba real en dos móviles.*
