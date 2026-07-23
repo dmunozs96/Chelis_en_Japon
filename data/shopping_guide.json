@@ -51,6 +51,135 @@
       "verdict": "Solo con checklist"
     }
   ],
+  "watch_guide": {
+    "title": "El reloj para tu padre",
+    "verified_at": "2026-07-23",
+    "exchange_rate": 185,
+    "opening": "No busques «el mejor reloj japonés». Busca el que encaje con cómo vive tu padre. Un automático tiene alma pero pierde segundos cada día y exige uso o puesta en hora; un Eco-Drive puede pasar años sin cambio de pila y un radiocontrolado se corrige solo.",
+    "first_decision": [
+      { "id": "zero_fuss", "icon": "☀️", "title": "Cero complicaciones", "answer": "Citizen Eco‑Drive", "why": "Luz como energía, precisión de cuarzo y, en modelos radiocontrolados, hora/calendario automáticos. Es mi elección por defecto si tu padre no es aficionado a los relojes." },
+      { "id": "mechanical", "icon": "⚙️", "title": "Quiere mecánica", "answer": "Citizen NB1050 o Seiko Presage", "why": "Segundero mecánico, fondo visible según modelo y sensación de objeto especial. Hay que aceptar tolerancias diarias y mantenimiento futuro." },
+      { "id": "classic", "icon": "👔", "title": "Clásico y elegante", "answer": "Orient Bambino 38", "why": "La mejor presencia formal por poco dinero. Cristal abombado y estética vintage; menos versátil para agua o trato duro." },
+      { "id": "active", "icon": "🌊", "title": "Activo / informal", "answer": "Orient Mako 40 o Seiko Alpinist", "why": "Más resistencia al agua, lumen y construcción deportiva. Comprueba grosor y peso: sobre el papel engañan." }
+    ],
+    "questions": [
+      "Mide a escondidas su muñeca o un reloj que ya use: menos de 16,5 cm → 36–39 mm; 16,5–18 cm → 38–41 mm; más de 18 cm → 40–42 mm. El lug-to-lug importa más que el diámetro.",
+      "¿Se lo quita para dormir y alterna relojes? Si sí, un automático puede pararse a las 40–72 horas. ¿Le molestaría poner fecha y hora?",
+      "¿Viste traje/camisa, polo y chinos o ropa deportiva? El brazalete metálico es más versátil; una correa de cuero cambia mucho un reloj sencillo.",
+      "¿Ve bien la fecha? Evita esferas recargadas, open-heart o índices de bajo contraste si la legibilidad importa.",
+      "¿Nada con reloj? Busca corona roscada y 10–20 bar; 5 bar no es la elección tranquila para piscina.",
+      "¿Valorará más «comprado en Japón» o servicio fácil en España? Una referencia JDM especial gana relato, pero una global simplifica garantía y repuestos."
+    ],
+    "brands": [
+      { "name": "Citizen", "verdict": "La compra racional más fuerte", "strength": "Eco‑Drive, radiocontrol, titanio y automáticos discretos con gran acabado.", "weakness": "Muchas referencias parecidas; algunos radiocontrolados JDM solo reciben señal japonesa. Comprueba que indique Japón/China/Europa/EE. UU. si quieres sincronización en España.", "best_for": "Padre práctico, viajero o que no quiere mantenimiento." },
+      { "name": "Seiko", "verdict": "La compra con más historia japonesa", "strength": "Presage para vestir, Prospex/Alpinist para uso deportivo y enorme red de servicio.", "weakness": "En automático, la tolerancia oficial puede ser amplia para el precio. Revisa alineación de bisel/índices y compara la unidad física.", "best_for": "Quien valora diseño, marca reconocible y relato." },
+      { "name": "Orient", "verdict": "Más reloj por menos presupuesto", "strength": "Movimientos mecánicos propios, Bambino elegante y Mako deportivo a precios difíciles de batir.", "weakness": "Cristal mineral en varios modelos, brazaletes más sencillos y garantía/servicio a confirmar expresamente para compra japonesa.", "best_for": "Primer automático o regalo con presupuesto contenido." }
+    ],
+    "models": [
+      {
+        "brand": "Citizen", "reference": "AS1062-59A", "family": "Citizen Collection",
+        "nickname": "El regalo sin riesgo", "style": "Clásico diario", "movement": "Eco‑Drive + radiocontrol Japón",
+        "price_jpy_taxed": 47300, "price_jpy_tax_free": 43000, "case": "Delgado; brazalete de acero", "water": "Uso diario",
+        "best_for": "Padre práctico que quiere hora exacta y cero cuerda.", "tradeoff": "La recepción de radio de esta referencia es doméstica japonesa; en España seguirá funcionando como cuarzo Eco‑Drive, pero no debe comprarse esperando sincronización europea.",
+        "verdict": "Buena compra solo si aceptas la limitación de radio", "url": "https://citizen.jp/shop/collection/g/gAS1062-59A/"
+      },
+      {
+        "brand": "Citizen", "reference": "NB1050-59A / 59L / 59E", "family": "Citizen Collection",
+        "nickname": "Mi automático sweet spot", "style": "Tres agujas limpio", "movement": "Mecánico automático, cal. 9011",
+        "price_jpy_taxed": 82500, "price_jpy_tax_free": 75000, "case": "38 mm · acero · zafiro", "water": "10 bar",
+        "best_for": "Muñeca pequeña/media y padre que apreciará la mecánica sin reloj llamativo.", "tradeoff": "No tiene la notoriedad inmediata de Seiko. Confirma garantía internacional y prueba el brazalete; el reloj merece mucho más que su cierre.",
+        "verdict": "La recomendación mecánica más equilibrada", "url": "https://citizen.jp/shop/goods/search.aspx?keyword=Nb1050&search=search&search=x"
+      },
+      {
+        "brand": "Citizen", "reference": "CB3040-56H", "family": "Attesa",
+        "nickname": "Tecnología adulta", "style": "Deportivo elegante", "movement": "Eco‑Drive + radio Japón/China/Europa/EE. UU.",
+        "price_jpy_taxed": 99000, "price_jpy_tax_free": 90000, "case": "39 mm · titanio · 93 g aprox. en variante", "water": "10 bar",
+        "best_for": "Viaja, quiere ligereza y no desea ocuparse jamás de la hora.", "tradeoff": "Estética más técnica y menos emocional que un automático. Verifica en la unidad exacta peso, brazalete y recepción multibanda.",
+        "verdict": "Mi compra funcional premium", "url": "https://citizen.jp/shop/attesa/g/gCB3045-61L/"
+      },
+      {
+        "brand": "Citizen", "reference": "NJ0157-81L", "family": "TSUYOSA",
+        "nickname": "El más vistoso", "style": "Sport-chic integrado", "movement": "Automático cal. 8210 · ~42 h",
+        "price_jpy_taxed": 73700, "price_jpy_tax_free": 67000, "case": "40 mm · 11,7 mm · zafiro", "water": "5 bar",
+        "best_for": "Padre moderno al que le gustan esferas con personalidad.", "tradeoff": "Corona pequeña a las 4 menos cómoda; 5 bar y movimiento más básico que NB1050. La edición citada es limitada, así que el stock no es seguro.",
+        "verdict": "Compra estética, no la más racional", "url": "https://citizen.jp/news/2026/20260220_2.html"
+      },
+      {
+        "brand": "Seiko", "reference": "SARY161 / SARY123", "family": "Presage Cocktail Time",
+        "nickname": "El Seiko que parece más caro", "style": "Vestir con esfera protagonista", "movement": "Automático 4R · ~41 h",
+        "price_jpy_taxed": 57200, "price_jpy_tax_free": 52000, "case": "Alrededor de 40 mm; cristal Hardlex", "water": "5 bar",
+        "best_for": "Cena, camisa y alguien que valorará una esfera japonesa espectacular.", "tradeoff": "Hardlex, poca resistencia al agua y movimiento básico. Pruébalo: la esfera convence; la caja puede parecer grande en muñeca pequeña.",
+        "verdict": "Máximo efecto wow por unos 280 € netos", "url": "https://www.seikowatches.com/jp-ja/products/presage/lineup"
+      },
+      {
+        "brand": "Seiko", "reference": "SARX129 / SARX131 / SARX132", "family": "Presage Classic 36",
+        "nickname": "El regalo serio", "style": "Clásico japonés contemporáneo", "movement": "Automático 6R51 · ~72 h",
+        "price_jpy_taxed": 132000, "price_jpy_tax_free": 120000, "case": "36 mm · texturas inspiradas en seda", "water": "10 bar",
+        "best_for": "Muñeca contenida, estilo elegante y deseo de una pieza inequívocamente japonesa.", "tradeoff": "Precio alto para la tolerancia del 6R y 36 mm puede parecer pequeño si está acostumbrado a relojes grandes.",
+        "verdict": "El Seiko más refinado de la shortlist", "url": "https://www.seikowatches.com/jp-ja/products/presage/special/classic_series/classic/"
+      },
+      {
+        "brand": "Seiko", "reference": "SBDC211", "family": "Prospex Alpinist",
+        "nickname": "El reloj para todo", "style": "Field watch clásico", "movement": "Automático 6R55 · ~72 h",
+        "price_jpy_taxed": 126500, "price_jpy_tax_free": 115000, "case": "39,5 × 46,4 × 12,7 mm · zafiro", "water": "20 bar · corona roscada",
+        "best_for": "Padre activo que quiere un solo reloj con carácter.", "tradeoff": "Más grueso y deportivo; brújula interior es más estética que necesidad. La precisión oficial es +25/−15 s/día.",
+        "verdict": "El más versátil si encaja en su muñeca", "url": "https://www.seikowatches.com/jp-ja/products/prospex/sbdc211"
+      },
+      {
+        "brand": "Orient", "reference": "RN-BB0001E / 0002S / 0003Y", "family": "Bambino 38",
+        "nickname": "Elegancia económica", "style": "Dress watch vintage", "movement": "Mecánico automático",
+        "price_jpy_taxed": 44000, "price_jpy_tax_free": 40000, "case": "38 mm · cristal abombado", "water": "3 bar aprox.; verificar referencia",
+        "best_for": "Primer automático, camisa y muñeca pequeña/media.", "tradeoff": "No es reloj de agua ni de golpes. Varias referencias se agotan; el cristal y correa no están al nivel de un reloj más caro.",
+        "verdict": "El mejor regalo mecánico por ~216 € netos", "url": "https://store.orient-watch.com/"
+      },
+      {
+        "brand": "Orient", "reference": "RN-AA0812L / RN-AA0811E", "family": "Mako",
+        "nickname": "El deportivo asequible", "style": "Diver-style", "movement": "Mecánico automático",
+        "price_jpy_taxed": 48400, "price_jpy_tax_free": 44000, "case": "Acero · brazalete · bisel giratorio", "water": "20 bar; confirmar certificación en referencia",
+        "best_for": "Uso informal, verano, piscina y padre al que le gustan relojes sólidos.", "tradeoff": "Más peso y grosor; el brazalete suele ser el punto débil. Diferencia entre '20 bar' y diver ISO: confirma la ficha exacta.",
+        "verdict": "Gran primer reloj deportivo japonés", "url": "https://store.orient-watch.com/collections/all-products"
+      }
+    ],
+    "ranking": [
+      { "place": "1", "model": "Citizen NB1050", "reason": "Si quieres regalar un automático bueno, sobrio y japonés sin pasarte de presupuesto." },
+      { "place": "2", "model": "Citizen Attesa CB3040", "reason": "Si tu padre prioriza exactitud, ligereza y facilidad. Es el que menos probabilidades tiene de acabar en un cajón." },
+      { "place": "3", "model": "Orient Bambino 38", "reason": "Si buscas una emoción clásica gastando poco; añade una buena correa y parece un regalo mucho mayor." },
+      { "place": "4", "model": "Seiko Presage Classic 36", "reason": "Si quieres que el regalo tenga más presencia de marca, artesanía visual y presupuesto de unos 650 € netos." }
+    ],
+    "buy_route": [
+      "10:30 · Citizen Flagship Tokyo: prueba NB1050, Attesa y Eco‑Drive. Fotografía referencia, PVP, medida y garantía; no compres aún.",
+      "11:30 · Seiko Dream Square: prueba Presage 36/40 y Alpinist. Es el benchmark oficial y la mejor explicación de gamas.",
+      "13:00 · Comida y decisión de tamaño: elimina cualquier reloj cuyas asas sobresalgan o cuya fecha no lea bien.",
+      "14:30 · BicCamera Yurakucho: compara precio final tax-free de las referencias exactas y busca Orient. Pregunta si descuento y tax-free son acumulables.",
+      "15:30 · Vuelve a la boutique si valoras experiencia, grabado o stock exclusivo; compra en distribuidor si la diferencia neta justifica renunciar a esos extras."
+    ],
+    "shop_script": [
+      { "es": "¿Puedo probar esta referencia?", "ja": "この品番を試着できますか？", "reading": "Kono hinban o shichaku dekimasu ka?" },
+      { "es": "¿La garantía es internacional y válida en España?", "ja": "国際保証はスペインでも有効ですか？", "reading": "Kokusai hoshō wa Supein demo yūkō desu ka?" },
+      { "es": "¿Este precio final incluye tax-free y descuento?", "ja": "免税と割引を含む最終価格ですか？", "reading": "Menzei to waribiki o fukumu saishū kakaku desu ka?" },
+      { "es": "¿Pueden ajustar el brazalete y darme los eslabones?", "ja": "バンド調整と余りコマをお願いします。", "reading": "Bando chōsei to amari koma o onegaishimasu." },
+      { "es": "¿Pueden medir la precisión de esta unidad?", "ja": "この個体の精度を測れますか？", "reading": "Kono kotai no seido o hakaremasu ka?" }
+    ],
+    "final_check": [
+      "Referencia exacta de la trasera coincide con caja, etiqueta y factura.",
+      "Garantía internacional sellada/activada; no aceptar un «sí» verbal.",
+      "Corona, fecha, carga manual, parada de segundero y cambio rápido funcionan.",
+      "Índices, agujas y bisel alineados; cristal sin marcas bajo luz lateral.",
+      "Brazalete ajustado dejando margen para agosto, con todos los eslabones sobrantes.",
+      "Caja, manual, tarjeta, etiquetas y factura tax-free dentro de la bolsa.",
+      "Coste en euros y posible declaración española calculados antes de pagar."
+    ],
+    "sources": [
+      { "name": "Citizen · catálogo y precios Japón", "url": "https://citizen.jp/shop/goods/search.aspx" },
+      { "name": "Citizen · garantía internacional", "url": "https://www.citizenwatch-global.com/support/afterservice/warranty.html" },
+      { "name": "Seiko · Presage Japón", "url": "https://www.seikowatches.com/jp-ja/products/presage/lineup" },
+      { "name": "Seiko · Alpinist SBDC211", "url": "https://www.seikowatches.com/jp-ja/products/prospex/sbdc211" },
+      { "name": "Orient · tienda oficial Japón", "url": "https://store.orient-watch.com/" },
+      { "name": "Orient · garantía", "url": "https://orient-watch.com/en/support/terms-of-guarantee/" },
+      { "name": "Citizen Flagship Tokyo", "url": "https://flagshipstore.citizen.jp/en/location/" },
+      { "name": "Seiko Dream Square", "url": "https://www.seikowatches.com/jp-ja/stores/special/seikodreamsquare/en/index" }
+    ]
+  },
   "categories": [
     {
       "id": "stationery",
