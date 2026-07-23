@@ -3,6 +3,7 @@ import { useDepartureCountdown } from '../hooks/useDepartureCountdown.js';
 import { usePreparationData } from '../hooks/usePreparationData.js';
 import { getNowState, minutesUntil } from '../lib/nowMode.js';
 import RouteLine from './ui/RouteLine.jsx';
+import Icon from './ui/Icon.jsx';
 
 /* ---------------------------------------------------------------
    TodayView
@@ -465,6 +466,31 @@ const STYLES = `
   color: var(--label-secondary);
   font-size: 15px;
 }
+
+/* ---- V2.5 editorial day frame ---- */
+.today-view { gap: 0; padding-bottom: 36px; }
+.day-hero { position:relative; min-height:286px; margin:0 calc(var(--page-padding) * -1) 28px; overflow:hidden; background:var(--ink-900); isolation:isolate; }
+.day-hero::after { position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,rgb(8 9 10 / 5%) 15%,rgb(8 9 10 / 92%) 88%); content:""; }
+.day-hero__image { position:absolute; z-index:-2; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(.72) contrast(1.08) brightness(.78); }
+.day-hero__content { position:absolute; right:var(--page-padding); bottom:20px; left:var(--page-padding); display:grid; grid-template-columns:72px minmax(0,1fr); align-items:end; gap:14px; }
+.day-hero__number { color:var(--paper-100); font:650 74px/.8 var(--font-display); letter-spacing:-.075em; }
+.day-hero__eyebrow { margin-bottom:6px; color:var(--paper-300); font-size:10px; font-weight:750; letter-spacing:.14em; text-transform:uppercase; }
+.day-hero__title { max-width:300px; font-size:clamp(24px,7vw,32px); letter-spacing:-.04em; line-height:1.02; }
+.day-hero__date { margin-top:7px; color:var(--paper-300); font-size:13px; text-transform:capitalize; }
+.day-hero__actions { display:flex; margin-top:14px; gap:8px; }
+.day-hero__action { display:inline-flex; min-height:38px; padding:8px 12px; align-items:center; gap:7px; border:1px solid rgb(241 237 229 / 24%); border-radius:var(--radius-btn); background:rgb(8 9 10 / 68%); color:var(--paper-100); font-size:13px; font-weight:650; }
+.today-view > .now-card { margin-bottom:28px; }
+.today-route { padding:24px 0 4px; border-top:1px solid var(--separator); }
+.today-route__label { margin-bottom:24px; color:var(--paper-300); font-size:10px; font-weight:750; letter-spacing:.14em; text-transform:uppercase; }
+.route-line__extras { padding-top:7px; }
+.hotel-card { display:grid; margin-top:18px; padding:17px 0 0; grid-template-columns:minmax(0,1fr) auto; align-items:start; gap:12px; border:0 !important; border-top:1px solid var(--separator) !important; border-radius:0; background:transparent; }
+.hotel-card .section-label { grid-column:1/-1; margin-bottom:0; font-size:10px; letter-spacing:.14em; }
+.hotel-name { margin:0; font-size:17px; }
+.hotel-times-row { flex-direction:column; gap:4px; }
+@media (max-width:350px) {
+  .day-hero__content { grid-template-columns:60px minmax(0,1fr); gap:10px; }
+  .day-hero__number { font-size:62px; }
+}
 `;
 
 /* --- Helpers --- */
@@ -483,6 +509,16 @@ function formatDateEs(dateStr) {
 function getDayNumber(days, day) {
   const idx = days.findIndex(d => d.date === day.date);
   return idx >= 0 ? idx + 1 : null;
+}
+
+function dayHeroImage(day) {
+  const city = (day.city ?? '').toLowerCase();
+  if (city.includes('kioto')) return '/JapanPics/Kyoto.jpg';
+  if (city.includes('osaka')) return '/JapanPics/Osaka.jpg';
+  if (city.includes('hiroshima')) return '/pois/genbaku-dome.jpg';
+  if (city.includes('hakone')) return '/pois/hakone-openair.jpg';
+  if (city.includes('tokio')) return '/JapanPics/Tokyo.jpg';
+  return '/JapanPics/Japaneselads.jpg';
 }
 
 function NowCard({ day, onOpenMap, onOpenPoi, onOpenTickets, onFindFood }) {
@@ -559,18 +595,6 @@ function HotelCard({ hotel }) {
       )}
     </div>
   );
-}
-
-/* --- Franja horaria de texto a label --- */
-function timeToFranja(time) {
-  if (!time) return '';
-  const hour = parseInt(time.split(':')[0], 10);
-  if (isNaN(hour)) return time;
-  // Umbrales de la convención horaria 4e (comidas a la española):
-  // mañana hasta las 14:00, tarde hasta las 20:00, noche después.
-  if (hour < 14) return 'Mañana';
-  if (hour < 20) return 'Tarde';
-  return 'Noche';
 }
 
 /* --- Icono por tipo de paso operativo --- */
@@ -650,53 +674,31 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
     <>
       <style>{STYLES}</style>
       <div className="today-view">
-        {nowMode && <NowCard day={day} onOpenMap={onOpenMap} onOpenPoi={onOpenPoi} onOpenTickets={onOpenTickets} onFindFood={onFindFood} />}
-        {/* Hero card */}
-        <div className="hero-card">
-          <div className={`hero-card__day-chip${isFree ? ' hero-card__day-chip--free' : ''}`}>
-            {dayNum ? `Día ${dayNum}` : (isFree ? 'Día libre' : day.type === 'transit_out' ? 'Viaje a Japón' : day.type === 'transit_return' ? 'Vuelta a casa' : day.type === 'arrival' ? 'Llegada' : 'Hoy')}
-          </div>
-          <h1 className="hero-card__title">{day.title}</h1>
-          <p className="hero-card__subtitle">{formatDateEs(day.date)}</p>
-          {onOpenMap && (
-            <button onClick={() => onOpenMap(day)} className="map-btn">
-              📍 Ver en mapa
-            </button>
-          )}
-          {onOpenRoute && hasRoutePois && (
-            <button onClick={() => onOpenRoute(day)} className="route-btn">
-              Ruta del día →
-            </button>
-          )}
-        </div>
-
-        {nowMode && day.blocks?.length > 0 && (
-          <section className="route-section" aria-labelledby={`route-title-${day.date}`}>
-            <div className="route-section__heading">
-              <span>Itinerario</span>
-              <h2 id={`route-title-${day.date}`}>Ruta de hoy</h2>
+        <section className="day-hero" aria-labelledby={`day-title-${day.date}`}>
+          <img className="day-hero__image" src={dayHeroImage(day)} alt="" />
+          <div className="day-hero__content">
+            <div className="day-hero__number" aria-hidden="true">{dayNum ?? '·'}</div>
+            <div>
+              <div className="day-hero__eyebrow">Día {String(dayNum ?? 0).padStart(2, '0')} / {day.city ?? (isFree ? 'Día libre' : 'Japón')}</div>
+              <h1 className="day-hero__title" id={`day-title-${day.date}`}>{day.title}</h1>
+              <p className="day-hero__date">{formatDateEs(day.date)}</p>
+              <div className="day-hero__actions">
+                {onOpenRoute && hasRoutePois && (
+                  <button onClick={() => onOpenRoute(day)} className="day-hero__action"><Icon name="route" size={16} /> Ruta</button>
+                )}
+                {onOpenMap && (
+                  <button onClick={() => onOpenMap(day)} className="day-hero__action"><Icon name="today" size={16} /> Mapa</button>
+                )}
+              </div>
             </div>
-            <RouteLine
-              currentIndex={currentBlockIndex}
-              items={day.blocks.map((block, index) => ({
-                key: `${day.date}-${index}`,
-                id: block.poi_id,
-                time: block.time,
-                title: block.label,
-                detail: block.activity && block.activity !== block.label ? block.activity : null,
-                transfer: /traslado|tren|vuelo|llegada/i.test(`${block.label} ${block.activity ?? ''}`),
-              }))}
-              onSelect={onOpenPoi ? (item) => onOpenPoi(item.id) : undefined}
-            />
-          </section>
-        )}
+          </div>
+        </section>
 
-        {/* Hotel */}
-        {day.hotel && <HotelCard hotel={day.hotel} />}
+        {nowMode && <NowCard day={day} onOpenMap={onOpenMap} onOpenPoi={onOpenPoi} onOpenTickets={onOpenTickets} onFindFood={onFindFood} />}
 
         {day.type === 'arrival' && onOpenIcGuide && (
           <button className="arrival-tool-card" onClick={onOpenIcGuide}>
-            <span className="arrival-tool-card__icon" aria-hidden="true">🚇</span>
+            <Icon name="route" size={24} className="arrival-tool-card__icon" />
             <span className="arrival-tool-card__body">
               <span className="arrival-tool-card__title">Compra la Welcome Suica al llegar</span>
               <span className="arrival-tool-card__text">Narita Terminal 2·3 · guía de compra, uso y recarga</span>
@@ -705,42 +707,26 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
           </button>
         )}
 
-        {/* Bloques del día */}
+        {/* Plan editorial del día */}
         {day.blocks && day.blocks.length > 0 && (
-          <div className="blocks-card">
-            <div className="section-label">Plan del día</div>
-            <div className="blocks-list">
-              {day.blocks.map((block, i) => {
-                const tappable = Boolean(block.poi_id && onOpenPoi);
+          <section className="today-route" aria-labelledby={`route-title-${day.date}`}>
+            <h2 className="today-route__label" id={`route-title-${day.date}`}>{nowMode ? 'Ruta de hoy' : 'Plan del día'}</h2>
+            <RouteLine
+              currentIndex={currentBlockIndex}
+              items={day.blocks.map((block, index) => ({
+                ...block,
+                key: `${day.date}-${index}`,
+                id: block.poi_id,
+                title: block.label,
+                detail: block.activity && block.activity !== block.label ? block.activity : null,
+                transfer: /traslado|tren|vuelo|llegada/i.test(`${block.label} ${block.activity ?? ''}`),
+              }))}
+              onSelect={onOpenPoi ? (item) => onOpenPoi(item.id) : undefined}
+              renderAfter={(block, i) => {
                 const hasSteps = Boolean(block.steps && block.steps.length > 0);
                 const stepsOpen = expandedSteps.has(i);
                 return (
-                  <div className="block-row" key={i}>
-                    <div className="block-left">
-                      <div className="block-dot" />
-                      {block.time && <span className="block-time">{block.time}</span>}
-                      <span className="block-franja">{timeToFranja(block.time) || block.label}</span>
-                    </div>
-                    <div style={{ flex: 1 }}>
-                      <div
-                        className={`block-right${tappable ? ' block-right--tappable' : ''}`}
-                        role={tappable ? 'button' : undefined}
-                        tabIndex={tappable ? 0 : undefined}
-                        onClick={tappable ? () => onOpenPoi(block.poi_id) : undefined}
-                        onKeyDown={tappable ? (e) => e.key === 'Enter' && onOpenPoi(block.poi_id) : undefined}
-                      >
-                        <div>
-                          <div className="block-activity-title">{block.label}</div>
-                          {block.activity && block.activity !== block.label && (
-                            <div className="block-activity-detail">{block.activity}</div>
-                          )}
-                        </div>
-                        {tappable && (
-                          <svg className="block-chevron" width="8" height="14" viewBox="0 0 8 14" fill="none" aria-hidden="true">
-                            <path d="M1 1L7 7L1 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                        )}
-                      </div>
+                  <div className="route-line__extras" onClick={(event) => event.stopPropagation()}>
                       {hasSteps && (
                         <>
                           <button
@@ -762,13 +748,15 @@ export function DayCard({ day, days = [], onOpenMap, onOpenPoi, onOpenRoute, onO
                           </div>
                         </details>
                       )}
-                    </div>
                   </div>
                 );
-              })}
-            </div>
-          </div>
+              }}
+            />
+          </section>
         )}
+
+        {/* Alojamiento como cierre operativo compacto */}
+        {day.hotel && <HotelCard hotel={day.hotel} />}
       </div>
     </>
   );
