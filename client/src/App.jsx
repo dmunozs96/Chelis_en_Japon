@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTripData, useAlertsData, getUnreadActionCount } from './hooks/useTripData.js';
 import { usePoisData } from './hooks/usePoisData.js';
 import Header        from './components/Header.jsx';
@@ -67,14 +67,29 @@ export default function App() {
   const [showPlanner, setShowPlanner] = useState(false);
   const [activeTool, setActiveTool] = useState(null);
   const [alertBadge, setAlertBadge] = useState(0);
+  const [selectedTripDate, setSelectedTripDate] = useState(null);
+  const returnScrollRef = useRef(null);
+
+  function rememberPosition() {
+    returnScrollRef.current = window.scrollY;
+  }
+
+  function restorePosition() {
+    const scrollY = returnScrollRef.current;
+    returnScrollRef.current = null;
+    if (scrollY === null) return;
+    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo({ top: scrollY, behavior: 'instant' })));
+  }
 
   function openMap(day) {
+    rememberPosition();
     setMapRouteMode(false);
     setMapFocusLatLng(null);
     setMapDayData(day);
   }
 
   function openRoute(day) {
+    rememberPosition();
     setMapRouteMode(true);
     setMapFocusLatLng(null);
     setMapDayData(day);
@@ -84,6 +99,17 @@ export default function App() {
     setMapDayData(null);
     setMapRouteMode(false);
     setMapFocusLatLng(null);
+    restorePosition();
+  }
+
+  function openPoi(id) {
+    rememberPosition();
+    setPoiId(id);
+  }
+
+  function closePoi() {
+    setPoiId(null);
+    if (mapDayData === null) restorePosition();
   }
 
   function openPoiFromMap(id) {
@@ -131,7 +157,7 @@ export default function App() {
         <OfflineBanner />
         <POIDetailView
           poi={getPoiById(poiId)}
-          onBack={() => setPoiId(null)}
+          onBack={closePoi}
           onOpenMap={openMapFromPoi}
         />
       </>
@@ -226,10 +252,10 @@ export default function App() {
           {error   && <div className="app-error">Error cargando datos: {error}</div>}
 
           {!loading && !error && activeTab === 'today'       && (
-            <TodayView trip={tripData?.trip} days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} onOpenPreparation={() => setActiveTool('preparation')} />
+            <TodayView trip={tripData?.trip} days={days} onOpenMap={openMap} onOpenPoi={openPoi} onOpenRoute={openRoute} onOpenIcGuide={() => setActiveTool('ic-card')} onOpenPreparation={() => setActiveTool('preparation')} />
           )}
           {!loading && !error && activeTab === 'trip'        && (
-            <DayNav days={days} onOpenMap={openMap} onOpenPoi={setPoiId} onOpenRoute={openRoute} />
+            <DayNav days={days} selectedDate={selectedTripDate} onSelectedDateChange={setSelectedTripDate} onOpenMap={openMap} onOpenPoi={openPoi} onOpenRoute={openRoute} />
           )}
           {!loading && !error && activeTab === 'alerts'      && (
             <AlertsView onBadgeChange={setAlertBadge} />

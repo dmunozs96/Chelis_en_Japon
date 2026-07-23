@@ -109,7 +109,7 @@ function todayISO() {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 }
 
-export default function DayNav({ days, onOpenMap, onOpenPoi, onOpenRoute }) {
+export default function DayNav({ days, selectedDate, onSelectedDateChange, onOpenMap, onOpenPoi, onOpenRoute }) {
   const today = todayISO();
 
   const defaultIndex = Math.max(
@@ -117,7 +117,7 @@ export default function DayNav({ days, onOpenMap, onOpenPoi, onOpenRoute }) {
     days.findIndex(d => d.date === today)
   );
 
-  const [selectedIndex, setSelectedIndex] = useState(defaultIndex);
+  const selectedIndex = Math.max(0, days.findIndex((day) => day.date === selectedDate));
   const tabRefs = useRef([]);
   const stripRef = useRef(null);
 
@@ -127,6 +127,10 @@ export default function DayNav({ days, onOpenMap, onOpenPoi, onOpenRoute }) {
       el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   }, [selectedIndex]);
+
+  useEffect(() => {
+    if (days.length && !selectedDate) onSelectedDateChange(days[defaultIndex].date);
+  }, [days, defaultIndex, selectedDate, onSelectedDateChange]);
 
   if (!days.length) return null;
 
@@ -165,7 +169,7 @@ export default function DayNav({ days, onOpenMap, onOpenPoi, onOpenRoute }) {
                   aria-label={`${day.date} — ${day.city}`}
                   className={pillClass}
                   ref={el => (tabRefs.current[i] = el)}
-                  onClick={() => setSelectedIndex(i)}
+                  onClick={() => onSelectedDateChange(day.date)}
                 >
                   <span className="pill-weekday">{weekday}</span>
                   <span className="pill-day">{d}</span>
