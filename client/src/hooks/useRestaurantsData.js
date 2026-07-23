@@ -28,7 +28,9 @@ export function useRestaurantsData() {
   useEffect(() => {
     let cancelled = false;
 
-    fetchJsonCached('/data/restaurants_db.json')
+    // Bump explícito del dataset: evita que el service worker siga sirviendo
+    // el lote histórico de 40 fichas tras ampliar la base.
+    fetchJsonCached('/data/restaurants_db.json?v=62-20260723')
       .then((json) => {
         if (!cancelled) {
           setRestaurants(json.restaurants ?? []);

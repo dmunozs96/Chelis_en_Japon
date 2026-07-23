@@ -3,7 +3,7 @@ import { useRestaurantsData, distanceKm } from '../hooks/useRestaurantsData.js';
 
 /* ---------------------------------------------------------------
    RestaurantsView
-   Sugeridor espontáneo offline (F8b): lista filtrable de los 32
+   Sugeridor espontáneo offline (F8b): lista filtrable de la
    restaurantes curados, ordenable por distancia si el navegador
    comparte ubicación. Cada tarjeta se expande para ver el detalle
    completo con justificación (why_special / good_for).
@@ -52,6 +52,15 @@ const STYLES = `
 }
 .rest-filter-row::-webkit-scrollbar { display: none; }
 
+.rest-filter-label {
+  font-size: 11px;
+  color: var(--label-secondary);
+  font-weight: 700;
+  letter-spacing: .45px;
+  text-transform: uppercase;
+  margin: 2px 2px -3px;
+}
+
 .rest-chip {
   flex-shrink: 0;
   padding: 6px 14px;
@@ -78,6 +87,8 @@ const STYLES = `
   color: var(--label-secondary);
   padding: 0 2px;
 }
+.rest-count strong { color: var(--label-primary); }
+.rest-reset { margin-left: 8px; padding: 0; border: 0; background: none; color: var(--accent); font: 600 12px var(--font); cursor: pointer; }
 
 .rest-list {
   display: flex;
@@ -202,16 +213,33 @@ const STYLES = `
 }
 `;
 
-const CITY_OPTIONS = ['Todas', 'Tokyo', 'Kyoto', 'Osaka', 'Hiroshima'];
-const CITY_LABELS_ES = { Tokyo: 'Tokio', Kyoto: 'Kioto', Osaka: 'Osaka', Hiroshima: 'Hiroshima' };
-const PRICE_TIER_LABELS = { 1: '¥', 2: '¥¥', 3: '¥¥¥', 4: '¥¥¥¥', 5: '¥¥¥¥¥' };
+const CITY_OPTIONS = ['Todas', 'Tokyo', 'Kyoto', 'Osaka', 'Hiroshima', 'Hakone'];
+const CITY_LABELS_ES = { Tokyo: 'Tokio', Kyoto: 'Kioto', Osaka: 'Osaka', Hiroshima: 'Hiroshima', Hakone: 'Hakone' };
+const PRICE_TIER_LABELS = {
+  1: 'Hasta ¥1.500',
+  2: '¥1.500–4.000',
+  3: '¥4.000–8.000',
+  4: '¥8.000–20.000',
+  5: 'Más de ¥20.000',
+};
+const CUISINE_FILTERS = [
+  { id: 'sushi', label: '🍣 Sushi', tags: ['sushi', 'kaiten_zushi', 'tachigui_zushi', 'omakase', 'kaisendon'] },
+  { id: 'ramen', label: '🍜 Ramen y fideos', tags: ['ramen', 'soba', 'udon', 'hiroshima_tsukemen'] },
+  { id: 'izakaya', label: '🏮 Izakaya', tags: ['izakaya', 'yakitori', 'kushiyaki'] },
+  { id: 'meat', label: '🥩 Carne', tags: ['yakiniku', 'tonkatsu', 'shabu_shabu', 'pork', 'beef'] },
+  { id: 'local', label: '🇯🇵 Especialidad local', tags: ['osaka_specialty', 'hiroshima_specialty', 'local_specialty', 'kyoto_cuisine', 'tokyo_specialty', 'okonomiyaki', 'takoyaki'] },
+  { id: 'quick', label: '🥡 Sobre la marcha', goodFor: ['sobre_la_marcha', 'quick_bite', 'quick_meal', 'street_food', 'takeaway', 'takeout'] },
+  { id: 'special', label: '✨ Cena especial', goodFor: ['special_occasion'] },
+  { id: 'dessert', label: '🍵 Café y dulce', tags: ['wagashi', 'matcha', 'dessert', 'cafe', 'kissaten', 'taiyaki'] },
+];
 
 export default function RestaurantsView({ onOpenPlanner }) {
   const { restaurants, loading, error } = useRestaurantsData();
   const [city, setCity] = useState('Todas');
   const [priceTiers, setPriceTiers] = useState([]);
   const [noReservation, setNoReservation] = useState(false);
-  const [occasion, setOccasion] = useState(null);
+  const [cuisine, setCuisine] = useState(null);
+  const [lateNight, setLateNight] = useState(false);
   const [expandedId, setExpandedId] = useState(null);
   const [coords, setCoords] = useState(null);
 
@@ -224,12 +252,6 @@ export default function RestaurantsView({ onOpenPlanner }) {
     );
   }, []);
 
-  const occasionOptions = useMemo(() => {
-    const set = new Set();
-    restaurants.forEach((r) => (r.good_for ?? []).forEach((g) => set.add(g)));
-    return [...set].sort();
-  }, [restaurants]);
-
   function togglePriceTier(tier) {
     setPriceTiers((prev) => (prev.includes(tier) ? prev.filter((t) => t !== tier) : [...prev, tier]));
   }
@@ -239,7 +261,14 @@ export default function RestaurantsView({ onOpenPlanner }) {
     if (city !== 'Todas') list = list.filter((r) => r.city === city);
     if (priceTiers.length > 0) list = list.filter((r) => priceTiers.includes(r.price_tier));
     if (noReservation) list = list.filter((r) => r.reservation_required === false);
-    if (occasion) list = list.filter((r) => (r.good_for ?? []).includes(occasion));
+    if (cuisine) {
+      const filter = CUISINE_FILTERS.find((item) => item.id === cuisine);
+      list = list.filter((r) =>
+        (filter?.tags ?? []).some((tag) => (r.cuisine_tags ?? []).includes(tag))
+        || (filter?.goodFor ?? []).some((tag) => (r.good_for ?? []).includes(tag))
+      );
+    }
+    if (lateNight) list = list.filter((r) => (r.good_for ?? []).includes('late_night') || /23:|24:|medianoche/i.test(r.hours ?? ''));
 
     const withDistance = list.map((r) => ({
       ...r,
@@ -252,7 +281,16 @@ export default function RestaurantsView({ onOpenPlanner }) {
       withDistance.sort((a, b) => a.name.localeCompare(b.name));
     }
     return withDistance;
-  }, [restaurants, city, priceTiers, noReservation, occasion, coords]);
+  }, [restaurants, city, priceTiers, noReservation, cuisine, lateNight, coords]);
+
+  const filtersActive = city !== 'Todas' || priceTiers.length > 0 || noReservation || cuisine || lateNight;
+  function resetFilters() {
+    setCity('Todas');
+    setPriceTiers([]);
+    setNoReservation(false);
+    setCuisine(null);
+    setLateNight(false);
+  }
 
   if (loading) {
     return (
@@ -282,6 +320,7 @@ export default function RestaurantsView({ onOpenPlanner }) {
         </button>
 
         <div className="rest-filters">
+          <div className="rest-filter-label">Dónde</div>
           <div className="rest-filter-row">
             {CITY_OPTIONS.map((c) => (
               <button
@@ -293,6 +332,19 @@ export default function RestaurantsView({ onOpenPlanner }) {
               </button>
             ))}
           </div>
+          <div className="rest-filter-label">Qué te apetece</div>
+          <div className="rest-filter-row">
+            {CUISINE_FILTERS.map((item) => (
+              <button
+                key={item.id}
+                className={`rest-chip${cuisine === item.id ? ' rest-chip--active' : ''}`}
+                onClick={() => setCuisine((value) => value === item.id ? null : item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+          <div className="rest-filter-label">Precio por persona</div>
           <div className="rest-filter-row">
             {[1, 2, 3, 4, 5].map((tier) => (
               <button
@@ -309,23 +361,20 @@ export default function RestaurantsView({ onOpenPlanner }) {
             >
               Sin reserva
             </button>
+            <button
+              className={`rest-chip${lateNight ? ' rest-chip--active' : ''}`}
+              onClick={() => setLateNight((value) => !value)}
+            >
+              Abierto tarde
+            </button>
           </div>
-          {occasionOptions.length > 0 && (
-            <div className="rest-filter-row">
-              {occasionOptions.map((o) => (
-                <button
-                  key={o}
-                  className={`rest-chip${occasion === o ? ' rest-chip--active' : ''}`}
-                  onClick={() => setOccasion((v) => (v === o ? null : o))}
-                >
-                  {o.replace(/_/g, ' ')}
-                </button>
-              ))}
-            </div>
-          )}
         </div>
 
-        <div className="rest-count">{filtered.length} restaurante{filtered.length === 1 ? '' : 's'}{coords ? ' · ordenados por distancia' : ''}</div>
+        <div className="rest-count">
+          <strong>{filtered.length}</strong>{filtersActive ? ` de ${restaurants.length}` : ''} restaurante{filtered.length === 1 ? '' : 's'}
+          {coords ? ' · por distancia' : ''}
+          {filtersActive && <button className="rest-reset" onClick={resetFilters}>Limpiar filtros</button>}
+        </div>
 
         <div className="rest-list">
           {filtered.map((r) => {
